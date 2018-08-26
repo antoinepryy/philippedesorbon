@@ -15,7 +15,9 @@
 <body>
 <div id="header">
     <div class="text-center">
-        <img style="width: 150px;" src="{{ asset('ressource/image/header/Titre.jpg') }}">
+        <a href="{{ path('index') }}">
+            <img style="width: 150px;" src="{{ asset('ressource/image/header/Titre.jpg') }}">
+        </a>
     </div>
     <div class="text-center">
         <img width="170px;" src="{{ asset('ressource/image/header/Sous-titre.jpg') }}">
@@ -23,11 +25,11 @@
     <nav>
 
         <ul class="header-list">
-            <li><a href="#">LA MAISON</a></li>
-            <li><a href="#">LE SAVOIR FAIRE</a></li>
-            <li><a href="#">LES CHAMPAGNES</a></li>
-            <li><a href="#">LE VIGNOBLE</a></li>
-            <li><a href="#">ACHETER EN LIGNE</a></li>
+            <li><a href="{{ path('maison') }}">LA MAISON</a></li>
+            <li><a href="{{ path('savoirfaire') }}">LE SAVOIR FAIRE</a></li>
+            <li><a href="{{ path('champagnes') }}">LES CHAMPAGNES</a></li>
+            <li><a href="{{ path('vignoble') }}">LE VIGNOBLE</a></li>
+            <li><a href="{{ path('boutique') }}">ACHETER EN LIGNE</a></li>
         </ul>
 
     </nav>

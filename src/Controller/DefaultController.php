@@ -17,4 +17,29 @@ class DefaultController extends Controller
     {
         return $this->render('view/accueil.html.twig');
     }
+
+    public function maison()
+    {
+        return $this->render('view/maison.html.twig');
+    }
+
+    public function savoirfaire()
+    {
+        return $this->render('view/savoirfaire.html.twig');
+    }
+
+    public function champagnes()
+    {
+        return $this->render('view/champagnes.html.twig');
+    }
+
+    public function vignoble()
+    {
+        return $this->render('view/vignoble.html.twig');
+    }
+
+    public function boutique()
+    {
+        return $this->render('view/boutique.html.twig');
+    }
 }
