@@ -1,4 +1,4 @@
-.header-list {
+.header-list, .footer-list {
     list-style-type: none;
     margin: auto;
     padding: 0;
@@ -11,16 +11,20 @@ nav{
     background-color: #333;
 }
 
-.header-list a {
+.header-list a{
     display: block;
     font-family: "Book Antiqua", sans-serif;
+    font-size: 1.25vw;
 }
 
-.header-list li {
-
+.footer-list a {
+    display: block;
+    font-family: "Book Antiqua", sans-serif;
+    font-size: 0.8vw;
 }
 
-.header-list li a {
+
+.header-list li a, .footer-list li a {
     display: block;
     color: white;
     text-align: center;
@@ -30,5 +34,17 @@ nav{
 
 li a:hover {
     background-color: #111;
+}
+
+.fs-1{
+    font-size: 1em;
+}
+
+.fs-08{
+    font-size: 0.8em;
+}
+
+.fs-06{
+    font-size: 0.6em;
 }
 

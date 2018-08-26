@@ -30,28 +30,36 @@
 
 }
 
-.text-1 p{
+.accueil-1 p{
     font-size: 0.75em;
 }
 
-.text-1 h3{
+.accueil-1 h3{
     font-family: "Segoe UI", sans-serif;
     color: #CEBB97;
     font-size: 0.8em;
 }
 
-.accueil-links a{
+
+.accueil-2 .links{
+    background-image: url("../../public/ressource/image/accueil/logo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150px;
+}
+
+.accueil-2 a{
     text-decoration: none;
 }
 
 .edwardian a{
-    font-size: 1em;
+    font-size: 1.5em;
     color: #DAC8BB;
     font-family: "Edwardian Script ITC", sans-serif;
 }
 
 .segoe a{
-    font-size: 0.8em;
+    font-size: 0.75em;
     color: #2E2B2B;
     font-family: "Segoe UI", sans-serif;
 }
