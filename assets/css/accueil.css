@@ -4,7 +4,7 @@
     background-image: url("../../public/ressource/image/accueil/cave-champagne.jpg");
 
     /* Set a specific height */
-    min-height: 500px;
+    min-height: 400px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -20,7 +20,7 @@
     background-image: url("../../public/ressource/image/accueil/bouteilles-champagne.jpg");
 
     /* Set a specific height */
-    min-height: 500px;
+    min-height: 400px;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -28,4 +28,30 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+}
+
+.text-1 p{
+    font-size: 0.75em;
+}
+
+.text-1 h3{
+    font-family: "Segoe UI", sans-serif;
+    color: #CEBB97;
+    font-size: 0.8em;
+}
+
+.accueil-links a{
+    text-decoration: none;
+}
+
+.edwardian a{
+    font-size: 1em;
+    color: #DAC8BB;
+    font-family: "Edwardian Script ITC", sans-serif;
+}
+
+.segoe a{
+    font-size: 0.8em;
+    color: #2E2B2B;
+    font-family: "Segoe UI", sans-serif;
 }
