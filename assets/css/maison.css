@@ -1,0 +1,47 @@
+.maison-slide1{
+
+    /* The image used */
+    background-image: url("../../public/ressource/image/maison/cave.jpg");
+
+    /* Set a specific height */
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.maison-slide2{
+
+    /* The image used */
+    background-image: url("../../public/ressource/image/maison/lettre.jpg");
+
+    /* Set a specific height */
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.maison-slide3{
+
+    /* The image used */
+    background-image: url("../../public/ressource/image/maison/arbre.jpg");
+
+    /* Set a specific height */
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
