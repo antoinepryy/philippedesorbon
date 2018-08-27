@@ -1,33 +1,19 @@
 .accueil-slide1{
-
-    /* The image used */
     background-image: url("../../public/ressource/image/accueil/cave-champagne.jpg");
-
-    /* Set a specific height */
     min-height: 400px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .accueil-slide2{
-
-    /* The image used */
     background-image: url("../../public/ressource/image/accueil/bouteilles-champagne.jpg");
-
-    /* Set a specific height */
     min-height: 400px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .accueil-1 p{
