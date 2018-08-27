@@ -9,6 +9,10 @@
 require('../css/app.css');
 require('../css/accueil.css');
 require('../css/maison.css');
+require('../css/savoirfaire.css');
+require('../css/boutique.css');
+require('../css/vignoble.css');
+require('../css/champagnes.css');
 
 var path = window.location.pathname;
 switch (path) {
