@@ -7,7 +7,7 @@
     display: flex;
 }
 
-#header-nav{
+#header-nav, #footer{
     background-color: #333;
 }
 
