@@ -1,47 +1,55 @@
 .maison-slide1{
-
-    /* The image used */
     background-image: url("../../public/ressource/image/maison/cave.jpg");
-
-    /* Set a specific height */
     min-height: 400px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .maison-slide2{
-
-    /* The image used */
     background-image: url("../../public/ressource/image/maison/lettre.jpg");
-
-    /* Set a specific height */
     min-height: 400px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .maison-slide3{
-
-    /* The image used */
     background-image: url("../../public/ressource/image/maison/arbre.jpg");
-
-    /* Set a specific height */
     min-height: 400px;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
+
+.maison-list {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    width: fit-content;
+    display: flex;
+}
+
+#maison-nav{
+    background-color: #787171;
+}
+
+.maison-list a{
+    display: block;
+    font-family: "Book Antiqua", sans-serif;
+    font-size: 1.25vw;
+}
+
+
+.maison-list li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+

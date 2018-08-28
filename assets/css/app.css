@@ -7,7 +7,7 @@
     display: flex;
 }
 
-nav{
+#header-nav{
     background-color: #333;
 }
 
@@ -32,7 +32,7 @@ nav{
     text-decoration: none;
 }
 
-li a:hover {
+.header-list li a:hover {
     background-color: #111;
 }
 

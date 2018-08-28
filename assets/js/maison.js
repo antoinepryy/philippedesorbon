@@ -1,9 +1,12 @@
-var controller = new ScrollMagic.Controller();
+const $ = require('jquery');
 
-// create a scene
-new ScrollMagic.Scene({
-    duration: 100,    // the scene should last for a scroll distance of 100px
-    offset: 50        // start this scene after scrolling for 50px
-})
-    .setPin("#test") // pins the element for the the scene's duration
-    .addTo(controller); // assign the scene to the controller
+$('a[href^="#"]').click(function(){
+    var the_id = $(this).attr("href");
+    if (the_id === '#') {
+        return;
+    }
+    $('html, body').animate({
+        scrollTop:$(the_id+"-delay").offset().top
+    }, 'slow');
+    return false;
+});
