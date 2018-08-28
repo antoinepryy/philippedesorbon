@@ -2,7 +2,9 @@
 
 {% block content %}
 
-    <div class="maison-slide1"></div>
+    <div class="maison-slide1">
+        <p id="test" class="test" style="color: white">Bonjour</p>
+    </div>
 
 
     <div class="container-fluid text-center py-3">
@@ -32,4 +34,8 @@
 
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/maison.js') }}"></script>
 {% endblock %}
