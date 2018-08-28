@@ -36,6 +36,18 @@
     background-color: #111;
 }
 
+.fs-16{
+    font-size: 1.6em;
+}
+
+.fs-14{
+    font-size: 1.4em;
+}
+
+.fs-12{
+    font-size: 1.2em;
+}
+
 .fs-1{
     font-size: 1em;
 }
@@ -51,4 +63,13 @@
 .active{
     color: #CEBB97!important;
 }
+
+.edwardian{
+    font-family: "Edwardian Script ITC", sans-serif!important;
+}
+
+.segoe{
+    font-family: "Segoe UI", sans-serif!important;
+}
+
 

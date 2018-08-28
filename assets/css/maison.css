@@ -53,3 +53,7 @@
     text-decoration: none;
 }
 
+.maison-list a{
+    font-size: 1em;
+    font-family: "Segoe UI", sans-serif;
+}

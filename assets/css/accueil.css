@@ -38,13 +38,13 @@
     text-decoration: none;
 }
 
-.edwardian a{
+.accueil-title a{
     font-size: 1.5em;
     color: #DAC8BB;
     font-family: "Edwardian Script ITC", sans-serif;
 }
 
-.segoe a{
+.accueil-links a{
     font-size: 0.75em;
     color: #2E2B2B;
     font-family: "Segoe UI", sans-serif;
