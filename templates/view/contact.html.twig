@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div style="display: flex;">
+        <div class="w-75 text-center fs-08 p-5 background-contact-logo">
+            <h3 class="segoe active">Nous contacter</h3>
+            <p class="segoe fc-grey-cs">
+                Martine Wallaert-Lathuillière serait heureuse
+                de vous accueillir lors de votre venue à Reims,
+                pour des instants aussi privilégiés que délicats
+                autour de nos Champagnes.
+            </p>
+            <p class="fc-grey-cs">
+                Champagne Philippe de Sorbon<br>
+                18 rue Houzeau-Muiron<br>
+                51100 REIMS<br>
+                Tél : (33) 03.26.40.54.66<br>
+                Mobile : (33) 06.48.88.87.02<br>
+                Fax : (33) 03.26.47.78.69<br>
+                Mail : wallaert@champagne-philippedesorbon.com
+            </p>
+            <p class="font-weight-bold fc-grey-cs">
+                Réception et visite sur rendez-vous
+            </p>
+            <div style="width: 100px; height: 100px;" class="relpos m-auto">
+                <img  style="height:100px;" class="center-div" src="{{ asset('ressource/image/contact/carte-france.jpg') }}">
+            </div>
+
+        </div>
+        <div class="w-25 background-contact">
+        </div>
+
+    </div>
+
+{% endblock %}

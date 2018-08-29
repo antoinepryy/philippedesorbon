@@ -21,3 +21,11 @@ vignoble:
 boutique:
     path: /Boutique
     controller: App\Controller\DefaultController::boutique
+
+mentionslegales:
+    path: /MentionsLegales
+    controller: App\Controller\DefaultController::mentionslegales
+
+contact:
+    path: /Contact
+    controller: App\Controller\DefaultController::contact

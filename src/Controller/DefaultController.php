@@ -42,4 +42,14 @@ class DefaultController extends Controller
     {
         return $this->render('view/boutique.html.twig');
     }
+
+    public function mentionslegales()
+    {
+        return $this->render('view/mentionslegales.html.twig');
+    }
+
+    public function contact()
+    {
+        return $this->render('view/contact.html.twig');
+    }
 }

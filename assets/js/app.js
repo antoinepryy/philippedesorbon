@@ -13,6 +13,8 @@ require('../css/savoirfaire.css');
 require('../css/boutique.css');
 require('../css/vignoble.css');
 require('../css/champagnes.css');
+require('../css/contact.css');
+require('../css/mentionslegales.css');
 
 var path = window.location.pathname;
 switch (path) {
