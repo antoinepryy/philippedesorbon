@@ -83,27 +83,135 @@
         </div>
 
     </div>
-    <div>
-        <p>Texte en développement</p>
+    <div class="container text-center my-2">
+        <div class="segoe font-weight-bold active my-3 fs-1 w-75 m-auto">
+            « DE LA CRAIE COMME TERRE NOURRICIERE POUR UNE VIGNE QUI CONNAIT RAREMENT LE SOLEIL.
+            DES RAISINS PAUVRES EN SUCRE, ELEVES DANS LE FROID ET DONT L’ACIDITE TERRORISERAIT UN BORDELAIS.
+            CE QUI SOUS D’AUTRES CLIMATS SERAIT CONSIDERE COMME VERDEUR DETESTABLE
+            DEVIENT ICI FACTEUR DE FRAICHEUR, DE VIVACITE ET D’ELEGANCE. »
+        </div>
+        <div class="edwardian active my-3 fs-14 w-75 ml-auto">Professeur Edouard Zarifian</div>
+    </div>
+    <div class="text-center p-3" style="background-color: #2E2B2B;">
+        <div class="m-auto">
+            <h3 class="fs-08 text-white">NOS VIGNOBLES</h3>
+        </div>
     </div>
     
-    <div style="display: flex;">
+    <div style="display: flex;" class="relpos">
         <div class="vignoble-slide4-left">
             
         </div>
         <div class="vignoble-slide4-right">
             
         </div>
+        <div class="center-div segoe fs-08 bg-grey-cs text-white text-center p-3">
+            <p>
+                Notre vignoble de dix hectares est harmonieusement réparti :
+            </p>
+            <ul>
+                <li>
+                    sur les meilleurs coteaux de la Montagne de
+                    Reims, où le Pinot Noir est roi, suivi, dans
+                    une moindre proportion, du Chardonnay:
+                    dans 3 des 17 Grands Crus 100% (Verzenay,
+                    Verzy, Mailly), fleurons de la Champagne,
+                    ainsi qu'à Ludes Premier Cru 94%.
+                </li>
+                <li>
+                    à Verneuil, où les raisins atteignent lentement
+                    leur pleine maturation sur les coteaux de la
+                    Vallée de la Marne. Là, le Pinot Meunier domine.
+                </li>
+                <li>
+                    A Moussy, sur les coteaux d'Epernay, terre de
+                    prédilection du Chardonnay
+                </li>
+            </ul>
+            <p class="font-weight-bold">
+                Ces vignobles familiaux procurent un
+                approvisionnement unique et couvrent la
+                totalité des besoins de notre Maison en
+                raisins. Ils nous permettent d’assurer un long
+                vieillissement des vins, garant de la qualité :
+                3 à 4 ans pour les Bruts sans année, 5 ans et plus
+                pour les Millésimes.
+            </p>
+        </div>
 
     </div>
-    <div>
-        <p>Texte en développement</p>
-    </div>
-    <div class="vignoble-slide5">
+    <div class="text-center p-3">
+        <div class="m-auto">
+            <h3>LES CEPAGES</h3>
+            <h4>
+                Un trio d'une grande complémentarité
+            </h4>
+        </div>
+        <div style="display: flex; justify-content: space-around;"  class="m-auto segoe">
+            <div class="cepage-1 vignes relpos" style="width: 14em; height: 21em; overflow: hidden">
+                <div class="text-center text-hidden text-white container p-3" style="background-color: #2E2B2B; position: absolute;">
+                    <h6 class="fs-08 p-2">
+                        PINOT MEUNIER
+                    </h6>
+                    <p class="fs-08">
+                        Le Pinot Meunier est fruité, parfumé et apporte fraîcheur et légèreté.
+                    </p>
+                </div>
 
+            </div>
+            <div class="cepage-2 vignes relpos" style="width: 14em; height: 21em; overflow: hidden">
+                <div class="text-center text-hidden text-white container p-3" style="background-color: #2E2B2B; position: absolute;">
+                    <h6 class="fs-08 p-2 ">
+                        PINOT MEUNIER
+                    </h6>
+                    <p class="fs-08">
+                        Le Pinot Meunier est fruité, parfumé et apporte fraîcheur et légèreté.
+                    </p>
+                </div>
+            </div>
+            <div class="cepage-3 vignes relpos" style="width: 14em; height: 21em; overflow: hidden">
+                <div class="text-center text-hidden text-white container p-3" style="background-color: #2E2B2B; position: absolute;">
+                    <h6 class="fs-08 p-2">
+                        CHARDONNAY
+                    </h6>
+                    <p class="fs-08">
+                        Le Chardonnay, cépage à peau et à chair blanche, permet d’élaborer les Blancs de Blancs.
+                        Dans les assemblages, il apporte finesse, élégance et délicatesse ainsi que fraîcheur
+                        et vivacité. Son acidité naturelle est un excellent support pour le vieillissement des
+                        vins. 4 à 5 ans sont nécessaires pour lui permettre d’exprimer tout son potentiel..
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <p>Texte en développement</p>
+    <div class="vignoble-slide5 relpos">
+        <div class="center-div segoe fs-08 text-white text-center p-3" style="width: 30%;">
+            <h3>
+                LE TRAVAIL DE LA VIGNE
+            </h3>
+            <p>
+                Durant tout le cycle végétatif , la vigne
+                reçoit des soins minutieux et attentifs,
+                effectués pour l’essentiel à la main, seule
+                compétente pour agir avec précision.
+            </p>
+            <p>
+                Ainsi, la Taille, réglementée selon les cépages,
+                réduit le rendement en vue d’une qualité accrue.
+                Elle est effectuée dans notre Maison par un personnel
+                vigneron qualifié.
+            </p>
+            <p>
+                Puis viennent la Lierie, le Palissage , le Relevage
+                et le Rognage qui disciplinent la végétation et donnent
+                à nos vignobles cet aspect si particulier de haie bien taillée.
+            </p>
+        </div>
     </div>
 
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/vignoble.js') }}"></script>
 {% endblock %}
