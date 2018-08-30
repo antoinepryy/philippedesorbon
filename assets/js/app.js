@@ -16,6 +16,7 @@ require('../css/champagnes.css');
 require('../css/contact.css');
 require('../css/mentionslegales.css');
 
+var $ = require('jquery');
 var path = window.location.pathname;
 switch (path) {
     case '/LaMaison':
@@ -37,6 +38,15 @@ switch (path) {
         console.log('Sorry, we are out of ' + expr + '.');
 }
 
+// $(window).scroll(function() {
+//     if ($(this).scrollTop() > 1){
+//         $('#header').addClass("sticky-top");
+//     }
+//     else {
+//         $('#header').removeClass("sticky-top");
+//     }
+// });
+
 
 // function lowFooter() {
 //     document.getElementById("footer").style.position= "absolute";
@@ -49,5 +59,5 @@ function defineActive(element){
     element = element.substr(1);
     document.getElementById(element).className = "active";
 }
-// var $ = require('jquery');
+
 
