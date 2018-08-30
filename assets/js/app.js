@@ -35,17 +35,17 @@ switch (path) {
         defineActive(path);
         break;
     default:
-        console.log('Sorry, we are out of ' + expr + '.');
+        break;
 }
 
-// $(window).scroll(function() {
-//     if ($(this).scrollTop() > 1){
-//         $('#header').addClass("sticky-top");
-//     }
-//     else {
-//         $('#header').removeClass("sticky-top");
-//     }
-// });
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 70){
+        $('#header').addClass("sticky-top");
+    }
+    else {
+        $('#header').removeClass("sticky-top");
+    }
+});
 
 
 // function lowFooter() {
