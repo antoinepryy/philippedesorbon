@@ -18,7 +18,7 @@
 
 .vignoble-slide3{
     background-image: url("../../public/ressource/image/vignoble/vignoble-champagne.jpg");
-    min-height: 400px;
+    min-height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,4 +54,38 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+.vignoble-list {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    width: fit-content;
+    display: flex;
+}
+
+#vignoble-nav{
+    background-color: #787171;
+}
+
+.vignoble-list a{
+    display: block;
+    font-family: "Book Antiqua", sans-serif;
+    font-size: 1.25vw;
+}
+
+
+.vignoble-list li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.vignoble-list a{
+    font-size: 1em;
+    font-family: "Segoe UI", sans-serif;
 }
