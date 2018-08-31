@@ -6,10 +6,10 @@
     </div>
     <nav id="vignoble-nav">
         <ul class="vignoble-list">
-            <li class="px-3"><a id="LaMaison" href="#Histoire">Le vignoble Champenois</a></li>
-            <li class="px-3"><a id="SavoirFaire" href="#Why">Nos vignobles</a></li>
-            <li class="px-3"><a id="Champagnes" href="#Origines">Les cépages</a></li>
-            <li class="px-3"><a id="Champagnes" href="#Origines">La vigne</a></li>
+            <li class="px-3"><a id="LaMaison" href="#VignobleChampenois">Le vignoble Champenois</a></li>
+            <li class="px-3"><a id="SavoirFaire" href="#Vignobles">Nos vignobles</a></li>
+            <li class="px-3"><a id="Champagnes" href="#Cepages">Les cépages</a></li>
+            <li class="px-3"><a id="Champagnes" href="#Vigne">La vigne</a></li>
         </ul>
     </nav>
     <div class="container text-center my-2">
@@ -32,9 +32,9 @@
             <h3 class="fs-08">LE VIGNOBLE CHAMPENOIS</h3>
         </div>
     </div>
-    <div class="vignoble-slide3 relpos">
-        <div style="position: absolute; right:5%; top: 0; width: 30%; background-color: #2E2B2B; height: 100%;" class="text-white segoe fs-08">
-            <div class="m-auto p-3">
+    <div class="vignoble-slide3 relpos" id="VignobleChampenois">
+        <div style="position: absolute; right:2%; top: 0; width: 40%; background-color: #2E2B2B; height: 100%;" class="text-white segoe fs-08">
+            <div class="m-auto p-3 h-100">
                 <h4 class="text-weight-bold">Une mosaïque de 300 000 jardins de vignerons</h4>
                 <p>
                     La prestigieuse Appellation Champagne représente
@@ -72,8 +72,11 @@
                         site de prédilection du Chardonnay.
                     </li>
                 </ul>
-                <div style="width: available; height: 200px" class="m-auto">
-                    <img style="height: -webkit-fill-available; width: auto;" src="{{ asset('ressource/image/vignoble/map-reims.jpg') }}">
+                <div style="width: available; height: 25vh" class="m-auto">
+                    <div class="m-auto" style="width: 75%;">
+                        <img style="height: -webkit-fill-available; width: auto;" src="{{ asset('ressource/image/vignoble/map-reims.jpg') }}">
+                    </div>
+
 
                 </div>
             </div>
@@ -93,12 +96,12 @@
         <div class="edwardian active my-3 fs-14 w-75 ml-auto">Professeur Edouard Zarifian</div>
     </div>
     <div class="text-center p-3" style="background-color: #2E2B2B;">
-        <div class="m-auto">
-            <h3 class="fs-08 text-white">NOS VIGNOBLES</h3>
+        <div class="mx-auto">
+            <h3 class="fs-08 my-0 text-white">NOS VIGNOBLES</h3>
         </div>
     </div>
     
-    <div style="display: flex;" class="relpos">
+    <div style="display: flex;" class="relpos" id="Vignobles">
         <div class="vignoble-slide4-left">
             
         </div>
@@ -140,8 +143,8 @@
         </div>
 
     </div>
-    <div class="text-center p-3">
-        <div class="m-auto p-5">
+    <div class="text-center p-2" id="Cepages">
+        <div class="m-auto p-2">
             <h3>LES CEPAGES</h3>
             <h4>
                 Un trio d'une grande complémentarité
@@ -162,29 +165,33 @@
             <div class="cepage-2 vignes relpos" style="width: 14em; height: 21em; overflow: hidden">
                 <div class="text-center text-hidden text-white container p-3" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
                     <h6 class="fs-08 p-2 ">
-                        PINOT MEUNIER
+                        CHARDONNAY
                     </h6>
                     <p class="fs-08">
-                        Le Pinot Meunier est fruité, parfumé et apporte fraîcheur et légèreté.
+                        Le Chardonnay, cépage à peau et à chair blanche,
+                        permet d’élaborer les Blancs de Blancs. Dans les
+                        assemblages, il apporte finesse, élégance et délicatesse
+                        ainsi que fraîcheur et vivacité. Son acidité naturelle est
+                        un excellent support pour le vieillissement des vins. 4 à 5
+                        ans sont nécessaires pour lui permettre d’exprimer tout son potentiel..
                     </p>
                 </div>
             </div>
             <div class="cepage-3 vignes relpos" style="width: 14em; height: 21em; overflow: hidden">
                 <div class="text-center text-hidden text-white container p-3" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
                     <h6 class="fs-08 p-2">
-                        CHARDONNAY
+                        PINOT NOIR
                     </h6>
                     <p class="fs-08">
-                        Le Chardonnay, cépage à peau et à chair blanche, permet d’élaborer les Blancs de Blancs.
-                        Dans les assemblages, il apporte finesse, élégance et délicatesse ainsi que fraîcheur
-                        et vivacité. Son acidité naturelle est un excellent support pour le vieillissement des
-                        vins. 4 à 5 ans sont nécessaires pour lui permettre d’exprimer tout son potentiel..
+                        Le Pinot Noir est la base de nos assemblages. Il confère aux Cuvées puissance et
+                        charpente, rondeur et vinosité. Pour atteindre leur pleine maturité,
+                        ces vins ont besoin d’environ 3 ans de vieillissement.
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="vignoble-slide5 relpos">
+    <div class="vignoble-slide5 relpos" id="Vigne">
         <div class="center-div segoe fs-08 text-white text-center p-3" style="width: 30%;">
             <h3>
                 LE TRAVAIL DE LA VIGNE
