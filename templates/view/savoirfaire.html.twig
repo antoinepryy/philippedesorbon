@@ -7,12 +7,12 @@
     <div>
         <nav id="savoir-faire-nav">
             <ul class="savoir-faire-list">
-                <li class="px-3"><a id="LaMaison" href="#Histoire">Vendange et pressurage</a></li>
-                <li class="px-3"><a id="SavoirFaire" href="#Why">Vinification</a></li>
-                <li class="px-3"><a id="Champagnes" href="#Origines">Assemblage</a></li>
-                <li class="px-3"><a id="Champagnes" href="#Origines">Vieillissement sur lies</a></li>
-                <li class="px-3"><a id="Champagnes" href="#Origines">Remuage et dégorgement</a></li>
-                <li class="px-3"><a id="Champagnes" href="#Origines">Gastronomie</a></li>
+                <li class="px-3"><a href="#Vendange">Vendange et pressurage</a></li>
+                <li class="px-3"><a href="#Vinification">Vinification</a></li>
+                <li class="px-3"><a href="#Assemblage">Assemblage</a></li>
+                <li class="px-3"><a href="#Vieillissement">Vieillissement sur lies</a></li>
+                <li class="px-3"><a href="#Remuage">Remuage et dégorgement</a></li>
+                <li class="px-3"><a href="#Gastronomie">Gastronomie</a></li>
             </ul>
         </nav>
         <div class="text-center my-2">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="savoirfaire-slide2 relpos">
+    <div class="savoirfaire-slide2 relpos" id="Vendange">
         <div style="position: absolute; left: 5%; top: 15%; width: 30%;" class="text-white segoe fs-08">
             <h4 class="text-weight-bold">VENDANGES ET PRESSURAGE</h4>
             <p>
@@ -60,7 +60,7 @@
             <h3 class="fs-08">VINIFICATION</h3>
         </div>
     </div>
-    <div class="savoirfaire-slide3 relpos">
+    <div class="savoirfaire-slide3 relpos" id="Vinification">
         <div style="position: absolute; right: 5%; top: 15%; width: 30%;" class="text-white segoe fs-08">
             <h4 class="text-weight-bold">Maitrise et professionnalisme</h4>
             <p>
@@ -94,7 +94,7 @@
             <h3 class="fs-08">ASSEMBLAGE</h3>
         </div>
     </div>
-    <div class="savoirfaire-slide4 relpos">
+    <div class="savoirfaire-slide4 relpos" id="Assemblage">
         <div style="position: absolute; left: 5%; top: 0; width: 30%; background-color: #2E2B2B; height: 100%;" class="text-white segoe fs-08">
             <div class="m-auto p-3">
                 <h4 class="text-weight-bold">L’Assemblage… ou le miracle du Champagne</h4>
@@ -140,7 +140,7 @@
             <h3 class="fs-08">LE VIEILLISSEMENT SUR LIES</h3>
         </div>
     </div>
-    <div class="savoirfaire-slide5 relpos">
+    <div class="savoirfaire-slide5 relpos" id="Vieillissement">
         <div style="position: absolute; left: 5%; top: 5%; width: 35%;" class="text-white segoe fs-08">
             <p>
                 Les bouteilles, couchées « sur lattes » reposent à 8-10°C, dans nos
@@ -181,7 +181,7 @@
             <h3 class="fs-08">REMUAGE ET DEGORGEMENT</h3>
         </div>
     </div>
-    <div class="savoirfaire-slide6 relpos">
+    <div class="savoirfaire-slide6 relpos" id="Remuage">
         <div style="position: absolute; right: 2%; top: 15%; width: 25%;" class="text-white segoe fs-08">
             <h4 class="text-weight-bold">Ultimes préparatifs</h4>
             <p>
@@ -236,6 +236,13 @@
             DE LA CIVILISATION »
         </div>
         <div class="edwardian active my-3 fs-12 w-75 ml-auto">Talleyrand</div>
+        <div id="Gastronomie">
+
+        </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/savoirfaire.js') }}"></script>
 {% endblock %}

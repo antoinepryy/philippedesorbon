@@ -38,14 +38,14 @@ switch (path) {
         break;
 }
 
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 70){
-        $('#header').addClass("sticky-top");
-    }
-    else {
-        $('#header').removeClass("sticky-top");
-    }
-});
+// $(window).scroll(function() {
+//     if ($(this).scrollTop() > 70){
+//         $('#header').addClass("sticky-top");
+//     }
+//     else {
+//         $('#header').removeClass("sticky-top");
+//     }
+// });
 
 
 // function lowFooter() {
