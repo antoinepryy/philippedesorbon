@@ -4,3 +4,36 @@ easy_admin:
     entities:
             Champagne:
                 class: App\Entity\Champagne
+                list:
+                      fields:
+                          - { property: 'image', type: 'image', base_path: '%app.path.champagne_images%' }
+                      show:
+                          fields:
+                              - title_1
+                              - subtitle_1
+                              - presentation_1
+                              - subtitle_2_1
+                              - presentation_2_1
+                              - subtitle_2_2
+                              - presentation_2_2
+                              - subtitle_2_3
+                              - presentation_2_3
+                              - title_3
+                              - subtitle_4
+                              - presentation_4
+                              - { property: 'image', type: 'image', base_path: '%app.path.champagne_images%' }
+                form:
+                      fields:
+                          - title_1
+                          - subtitle_1
+                          - presentation_1
+                          - subtitle_2_1
+                          - presentation_2_1
+                          - subtitle_2_2
+                          - presentation_2_2
+                          - subtitle_2_3
+                          - presentation_2_3
+                          - title_3
+                          - subtitle_4
+                          - presentation_4
+                          - { property: 'imageFile', type: 'vich_image' }

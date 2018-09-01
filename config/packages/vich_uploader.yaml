@@ -1,2 +1,7 @@
 vich_uploader:
     db_driver: orm
+
+    mappings:
+            champagne_images:
+                uri_prefix:         '%app.path.champagne_images%'
+                upload_destination: '%kernel.root_dir%/../public%app.path.champagne_images%'
