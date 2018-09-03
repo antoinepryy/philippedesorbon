@@ -83,13 +83,50 @@ class Champagne
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $image;
+    private $photo_1;
 
     /**
-     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_1")
      * @var File
      */
-    private $imageFile;
+    private $photoFile_1;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $photo_2;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_2")
+     * @var File
+     */
+    private $photoFile_2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $photo_3;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_3")
+     * @var File
+     */
+    private $photoFile_3;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $photo_bouteille;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_bouteille")
+     * @var File
+     */
+    private $photoFile_bouteille;
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -247,32 +284,96 @@ class Champagne
         return $this;
     }
 
-    public function setImageFile(File $image = null)
+    public function setPhotoFile1(File $image = null)
     {
-        $this->imageFile = $image;
-
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
+        $this->photoFile_1 = $image;
         if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
             $this->updatedAt = new \DateTime('now');
         }
     }
 
-    public function getImageFile()
+    public function getPhotoFile1()
     {
-        return $this->imageFile;
+        return $this->photoFile_1;
     }
 
-    public function setImage($image)
+    public function setPhoto1($image)
     {
-        $this->image = $image;
+        $this->photo_1 = $image;
     }
 
-    public function getImage()
+    public function getphoto1()
     {
-        return $this->image;
+        return $this->photo_1;
+    }
+
+    public function setPhotoFile2(File $image = null)
+    {
+        $this->photoFile_2 = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFile2()
+    {
+        return $this->photoFile_2;
+    }
+
+    public function setPhoto2($image)
+    {
+        $this->photo_2 = $image;
+    }
+
+    public function getphoto2()
+    {
+        return $this->photo_2;
+    }
+
+    public function setPhotoFile3(File $image = null)
+    {
+        $this->photoFile_3 = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFile3()
+    {
+        return $this->photoFile_3;
+    }
+
+    public function setPhoto3($image)
+    {
+        $this->photo_3 = $image;
+    }
+
+    public function getphoto3()
+    {
+        return $this->photo_3;
+    }
+
+    public function setPhotoFileBouteille(File $image = null)
+    {
+        $this->photoFile_bouteille = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFileBouteille()
+    {
+        return $this->photoFile_bouteille;
+    }
+
+    public function setPhotoBouteille($image)
+    {
+        $this->photo_bouteille = $image;
+    }
+
+    public function getphotoBouteille()
+    {
+        return $this->photo_bouteille;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
@@ -283,7 +384,6 @@ class Champagne
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
         return $this;
     }
 }

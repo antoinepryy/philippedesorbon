@@ -14,6 +14,10 @@ champagnes:
     path: /Champagnes
     controller: App\Controller\DefaultController::champagnes
 
+champagne_show:
+    path:     /Champagnes/{id}
+    controller: App\Controller\DefaultController::champagneShow
+
 vignoble:
     path: /Vignoble
     controller: App\Controller\DefaultController::vignoble

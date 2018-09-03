@@ -33,6 +33,11 @@ class DefaultController extends Controller
         return $this->render('view/champagnes.html.twig');
     }
 
+    public function champagneShow()
+    {
+        return $this->render('view/champagneShow.html.twig');
+    }
+
     public function vignoble()
     {
         return $this->render('view/vignoble.html.twig');
