@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Champagne;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -33,9 +35,18 @@ class DefaultController extends Controller
         return $this->render('view/champagnes.html.twig');
     }
 
-    public function champagneShow()
+    public function champagneShow($id)
     {
-        return $this->render('view/champagneShow.html.twig');
+        $product = $this->getDoctrine()
+            ->getRepository(Champagne::class)
+            ->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+            );
+        }
+
+        return $this->render('view/champagneShow.html.twig', ['champagne' => $product]);
     }
 
     public function vignoble()
