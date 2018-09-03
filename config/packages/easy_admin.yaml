@@ -19,6 +19,9 @@ easy_admin:
                           - subtitle_4
                           - presentation_4
                           - { property: 'photo_1', type: 'image', base_path: '%app.path.champagne_images%' }
+                          - { property: 'photo_2', type: 'image', base_path: '%app.path.champagne_images%' }
+                          - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
+                          - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
                       show:
                           fields:
                               - title_1
@@ -34,6 +37,9 @@ easy_admin:
                               - subtitle_4
                               - presentation_4
                               - { property: 'photo_1', type: 'image', base_path: '%app.path.champagne_images%' }
+                              - { property: 'photo_2', type: 'image', base_path: '%app.path.champagne_images%' }
+                              - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
+                              - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
                 form:
                       fields:
                           - title_1
@@ -49,3 +55,6 @@ easy_admin:
                           - subtitle_4
                           - presentation_4
                           - { property: 'photoFile_1', type: 'vich_image' }
+                          - { property: 'photoFile_2', type: 'vich_image' }
+                          - { property: 'photoFile_3', type: 'vich_image' }
+                          - { property: 'photoFile_bouteille', type: 'vich_image' }
