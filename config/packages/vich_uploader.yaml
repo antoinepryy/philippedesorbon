@@ -5,3 +5,4 @@ vich_uploader:
             champagne_images:
                 uri_prefix:         '%app.path.champagne_images%'
                 upload_destination: '%kernel.root_dir%/../public%app.path.champagne_images%'
+                namer: Vich\UploaderBundle\Naming\UniqidNamer
