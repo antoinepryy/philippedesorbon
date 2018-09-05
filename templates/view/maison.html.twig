@@ -4,16 +4,16 @@
 
     <div class="maison-slide1 container-fluid relpos">
         <div style="position: absolute; left: 10%; bottom: 10%;">
-            <p class="segoe text-white">
+            <p class="segoe text-white fs-12">
                 Histoire d'un famille au service du vin depuis plus d'un siècle...
             </p>
         </div>
     </div>
     <nav id="maison-nav" class="sticky-nav-sec z-index-nav-sec">
-        <ul class="maison-list justify-content-around" >
-            <li class="px-3"><a style="font-size: 1vw;" href="#Histoire">Histoire d'un passion partagée</a></li>
-            <li class="px-3"><a style="font-size: 1vw;" href="#Why">Pourquoi Philippe de Sorbon ?</a></li>
-            <li class="px-3"><a style="font-size: 1vw;" href="#Origines">Origines du mythe Champagne</a></li>
+        <ul class="maison-list justify-content-around fs-1" >
+            <li class="px-3"><a href="#Histoire">Histoire d'un passion partagée</a></li>
+            <li class="px-3"><a href="#Why">Pourquoi Philippe de Sorbon ?</a></li>
+            <li class="px-3"><a href="#Origines">Origines du mythe Champagne</a></li>
         </ul>
     </nav>
 
@@ -31,10 +31,10 @@
     <div class="container-fluid text-center py-3" id="Histoire">
         <h2 class="my-3">Histoire d'une passion partagée</h2>
         <div class="row fs-08">
-            <div class="col-md relpos">
-                <img class="center-div" style="width: 100px;" src="{{ asset('ressource/image/maison/Auguste-TETARD.jpg') }}">
+            <div class="col-md-3 col-6 relpos house-picture">
+                <img class="center-div" src="{{ asset('ressource/image/maison/Auguste-TETARD.jpg') }}">
             </div>
-            <div class="col-md">
+            <div class="col-md-3 col-6">
                 <h6>1922</h6>
                 <p>
                     Maximilien TETARD, son fils, lui
@@ -44,11 +44,12 @@
                     Maison une réputation de sérieux
                     et de qualité.
                 </p>
+
             </div>
-            <div class="col-md relpos">
-                <img style="width: 100px" class="center-div" src="{{ asset('ressource/image/maison/Nicole-LATHUILLIERE-TETARD.jpg') }}">
+            <div class="col-md-3 col-6 relpos house-picture">
+                <img class="center-div" src="{{ asset('ressource/image/maison/Nicole-LATHUILLIERE-TETARD.jpg') }}">
             </div>
-            <div class="col-md">
+            <div class="col-md-3 col-6">
                 <h6>1989</h6>
                 <p>
                     4ème génération: Martine WALLAERT-
@@ -61,19 +62,19 @@
             </div>
         </div>
         <div class="row fs-08">
-            <div class="col-md relpos">
-                <div class="center-div w-100">
-                    <h6>1901</h6>
-                    <p>
-                        Auguste TETARD quitte sa Creuse natale
-                        et s’installe en Champagne, il est marchand de vins.
-                    </p>
-                </div>
+            <div class="col-md-3 col-6">
+
+                <h6>1901</h6>
+                <p>
+                    Auguste TETARD quitte sa Creuse natale
+                    et s’installe en Champagne, il est marchand de vins.
+                </p>
+
             </div>
-            <div class="col-md relpos">
-                <img style="width: 100px" class="center-div" src="{{ asset('ressource/image/maison/Maximilien-TETARD.jpg') }}">
+            <div class="col-md-3 col-6 relpos house-picture">
+                <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien-TETARD.jpg') }}">
             </div>
-            <div class="col-md">
+            <div class="col-md-3 col-6">
                 <h6>1968</h6>
                 <p>
                     Nicole LATHUILLIERE-TETARD, sa petite-fille,
@@ -83,8 +84,8 @@
                     familiale et assure une qualité constante de ses Champagnes
                 </p>
             </div>
-            <div class="col-md relpos">
-                <img style="width: 100px" class="center-div" src="{{ asset('ressource/image/maison/Martine-WALLAERT-LATHUILLIERE.jpg') }}">
+            <div class="col-md-3 col-6 relpos house-picture">
+                <img class="center-div" src="{{ asset('ressource/image/maison/Martine-WALLAERT-LATHUILLIERE.jpg') }}">
             </div>
         </div>
 
@@ -132,7 +133,7 @@
                 Une longue et belle histoire d'hommes et de terroirs
             </p>
         </div>
-        <div style="height: 500px; background-color: black;" class="relpos">
+        <div id="Origines" style="height: 500px; background-color: black;" class="relpos">
             <div class="w-50 text-center text-white m-auto segoe center-div">
                 <h2>ANIMATION EN DEVELOPPEMENT</h2>
 

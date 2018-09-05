@@ -57,3 +57,16 @@
     font-size: 1em;
     font-family: "Segoe UI", sans-serif;
 }
+
+#Histoire p{
+    font-size: 1.1em;
+}
+
+.house-picture{
+    height: auto;
+
+}
+
+.house-picture img{
+    height: 10vw;
+}
