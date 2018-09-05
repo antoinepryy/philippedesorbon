@@ -25,18 +25,12 @@
     background-size: 150px;
 }
 
-.accueil-2 a{
+
+.chapter div{
+    height: 10vh;
+}
+
+.website-plan a{
     text-decoration: none;
-}
-
-.accueil-title a{
-    font-size: 1.7em;
-    color: #DAC8BB;
-    font-family: "Edwardian Script ITC", sans-serif;
-}
-
-.accueil-links a{
-    font-size: 0.85em;
-    color: #2E2B2B;
-    font-family: "Segoe UI", sans-serif;
+    color: black;
 }

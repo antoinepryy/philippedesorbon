@@ -32,7 +32,13 @@
     padding: 14px 16px;
     text-decoration: none;
 }
+.fs-18{
+    font-size: 1.8em;
+}
 
+.fs-17{
+    font-size: 1.7em;
+}
 
 .fs-16{
     font-size: 1.6em;
@@ -119,6 +125,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.sticky-nav-sec{
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.z-index-nav-sec{
+    z-index: 20;
 }
 
 
