@@ -5,7 +5,6 @@
     margin: auto;
     padding: 0;
     overflow: hidden;
-    
     display: flex;
 }
 
@@ -34,20 +33,29 @@
     text-decoration: none;
 }
 
-.header-list li a:hover {
-    background-color: #111;
-}
 
 .fs-16{
     font-size: 1.6em;
+}
+
+.fs-15{
+    font-size: 1.5em;
 }
 
 .fs-14{
     font-size: 1.4em;
 }
 
+.fs-13{
+    font-size: 1.3em;
+}
+
 .fs-12{
     font-size: 1.2em;
+}
+
+.fs-11{
+    font-size: 1.1em;
 }
 
 .fs-1{
@@ -55,11 +63,19 @@
 }
 
 .fs-08{
-    font-size: 0.8em;
+     font-size: 0.8em;
+ }
+
+.fs-07{
+    font-size: 0.7em;
 }
 
 .fs-06{
     font-size: 0.6em;
+}
+
+.fs-05{
+    font-size: 0.5em;
 }
 
 .fs-04{
