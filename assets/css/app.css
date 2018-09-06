@@ -138,5 +138,33 @@
     z-index: 20;
 }
 
+.down{
+    top: 0!important;
+}
+
+#fixed-hd{
+    height: 70px;
+    -webkit-transition: top 0.2s ease-out;
+    -moz-transition: top 0.2s ease-out;
+    -o-transition: top 0.2s ease-out;
+    transition: top 0.2s ease-out;
+}
+
+.hd-nav{
+    position: relative;
+    z-index: 99999;
+    top: 0;
+    -webkit-transition: top 0.5s ease-out;
+    -moz-transition: top 0.5s ease-out;
+    -o-transition: top 0.5s ease-out;
+    transition: top 0.5s ease-out;
+}
+
+.fixed{
+    position: fixed;
+    width: 100%;
+    top: 70px !important;
+}
+
 
 

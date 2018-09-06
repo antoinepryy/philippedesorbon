@@ -21,16 +21,16 @@
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/Titre.jpg') }}">
         </a>
     </div>
-    <div class="text-center" style="position: absolute; top: -200px;left: 0; right: 0;">
+    <div id="fixed-hd"  class="bg-white text-center" style="position: fixed; top: -70px;left: 0; right: 0; z-index: 1000;">
         <a href="{{ path('index') }}">
-            <img class="m-auto" id="sm-picture" style="width: 110px;"src="{{ asset('ressource/image/header/Logo.jpg') }}">
+            <img class="m-auto" id="sm-picture" style="width: 50px;" src="{{ asset('ressource/image/header/Logo.jpg') }}">
         </a>
     </div>
 
     <div class="text-center edwardian">
         <h2 class="fs-12">Maison fondée à Reims en 1968</h2>
     </div>
-    <nav id="header-nav">
+    <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0">
         <ul class="header-list justify-content-around">
             <li><a id="LaMaison" href="{{ path('maison') }}">LA MAISON</a></li>
             <li><a id="SavoirFaire" href="{{ path('savoirfaire') }}">LE SAVOIR FAIRE</a></li>

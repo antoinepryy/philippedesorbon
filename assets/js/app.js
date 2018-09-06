@@ -67,8 +67,8 @@ function getScrollTop(){
 
 $(window).on("scroll", function() {
     var fromTop = getScrollTop();
-    $('#big-picture').toggleClass("down", (fromTop > 250));
-    $('#sm-picture').toggleClass("fixed", (fromTop > 250));
+    $('#fixed-hd').toggleClass("down", (fromTop > 200));
+    $('#header-nav').toggleClass("fixed", (fromTop > 200));
 });
 
 
