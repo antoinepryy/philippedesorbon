@@ -18,7 +18,12 @@
 <div id="header">
     <div class="text-center">
         <a href="{{ path('index') }}">
-            <img style="width: 210px;" src="{{ asset('ressource/image/header/Titre.jpg') }}">
+            <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/Titre.jpg') }}">
+        </a>
+    </div>
+    <div class="text-center" style="position: absolute; top: -200px;left: 0; right: 0;">
+        <a href="{{ path('index') }}">
+            <img class="m-auto" id="sm-picture" style="width: 110px;"src="{{ asset('ressource/image/header/Logo.jpg') }}">
         </a>
     </div>
 
