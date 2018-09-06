@@ -58,6 +58,7 @@ $(window).on("scroll", function() {
     var fromTop = getScrollTop();
     $('#fixed-hd').toggleClass("down", (fromTop > 200));
     $('#header-nav').toggleClass("fixed", (fromTop > 200));
+    $('.void-fill').toggleClass("fill", (fromTop > 200));
 });
 
 
