@@ -129,7 +129,7 @@
 
 .sticky-nav-sec{
     position: sticky;
-    top: 115px;
+    top: 125px;
     right: 0;
     left: 0;
 }
@@ -208,6 +208,21 @@
 
 .display-none{
     display: none;
+}
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .sticky-nav-sec{
+        display: none;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .sticky-nav-sec{
+        display: none;
+    }
 }
 
 

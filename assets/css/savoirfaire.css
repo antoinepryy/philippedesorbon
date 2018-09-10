@@ -17,7 +17,7 @@
 }
 
 .savoirfaire-slide3{
-    background-image: url("../../public/ressource/image/savoirfaire/fût.jpg");
+    background-image: url("../../public/ressource/image/savoirfaire/fut.jpg");
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
@@ -97,4 +97,90 @@
 
 .sf-txt{
     font-size: 0.9em;
+}
+
+.txt-s-2{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    width: 30%;
+    transform: translateY(-50%);
+}
+
+.txt-s-3{
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    width: 30%;
+    transform: translateY(-50%);
+}
+
+.txt-s-4{
+    position: absolute;
+    left: 5%;
+    top: 0;
+    width: 35%;
+    background-color: #2E2B2B;
+    height: 100%;
+}
+
+.txt-s-5{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    width: 35%;
+    transform: translateY(-50%);
+}
+
+.txt-s-6 {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    width: 35%;
+    transform: translateY(-50%);
+}
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .txt-s-2{
+        width: 90%;
+    }
+    .txt-s-3{
+        width: 90%;
+    }
+    .txt-s-4{
+        width: 90%;
+    }
+    .txt-s-5{
+        width: 90%;
+    }
+    .txt-s-6 {
+        width: 90%;
+    }
+    .savoirfaire-slide5{
+        min-height: 120vh;
+    }
+
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .txt-s-2{
+        width: 70%;
+    }
+    .txt-s-3{
+        width: 70%;
+    }
+    .txt-s-4{
+        width: 70%;
+    }
+    .txt-s-5{
+        width: 70%;
+    }
+    .txt-s-6 {
+        width: 70%;
+    }
+    .savoirfaire-slide5{
+        min-height: 120vh;
+    }
 }
