@@ -64,7 +64,10 @@
 
             </div>
             <div class="col-lg-4">
-                <img style="width: auto; height: auto;" src="{{ asset('ressource/image/champagnes/food.png') }}">
+
+                {% if champagne.photoParagraph %}
+                    <img style="height: auto; width: auto" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph  }} " alt="image associée au champagne selcetionné">
+                {% endif %}
             </div>
         </div>
 
