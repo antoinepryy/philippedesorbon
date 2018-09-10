@@ -22,6 +22,17 @@ class Champagne
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $type;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $urlLink;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $title_1;
 
     /**
@@ -114,6 +125,18 @@ class Champagne
      * @var File
      */
     private $photoFile_3;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $photo_paragraph;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_paragraph")
+     * @var File
+     */
+    private $photoFile_paragraph;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -353,6 +376,29 @@ class Champagne
         return $this->photo_3;
     }
 
+    public function setPhotoFileParagraph(File $image = null)
+    {
+        $this->photoFile_paragraph = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFileParagraph()
+    {
+        return $this->photoFile_paragraph;
+    }
+
+    public function setPhotoParagraph($image)
+    {
+        $this->photo_paragraph= $image;
+    }
+
+    public function getphotoParagraph()
+    {
+        return $this->photo_paragraph;
+    }
+
     public function setPhotoFileBouteille(File $image = null)
     {
         $this->photoFile_bouteille = $image;
@@ -385,5 +431,37 @@ class Champagne
     {
         $this->updatedAt = $updatedAt;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlLink()
+    {
+        return $this->urlLink;
+    }
+
+    /**
+     * @param mixed $urlLink
+     */
+    public function setUrlLink($urlLink): void
+    {
+        $this->urlLink = $urlLink;
     }
 }
