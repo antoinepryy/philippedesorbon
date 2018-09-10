@@ -1,5 +1,5 @@
 .accueil-slide1{
-    background-image: url("../../public/ressource/image/accueil/cave-champagne.jpg");
+    background-image: url("../../public/ressource/image/accueil/cave_champagne.jpg");
     min-height: 400px;
     background-attachment: fixed;
     background-position: center;
@@ -8,7 +8,7 @@
 }
 
 .accueil-slide2{
-    background-image: url("../../public/ressource/image/accueil/bouteilles-champagne.jpg");
+    background-image: url("../../public/ressource/image/accueil/bouteilles_champagne.jpg");
     min-height: 400px;
     background-attachment: fixed;
     background-position: center;

@@ -17,7 +17,7 @@
 }
 
 .vignoble-slide3{
-    background-image: url("../../public/ressource/image/vignoble/vignoble-champagne.jpg");
+    background-image: url("../../public/ressource/image/vignoble/vignoble_champagne.jpg");
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
@@ -28,7 +28,7 @@
 .vignoble-slide4-left {
     width: 50%;
     height: fit-content;
-    background-image: url("../../public/ressource/image/vignoble/champagne-eglise.jpg");
+    background-image: url("../../public/ressource/image/vignoble/champagne_eglise.jpg");
     min-height: 100vh;
     background-attachment: fixed;
     background-position: left;
@@ -39,7 +39,7 @@
 .vignoble-slide4-right{
     width: 50%;
     height: fit-content;
-    background-image: url("../../public/ressource/image/vignoble/champagne-moulin.jpg");
+    background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
     min-height: 100vh;
     background-attachment: fixed;
     background-position: right;
@@ -48,7 +48,7 @@
 }
 
 .vignoble-slide5{
-    background-image: url("../../public/ressource/image/vignoble/entretien-vignoble.jpg");
+    background-image: url("../../public/ressource/image/vignoble/entretien_vignoble.jpg");
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
@@ -91,7 +91,7 @@
 }
 
 .cepage-1{
-    background-image: url("../../public/ressource/image/vignoble/pinot-meunier.jpg");
+    background-image: url("../../public/ressource/image/vignoble/pinot_meunier.jpg");
     background-size: cover;
 }
 

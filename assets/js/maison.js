@@ -1,4 +1,4 @@
-const $ = require('jquery');
+var $ = require('jquery');
 
 
 $('a[href^="#"]').click(function(){
@@ -17,7 +17,7 @@ $('.circle').click(function(){
     $('#anim-picture').fadeOut();
     $('#anim-picture').fadeOut('slow');
     $('#anim-picture').promise().done(function(){
-        $('#anim-picture').attr('src','/ressource/image/maison/slide-'+ indexAnim +'.jpg');
+        $('#anim-picture').attr('src','/ressource/image/maison/slide_'+ indexAnim +'.jpg');
     }).promise().done(function() {
         $('#anim-picture').fadeIn('slow');
     });
