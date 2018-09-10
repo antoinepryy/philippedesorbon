@@ -18,6 +18,10 @@ require('../css/mentionslegales.css');
 
 var $ = require('jquery');
 var path = window.location.pathname;
+var fromTop = getScrollTop();
+$('#fixed-hd').toggleClass("down", (fromTop > 185));
+$('#header-nav').toggleClass("fixed", (fromTop > 185));
+$('.void-fill').toggleClass("fill", (fromTop > 185));
 switch (path) {
     case '/LaMaison':
         defineActive(path);
