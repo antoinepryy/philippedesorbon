@@ -29,7 +29,7 @@
     width: 50%;
     height: fit-content;
     background-image: url("../../public/ressource/image/vignoble/champagne_eglise.jpg");
-    min-height: 100vh;
+    min-height: 70vh;
     background-attachment: fixed;
     background-position: left;
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@
     width: 50%;
     height: fit-content;
     background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
-    min-height: 100vh;
+    min-height: 70vh;
     background-attachment: fixed;
     background-position: right;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@
 
 .vignoble-slide5{
     background-image: url("../../public/ressource/image/vignoble/entretien_vignoble.jpg");
-    min-height: 100vh;
+    min-height: 70vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -116,11 +116,87 @@
     top: 17.5em;
 }
 
+.vignoble-txt-1{
+    position: absolute;
+    right:2%;
+    top: 0;
+    width: 40%;
+    background-color: #2E2B2B;
+    height: 100%;
+}
+.vignoble-txt-2{
+    width: 30%;
+}
+
+.vignoble-txt-3{
+    width: 30%;
+}
+
+.vignes-container{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.vignes{
+    width: 14em;
+    height: 21em;
+    overflow: hidden;
+}
+
+
+
 @keyframes slideup {
     from{
         bottom : revert;
     }
     to {
         bottom: 0px;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .vignoble-txt-1{
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .vignoble-slide3{
+        min-height: 140vh;
+    }
+    .vignoble-txt-2{
+        width: 80%;
+    }
+
+    .vignoble-txt-3{
+        width: 80%;
+    }
+    .vignoble-slide4-left {
+        min-height: 90vh;
+    }
+    .vignoble-slide4-right {
+        min-height: 90vh;
+    }
+    .vignoble-slide5{
+        min-height: 90vh;
+    }
+    .vignes-container{
+        display: block;
+    }
+    .vignes{
+        width: 14em;
+        height: 21em;
+        overflow: hidden;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .vignoble-txt-2{
+        width: 80%;
+    }
+
+    .vignoble-txt-3{
+        width: 80%;
     }
 }
