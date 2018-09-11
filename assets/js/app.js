@@ -15,6 +15,7 @@ require('../css/vignoble.css');
 require('../css/champagnes.css');
 require('../css/contact.css');
 require('../css/mentionslegales.css');
+require('../css/champagneshow.css');
 
 var $ = require('jquery');
 var path = window.location.pathname;
@@ -63,9 +64,9 @@ function getScrollTop(){
 
 $(window).on("scroll", function() {
     var fromTop = getScrollTop();
-    $('#fixed-hd').toggleClass("down", (fromTop > 185));
-    $('#header-nav').toggleClass("fixed", (fromTop > 185));
-    $('.void-fill').toggleClass("fill", (fromTop > 185));
+    $('#fixed-hd').toggleClass("down", (fromTop > 200));
+    $('#header-nav').toggleClass("fixed", (fromTop > 200));
+    $('.void-fill').toggleClass("fill", (fromTop > 200));
 });
 
 if (readCookie('isAgeOK') === null){

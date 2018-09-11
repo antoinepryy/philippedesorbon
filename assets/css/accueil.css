@@ -1,9 +1,9 @@
 .accueil-slide1{
     background-image: url("../../public/ressource/image/accueil/cave_champagne.jpg");
-    min-height: 75vh;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw;
+    height: 63vh;
 }
 
 .accueil-slide2{
