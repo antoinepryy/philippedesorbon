@@ -1,7 +1,6 @@
 .maison-slide1{
     background-image: url("../../public/ressource/image/maison/cave.jpg");
     min-height: 400px;
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
