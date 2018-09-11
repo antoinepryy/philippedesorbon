@@ -22,8 +22,7 @@ Encore
     .addEntry('maison', './assets/js/maison.js')
     .addEntry('savoirfaire', './assets/js/savoirfaire.js')
     .addEntry('vignoble', './assets/js/vignoble.js')
-    //.addEntry('page1', './assets/js/page1.js')
-    //.addEntry('page2', './assets/js/page2.js')
+    .addEntry('accueil', './assets/js/accueil.js')
 
     /*
      * FEATURE CONFIG

@@ -165,5 +165,39 @@
 
     </div>
     </div>
+    <div style="position:fixed; top: 0;width: 100vw; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000;">
+        <div class="text-center w-50" style="position:fixed; top: 60%; transform:translate(-50%,-50%);left: 50%;">
+            <p class="active segoe">
+                POUR ACCÉDER AU SITE PHILIPPE DE SORBON
+            </p>
+            <p class="segoe text-white">
+                Pour être en mesure de consulter ce site, vous devez
+                avoir atteint l'âge légal défini par les lois de votre pays régissant la  consommation d'alcool.
+            </p>
+            <p class="active segoe">
+                SELECTIONNEZ VOTRE PAYS
+            </p>
+            <div class="select-style" style="height: 50px;">
+                <select id="monselect">
+                    <option val="1" value="valeur1">France</option>
+                    <option  val="2" value="valeur2" selected>Angleterre</option>
+                    <option  val="3" value="valeur3">Spain</option>
+                </select>
+            </div>
+            <p class="active segoe">
+                Êtes-vous nés avant 11/08/2000?
+            </p>
+            <div style="height: 50px; display: flex; justify-content: space-around" class="button-container">
+                <input type="button" value="OUI">
+                <a href="http://www.google.com">
+                    NON
+                </a>
+            </div>
+        </div>
+    </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/accueil.js') }}"></script>
 {% endblock %}
