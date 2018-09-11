@@ -29,7 +29,6 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 .fs-18{
@@ -129,7 +128,7 @@
 
 .sticky-nav-sec{
     position: sticky;
-    top: 125px;
+    top: 120px;
     right: 0;
     left: 0;
 }
@@ -222,8 +221,22 @@
     opacity: 1;
 }
 
-ul{
+
+#header-nav > ul li{
     list-style: none;
+    width: 100%;
+    text-align: center;
+}
+
+#header-nav > ul li a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    height: 50px;
+    line-height: 50px;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    letter-spacing: 4px;
 }
 
 

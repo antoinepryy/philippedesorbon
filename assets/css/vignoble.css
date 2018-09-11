@@ -144,6 +144,11 @@
     overflow: hidden;
 }
 
+.vignoble-section{
+    height: 20vh;
+    position: relative;
+}
+
 
 
 @keyframes slideup {
