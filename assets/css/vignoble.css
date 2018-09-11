@@ -9,7 +9,7 @@
 
 .vignoble-slide2{
     background-image: url("../../public/ressource/image/vignoble/glace.jpg");
-    min-height: 75vh;
+    min-height: 50vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

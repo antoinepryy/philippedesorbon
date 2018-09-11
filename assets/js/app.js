@@ -41,6 +41,9 @@ switch (path) {
     default:
         break;
 }
+if (path.substr(0,12)=='/Champagnes/'){
+    defineActive('/Champagnes');
+}
 
 
 
