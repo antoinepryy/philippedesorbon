@@ -71,6 +71,11 @@
         </div>
 
     </div>
+    <div>
+        {{ render(controller(
+            'App\\Controller\\DefaultController::showBottles'
+        )) }}
+    </div>
 
 
 {% endblock %}

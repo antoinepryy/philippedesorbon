@@ -1,17 +1,39 @@
-<div style="height: 500px; background-color: black;" class="relpos">
-    <div class="w-50 text-center text-white m-auto segoe center-div">
-        <h2>CATALOGUE EN COURS DE DEVELOPPEMENT</h2>
+<div class="py-5" style="background-color: black; display: flex;">
+    <div style="width: 55%;" class="text-center">
+        <h3 class="text-white my-5">Les Classiques</h3>
+        <div class="row">
+            {% for champagne in champagneClassique %}
+                <div class="col">
+                    <div>
+                        <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                            <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                        </a>                        <div class="text-white segoe" style="opacity: 0.6">
+                            {{ champagne.title1 }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div style="width: 10%;">
 
     </div>
-    <div class="row">
-        <div class="col">
-
+    <div style="width: 35%;" class="text-center">
+        <h3 class="text-white my-5">La Collection</h3>
+        <div class="row">
+            {% for champagne in champagneCollection %}
+                <div class="col">
+                    <div>
+                        <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                            <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                        </a>
+                        <div class="text-white segoe" style="opacity: 0.6">
+                            {{ champagne.title1 }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        <div class="col">
-
-        </div>
-
-
     </div>
 
 </div>
