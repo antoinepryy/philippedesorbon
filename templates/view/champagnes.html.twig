@@ -4,12 +4,12 @@
     <div class="champagnes-slide1"></div>
     <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
         <ul class="champagnes-list justify-content-around">
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 4}) }}">Carte Noire</a></li>
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 7}) }}">Carte d'Or</a></li>
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 9}) }}">Perles de Rosé</a></li>
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 8}) }}">Blanc de Blancs</a></li>
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 6}) }}">Intemporelle</a></li>
-            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 5}) }}">Millesime 2011</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">Carte Noire</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">Carte d'Or</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'perlesderose'}) }}">Perles de Rosé</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'blancdeblancs'}) }}">Blanc de Blancs</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'intemporelle'}) }}">Intemporelle</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'millesime'}) }}">Millesime 2011</a></li>
         </ul>
     </nav>
     <div class="container-fluid text-center my-2">
@@ -20,12 +20,10 @@
         </div>
         <div class="edwardian active my-3 fs-12 w-75 ml-auto">Martine Wallaert</div>
     </div>
-    <div style="height: 500px; background-color: black;" class="relpos">
-        <div class="w-50 text-center text-white m-auto segoe center-div">
-            <h2>CATALOGUE EN COURS DE DEVELOPPEMENT</h2>
-
-        </div>
-
+    <div>
+        {{ render(controller(
+            'App\\Controller\\DefaultController::showBottles'
+        )) }}
     </div>
     <div class="container-fluid text-center my-2">
 

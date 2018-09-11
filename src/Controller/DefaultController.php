@@ -39,7 +39,7 @@ class DefaultController extends Controller
     {
         $product = $this->getDoctrine()
             ->getRepository(Champagne::class)
-            ->find($id);
+            ->findOneBy(array('urlLink' => $id));
 
         if (!$product) {
             throw $this->createNotFoundException(
@@ -67,5 +67,16 @@ class DefaultController extends Controller
     public function contact()
     {
         return $this->render('view/contact.html.twig');
+    }
+
+    public function showBottles(){
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $champagneListClassique = $repository->findBy(['type' => 'Classique']);
+        $champagneListCollection = $repository->findBy(['type' => 'Collection']);
+        return $this->render('view/showBottles.html.twig',
+            [
+                'champagneClassique' => $champagneListClassique,
+                'champagneCollection' => $champagneListCollection,
+            ]);
     }
 }
