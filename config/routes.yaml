@@ -33,3 +33,7 @@ mentionslegales:
 contact:
     path: /Contact
     controller: App\Controller\DefaultController::contact
+
+robotstxt:
+    path: /robots.txt
+    controller: App\Controller\DefaultController::robots

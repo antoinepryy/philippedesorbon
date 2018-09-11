@@ -79,4 +79,13 @@ class DefaultController extends Controller
                 'champagneCollection' => $champagneListCollection,
             ]);
     }
+
+
+    public function robots($template = null)
+    {
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/plain');
+
+        return $this->render('robots.txt.twig', array(), $response);
+    }
 }
