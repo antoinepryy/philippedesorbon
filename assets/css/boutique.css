@@ -5,3 +5,14 @@
     background-size: 100vw;
     height: 60vh;
 }
+
+.shop-button{
+    color: white;
+    background-color: #CEBB97;
+    border: none;
+    outline: 0;
+}
+
+.shop-button:hover{
+    cursor: pointer;
+}
