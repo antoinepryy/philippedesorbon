@@ -22,18 +22,24 @@ class Champagne
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $name;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $type;
+
+    /**
+     * @ORM\Column(type="float", length=255)
+     */
+    private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $urlLink;
 
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title_1;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -163,16 +169,32 @@ class Champagne
         return $this->id;
     }
 
-    public function getTitle1(): ?string
+    public function getName(): ?string
     {
-        return $this->title_1;
+        return $this->name;
     }
 
-    public function setTitle1(string $title_1): self
+    public function setName(string $name): self
     {
-        $this->title_1 = $title_1;
+        $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
+    {
+        $this->price = $price;
     }
 
     public function getSubtitle1(): ?string

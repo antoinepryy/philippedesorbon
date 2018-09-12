@@ -11,8 +11,12 @@
                             <div>
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
-                                </a>                        <div class="text-white segoe" style="opacity: 0.6">
-                                    {{ champagne.title1 }}
+                                </a>
+                                <div class="text-white segoe font-weight-bold" style="opacity: 0.8">
+                                    {{ champagne.name }}
+                                </div>
+                                <div class="active font-weight-bold segoe">
+                                    {{ champagne.price }} &euro;
                                 </div>
                             </div>
                         </div>
@@ -31,8 +35,11 @@
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
                                 </a>
-                                <div class="text-white segoe" style="opacity: 0.6">
-                                    {{ champagne.title1 }}
+                                <div class="text-white font-weight-bold segoe" style="opacity: 0.8">
+                                    {{ champagne.name }}
+                                </div>
+                                <div class="active font-weight-bold segoe">
+                                    {{ champagne.price }} &euro;
                                 </div>
                             </div>
                         </div>

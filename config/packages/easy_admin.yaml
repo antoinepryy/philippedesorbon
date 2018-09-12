@@ -6,9 +6,9 @@ easy_admin:
                 class: App\Entity\Champagne
                 list:
                       fields:
-                          - title_1
+                          - name
                           - urlLink
-                          - type
+                          - price
                           - { property: 'photo_1', type: 'image', base_path: '%app.path.champagne_images%' }
                           - { property: 'photo_2', type: 'image', base_path: '%app.path.champagne_images%' }
                           - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
@@ -25,8 +25,9 @@ easy_admin:
 #                              - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
                 form:
                       fields:
-                          - title_1
+                          - name
                           - urlLink
+                          - price
                           - { property: 'type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
                           - subtitle_1
                           - presentation_1
