@@ -114,9 +114,14 @@
     background-color: #787171;
 }
 
+.bg-grey-cs-2{
+    background-color: #2E2B2B;
+}
+
 .fc-grey-cs{
     color: #707070;
 }
+
 
 
 .sticky-nav-sec{
@@ -215,13 +220,13 @@
 }
 
 
-#header-nav > ul li{
+#header-nav > ul li, #footer-nav > ul li{
     list-style: none;
     width: 100%;
     text-align: center;
 }
 
-#header-nav > ul li a {
+#header-nav > ul li a, #footer-nav > ul li a{
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -229,7 +234,7 @@
     line-height: 50px;
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 
 

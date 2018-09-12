@@ -2,11 +2,77 @@
 
 {% block content %}
     <div style="height: 500px; background-color: black;" class="relpos">
-        <div class="w-50 text-center text-white m-auto segoe center-div">
-            <h1>BOUTIQUE EN DEVELOPPEMENT</h1>
+        <div class="py-5 container-fluid" style="background-color: black; display: flex;">
+            <div style="width: 55%;" class="text-center">
+                <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
+                <div class="row">
+                    {% for champagne in champagneClassique %}
+                        <div class="col">
+                            <div>
+                                <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                                    <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                                </a>                        <div class="text-white segoe" style="opacity: 0.6">
+                                    {{ champagne.title1 }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div style="width: 10%;">
+
+            </div>
+            <div style="width: 35%;" class="text-center">
+                <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
+                <div class="row">
+                    {% for champagne in champagneCollection %}
+                        <div class="col">
+                            <div>
+                                <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                                    <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                                </a>
+                                <div class="text-white segoe" style="opacity: 0.6">
+                                    {{ champagne.title1 }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
 
         </div>
+    </div>
+    <div class="boutique-slide1">
 
+    </div>
+    <div class="bg-grey-cs-2 text-center">
+
+        <h1 class="edwardian text-white py-3" style="font-size: 3.5em">Votre Panier</h1>
+        <div class="container">
+            <div class="row segoe text-white py-2 my-2" style="border-top: 1px solid #CEBB97;border-bottom:  1px solid #CEBB97;">
+                <div class="col-3">
+                    ARTICLES
+                </div>
+                <div class="col-3">
+                    QUANTITE
+                </div>
+                <div class="col-2">
+                    PRIX
+                </div>
+                <div class="col-2">
+                    PRIX TOTAL
+                </div>
+                <div class="col-2">
+                    SUPPRIMER
+                </div>
+            </div>
+            <div class="row segoe text-white">
+                <div class="col my-5 py-5">
+                    EN DEVELOPPEMENT
+                </div>
+            </div>
+
+        </div>
     </div>
 
 {% endblock %}

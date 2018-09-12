@@ -1,0 +1,7 @@
+.boutique-slide1{
+    background-image: url("../../public/ressource/image/boutique/cave.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    height: 60vh;
+}

@@ -56,7 +56,14 @@ class DefaultController extends Controller
 
     public function boutique()
     {
-        return $this->render('view/boutique.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $champagneListClassique = $repository->findBy(['type' => 'Classique']);
+        $champagneListCollection = $repository->findBy(['type' => 'Collection']);
+        return $this->render('view/boutique.html.twig',
+            [
+                'champagneClassique' => $champagneListClassique,
+                'champagneCollection' => $champagneListCollection,
+            ]);
     }
 
     public function mentionslegales()
