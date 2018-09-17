@@ -66,7 +66,6 @@
     margin: auto;
     padding: 0;
     overflow: hidden;
-    
     display: flex;
 }
 
@@ -75,22 +74,7 @@
 }
 
 .savoir-faire-list a{
-    display: block;
-    font-family: "Book Antiqua", sans-serif;
-    font-size: 1.25vw;
-}
-
-
-.savoir-faire-list li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.savoir-faire-list a{
-    font-size: 1em;
+    font-size: 1vw;
     font-family: "Segoe UI", sans-serif;
 }
 

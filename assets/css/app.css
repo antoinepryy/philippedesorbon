@@ -126,7 +126,7 @@
 
 .sticky-nav-sec{
     position: sticky;
-    top: 120px;
+    top: 118px;
     right: 0;
     left: 0;
 }
@@ -220,7 +220,7 @@
 }
 
 
-#header-nav > ul li, #footer-nav > ul li{
+#header-nav > ul li, #footer-nav > ul li, .sticky-nav-sec ul li{
     list-style: none;
     width: 100%;
     text-align: center;
@@ -235,6 +235,17 @@
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
     letter-spacing: 2px;
+}
+
+.sticky-nav-sec ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    height: 50px;
+    line-height: 50px;
+
 }
 
 select, select > option{
