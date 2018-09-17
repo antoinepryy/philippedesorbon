@@ -24,12 +24,13 @@
 </head>
 <body>
 <div id="header">
+    <div style="height: 200px; background-color: white">
     <div class="text-center" style="display: flex; width: 100%;position: relative">
         <a href="{{ path('index') }}" class="m-auto">
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}">
         </a>
         {% if app.user %}
-        <span style="position:absolute; right: 0; top: 50%; transform: translateY(-50%)">
+        <span class="account-options" style="position:absolute; right: 0; top: 50%; transform: translateY(-50%);">
             <a href="account">
                 Mon Compte
             </a>
@@ -38,7 +39,7 @@
             </a>
         </span>
         {% else %}
-            <span style="position:absolute; right: 0; top: 50%; transform: translateY(-50%)">
+            <span class="account-options" style="position:absolute; right: 0; top: 50%; transform: translateY(-50%);">
             <a href="{{ path('user_registration') }}">
                 S'inscrire
             </a>
@@ -48,6 +49,11 @@
         </span>
         {% endif %}
 
+
+    </div>
+    <div class="text-center edwardian">
+        <span class="fs-18">Maison fondée à Reims en 1968</span>
+    </div>
     </div>
     <div id="fixed-hd"  class="bg-white text-center" style="position: fixed; top: -70px;left: 0; right: 0; z-index: 1000;">
         <a href="{{ path('index') }}">
@@ -55,11 +61,9 @@
         </a>
     </div>
 
-    <div class="text-center edwardian">
-        <span class="fs-18">Maison fondée à Reims en 1968</span>
-    </div>
+
     <div class="void-fill" style="display: none; height: 50px;"></div>
-    <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0;">
+    <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0; height: 50px">
         <ul class="header-list justify-content-around">
             <li><a id="LaMaison" href="{{ path('maison') }}">LA MAISON</a></li>
             <li><a id="SavoirFaire" href="{{ path('savoirfaire') }}">LE SAVOIR FAIRE</a></li>

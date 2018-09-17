@@ -277,6 +277,10 @@ option:not(:hover) {
     cursor: pointer;
 }
 
+.account-options a, .account-options a:hover{
+    text-decoration: none;
+    color: black;
+}
 
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
