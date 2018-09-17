@@ -16,6 +16,7 @@ require('../css/champagnes.css');
 require('../css/contact.css');
 require('../css/mentionslegales.css');
 require('../css/champagneshow.css');
+require('../css/cgu.css');
 
 var $ = require('jquery');
 var path = window.location.pathname;
