@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d76ea9b69879179d6b7c97a0a8cd5ba",
+    "content-hash": "12b58b662dfbca242a6144931784ba4b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3032,6 +3032,7 @@
             ],
             "description": "Enforces Long Term Supported versions of Symfony components",
             "homepage": "https://symfony.com",
+            "abandoned": "symfony/flex",
             "time": "2018-04-03T05:04:16+00:00"
         },
         {
