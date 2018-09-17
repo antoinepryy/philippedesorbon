@@ -24,10 +24,30 @@
 </head>
 <body>
 <div id="header">
-    <div class="text-center">
-        <a href="{{ path('index') }}">
+    <div class="text-center" style="display: flex; width: 100%;position: relative">
+        <a href="{{ path('index') }}" class="m-auto">
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}">
         </a>
+        {% if app.user %}
+        <span style="position:absolute; right: 0; top: 50%; transform: translateY(-50%)">
+            <a href="account">
+                Mon Compte
+            </a>
+            <a href="{{ path('logout') }}">
+                Déconnexion
+            </a>
+        </span>
+        {% else %}
+            <span style="position:absolute; right: 0; top: 50%; transform: translateY(-50%)">
+            <a href="{{ path('user_registration') }}">
+                S'inscrire
+            </a>
+            <a href="{{ path('login') }}">
+                Se connecter
+            </a>
+        </span>
+        {% endif %}
+
     </div>
     <div id="fixed-hd"  class="bg-white text-center" style="position: fixed; top: -70px;left: 0; right: 0; z-index: 1000;">
         <a href="{{ path('index') }}">

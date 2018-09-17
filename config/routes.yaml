@@ -37,3 +37,6 @@ contact:
 robotstxt:
     path: /robots.txt
     controller: App\Controller\DefaultController::robots
+
+logout:
+    path: /Logout
