@@ -14,36 +14,3 @@
     min-height: 100vh;
 }
 
-
-.champagnes-list {
-    list-style-type: none;
-    margin: auto;
-    padding: 0;
-    overflow: hidden;
-    
-    display: flex;
-}
-
-#champagnes-nav{
-    background-color: #787171;
-}
-
-.champagnes-list a{
-    display: block;
-    font-family: "Book Antiqua", sans-serif;
-    font-size: 1.25vw;
-}
-
-
-.champagnes-list li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.champagnes-list a{
-    font-size: 1em;
-    font-family: "Segoe UI", sans-serif;
-}

@@ -24,38 +24,6 @@
     background-size: cover;
 }
 
-.maison-list {
-    list-style-type: none;
-    margin: auto;
-    padding: 0;
-    overflow: hidden;
-    
-    display: flex;
-}
-
-#maison-nav{
-    background-color: #787171;
-}
-
-.maison-list a{
-    display: block;
-    font-family: "Book Antiqua", sans-serif;
-    font-size: 1.25vw;
-}
-
-
-.maison-list li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.maison-list a{
-    font-size: 1em;
-    font-family: "Segoe UI", sans-serif;
-}
 
 #Histoire p{
     font-size: 1.1em;
