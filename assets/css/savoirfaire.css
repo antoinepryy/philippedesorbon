@@ -69,14 +69,6 @@
     display: flex;
 }
 
-#savoir-faire-nav{
-    background-color: #787171;
-}
-
-.savoir-faire-list a{
-    font-size: 1vw;
-    font-family: "Segoe UI", sans-serif;
-}
 
 .sf-txt{
     font-size: 0.9em;

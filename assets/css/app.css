@@ -245,7 +245,17 @@
     transition: all 0.3s linear;
     height: 50px;
     line-height: 50px;
+    font-size: 1vw;
+    font-family: "Segoe UI", sans-serif;
+}
 
+.sticky-nav-sec ul{
+    padding: 0;
+    display: flex;
+}
+
+.sticky-nav-sec{
+    background-color: #787171;;
 }
 
 select, select > option{
