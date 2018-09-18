@@ -28,4 +28,21 @@ class SecurityController extends AbstractController
             'error'         => $error,
         ));
     }
+
+    /**
+     * @Route("/MotDePasseOublie", name="forgot_password")
+     */
+    public function forgotPassword(\Swift_Mailer $mailer)
+    {
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('antoine.ap.57@gmail.com')
+            ->setTo('treffel.liane@gmail.com')
+            ->setBody(
+                "Coucou"
+            );
+
+        $mailer->send($message);
+
+        return $this->render('view/accueil.html.twig');
+    }
 }
