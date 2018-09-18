@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/Login", name="login")
+     * @Route("/Connexion", name="login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {

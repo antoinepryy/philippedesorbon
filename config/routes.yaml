@@ -40,3 +40,6 @@ robotstxt:
 
 logout:
     path: /Logout
+
+compte:
+    path: /MonCompte
