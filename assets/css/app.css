@@ -87,6 +87,66 @@
     font-size: 0.4em;
 }
 
+.fsr-18{
+    font-size: 1.8vw;
+}
+
+.fsr-17{
+    font-size: 1.7vw;
+}
+
+.fsr-16{
+    font-size: 1.6vw;
+}
+
+.fsr-15{
+    font-size: 1.5vw;
+}
+
+.fsr-14{
+    font-size: 1.4vw;
+}
+
+.fsr-13{
+    font-size: 1.3vw;
+}
+
+.fsr-12{
+    font-size: 1.2vw;
+}
+
+.fsr-11{
+    font-size: 1.1vw;
+}
+
+.fsr-1{
+    font-size: 1vw;
+}
+
+.fsr-08{
+    font-size: 0.8vw;
+}
+
+.fsr-07{
+    font-size: 0.7vw;
+}
+
+.fsr-06{
+    font-size: 0.6vw;
+}
+
+.fsr-05{
+    font-size: 0.5vw;
+}
+
+.fsr-04{
+    font-size: 0.4vw;
+}
+
+
+
+
+
 .active{
     color: #CEBB97!important;
 }
@@ -141,20 +201,20 @@
 
 #fixed-hd{
     height: 70px;
-    -webkit-transition: top 0.3s linear;
-    -moz-transition: top 0.3s linear;
-    -o-transition: top 0.3s linear;
-    transition: top 0.3s linear;
+    -webkit-transition: top 0.25s linear;
+    -moz-transition: top 0.25s linear;
+    -o-transition: top 0.25s linear;
+    transition: top 0.25s linear;
 }
 
 .hd-nav{
     position: relative;
     z-index: 99999;
     top: 0;
-    -webkit-transition: top 0.2s ease-out;
-    -moz-transition: top 0.2s ease-out;
-    -o-transition: top 0.2s ease-out;
-    transition: top 0.2s ease-out;
+    -webkit-transition: top 0.4s ease-out;
+    -moz-transition: top 0.4s ease-out;
+    -o-transition: top 0.4s ease-out;
+    transition: top 0.4s ease-out;
 }
 
 .fixed{
