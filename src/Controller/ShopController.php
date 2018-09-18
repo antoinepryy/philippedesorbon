@@ -8,20 +8,34 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ShopController
+class ShopController extends Controller
 {
-
-    public function addProduct(){
-
+    /**
+     * @Route("/AddProduct", name="add_product")
+     */
+    public function addProduct(SessionInterface $session){
+        $session->set('test',2);
+        return $this->render('view/accueil.html.twig');
     }
-
-    public function removeOneProduct(){
+    /**
+     * @Route("/RemoveOneProduct", name="remove_one_product")
+     */
+    public function removeOneProduct(SessionInterface $session){
+        $foobar = $session->get('test');
+        die(var_dump($foobar));
+        return $this->render('view/accueil.html.twig');
 
     }
 
     public function removeAllProduct(){
 
     }
+
 
 }
