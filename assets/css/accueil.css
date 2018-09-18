@@ -39,3 +39,10 @@
     color: black;
 }
 
+.website-plan{
+    background: url("../../public/ressource/image/accueil/logo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20vw;
+}
+
