@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,9 +20,13 @@ class ShopController extends Controller
     /**
      * @Route("/AddProduct", name="add_product")
      */
-    public function addProduct(SessionInterface $session, $id){
-        $session->set('test',2);
-        return $this->render('view/accueil.html.twig');
+    public function addProduct(SessionInterface $session,Request $request){
+        if ($request->isXmlHttpRequest()) {
+            $session->set('test',2);
+            return  new JsonResponse("Coucou");
+        }
+        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
+
     }
 
     /**

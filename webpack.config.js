@@ -8,22 +8,13 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
-    /*
-     * ENTRY CONFIG
-     *
-     * Add 1 entry for each "page" of your app
-     * (including one that's included on every page - e.g. "app")
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
-     */
     .addEntry('app', './assets/js/app.js')
     .addEntry('champagnes', './assets/js/champagnes.js')
     .addEntry('maison', './assets/js/maison.js')
     .addEntry('savoirfaire', './assets/js/savoirfaire.js')
     .addEntry('vignoble', './assets/js/vignoble.js')
     .addEntry('accueil', './assets/js/accueil.js')
-    .addEntry('accueil', './assets/js/boutique.js')
+    .addEntry('boutique', './assets/js/boutique.js')
 
     /*
      * FEATURE CONFIG

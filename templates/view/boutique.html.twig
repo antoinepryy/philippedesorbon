@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div id="add-product" data-path="{{path('add_product')}}"></div>
+    <div id="remove-one" data-path="{{path('remove_one_product')}}"></div>
+    <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
     <div style="height: 500px; background-color: black;" class="relpos">
         <div class="py-5 container-fluid" style="background-color: black; display: flex;">
             <div style="width: 55%;" class="text-center">
@@ -89,7 +92,6 @@
     </div>
 
 {% endblock %}
-
 {% block javascripts %}
     <script src="{{ asset('build/boutique.js') }}"></script>
 {% endblock %}
