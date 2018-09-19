@@ -71,17 +71,17 @@ class User implements UserInterface
     private $roles;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=191)
      */
     private $addressStreet;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=191)
      */
     private $addressCity;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=191)
      */
     private $addressCountry;
 

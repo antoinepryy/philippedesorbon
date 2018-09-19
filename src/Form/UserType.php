@@ -36,14 +36,14 @@ class UserType extends AbstractType
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'Confirmer mot de passe'),
             ))
-            ->add('ad', TextType::class,
-                ['label'=>'Nom'])
-            ->add('lastName', TextType::class,
-                ['label'=>'Nom'])
-            ->add('lastName', TextType::class,
-                ['label'=>'Nom'])
-            ->add('lastName', TextType::class,
-                ['label'=>'Nom'])
+            ->add('addressStreet', TextType::class,
+                ['label'=>'Rue'])
+            ->add('addressCity', TextType::class,
+                ['label'=>'Ville'])
+            ->add('addressZipCode', TextType::class,
+                ['label'=>'Code postal'])
+            ->add('addressCountry', TextType::class,
+                ['label'=>'Pays'])
             ->add('termsAccepted', CheckboxType::class, array(
                 'mapped' => false,
                 'constraints' => new IsTrue(),
