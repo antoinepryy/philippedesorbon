@@ -2,6 +2,19 @@ easy_admin:
     design:
           brand_color: 'black'
     entities:
+            User:
+                class: App\Entity\User
+                list:
+                      fields:
+                          - id
+                          - firstName
+                          - lastName
+                          - email
+                form:
+                      fields:
+                          - firstName
+                          - lastName
+                          - email
             Champagne:
                 class: App\Entity\Champagne
                 list:
@@ -14,15 +27,6 @@ easy_admin:
                           - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
                           - { property: 'photo_paragraph', type: 'image', base_path: '%app.path.champagne_images%' }
                           - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
-#                      show:
-#                          fields:
-#                              - title_1
-#                              - urlLink
-#                              - type
-#                              - { property: 'photo_1', type: 'image', base_path: '%app.path.champagne_images%' }
-#                              - { property: 'photo_2', type: 'image', base_path: '%app.path.champagne_images%' }
-#                              - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
-#                              - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
                 form:
                       fields:
                           - name
