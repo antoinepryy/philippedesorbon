@@ -26,7 +26,7 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('username', TextType::class,
-                ['label' => 'Nom d\'utilisateur'])
+                ['label' => 'Pseudo'])
             ->add('firstName', TextType::class,
                 ['label'=>'Prénom'])
             ->add('lastName', TextType::class,
@@ -36,6 +36,14 @@ class UserType extends AbstractType
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'Confirmer mot de passe'),
             ))
+            ->add('ad', TextType::class,
+                ['label'=>'Nom'])
+            ->add('lastName', TextType::class,
+                ['label'=>'Nom'])
+            ->add('lastName', TextType::class,
+                ['label'=>'Nom'])
+            ->add('lastName', TextType::class,
+                ['label'=>'Nom'])
             ->add('termsAccepted', CheckboxType::class, array(
                 'mapped' => false,
                 'constraints' => new IsTrue(),

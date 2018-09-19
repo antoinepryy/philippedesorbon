@@ -71,35 +71,101 @@ class User implements UserInterface
     private $roles;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $addressStreet;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $addressCity;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $addressCountry;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $addressZipCode;
+
+
+
+
+
+
+
+    /**
      * @return mixed
      */
-    public function getFirstName()
+    public function getId()
     {
-        return $this->firstName;
-    }
-
-    /**
-     * @param mixed $firstName
-     */
-    public function setFirstName($firstName): void
-    {
-        $this->firstName = $firstName;
+        return $this->id;
     }
 
     /**
      * @return mixed
      */
-    public function getLastName()
+    public function getAddressStreet()
     {
-        return $this->lastName;
+        return $this->addressStreet;
     }
 
     /**
-     * @param mixed $lastName
+     * @param mixed $addressStreet
      */
-    public function setLastName($lastName): void
+    public function setAddressStreet($addressStreet): void
     {
-        $this->lastName = $lastName;
+        $this->addressStreet = $addressStreet;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressCity()
+    {
+        return $this->addressCity;
+    }
+
+    /**
+     * @param mixed $addressCity
+     */
+    public function setAddressCity($addressCity): void
+    {
+        $this->addressCity = $addressCity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressCountry()
+    {
+        return $this->addressCountry;
+    }
+
+    /**
+     * @param mixed $addressCountry
+     */
+    public function setAddressCountry($addressCountry): void
+    {
+        $this->addressCountry = $addressCountry;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressZipCode()
+    {
+        return $this->addressZipCode;
+    }
+
+    /**
+     * @param mixed $addressZipCode
+     */
+    public function setAddressZipCode($addressZipCode): void
+    {
+        $this->addressZipCode = $addressZipCode;
     }
 
 
@@ -109,7 +175,6 @@ class User implements UserInterface
         $this->roles = array('ROLE_USER');
     }
 
-    // other properties and methods
 
     public function getEmail()
     {
@@ -149,6 +214,38 @@ class User implements UserInterface
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param mixed $firstName
+     */
+    public function setFirstName($firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param mixed $lastName
+     */
+    public function setLastName($lastName): void
+    {
+        $this->lastName = $lastName;
     }
 
     public function getSalt()
