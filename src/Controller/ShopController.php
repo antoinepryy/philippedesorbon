@@ -47,19 +47,46 @@ class ShopController extends Controller
     /**
      * @Route("/RemoveOneProduct", name="remove_one_product")
      */
-    public function removeOneProduct(SessionInterface $session, $id){
-        $foobar = $session->get('test');
-        die(var_dump($foobar));
-        return $this->render('view/accueil.html.twig');
+    public function removeOneProduct(SessionInterface $session, Request $request){
+        if ($request->isXmlHttpRequest()) {
+            $cart = $session->get('cart');
+            $bottleId = $request->query->get('bottleId');
+            for ($i=0 ; $i < count($cart); $i++) {
+                if($cart[$i][0]==$bottleId && $cart[$i][0]!=0){
+                    $cart[$i][1]--;
+                    $session->set('cart',$cart);
+                    break;
+                }
+                else if($cart[$i][0]==$bottleId && $cart[$i][0]==0){
+                    break;
+                }
+            }
+
+            return  new JsonResponse($cart);
+        }
+        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
     }
+
     /**
      * @Route("/RemoveAllProducts", name="remove_all_products")
      */
-    public function removeAllProduct(){
+    public function removeAllProduct(SessionInterface $session, Request $request){
+        if ($request->isXmlHttpRequest()) {
+            $cart = $session->get('cart');
+            $bottleId = $request->query->get('bottleId');
+            for ($i=0 ; $i < count($cart); $i++) {
+                if($cart[$i][0]==$bottleId && $cart[$i][0]!=0){
+                    unset($cart[$i]);
+                    break;
+                }
+            }
+
+            return  new JsonResponse($cart);
+        }
+        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
     }
-
     /**
      * @Route("/ClearCart", name="clear_cart")
      */
