@@ -52,12 +52,12 @@ class Champagne
     private $presentation_1;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $subtitle_2_1;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $presentation_2_1;
 
@@ -85,11 +85,7 @@ class Champagne
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $subtitle_3;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $presentation_3;
+    
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -100,6 +96,17 @@ class Champagne
      * @ORM\Column(type="text", nullable=true)
      */
     private $presentation_4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_5;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_5;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -333,19 +340,7 @@ class Champagne
 
         return $this;
     }
-
-    public function getPresentation3(): ?string
-    {
-        return $this->presentation_3;
-    }
-
-    public function setPresentation3(string $presentation_3): self
-    {
-        $this->presentation_3 = $presentation_3;
-
-        return $this;
-    }
-
+    
     public function getSubtitle4(): ?string
     {
         return $this->subtitle_4;
@@ -370,7 +365,34 @@ class Champagne
         return $this;
     }
 
-    public function setPhotoFile1(File $image = null)
+
+    public function getSubtitle5(): ?string
+    {
+        return $this->subtitle_5;
+    }
+
+    public function setSubtitle5(string $subtitle_5): self
+    {
+        $this->subtitle_5 = $subtitle_5;
+
+        return $this;
+    }
+
+    public function getPresentation5(): ?string
+    {
+        return $this->presentation_2_1;
+    }
+
+    public function setPresentation5(?string $presentation_5): self
+    {
+        $this->presentation_5 = $presentation_5;
+
+        return $this;
+    }
+
+
+
+        public function setPhotoFile1(File $image = null)
     {
         $this->photoFile_1 = $image;
         if ($image) {
