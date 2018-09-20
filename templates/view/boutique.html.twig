@@ -4,7 +4,7 @@
     <div id="add-product" data-path="{{path('add_product')}}"></div>
     <div id="remove-one" data-path="{{path('remove_one_product')}}"></div>
     <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
-    <div style="height: 500px; background-color: black;" class="relpos">
+    <div style="background-color: black;">
         <div class="py-5 container-fluid" style="background-color: black; display: flex;">
             <div style="width: 55%;" class="text-center">
                 <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
@@ -82,11 +82,38 @@
                     SUPPRIMER
                 </div>
             </div>
-            <div class="row segoe text-white">
-                <div class="col my-5 py-5">
-                    EN DEVELOPPEMENT
+            {% for champagne in champagneClassique %}
+            <div class="row segoe text-white py-4 middle-div">
+                <div class="col-3" style="display: flex">
+                    <div class="w-50">
+                        <img style="height: 60px; border: 1px solid #CEBB97; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                    </div>
+                    <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+                        {{ champagne.name|upper }}
+                    </div>
+                </div>
+                <div class="col-3" style="display: inline-flex; justify-content: space-around">
+                    <div>
+                        -
+                    </div>
+                    <div>
+                        2
+                    </div>
+                    <div>
+                        +
+                    </div>
+                </div>
+                <div class="col-2">
+                    {{ champagne.price }} &euro;
+                </div>
+                <div class="col-2">
+                    PRIX TOTAL
+                </div>
+                <div class="col-2">
+                    X
                 </div>
             </div>
+        {% endfor %}
 
         </div>
     </div>
