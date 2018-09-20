@@ -22,10 +22,6 @@ easy_admin:
                           - name
                           - urlLink
                           - price
-                          - { property: 'photo_1', type: 'image', base_path: '%app.path.champagne_images%' }
-                          - { property: 'photo_2', type: 'image', base_path: '%app.path.champagne_images%' }
-                          - { property: 'photo_3', type: 'image', base_path: '%app.path.champagne_images%' }
-                          - { property: 'photo_paragraph', type: 'image', base_path: '%app.path.champagne_images%' }
                           - { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
                 form:
                       fields:
@@ -41,11 +37,13 @@ easy_admin:
                           - presentation_2_2
                           - subtitle_2_3
                           - presentation_2_3
-                          - title_3
+                          - subtitle_3
+                          - presentation_3
                           - subtitle_4
                           - presentation_4
                           - { property: 'photoFile_1', type: 'vich_image' }
                           - { property: 'photoFile_2', type: 'vich_image' }
                           - { property: 'photoFile_3', type: 'vich_image' }
-                          - { property: 'photoFile_paragraph', type: 'vich_image' }
+                          - { property: 'photoFile_paragraph_1', type: 'vich_image' }
+                          - { property: 'photoFile_paragraph_2', type: 'vich_image' }
                           - { property: 'photoFile_bouteille', type: 'vich_image' }

@@ -84,20 +84,25 @@ class Champagne
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $title_3;
+    private $subtitle_3;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $subtitle_4;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $presentation_4;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $photo_1;
@@ -109,7 +114,7 @@ class Champagne
     private $photoFile_1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $photo_2;
@@ -121,7 +126,7 @@ class Champagne
     private $photoFile_2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $photo_3;
@@ -133,16 +138,40 @@ class Champagne
     private $photoFile_3;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
-    private $photo_paragraph;
+    private $photo_4;
 
     /**
-     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_paragraph")
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_4")
      * @var File
      */
-    private $photoFile_paragraph;
+    private $photoFile_4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $photo_paragraph_1;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_paragraph_1")
+     * @var File
+     */
+    private $photoFile_paragraph_1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $photo_paragraph_2;
+
+    /**
+     * @Vich\UploadableField(mapping="champagne_images", fileNameProperty="photo_paragraph_2")
+     * @var File
+     */
+    private $photoFile_paragraph_2;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -293,14 +322,26 @@ class Champagne
         return $this;
     }
 
-    public function getTitle3(): ?string
+    public function getSubTitle3(): ?string
     {
-        return $this->title_3;
+        return $this->subtitle_3;
     }
 
-    public function setTitle3(?string $title_3): self
+    public function setSubTitle3(?string $subtitle_3): self
     {
-        $this->title_3 = $title_3;
+        $this->subtitle_3 = $subtitle_3;
+
+        return $this;
+    }
+
+    public function getPresentation3(): ?string
+    {
+        return $this->presentation_3;
+    }
+
+    public function setPresentation3(string $presentation_3): self
+    {
+        $this->presentation_3 = $presentation_3;
 
         return $this;
     }
@@ -398,27 +439,74 @@ class Champagne
         return $this->photo_3;
     }
 
-    public function setPhotoFileParagraph(File $image = null)
+    public function setPhotoFile4(File $image = null)
     {
-        $this->photoFile_paragraph = $image;
+        $this->photoFile_4 = $image;
         if ($image) {
             $this->updatedAt = new \DateTime('now');
         }
     }
 
-    public function getPhotoFileParagraph()
+    public function getPhotoFile4()
     {
-        return $this->photoFile_paragraph;
+        return $this->photoFile_4;
     }
 
-    public function setPhotoParagraph($image)
+    public function setPhoto4($image)
     {
-        $this->photo_paragraph= $image;
+        $this->photo_4 = $image;
     }
 
-    public function getphotoParagraph()
+    public function getphoto4()
     {
-        return $this->photo_paragraph;
+        return $this->photo_4;
+    }
+
+
+    public function setPhotoFileParagraph1(File $image = null)
+    {
+        $this->photoFile_paragraph_1 = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFileParagraph1()
+    {
+        return $this->photoFile_paragraph_1;
+    }
+
+    public function setPhotoParagraph1($image)
+    {
+        $this->photo_paragraph_1= $image;
+    }
+
+    public function getPhotoParagraph1()
+    {
+        return $this->photo_paragraph_1;
+    }
+
+    public function setPhotoFileParagraph2(File $image = null)
+    {
+        $this->photoFile_paragraph_2 = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPhotoFileParagraph2()
+    {
+        return $this->photoFile_paragraph_2;
+    }
+
+    public function setPhotoParagraph2($image)
+    {
+        $this->photo_paragraph_2= $image;
+    }
+
+    public function getphotoParagraph2()
+    {
+        return $this->photo_paragraph_2;
     }
 
     public function setPhotoFileBouteille(File $image = null)
