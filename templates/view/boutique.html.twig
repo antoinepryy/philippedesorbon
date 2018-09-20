@@ -86,7 +86,7 @@
             <div class="row segoe text-white py-4 middle-div">
                 <div class="col-3" style="display: flex">
                     <div class="w-50">
-                        <img style="height: 60px; border: 1px solid #CEBB97; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                        <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
                     </div>
                     <div style="width:50%;display:flex;justify-content:center;align-items:center;">
                         {{ champagne.name|upper }}
@@ -115,10 +115,10 @@
             </div>
             {% endfor %}
             {% for champagne in champagneCollection %}
-                <div class="row segoe text-white py-4 middle-div">
+                <div class="row segoe text-white py-4 middle-div shop-animate-all">
                     <div class="col-3" style="display: flex">
                         <div class="w-50">
-                            <img style="height: 60px; border: 1px solid #CEBB97; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                            <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
                         </div>
                         <div style="width:50%;display:flex;justify-content:center;align-items:center;">
                             {{ champagne.name|upper }}

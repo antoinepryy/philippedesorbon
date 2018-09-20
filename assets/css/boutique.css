@@ -20,3 +20,10 @@
 .middle-div > div > div, .middle-div > div{
     display:flex;justify-content:center;align-items:center;
 }
+
+.shop-animate-all{
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
