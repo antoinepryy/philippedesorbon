@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use function MongoDB\BSON\toJSON;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,8 +23,10 @@ class ShopController extends Controller
      */
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
-            $session->set('test',2);
-            return  new JsonResponse("Coucou");
+            $bottleId = $request->query->get('bottleId');
+
+            //$session->set('test',2);
+            return  new JsonResponse($bottleId);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
