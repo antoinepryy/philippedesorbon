@@ -23,10 +23,11 @@ class ShopController extends Controller
      */
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
-            $bottleId = $request->query->get('bottleId');
             $cart = $session->get('cart');
-
-
+            $bottleId = $request->query->get('bottleId');
+            if (is_null($cart)){
+                $cart = [];
+            }
             for ($i=0 ; $i < count($cart); $i++) {
                 if($cart[$i][0]==$bottleId){
                     $cart[$i][1]++;
@@ -75,24 +76,12 @@ class ShopController extends Controller
     }
 
     /**
-     * @Route("/test/{id}", name="test")
+     * @Route("/test", name="test")
      */
-    public function test(SessionInterface $session, $id){
+    public function test(SessionInterface $session){
 
         $cart = $session->get('cart');
-
-        for ($i=0 ; $i < count($cart); $i++) {
-            if($cart[$i][0]==$id){
-                $cart[$i][1]++;
-                break;
-            };
-        }
-        if ($i==count($cart)){
-            array_push($cart, [intval($id), 1]);
-        }
-        $session->set('cart',$cart);
-
-        die(var_dump($cart));
+        die(is_null($cart));
     }
 
 

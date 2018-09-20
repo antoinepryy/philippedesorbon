@@ -6,8 +6,8 @@ $(".shop-button").click(function(){
         type : 'GET',
         dataType : 'json',
         data : 'bottleId=' + id,
-        success : function(code_html, statut){
-            alert(code_html);
+        success : function(response, statut){
+            alert(response);
             //$(code_html).appendTo("#commentaires"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
         },
 
