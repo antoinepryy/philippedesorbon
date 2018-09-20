@@ -25,7 +25,7 @@ class ShopController extends Controller
         if ($request->isXmlHttpRequest()) {
             $bottleId = $request->query->get('bottleId');
 
-            //$session->set('test',2);
+            $session->set('cart',[1,2,3]);
             return  new JsonResponse($bottleId);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
@@ -53,6 +53,14 @@ class ShopController extends Controller
      */
     public function clearCart(){
 
+    }
+
+    /**
+     * @Route("/seeCart", name="see_cart")
+     */
+    public function seeCart(SessionInterface $session){
+        $cart = $session->get('cart');
+        die(var_dump($cart));
     }
 
 
