@@ -24,9 +24,20 @@ class ShopController extends Controller
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
             $bottleId = $request->query->get('bottleId');
+            $cart = $session->get('cart');
 
-            $session->set('cart',[1,2,3]);
-            return  new JsonResponse($bottleId);
+
+            for ($i=0 ; $i < count($cart); $i++) {
+                if($cart[$i][0]==$bottleId){
+                    $cart[$i][1]++;
+                    break;
+                };
+            }
+            if ($i==count($cart)){
+                array_push($cart, [intval($bottleId), 1]);
+            }
+            $session->set('cart',$cart);
+            return  new JsonResponse($cart);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
@@ -51,8 +62,8 @@ class ShopController extends Controller
     /**
      * @Route("/ClearCart", name="clear_cart")
      */
-    public function clearCart(){
-
+    public function clearCart(SessionInterface $session){
+        $session->set('cart',[]);
     }
 
     /**
@@ -60,6 +71,27 @@ class ShopController extends Controller
      */
     public function seeCart(SessionInterface $session){
         $cart = $session->get('cart');
+        die(var_dump($cart));
+    }
+
+    /**
+     * @Route("/test/{id}", name="test")
+     */
+    public function test(SessionInterface $session, $id){
+
+        $cart = $session->get('cart');
+
+        for ($i=0 ; $i < count($cart); $i++) {
+            if($cart[$i][0]==$id){
+                $cart[$i][1]++;
+                break;
+            };
+        }
+        if ($i==count($cart)){
+            array_push($cart, [intval($id), 1]);
+        }
+        $session->set('cart',$cart);
+
         die(var_dump($cart));
     }
 
