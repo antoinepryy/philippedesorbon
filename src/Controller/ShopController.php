@@ -52,15 +52,17 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             for ($i=0 ; $i < count($cart); $i++) {
-                if($cart[$i][0]==$bottleId && $cart[$i][0]!=0){
+                if($cart[$i][0]==$bottleId && $cart[$i][1]!=0){
                     $cart[$i][1]--;
-                    $session->set('cart',$cart);
                     break;
                 }
-                else if($cart[$i][0]==$bottleId && $cart[$i][0]==0){
+                else if($cart[$i][0]==$bottleId && $cart[$i][1]==0){
+                    array_splice($cart, $i,1);
                     break;
                 }
             }
+            $session->set('cart',$cart);
+
 
             return  new JsonResponse($cart);
         }
@@ -76,22 +78,22 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             for ($i=0 ; $i < count($cart); $i++) {
-                if($cart[$i][0]==$bottleId && $cart[$i][0]!=0){
-                    unset($cart[$i]);
+                if($cart[$i][0]==$bottleId){
+                    array_splice($cart, $i,1);
                     break;
                 }
             }
-
+            $session->set('cart',$cart);
             return  new JsonResponse($cart);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
-
     }
     /**
      * @Route("/ClearCart", name="clear_cart")
      */
     public function clearCart(SessionInterface $session){
         $session->set('cart',[]);
+        return new Response('ok');
     }
 
     /**
@@ -107,8 +109,9 @@ class ShopController extends Controller
      */
     public function test(SessionInterface $session){
 
-        $cart = $session->get('cart');
-        die(is_null($cart));
+        $anArray = ["V", "W", "X", "Y", "Z"];
+        array_splice($anArray, 2, 1);
+        die(var_dump($anArray));
     }
 
 
