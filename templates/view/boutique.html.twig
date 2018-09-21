@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div id="get-cart" data-path="{{path('get_cart')}}"></div>
     <div id="add-product" data-path="{{path('add_product')}}"></div>
     <div id="remove-one" data-path="{{path('remove_one_product')}}"></div>
     <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
@@ -83,7 +84,7 @@
                 </div>
             </div>
             {% for champagne in champagneClassique %}
-            <div class="row segoe text-white py-4 middle-div">
+            <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div" style="display: none;">
                 <div class="col-3" style="display: flex">
                     <div class="w-50">
                         <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
@@ -96,8 +97,7 @@
                     <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
                         -
                     </div>
-                    <div class="third-width h-100">
-                        0
+                    <div class="third-width h-100" id="quantity-{{ champagne.id }}">
                     </div>
                     <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
                         +
@@ -115,7 +115,7 @@
             </div>
             {% endfor %}
             {% for champagne in champagneCollection %}
-                <div class="row segoe text-white py-4 middle-div shop-animate-all">
+                <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div shop-animate-all" style="display: none;">
                     <div class="col-3" style="display: flex">
                         <div class="w-50">
                             <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
@@ -128,8 +128,7 @@
                         <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
                             -
                         </div>
-                        <div class="third-width h-100">
-                            0
+                        <div class="third-width h-100" id="quantity-{{ champagne.id }}">
                         </div>
                         <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
                             +

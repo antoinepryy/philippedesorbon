@@ -18,6 +18,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ShopController extends Controller
 {
+
+    /**
+     * @Route("/GetCart", name="get_cart")
+     */
+    public function getCart(SessionInterface $session,Request $request){
+        if ($request->isXmlHttpRequest()) {
+            $cart = $session->get('cart');
+            return  new JsonResponse($cart);
+        }
+        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
+    }
     /**
      * @Route("/AddProduct", name="add_product")
      */

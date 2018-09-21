@@ -12,6 +12,7 @@ use App\Entity\Champagne;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class DefaultController extends Controller
 {
@@ -54,8 +55,9 @@ class DefaultController extends Controller
         return $this->render('view/vignoble.html.twig');
     }
 
-    public function boutique()
+    public function boutique(SessionInterface $session)
     {
+        $cart = $session->get('cart');
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
         $champagneListClassique = $repository->findBy(['type' => 'Classique']);
         $champagneListCollection = $repository->findBy(['type' => 'Collection']);
