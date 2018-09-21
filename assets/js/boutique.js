@@ -7,6 +7,7 @@ $(".shop-button, .add-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
+            refreshDisplay(response);
             alert(response);
             //$(code_html).appendTo("#commentaires"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
         },
@@ -24,6 +25,7 @@ $(".remove-one-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
+            refreshDisplay(response);
             alert(response);
             //$(code_html).appendTo("#commentaires"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
         },
@@ -41,6 +43,7 @@ $(".remove-all-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
+            refreshDisplay(response);
             alert(response);
             //$(code_html).appendTo("#commentaires"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
         },
@@ -48,4 +51,9 @@ $(".remove-all-button").click(function(){
 
     });
 });
+
+function refreshDisplay(cart) {
+
+
+}
 
