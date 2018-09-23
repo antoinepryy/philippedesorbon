@@ -3,7 +3,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100vw;
-    height: 63vh;;
+    height: calc(100vh - 250px);
 }
 
 .savoirfaire-slide2{
