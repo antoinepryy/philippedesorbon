@@ -62,7 +62,7 @@ $(".remove-all-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            hideProduct(id);
+            hideProduct(id, response);
         },
 
 
@@ -70,6 +70,10 @@ $(".remove-all-button").click(function(){
 });
 
 function renderCart(cart){
+    if (cart.length===0){
+        document.getElementById('empty-cart').style.display = "block";
+        document.getElementById('cart-section').style.display = "none";
+    }
     for (var i = 0; i < cart.length; i++) {
         var block = document.getElementById('champagne-'+cart[i][0]);
         var quantity = document.getElementById('quantity-'+cart[i][0]);
@@ -107,14 +111,23 @@ function reduceNumber(id){
 }
 
 
-function hideProduct(id){
+function hideProduct(id, cart){
     var block = document.getElementById('champagne-'+id);
     block.style.display = "none";
+    if (cart.length===0){
+        document.getElementById('empty-cart').style.display = "block";
+        document.getElementById('cart-section').style.display = "none";
+    }
 }
 
 function unHideProduct(id, quantity) {
+    document.getElementById('empty-cart').style.display = "none";
+    document.getElementById('cart-section').style.display = "block";
     var block = document.getElementById('champagne-'+id);
     var element = document.getElementById('quantity-'+id);
     block.style.display = "flex";
     element.innerHTML = quantity.toString();
+    var price = document.getElementById('price-'+id);
+    var totalPrice = parseInt(quantity) * parseFloat(price.innerHTML);
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
 }
