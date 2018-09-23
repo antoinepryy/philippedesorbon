@@ -104,10 +104,10 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    {{ champagne.price|number_format(2) }} &euro;
+                    <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
                 </div>
                 <div class="col-2">
-                    PRIX TOTAL
+                    <span id="total-price-{{ champagne.id }}"></span> &euro;
                 </div>
                 <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
                     X
@@ -135,10 +135,10 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        {{ champagne.price|number_format(2) }} &euro;
+                        <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
                     </div>
                     <div class="col-2">
-                        PRIX TOTAL
+                        <span id="total-price-{{ champagne.id }}"></span> &euro;
                     </div>
                     <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
                         X

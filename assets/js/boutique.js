@@ -17,7 +17,7 @@ $(".shop-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            unHideProduct(id);
+            unHideProduct(id, response);
         },
     });
 });
@@ -63,7 +63,6 @@ $(".remove-all-button").click(function(){
         data : 'bottleId=' + id,
         success : function(response, statut){
             hideProduct(id);
-            //$(code_html).appendTo("#commentaires"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
         },
 
 
@@ -71,28 +70,40 @@ $(".remove-all-button").click(function(){
 });
 
 function renderCart(cart){
-    console.log(cart);
     for (var i = 0; i < cart.length; i++) {
         var block = document.getElementById('champagne-'+cart[i][0]);
         var quantity = document.getElementById('quantity-'+cart[i][0]);
+        var price = document.getElementById('price-'+cart[i][0]);
         block.style.display = "flex";
         quantity.innerHTML = cart[i][1].toString();
+        var totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
+        console.log(totalPrice, quantity.innerHTML, price.innerHTML);
+        document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
     }
 }
 function increaseNumber(id){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
     var idAfter = idBefore + 1;
+    var price = document.getElementById('price-'+id);
+    var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
     element.innerHTML = idAfter.toString();
-    console.log(element);
 }
 
 function reduceNumber(id){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
-    var idAfter = idBefore - 1;
+    if(idBefore > 1){
+        var idAfter = idBefore - 1;
+    }
     element.innerHTML = idAfter.toString();
-    console.log(element);
+    var price = document.getElementById('price-'+id);
+    var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
+    element.innerHTML = idAfter.toString();
+
+
 }
 
 
@@ -101,7 +112,9 @@ function hideProduct(id){
     block.style.display = "none";
 }
 
-function unHideProduct(id) {
+function unHideProduct(id, quantity) {
     var block = document.getElementById('champagne-'+id);
+    var element = document.getElementById('quantity-'+id);
     block.style.display = "flex";
+    element.innerHTML = quantity.toString();
 }

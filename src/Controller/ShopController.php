@@ -34,6 +34,7 @@ class ShopController extends Controller
      */
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
+            $quantity = 0;
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             if (is_null($cart)){
@@ -41,15 +42,16 @@ class ShopController extends Controller
             }
             for ($i=0 ; $i < count($cart); $i++) {
                 if($cart[$i][0]==$bottleId){
-                    $cart[$i][1]++;
+                    $quantity = $cart[$i][1]++;
                     break;
                 };
             }
             if ($i==count($cart)){
                 array_push($cart, [intval($bottleId), 1]);
+                $quantity = 1;
             }
             $session->set('cart',$cart);
-            return  new JsonResponse($cart);
+            return  new JsonResponse($quantity);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
@@ -67,8 +69,8 @@ class ShopController extends Controller
                     $cart[$i][1]--;
                     break;
                 }
-                else if($cart[$i][0]==$bottleId && $cart[$i][1]==0){
-                    array_splice($cart, $i,1);
+                else if($cart[$i][0]==$bottleId && $cart[$i][1]==1){
+                    //array_splice($cart, $i,1);
                     break;
                 }
             }
