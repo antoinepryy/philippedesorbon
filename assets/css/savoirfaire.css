@@ -8,7 +8,7 @@
 
 .savoirfaire-slide2{
     background-image: url("../../public/ressource/image/savoirfaire/vendange.jpg");
-    min-height: 100vh;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 .savoirfaire-slide3{
     background-image: url("../../public/ressource/image/savoirfaire/fut.jpg");
-    min-height: 100vh;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 
 .savoirfaire-slide4{
     background-image: url("../../public/ressource/image/savoirfaire/coupe_champagne.jpg");
-    min-height: 100vh;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 
 .savoirfaire-slide5{
     background-image: url("../../public/ressource/image/savoirfaire/cave.jpg");
-    min-height: 100vh;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@
 
 .savoirfaire-slide6{
     background-image: url("../../public/ressource/image/savoirfaire/champagne.jpg");
-    min-height: 100vh;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -53,7 +53,7 @@
 
 .savoirfaire-slide7{
     background-image: url("../../public/ressource/image/savoirfaire/bouchon.jpg");
-    min-height: 300px;
+    min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -78,7 +78,7 @@
     position: absolute;
     left: 5%;
     top: 50%;
-    width: 30%;
+    width: 40%;
     transform: translateY(-50%);
 }
 
@@ -86,7 +86,7 @@
     position: absolute;
     right: 5%;
     top: 50%;
-    width: 30%;
+    width: 35%;
     transform: translateY(-50%);
 }
 
@@ -94,7 +94,7 @@
     position: absolute;
     left: 5%;
     top: 0;
-    width: 35%;
+    width: 40%;
     background-color: #2E2B2B;
     height: 100%;
 }
@@ -103,7 +103,7 @@
     position: absolute;
     left: 5%;
     top: 50%;
-    width: 35%;
+    width: 50%;
     transform: translateY(-50%);
 }
 
@@ -111,7 +111,7 @@
     position: absolute;
     right: 2%;
     top: 50%;
-    width: 35%;
+    width: 40%;
     transform: translateY(-50%);
 }
 
