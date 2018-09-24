@@ -70,17 +70,6 @@
     background-size: cover;
 }
 
-.slideup{
-    animation-duration: 2s;
-    animation-name: slideup;
-
-    bottom: 0;
-}
-
-.text-hidden{
-    top: 17.5em;
-}
-
 .vignoble-txt-1{
     position: absolute;
     right:2%;
@@ -93,7 +82,6 @@
 .vignoble-txt-1>div{
     position: absolute;
     top: 50%;
-    transform: translateY(-50%)
 }
 .vignoble-txt-2{
     width: 40%;
@@ -110,26 +98,26 @@
 }
 
 .vignes{
-    width: 10.8em;
-    height: 17.2em;
+    width: 13em;
+    height: 21em;
     overflow: hidden;
 }
-
+.vignes>div{
+    overflow: hidden;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.slideup{
+    bottom: 0;
+}
+.text-hidden{
+    bottom: calc(-100%);
+}
 .vignoble-section{
     height: 20vh;
     position: relative;
 }
 
-
-
-@keyframes slideup {
-    from{
-        bottom : revert;
-    }
-    to {
-        bottom: 0px;
-    }
-}
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .vignoble-txt-1{
