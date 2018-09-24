@@ -73,7 +73,9 @@ function renderCart(cart){
     if (cart.length===0){
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
+        document.getElementById('cart-recap').style.display = "none";
     }
+
     for (var i = 0; i < cart.length; i++) {
         var block = document.getElementById('champagne-'+cart[i][0]);
         var quantity = document.getElementById('quantity-'+cart[i][0]);
@@ -120,12 +122,20 @@ function hideProduct(id, cart){
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
     }
+    if(cart.length === 0){
+        document.getElementById("cart-recap").style.display = "none";
+    }
+    var element = document.getElementById('quantity-'+id);
+    var totalPrice = 0;
+    element.innerHTML = "0";
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
     totalCalculation();
 }
 
 function unHideProduct(id, quantity) {
     document.getElementById('empty-cart').style.display = "none";
     document.getElementById('cart-section').style.display = "block";
+    document.getElementById('cart-recap').style.display = "block";
     var block = document.getElementById('champagne-'+id);
     var element = document.getElementById('quantity-'+id);
     block.style.display = "flex";
@@ -147,4 +157,5 @@ function totalCalculation(){
         }
     }
     document.getElementById('sous-total').innerHTML = sousTotal.toString();
+    document.getElementById('total-all').innerHTML = sousTotal.toString();
 }
