@@ -101,7 +101,7 @@
                     <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
                         -
                     </div>
-                    <div class="third-width h-100" id="quantity-{{ champagne.id }}">
+                    <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
                     </div>
                     <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
                         +
@@ -111,7 +111,7 @@
                     <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
                 </div>
                 <div class="col-2">
-                    <span id="total-price-{{ champagne.id }}"></span> &euro;
+                    <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
                 </div>
                 <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
                     X
@@ -132,7 +132,7 @@
                         <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
                             -
                         </div>
-                        <div class="third-width h-100" id="quantity-{{ champagne.id }}">
+                        <div  class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
                         </div>
                         <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
                             +
@@ -142,7 +142,7 @@
                         <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
                     </div>
                     <div class="col-2">
-                        <span id="total-price-{{ champagne.id }}"></span> &euro;
+                        <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
                     </div>
                     <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
                         X
@@ -167,15 +167,15 @@
                 <div class="col-2">
 
                 </div>
-                <div class="col-2">
-                    <div class="segoe fs-1" style="float: right">SOUS-TOTAL</div>
-                    <div class="segoe fs-08" style="opacity: 0.5; float: right">TVA INCLUSE 20%</div>
-                    <div class="segoe fs-1" style="float: right">FRAIS DE LIVRAISON</div>
+                <div class="col-2 text-center">
+                    <div class="segoe fs-1">SOUS-TOTAL</div>
+                    <div class="segoe fs-08" style="opacity: 0.5;">TVA INCLUSE 20%</div>
+                    <div class="segoe fs-1">FRAIS DE LIVRAISON</div>
                 </div>
-                <div class="col-2">
-                    <div id="sous-total" class="segoe fs-1" style="float: right"></div>
-                    <div class="segoe fs-08" style="opacity: 0.5; float: right"></div>
-                    <div id="livraison" class="segoe fs-1" style="float: right"></div>
+                <div class="col-2 text-center">
+                    <div class="segoe fs-1"><span id="sous-total"></span> &euro;</div>
+                    <div class="segoe fs-08" style="opacity: 0;">void</div>
+                    <div class="segoe fs-1"><span id="livraison">0,00</span> &euro;</div>
                 </div>
             </div>
 

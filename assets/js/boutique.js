@@ -81,9 +81,9 @@ function renderCart(cart){
         block.style.display = "flex";
         quantity.innerHTML = cart[i][1].toString();
         var totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
-        console.log(totalPrice, quantity.innerHTML, price.innerHTML);
         document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
     }
+    totalCalculation();
 }
 function increaseNumber(id){
     var element = document.getElementById('quantity-'+id);
@@ -93,6 +93,7 @@ function increaseNumber(id){
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
     element.innerHTML = idAfter.toString();
+    totalCalculation();
 }
 
 function reduceNumber(id){
@@ -106,6 +107,7 @@ function reduceNumber(id){
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
     element.innerHTML = idAfter.toString();
+    totalCalculation();
 
 
 }
@@ -118,6 +120,7 @@ function hideProduct(id, cart){
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
     }
+    totalCalculation();
 }
 
 function unHideProduct(id, quantity) {
@@ -130,4 +133,18 @@ function unHideProduct(id, quantity) {
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(quantity) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
+    totalCalculation();
+}
+
+function totalCalculation(){
+    var priceList = document.getElementsByClassName("total-price");
+    console.log(priceList);
+    var sousTotal = 0;
+    for (var i = 0; i < priceList.length; i++){
+        console.log(priceList[i].innerHTML);
+        if (!isNaN(parseFloat(priceList[i].innerHTML))){
+            sousTotal += parseFloat(priceList[i].innerHTML);
+        }
+    }
+    document.getElementById('sous-total').innerHTML = sousTotal.toString();
 }
