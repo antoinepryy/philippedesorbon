@@ -5,7 +5,7 @@ $.ajax({
     dataType : 'json',
     success : function(response, statut){
         renderCart(response);
-    },
+        },
 });
 
 $(".shop-button").click(function(){
@@ -17,7 +17,12 @@ $(".shop-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            unHideProduct(id, response);
+            if (response===1){
+                unHideProduct(id, response);
+            }
+            else{
+                increaseNumber(id);
+            }
         },
     });
 });

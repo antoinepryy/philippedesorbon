@@ -82,6 +82,7 @@
 .vignoble-txt-1>div{
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
 }
 .vignoble-txt-2{
     width: 40%;
