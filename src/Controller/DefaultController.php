@@ -78,6 +78,13 @@ class DefaultController extends Controller
         return $this->render('view/contact.html.twig');
     }
 
+    public function commande(SessionInterface $session,Request $request)
+    {
+        $cart = $session->get('cart');
+        die(var_dump($cart));
+        return $this->render('view/commande.html.twig');
+    }
+
     public function showBottles(){
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
         $champagneListClassique = $repository->findBy(['type' => 'Classique']);

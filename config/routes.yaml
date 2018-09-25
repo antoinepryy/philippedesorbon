@@ -44,4 +44,9 @@ logout:
 compte:
     path: /MonCompte
 
+commande:
+    path: /Commande
+    controller: App\Controller\DefaultController::commande
+
+
 

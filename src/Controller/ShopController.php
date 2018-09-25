@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-use function MongoDB\BSON\toJSON;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;

@@ -66,7 +66,7 @@
 
         <h1 class="edwardian text-white py-3" style="font-size: 3.5em">Votre Panier</h1>
         <div class="container">
-            <div id="empty-cart" class="segoe text-white fs-16 text-center" style="display: none;">
+            <div id="empty-cart" class="segoe text-white fs-16 text-center pb-5" style="display: none;">
                 Votre panier est vide
             </div>
             <div id="cart-section">
@@ -156,6 +156,7 @@
         </div>
     </div>
     <div id="cart-recap" style="background-color: black">
+    <div>
         <div class="container p-3">
             <div class="row segoe text-white py-2">
                 <div class="col-3">
@@ -195,10 +196,15 @@
                     <div class="segoe fs-1"><span id="total-all"></span> &euro;</div>
                 </div>
             </div>
-
         </div>
 
     </div>
+    <div class="p-5">
+        <a href="{{ path('commande') }}" class="p-2" style="border: 1px solid #BA55D3; color: #BA55D3; opacity: 0.5; margin-left: 75%;">PROCEDER AU REGLEMENT</a>
+    </div>
+    </div>
+
+
 
 {% endblock %}
 {% block javascripts %}
