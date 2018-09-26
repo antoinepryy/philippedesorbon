@@ -75,7 +75,7 @@ $(".remove-all-button").click(function(){
 });
 
 function renderCart(cart){
-    if (cart.length===0){
+    if (cart.length===0 || cart.length===undefined){
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
         document.getElementById('cart-recap').style.display = "none";
