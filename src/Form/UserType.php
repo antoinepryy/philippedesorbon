@@ -26,8 +26,6 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class,
                 ['attr'=>['placeholder'=>'Email']])
-            ->add('username', TextType::class,
-                ['attr'=>['placeholder'=>'Pseudo']])
             ->add('firstName', TextType::class,
                 ['attr'=>['placeholder'=>'Prénom']])
             ->add('lastName', TextType::class,

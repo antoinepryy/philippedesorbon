@@ -1,6 +1,21 @@
-.bg-login{
+.login{
     background-image: url("../../public/ressource/image/connexion/bouteille.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
 }
+
+/*.login .form-control{*/
+    /*color: white!important;*/
+    /*background-color: black!important;*/
+    /*border: 1px solid white!important;*/
+    /*border-radius: 0px;*/
+/*}*/
+/*.login label{*/
+    /*display: none;*/
+/*}*/
+
+/*.login ::placeholder{*/
+    /*color: white!important;*/
+/*}*/

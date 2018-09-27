@@ -3,15 +3,11 @@ easy_admin:
           brand_color: 'black'
     entities:
             User:
+                disabled_actions: ['edit']
                 class: App\Entity\User
                 list:
                       fields:
                           - id
-                          - firstName
-                          - lastName
-                          - email
-                form:
-                      fields:
                           - firstName
                           - lastName
                           - email
