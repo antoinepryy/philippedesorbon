@@ -12,13 +12,21 @@
     border-radius: 0px;
 }
 .register1 label{
-    color: white;
+    display: none;
+}
+
+.register1 ::placeholder{
+    color: white!important;
 }
 
 .register2{
     background-image: url("../../public/ressource/image/inscription/cave.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 100px;
+    background-size: cover;
+    min-height: 70vh;
+}
+
+.register2 > div{
+    height: calc(50vh / 3);
 }

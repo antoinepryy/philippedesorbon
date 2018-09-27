@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="register1">
+    <div class="register1 p-5">
         <div class="container text-center">
             {{ form_start(form) }}
             <div class="row">
@@ -47,8 +47,26 @@
             <button type="submit">S'inscrire</button>
             {{ form_end(form) }}
         </div>
+        <div class="text-center">
+            <a class="text-white" href="{{ path('login') }}">Si vous êtes déjà membre, cliquez ici.</a>
+        </div>
     </div>
     <div class="register2">
+        <div class="relpos">
+            <div class="center-div text-white edwardian" style="font-size: 3em">
+                De nos celliers à vos caves
+            </div>
+        </div>
+        <div class="relpos">
+            <div class="center-div font-weight-bold text-white segoe fs-1">
+                LIVRAISON A DOMICILE
+            </div>
+        </div>
+        <div class="relpos">
+            <div class="center-div text-white text-center fs-1">
+                Bénéficiez d'un service personnalisé pour</br>vous et pour vos proches
+            </div>
+        </div>
 
     </div>
 

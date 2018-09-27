@@ -24,26 +24,27 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class,
+                ['attr'=>['placeholder'=>'Email']])
             ->add('username', TextType::class,
-                ['label' => 'Pseudo'])
+                ['attr'=>['placeholder'=>'Pseudo']])
             ->add('firstName', TextType::class,
-                ['label'=>'Prénom'])
+                ['attr'=>['placeholder'=>'Prénom']])
             ->add('lastName', TextType::class,
-                ['label'=>'Nom'])
+                ['attr'=>['placeholder'=>'Nom']])
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Confirmer mot de passe'),
+                'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
+                'second_options' => array('label' => 'Confirmer mot de passe', 'attr'=>['placeholder'=>'Confirmer mot de passe']),
             ))
             ->add('addressStreet', TextType::class,
-                ['label'=>'Rue'])
+                ['attr'=>['placeholder'=>'Adresse']])
             ->add('addressCity', TextType::class,
-                ['label'=>'Ville'])
+                ['attr'=>['placeholder'=>'Ville']])
             ->add('addressZipCode', TextType::class,
-                ['label'=>'Code postal'])
+                ['attr'=>['placeholder'=>'Code Postal']])
             ->add('addressCountry', TextType::class,
-                ['label'=>'Pays'])
+                ['attr'=>['placeholder'=>'Pays']])
             ->add('termsAccepted', CheckboxType::class, array(
                 'mapped' => false,
                 'constraints' => new IsTrue(),
