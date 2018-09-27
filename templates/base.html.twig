@@ -29,25 +29,7 @@
         <a href="{{ path('index') }}" class="m-auto">
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}">
         </a>
-        {% if app.user %}
-        <span class="account-options" style="position:absolute; right: 0; top: 50%; transform: translateY(-50%);">
-            <a href="account">
-                Mon Compte
-            </a>
-            <a href="{{ path('logout') }}">
-                Déconnexion
-            </a>
-        </span>
-        {% else %}
-            <span class="account-options" style="position:absolute; right: 0; top: 50%; transform: translateY(-50%);">
-            <a href="{{ path('user_registration') }}">
-                S'inscrire
-            </a>
-            <a href="{{ path('login') }}">
-                Se connecter
-            </a>
-        </span>
-        {% endif %}
+        
 
 
     </div>

@@ -1,0 +1,6 @@
+.bg-login{
+    background-image: url("../../public/ressource/image/connexion/bouteille.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 250px);
+}

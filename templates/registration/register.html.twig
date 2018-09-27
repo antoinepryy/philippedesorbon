@@ -1,51 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="container p-5">
-        {{ form_start(form) }}
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.firstName) }}
+    <div class="register1">
+        <div class="container text-center">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.firstName) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.lastName) }}
+                </div>
             </div>
-            <div class="col">
-                {{ form_row(form.lastName) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.username) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.email) }}
+                </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.plainPassword.first) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.plainPassword.second) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.addressStreet) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.addressCity) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.addressZipCode) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.addressCountry) }}
+                </div>
+            </div>
+            <button type="submit">S'inscrire</button>
+            {{ form_end(form) }}
         </div>
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.username) }}
-            </div>
-            <div class="col">
-                {{ form_row(form.email) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.plainPassword.first) }}
-            </div>
-            <div class="col">
-                {{ form_row(form.plainPassword.second) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.addressStreet) }}
-            </div>
-            <div class="col">
-                {{ form_row(form.addressCity) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                {{ form_row(form.addressZipCode) }}
-            </div>
-            <div class="col">
-                {{ form_row(form.addressCountry) }}
-            </div>
-        </div>
-        <button type="submit">S'inscrire</button>
-        {{ form_end(form) }}
     </div>
+    <div class="register2">
+
+    </div>
+
 
 
 {% endblock %}

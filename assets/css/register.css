@@ -1,0 +1,24 @@
+.register1{
+    background-image: url("../../public/ressource/image/inscription/champs.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register1 .form-control{
+    color: white!important;
+    background-color: black!important;
+    border: 1px solid white!important;
+    border-radius: 0px;
+}
+.register1 label{
+    color: white;
+}
+
+.register2{
+    background-image: url("../../public/ressource/image/inscription/cave.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 100px;
+}

@@ -57,7 +57,6 @@ class DefaultController extends Controller
 
     public function boutique(SessionInterface $session)
     {
-        $cart = $session->get('cart');
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
         $champagneListClassique = $repository->findBy(['type' => 'Classique']);
         $champagneListCollection = $repository->findBy(['type' => 'Collection']);
@@ -81,8 +80,15 @@ class DefaultController extends Controller
     public function commande(SessionInterface $session,Request $request)
     {
         $cart = $session->get('cart');
-        die(var_dump($cart));
-        return $this->render('view/commande.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $champagneListClassique = $repository->findBy(['type' => 'Classique']);
+        $champagneListCollection = $repository->findBy(['type' => 'Collection']);
+        return $this->render('view/commande.html.twig',
+            [
+                'champagneClassique' => $champagneListClassique,
+                'champagneCollection' => $champagneListCollection,
+                'cart' => $cart,
+            ]);
     }
 
     public function showBottles(){
