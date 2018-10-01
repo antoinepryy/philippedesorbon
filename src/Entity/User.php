@@ -27,6 +27,17 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @return mixed
+     */
+
+
+    /**
+     * @ORM\Column(type="string", length=191, unique=false)
+     * @Assert\NotBlank()
+     */
+    private $civility;
+
+    /**
      * @ORM\Column(type="string", length=191, unique=true)
      * @Assert\NotBlank()
      * @Assert\Email()
@@ -244,6 +255,19 @@ class User implements UserInterface
     public function setLastName($lastName): void
     {
         $this->lastName = $lastName;
+    }
+
+    public function getCivility()
+    {
+        return $this->civility;
+    }
+
+    /**
+     * @param mixed $civility
+     */
+    public function setCivility($civility): void
+    {
+        $this->civility = $civility;
     }
 
     public function getSalt()

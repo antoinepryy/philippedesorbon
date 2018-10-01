@@ -10,6 +10,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -24,6 +25,8 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('civility', ChoiceType::class,
+                ['choices'=>['Monsieur'=>'Monsieur','Madame'=>'Madame']])
             ->add('email', EmailType::class,
                 ['attr'=>['placeholder'=>'Email']])
             ->add('firstName', TextType::class,
@@ -43,11 +46,6 @@ class UserType extends AbstractType
                 ['attr'=>['placeholder'=>'Code Postal']])
             ->add('addressCountry', TextType::class,
                 ['attr'=>['placeholder'=>'Pays']])
-            ->add('termsAccepted', CheckboxType::class, array(
-                'mapped' => false,
-                'constraints' => new IsTrue(),
-                'label' => 'J\'accepte les termes d\'utilisation du site',
-            ))
         ;
     }
 

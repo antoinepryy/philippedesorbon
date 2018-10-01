@@ -6,17 +6,34 @@
             {{ form_start(form) }}
             <div class="row">
                 <div class="col">
-                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.civility) }}
                 </div>
                 <div class="col">
-                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.addressStreet) }}
                 </div>
             </div>
             <div class="row">
                 <div class="col">
+                    {{ form_row(form.lastName) }}
                 </div>
                 <div class="col">
+                    {{ form_row(form.addressZipCode) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.firstName) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.addressCity) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     {{ form_row(form.email) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.addressCountry) }}
                 </div>
             </div>
             <div class="row">
@@ -27,22 +44,7 @@
                     {{ form_row(form.plainPassword.second) }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    {{ form_row(form.addressStreet) }}
-                </div>
-                <div class="col">
-                    {{ form_row(form.addressCity) }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ form_row(form.addressZipCode) }}
-                </div>
-                <div class="col">
-                    {{ form_row(form.addressCountry) }}
-                </div>
-            </div>
+
             <button type="submit">S'inscrire</button>
             {{ form_end(form) }}
         </div>
@@ -66,8 +68,25 @@
                 Bénéficiez d'un service personnalisé pour</br>vous et pour vos proches
             </div>
         </div>
-
     </div>
+    <div class="register3">
+        <div class="relpos">
+            <div class="center-div edwardian" style="font-size: 3em">
+                Des expériences uniques
+            </div>
+        </div>
+        <div class="relpos">
+            <div class="center-div font-weight-bold segoe fs-1">
+                Suivez nous au fil des saisons
+            </div>
+        </div>
+        <div class="relpos">
+            <div class="center-div text-center fs-1">
+                Tenez vous informé
+            </div>
+        </div>
+    </div>
+
 
 
 

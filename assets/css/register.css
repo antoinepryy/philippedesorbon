@@ -1,11 +1,11 @@
 .register1{
     background-image: url("../../public/ressource/image/inscription/champs.jpg");
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.register1 .form-control{
+.register1 .form-control, .register1 button{
     color: white!important;
     background-color: black!important;
     border: 1px solid white!important;
@@ -27,6 +27,14 @@
     min-height: 70vh;
 }
 
-.register2 > div{
+.register3{
+    background-image: url("../../public/ressource/image/inscription/bouchon.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+}
+
+.register2 > div, .register3 > div {
     height: calc(50vh / 3);
 }
