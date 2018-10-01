@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Champagne;
+use function PHPSTORM_META\type;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -123,9 +125,13 @@ class ShopController extends Controller
      */
     public function test(SessionInterface $session){
 
-        $anArray = ["V", "W", "X", "Y", "Z"];
-        array_splice($anArray, 2, 1);
-        die(var_dump($anArray));
+
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $list = $repository->findBy(
+            ['name'=>"Carte d'Or"]
+        );
+
+        die(var_dump($list[0]->getOptions()->isEmpty()));
     }
 
 
