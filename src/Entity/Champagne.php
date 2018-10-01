@@ -329,36 +329,36 @@ class Champagne
         return $this;
     }
 
-    public function getSubTitle3(): ?string
+    public function getSubTitle3()
     {
         return $this->subtitle_3;
     }
 
-    public function setSubTitle3(?string $subtitle_3): self
+    public function setSubTitle3($subtitle_3)
     {
         $this->subtitle_3 = $subtitle_3;
 
         return $this;
     }
     
-    public function getSubtitle4(): ?string
+    public function getSubtitle4()
     {
         return $this->subtitle_4;
     }
 
-    public function setSubtitle4(string $subtitle_4): self
+    public function setSubtitle4($subtitle_4)
     {
         $this->subtitle_4 = $subtitle_4;
 
         return $this;
     }
 
-    public function getPresentation4(): ?string
+    public function getPresentation4()
     {
         return $this->presentation_4;
     }
 
-    public function setPresentation4(string $presentation_4): self
+    public function setPresentation4($presentation_4)
     {
         $this->presentation_4 = $presentation_4;
 
@@ -371,19 +371,19 @@ class Champagne
         return $this->subtitle_5;
     }
 
-    public function setSubtitle5(string $subtitle_5): self
+    public function setSubtitle5($subtitle_5)
     {
         $this->subtitle_5 = $subtitle_5;
 
         return $this;
     }
 
-    public function getPresentation5(): ?string
+    public function getPresentation5()
     {
-        return $this->presentation_2_1;
+        return $this->presentation_5;
     }
 
-    public function setPresentation5(?string $presentation_5): self
+    public function setPresentation5($presentation_5)
     {
         $this->presentation_5 = $presentation_5;
 
