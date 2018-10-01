@@ -17,8 +17,8 @@ $(".shop-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            if (response===1){
-                unHideProduct(id, response);
+            if (response[0]===true){
+                unHideProduct(id, response[1]);
             }
             else{
                 increaseNumber(id);

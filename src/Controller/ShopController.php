@@ -33,6 +33,7 @@ class ShopController extends Controller
      */
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
+            $isHidden = false;
             $quantity = 0;
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
@@ -46,11 +47,12 @@ class ShopController extends Controller
                 };
             }
             if ($i==count($cart)){
-                array_push($cart, [intval($bottleId), 1]);
-                $quantity = 1;
+                array_push($cart, [intval($bottleId), 6]);
+                $quantity = 6;
+                $isHidden = true;
             }
             $session->set('cart',$cart);
-            return  new JsonResponse($quantity);
+            return  new JsonResponse([$isHidden, $quantity]);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
