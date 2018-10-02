@@ -44,7 +44,8 @@ class ShopController extends Controller
             }
             for ($i=0 ; $i < count($cart); $i++) {
                 if($cart[$i][0]==$bottleId){
-                    $quantity = $cart[$i][1]++;
+                    $cart[$i][1] = $cart[$i][1] + 6;
+                    $quantity = $cart[$i][1];
                     break;
                 };
             }
@@ -68,11 +69,11 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             for ($i=0 ; $i < count($cart); $i++) {
-                if($cart[$i][0]==$bottleId && $cart[$i][1]!=0){
-                    $cart[$i][1]--;
+                if($cart[$i][0]==$bottleId && $cart[$i][1]!=6){
+                    $cart[$i][1] = $cart[$i][1] - 6;
                     break;
                 }
-                else if($cart[$i][0]==$bottleId && $cart[$i][1]==1){
+                else if($cart[$i][0]==$bottleId && $cart[$i][1]==6){
                     //array_splice($cart, $i,1);
                     break;
                 }

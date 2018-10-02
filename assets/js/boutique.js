@@ -95,7 +95,7 @@ function renderCart(cart){
 function increaseNumber(id){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
-    var idAfter = idBefore + 1;
+    var idAfter = idBefore + 6;
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
@@ -106,8 +106,8 @@ function increaseNumber(id){
 function reduceNumber(id){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
-    if(idBefore > 1){
-        var idAfter = idBefore - 1;
+    if(idBefore !== 6){
+        var idAfter = idBefore - 6;
     }
     element.innerHTML = idAfter.toString();
     var price = document.getElementById('price-'+id);
