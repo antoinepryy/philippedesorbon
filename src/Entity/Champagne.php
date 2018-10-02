@@ -245,96 +245,96 @@ class Champagne
         $this->price = $price;
     }
 
-    public function getSubtitle1(): ?string
+    public function getSubtitle1()
     {
         return $this->subtitle_1;
     }
 
-    public function setSubtitle1(string $subtitle_1): self
+    public function setSubtitle1($subtitle_1)
     {
         $this->subtitle_1 = $subtitle_1;
 
         return $this;
     }
 
-    public function getPresentation1(): ?string
+    public function getPresentation1()
     {
         return $this->presentation_1;
     }
 
-    public function setPresentation1(string $presentation_1): self
+    public function setPresentation1($presentation_1)
     {
         $this->presentation_1 = $presentation_1;
 
         return $this;
     }
 
-    public function getSubtitle21(): ?string
+    public function getSubtitle21()
     {
         return $this->subtitle_2_1;
     }
 
-    public function setSubtitle21(?string $subtitle_2_1): self
+    public function setSubtitle21($subtitle_2_1)
     {
         $this->subtitle_2_1 = $subtitle_2_1;
 
         return $this;
     }
 
-    public function getPresentation21(): ?string
+    public function getPresentation21()
     {
         return $this->presentation_2_1;
     }
 
-    public function setPresentation21(?string $presentation_2_1): self
+    public function setPresentation21($presentation_2_1)
     {
         $this->presentation_2_1 = $presentation_2_1;
 
         return $this;
     }
 
-    public function getSubtitle22(): ?string
+    public function getSubtitle22()
     {
         return $this->subtitle_2_2;
     }
 
-    public function setSubtitle22(?string $subtitle_2_2): self
+    public function setSubtitle22($subtitle_2_2)
     {
         $this->subtitle_2_2 = $subtitle_2_2;
 
         return $this;
     }
 
-    public function getPresentation22(): ?string
+    public function getPresentation22()
     {
         return $this->presentation_2_2;
     }
 
-    public function setPresentation22(?string $presentation_2_2): self
+    public function setPresentation22($presentation_2_2)
     {
         $this->presentation_2_2 = $presentation_2_2;
 
         return $this;
     }
 
-    public function getSubtitle23(): ?string
+    public function getSubtitle23()
     {
         return $this->subtitle_2_3;
     }
 
-    public function setSubtitle23(?string $subtitle_2_3): self
+    public function setSubtitle23($subtitle_2_3)
     {
         $this->subtitle_2_3 = $subtitle_2_3;
 
         return $this;
     }
 
-    public function getPresentation23(): ?string
+    public function getPresentation23()
     {
         return $this->presentation_2_3;
     }
 
-    public function setPresentation23(?string $presentation_2_3): self
+    public function setPresentation23($presentation_2_3)
     {
         $this->presentation_2_3 = $presentation_2_3;
 

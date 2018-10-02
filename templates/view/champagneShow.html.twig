@@ -38,11 +38,11 @@
             {% if champagne.subtitle23 or champagne.presentation23 %}
             <div class="col text-center">
                 {% if champagne.subtitle23|upper %}
-                <h3 class="active segoe">{{ champagne.subtitle22|upper }}</h3>
+                <h3 class="active segoe">{{ champagne.subtitle23|upper }}</h3>
                 {% endif %}
                 {% if champagne.subtitle23|upper %}
                     <p class="segoe">
-                        {{ champagne.presentation22|nl2br }}
+                        {{ champagne.presentation23|nl2br }}
                     </p>
                 {% endif %}
             </div>
@@ -64,7 +64,8 @@
 
     <div class="container py-5">
         <div class="row">
-            <div class="col-8 text-center">
+            {% if champagne.subtitle4 or champagne.presentation4 %}
+            <div class="col text-center">
                 <div>
                     {% if champagne.subtitle4 %}
                     <h3 class="segoe active">{{ champagne.subtitle4|upper }}</h3>
@@ -76,6 +77,7 @@
                     {% endif %}
                 </div>
             </div>
+            {% endif %}
             {% if champagne.photoParagraph1 %}
                 <div class="col-4">
                     <img style="height: 200px; width: auto; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1  }} " alt="presentation of the bottle or food that can be associated with">
@@ -92,7 +94,8 @@
 
     <div class="container">
         <div class="row py-4">
-            <div class="col-8 text-center">
+            {% if champagne.subtitle5 or champagne.presentation5 %}
+            <div class="col text-center">
                 <div class="">
                     {% if champagne.subtitle5 %}
                     <h3 class="segoe active">{{ champagne.subtitle5|upper }}</h3>
@@ -103,10 +106,10 @@
                     </p>
                     {% endif %}
                 </div>
-
+            {% endif %}
             </div>
             {% if champagne.photoParagraph2 %}
-            <div class="col-4 text-center">
+            <div class="col text-center">
                     <img style="height: 200px; width: auto; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2  }} " alt="presentation of the bottle or food that can be associated with">
             </div>
             {% endif %}

@@ -130,8 +130,7 @@ class ShopController extends Controller
         $list = $repository->findBy(
             ['name'=>"Carte d'Or"]
         );
-
-        die(var_dump($list[0]->getOptions()->isEmpty()));
+        die(var_dump());
     }
 
 
