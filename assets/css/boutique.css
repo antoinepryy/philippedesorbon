@@ -27,3 +27,22 @@
     -o-transition: all 0.4s linear;
     transition: all 0.4s linear;
 }
+
+#modal-box .form-control, #modal-box button{
+    color: white!important;
+    background-color: black!important;
+    border: 1px solid white!important;
+    border-radius: 0px;
+}
+
+#modal-box button{
+    cursor: pointer;
+}
+
+#modal-box > div{
+    height: calc(100% / 3);
+}
+
+#modal-cross{
+    cursor: pointer;
+}

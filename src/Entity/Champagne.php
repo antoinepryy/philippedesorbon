@@ -643,4 +643,13 @@ class Champagne
     public function __toString(){
         return $this->name;
     }
+
+    public function hasOptions(): bool{
+        if ($this->getOptions()->isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

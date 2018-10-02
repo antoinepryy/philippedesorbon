@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Entity\Champagne;
-use function PHPSTORM_META\type;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,8 +29,49 @@ class ShopController extends Controller
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
     }
+
+    /**
+     * @Route("/PreOrder", name="pre_order")
+     */
+    /*
+     * Lorsque l'on clique sur "commander", cet endpoint vérifie si il y'a des options sur le champagne ou pas :
+     * si oui, return [true, [ nom1, option1, nom2, ...] ]
+     * si non, return [false]
+     */
+    public function preOrder(SessionInterface $session,Request $request){
+        if ($request->isXmlHttpRequest()) {
+            $cart = $session->get('cart');
+            if (is_null($cart)){
+                $cart = [];
+                $session->set('cart',$cart);
+            }
+            $bottleId = $request->query->get('bottleId');
+            $repository = $this->getDoctrine()->getRepository(Champagne::class);
+            $champagne = $repository->find($bottleId);
+            $hasOptions = $champagne->hasOptions();
+            if ($hasOptions){
+
+                $options = $champagne->getOptions();
+                $optionsTab = [];
+                for ($i=0 ; $i < count($options); $i++) {
+                    array_push($optionsTab, [$options[$i]->getId(),$options[$i]->getName(), $options[$i]->getPrice()]);
+                }
+                return  new JsonResponse([true, $optionsTab]);
+            }
+            else{
+                return  new JsonResponse([false]);
+            }
+
+        }
+        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
+
+    }
+
     /**
      * @Route("/AddProduct", name="add_product")
+     */
+    /*
+     * return [ isHidden , qtt ]
      */
     public function addProduct(SessionInterface $session,Request $request){
         if ($request->isXmlHttpRequest()) {
@@ -39,9 +79,6 @@ class ShopController extends Controller
             $quantity = 0;
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
-            if (is_null($cart)){
-                $cart = [];
-            }
             for ($i=0 ; $i < count($cart); $i++) {
                 if($cart[$i][0]==$bottleId){
                     $cart[$i][1] = $cart[$i][1] + 6;
@@ -63,6 +100,9 @@ class ShopController extends Controller
 
     /**
      * @Route("/RemoveOneProduct", name="remove_one_product")
+     */
+    /*
+     * retourne le panier
      */
     public function removeOneProduct(SessionInterface $session, Request $request){
         if ($request->isXmlHttpRequest()) {
@@ -89,6 +129,9 @@ class ShopController extends Controller
 
     /**
      * @Route("/RemoveAllProducts", name="remove_all_products")
+     */
+    /*
+     * retourne le panier
      */
     public function removeAllProduct(SessionInterface $session, Request $request){
         if ($request->isXmlHttpRequest()) {
@@ -131,7 +174,7 @@ class ShopController extends Controller
         $list = $repository->findBy(
             ['name'=>"Carte d'Or"]
         );
-        die(var_dump());
+
     }
 
 

@@ -1,6 +1,14 @@
-var path = $("#get-cart").attr("data-path");
+var pathGetCart = $("#get-cart").attr("data-path");
+var pathPreOrder = $("#pre-order").attr("data-path");
+var pathAddProduct = $("#add-product").attr("data-path");
+var pathRemoveOne = $("#remove-one").attr("data-path");
+var pathRemoveAll = $("#remove-all").attr("data-path");
+
+
+
+
 $.ajax({
-    url : path,
+    url : pathGetCart,
     type : 'GET',
     dataType : 'json',
     success : function(response, statut){
@@ -9,30 +17,53 @@ $.ajax({
 });
 
 $(".shop-button").click(function(){
-    var path = $("#add-product").attr("data-path");
     var id = $(this).attr('id');
     $.ajax({
-        url : path,
+        url : pathPreOrder,
         type : 'GET',
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            if (response[0]===true){
-                unHideProduct(id, response[1]);
+            if (response[0]){
+               console.log(response[1]);
+               var selectOptions = "";
+                for (var i = 0; i < response[1].length; i++) {
+                    selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'>"+response[1][i][1]+" | "+ response[1][i][2] + " &euro;</option>";
+                }
+                document.getElementById('modal-option').style.display = "block";
+                document.getElementById('option-select').innerHTML = selectOptions;
             }
             else{
-                increaseNumber(id);
+                $.ajax({
+                    url : pathAddProduct,
+                    type : 'GET',
+                    dataType : 'json',
+                    data : 'bottleId=' + id,
+                    success : function(response, statut){
+                        if (response[0]){
+                            unHideProduct(id, response[1]);
+                        }
+                        else{
+                            increaseNumber(id);
+                        }
+                    },
+                });
             }
         },
     });
 });
 
+$("#add-product-option").click(function() {
+    var addOption = document.getElementById('option-select');
+    var value = addOption[addOption.selectedIndex].value;
+    console.log(value);
+});
+
 
 $(".add-button").click(function(){
-    var path = $("#add-product").attr("data-path");
     var id = $(this).attr('id');
     $.ajax({
-        url : path,
+        url : pathAddProduct,
         type : 'GET',
         dataType : 'json',
         data : 'bottleId=' + id,
@@ -43,10 +74,9 @@ $(".add-button").click(function(){
 });
 
 $(".remove-one-button").click(function(){
-    var path = $("#remove-one").attr("data-path");
     var id = $(this).attr('id');
     $.ajax({
-        url : path,
+        url : pathRemoveOne,
         type : 'GET',
         dataType : 'json',
         data : 'bottleId=' + id,
@@ -59,10 +89,9 @@ $(".remove-one-button").click(function(){
 });
 
 $(".remove-all-button").click(function(){
-    var path = $("#remove-all").attr("data-path");
     var id = $(this).attr('id');
     $.ajax({
-        url : path,
+        url : pathRemoveAll,
         type : 'GET',
         dataType : 'json',
         data : 'bottleId=' + id,
@@ -80,7 +109,6 @@ function renderCart(cart){
         document.getElementById('cart-section').style.display = "none";
         document.getElementById('cart-recap').style.display = "none";
     }
-
     for (var i = 0; i < cart.length; i++) {
         var block = document.getElementById('champagne-'+cart[i][0]);
         var quantity = document.getElementById('quantity-'+cart[i][0]);
@@ -153,10 +181,8 @@ function unHideProduct(id, quantity) {
 
 function totalCalculation(){
     var priceList = document.getElementsByClassName("total-price");
-    console.log(priceList);
     var sousTotal = 0;
     for (var i = 0; i < priceList.length; i++){
-        console.log(priceList[i].innerHTML);
         if (!isNaN(parseFloat(priceList[i].innerHTML))){
             sousTotal += parseFloat(priceList[i].innerHTML);
         }
@@ -164,3 +190,7 @@ function totalCalculation(){
     document.getElementById('sous-total').innerHTML = sousTotal.toString();
     document.getElementById('total-all').innerHTML = sousTotal.toString();
 }
+
+$('#modal-cross').click(function(){
+    document.getElementById('modal-option').style.display = "none";
+});

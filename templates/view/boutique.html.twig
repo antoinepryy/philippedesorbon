@@ -2,6 +2,7 @@
 
 {% block content %}
     <div id="get-cart" data-path="{{path('get_cart')}}"></div>
+    <div id="pre-order" data-path="{{path('pre_order')}}"></div>
     <div id="add-product" data-path="{{path('add_product')}}"></div>
     <div id="remove-one" data-path="{{path('remove_one_product')}}"></div>
     <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
@@ -204,8 +205,21 @@
     </div>
     </div>
     <div id="modal-option" style="display: none;z-index: 4000; position: fixed; top: 0; left: 0;right: 0; bottom: 0; background: rgba(46, 43, 43, 0.75)">
-        <div style="position: absolute; top: 50%; left:50%; transform: translate(-50%, -50%); height: 45%; width: 35%; background-color: black ">
-            <div></div>
+        <div id="modal-box" class="text-center" style="position: absolute; top: 50%; left:50%; transform: translate(-50%, -50%); height: 45%; width: 35%; background-color: black ">
+            <div id="modal-cross" class="text-white" style="float: right">
+                X
+            </div>
+            <div>
+                <p class="text-white">Ce modèle possède plusieurs déclinaisons :</p>
+            </div>
+            <div>
+                <select id="option-select">
+                </select>
+            </div>
+            <div>
+                <button id="add-product-option">Valider</button>
+            </div>
+
 
         </div>
 
