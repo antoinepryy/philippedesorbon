@@ -6,10 +6,10 @@
 
     </div>
     <div class="container text-center my-5">
-        <h1 class="segoe active">{{ champagne.name|upper }}</h1>
-        <h2 class="edwardian active">{{ champagne.subtitle1 }}</h2>
-        <p>
-            {{ champagne.presentation1 }}
+        <h1 class="segoe active p-2">{{ champagne.name|upper }}</h1>
+        <h2 class="edwardian active p-2">{{ champagne.subtitle1 }}</h2>
+        <p class="p-2">
+            {{ champagne.presentation1|nl2br }}
         </p>
     </div>
     <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo2  }} ');">
