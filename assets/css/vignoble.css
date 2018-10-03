@@ -19,7 +19,7 @@
     background-image: url("../../public/ressource/image/vignoble/vignoble_champagne.jpg");
     min-height: 150vh;
     background-attachment: fixed;
-    background-position: center;
+    background-position: 0px 170px;
     background-repeat: no-repeat;
     background-size: cover;
 }
