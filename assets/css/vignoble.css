@@ -17,7 +17,7 @@
 
 .vignoble-slide3{
     background-image: url("../../public/ressource/image/vignoble/vignoble_champagne.jpg");
-    min-height: calc(100vh - 168px);
+    min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 
 .vignoble-slide5{
     background-image: url("../../public/ressource/image/vignoble/entretien_vignoble.jpg");
-    min-height: calc(100vh - 168px);
+    min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,11 +85,10 @@
     transform: translateY(-50%);
 }
 .vignoble-txt-2{
-    width: 40%;
+
 }
 
 .vignoble-txt-3{
-    width: 40%;
 }
 
 .vignes-container{
@@ -99,7 +98,7 @@
 }
 
 .vignes{
-    width: 13em;
+    width: 15em;
     height: 21em;
     overflow: hidden;
 }
