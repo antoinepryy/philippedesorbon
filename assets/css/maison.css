@@ -78,3 +78,41 @@
     }
 }
 
+
+.circle{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    border-radius: 1000px;
+    width: 1vw;
+    height: 1vw;
+    background-color: white;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+#circle-1{
+    left: 0%;
+}
+#circle-2{
+    left: 25%;
+}
+#circle-3 {
+    left: 50%;
+}
+#circle-4{
+    left: 75%;
+}
+#circle-5{
+    left: 100%;
+}
+
+.circle-active{
+    background-color: #CEBB87;
+    width: 2vw;
+    height: 2vw;
+}
+
+
