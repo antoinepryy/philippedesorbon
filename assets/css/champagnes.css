@@ -11,6 +11,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: calc(100vh - 208px);
+    min-height: 110vh;
 }
 
