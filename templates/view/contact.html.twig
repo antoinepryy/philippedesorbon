@@ -3,7 +3,8 @@
 {% block content %}
 
     <div style="display: flex;">
-        <div class="w-75 text-center fs-08 my-5 py-5 background-contact-logo">
+        <div class="w-75 text-center fs-08 my-5 py-5">
+            <div class=" background-contact-logo">
             <h1 class="segoe fs-18 pb-2 active">NOUS CONTACTER</h1>
             <p class="segoe fc-grey-cs">
                 Martine Wallaert-Lathuillière serait heureuse<br>
@@ -23,14 +24,20 @@
             <p class="font-weight-bold fc-grey-cs">
                 Réception et visite sur rendez-vous
             </p>
-            <div style="width: 100px; height: 100px;" class=" m-auto py-5">
-                <img  style="height:100px;" class="" src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
             </div>
+            <div style="" class="m-auto">
+                <img style="height:150px;" class="" src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
+                <div class="py-5">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.1547676994683!2d4.041634814917504!3d49.25451238068843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e975b4c9352ad7%3A0xd38e6d2fda530ba1!2sChampagne+Philippe+de+Sorbon!5e0!3m2!1sfr!2sfr!4v1538560135138" width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+
 
         </div>
         <div class="w-25 background-contact">
         </div>
 
     </div>
+
 
 {% endblock %}
