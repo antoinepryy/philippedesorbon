@@ -52,12 +52,11 @@ if (path.substr(0,12)=='/Champagnes/'){
 
 function getScrollTop(){
     if(typeof pageYOffset!= 'undefined'){
-        //most browsers except IE before #9
         return pageYOffset;
     }
     else{
-        var B= document.body; //IE 'quirks'
-        var D= document.documentElement; //IE with doctype
+        var B= document.body;
+        var D= document.documentElement;
         D= (D.clientHeight)? D: B;
         return D.scrollTop;
     }
@@ -72,6 +71,18 @@ $(window).on("scroll", function() {
 });
 
 if (readCookie('isAgeOK') === null){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear()-18;
+    if(dd<10) {
+        dd = '0'+dd
+    }
+    if(mm<10) {
+        mm = '0'+mm
+    }
+    var limitDate = dd + '/' + mm + '/' + yyyy;
+    document.getElementById('limit-date').innerText = limitDate;
     $('#age-verification').css('display','block');
 };
 

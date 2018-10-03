@@ -72,8 +72,8 @@
         </ul>
     </nav>
 </div>
-<div id="age-verification" style="position:fixed; top: 0;width: 100vw; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
-    <div class="text-center w-50" style="position:fixed; top: 60%; transform:translate(-50%,-50%);left: 50%;">
+<div id="age-verification" style="position:fixed; top: 0;width: 100vw; height: 100vh; background-color: #2E2B2B; opacity: 0.95;z-index: 3000; display: none;">
+    <div class="text-center w-50" style="position:fixed; top: 70%; transform:translate(-50%,-50%);left: 50%;">
         <p class="active segoe">
             POUR ACCÉDER AU SITE PHILIPPE DE SORBON
         </p>
@@ -92,7 +92,7 @@
             </select>
         </div>
         <p class="active segoe">
-            Êtes-vous nés avant 11/08/2000?
+            Êtes-vous nés avant <span id="limit-date"></span> ?
         </p>
         <div style="height: 50px; display: flex; justify-content: space-around" class="button-container">
             <input id="age-yes" type="button" value="OUI">
