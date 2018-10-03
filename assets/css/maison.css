@@ -8,7 +8,7 @@
 
 .maison-slide2{
     background-image: url("../../public/ressource/image/maison/lettre.jpg");
-    min-height: 400px;
+    min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
