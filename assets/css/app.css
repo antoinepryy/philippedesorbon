@@ -15,7 +15,7 @@
 .header-list a{
     display: block;
     font-family: "Book Antiqua", sans-serif;
-    font-size: 1.25vw;
+    font-size: 1.15vw;
 }
 
 .footer-list a {
@@ -308,7 +308,7 @@
     transition: all 0.3s linear;
     height: 50px;
     line-height: 50px;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: "Segoe UI", sans-serif;
 }
 
