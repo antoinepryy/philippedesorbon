@@ -25,11 +25,8 @@
                 Réception et visite sur rendez-vous
             </p>
             </div>
-            <div style="" class="m-auto">
-                <img style="height:150px;" class="" src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
-                <div class="py-5">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.1547676994683!2d4.041634814917504!3d49.25451238068843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e975b4c9352ad7%3A0xd38e6d2fda530ba1!2sChampagne+Philippe+de+Sorbon!5e0!3m2!1sfr!2sfr!4v1538560135138" width="300" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
+            <div  class="m-auto">
+                <img style="cursor: pointer; height:150px;" data-toggle="modal" data-target="#exampleModal" class="" src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
             </div>
 
 
@@ -37,6 +34,21 @@
         <div class="w-25 background-contact">
         </div>
 
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Localisation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body m-auto text-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.1547676994683!2d4.041634814917504!3d49.25451238068843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e975b4c9352ad7%3A0xd38e6d2fda530ba1!2sChampagne+Philippe+de+Sorbon!5e0!3m2!1sfr!2sfr!4v1538560135138" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
 
