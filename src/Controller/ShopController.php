@@ -9,6 +9,8 @@
 namespace App\Controller;
 
 use App\Entity\Champagne;
+use App\Entity\Option;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,11 +42,14 @@ class ShopController extends Controller
             $session->set('cart',$cart);
         }
         $bottleId = $request->query->get('bottleId');
-        $repository = $this->getDoctrine()->getRepository(Champagne::class);
-        $champagne = $repository->find($bottleId);
-        $hasOptions = $champagne->hasOptions();
+        $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
+        $optionRepository = $this->getDoctrine()->getRepository(Option::class);
+        $options = $optionRepository->findBy(
+            ['champagne'=>$bottleId]
+        );
+
+        $hasOptions = isset($options[0]);
         if ($hasOptions){
-            $options = $champagne->getOptions();
             $optionsTab = [];
             for ($i=0 ; $i < count($options); $i++) {
                 array_push($optionsTab, [$options[$i]->getId(),$options[$i]->getName(), $options[$i]->getPrice()]);
@@ -62,7 +67,6 @@ class ShopController extends Controller
      * @Route("/AddProduct", name="add_product")
      */
     public function addProduct(SessionInterface $session,Request $request){
-        if ($request->isXmlHttpRequest()) {
             $isHidden = false;
             $quantity = 0;
             $cart = $session->get('cart');
@@ -81,8 +85,6 @@ class ShopController extends Controller
             }
             $session->set('cart',$cart);
             return  new JsonResponse([$isHidden, $quantity]);
-        }
-        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
     }
 
@@ -153,11 +155,11 @@ class ShopController extends Controller
     public function test(SessionInterface $session){
 
 
-        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $repository = $this->getDoctrine()->getRepository(Option::class);
         $list = $repository->findBy(
-            ['name'=>["Carte d'Or", "Carte Noire"]]
+            ['champagne'=>'4']
         );
-        die(var_dump($list[1]->getOptions()[0] === null));
+        die(var_dump($list[0]->getName(), $list[1]->getName()));
 
     }
 

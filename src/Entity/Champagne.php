@@ -645,6 +645,10 @@ class Champagne
     }
 
     public function hasOptions(){
+        $repository = $this->getDoctrine()->getRepository(Option::class);
+        $list = $repository->findBy(
+            ['champagne'=>'4']
+        );
         if ($this->getOptions()[0] === null){
             return false;
         }

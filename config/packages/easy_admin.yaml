@@ -15,6 +15,7 @@ easy_admin:
                 class: App\Entity\Champagne
                 list:
                       fields:
+                          - id
                           - name
                           - urlLink
                           - price
