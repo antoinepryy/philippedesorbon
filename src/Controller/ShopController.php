@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Champagne;
+use App\Entity\ChampagneOption;
 use App\Entity\Option;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -43,7 +44,7 @@ class ShopController extends Controller
         }
         $bottleId = $request->query->get('bottleId');
         $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
-        $optionRepository = $this->getDoctrine()->getRepository(Option::class);
+        $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
         $options = $optionRepository->findBy(
             ['champagne'=>$bottleId]
         );

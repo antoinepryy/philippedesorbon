@@ -46,8 +46,8 @@ easy_admin:
                           - { property: 'photoFile_paragraph_1', type: 'vich_image' }
                           - { property: 'photoFile_paragraph_2', type: 'vich_image' }
                           - { property: 'photoFile_bouteille', type: 'vich_image' }
-            Option:
-                class: App\Entity\Option
+            ChampagneOption:
+                class: App\Entity\ChampagneOption
                 list:
                       fields:
                           - name

@@ -202,13 +202,16 @@ class Champagne
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Option", mappedBy="champagne", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\ChampagneOption", mappedBy="champagne", orphanRemoval=true)
      */
-    private $options;
+    private $champagneOptions;
+
+
 
     public function __construct()
     {
         $this->options = new ArrayCollection();
+        $this->champagneOptions = new ArrayCollection();
     }
 
 
@@ -609,51 +612,53 @@ class Champagne
         $this->urlLink = $urlLink;
     }
 
-    /**
-     * @return Collection|Option[]
-     */
-    public function getOptions(): Collection
-    {
-        return $this->options;
+
+
+    public function __toString(){
+        return $this->name;
     }
 
-    public function addOption(Option $option): self
+    /**
+     * @return Collection|ChampagneOption[]
+     */
+    public function getChampagneOptions(): Collection
     {
-        if (!$this->options->contains($option)) {
-            $this->options[] = $option;
-            $option->setChampagne($this);
+        return $this->champagneOptions;
+    }
+
+    public function addChampagneOption(ChampagneOption $champagneOption): self
+    {
+        if (!$this->champagneOptions->contains($champagneOption)) {
+            $this->champagneOptions[] = $champagneOption;
+            $champagneOption->setChampagne($this);
         }
 
         return $this;
     }
 
-    public function removeOption(Option $option): self
+    public function removeChampagneOption(ChampagneOption $champagneOption): self
     {
-        if ($this->options->contains($option)) {
-            $this->options->removeElement($option);
+        if ($this->champagneOptions->contains($champagneOption)) {
+            $this->champagneOptions->removeElement($champagneOption);
             // set the owning side to null (unless already changed)
-            if ($option->getChampagne() === $this) {
-                $option->setChampagne(null);
+            if ($champagneOption->getChampagne() === $this) {
+                $champagneOption->setChampagne(null);
             }
         }
 
         return $this;
     }
 
-    public function __toString(){
-        return $this->name;
-    }
-
-    public function hasOptions(){
-        $repository = $this->getDoctrine()->getRepository(Option::class);
-        $list = $repository->findBy(
-            ['champagne'=>'4']
-        );
-        if ($this->getOptions()[0] === null){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+//    public function hasOptions(){
+//        $repository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+//        $list = $repository->findBy(
+//            ['champagne'=>'4']
+//        );
+//        if ($this->getOptions()[0] === null){
+//            return false;
+//        }
+//        else{
+//            return true;
+//        }
+//    }
 }
