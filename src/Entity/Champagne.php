@@ -644,8 +644,8 @@ class Champagne
         return $this->name;
     }
 
-    public function hasOptions(): bool{
-        if ($this->getOptions()->isEmpty()){
+    public function hasOptions(){
+        if ($this->getOptions()[0] === null){
             return false;
         }
         else{

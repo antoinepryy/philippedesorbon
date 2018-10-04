@@ -44,7 +44,6 @@ class ShopController extends Controller
         $champagne = $repository->find($bottleId);
         $hasOptions = $champagne->hasOptions();
         if ($hasOptions){
-
             $options = $champagne->getOptions();
             $optionsTab = [];
             for ($i=0 ; $i < count($options); $i++) {
@@ -156,8 +155,9 @@ class ShopController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
         $list = $repository->findBy(
-            ['name'=>"Carte d'Or"]
+            ['name'=>["Carte d'Or", "Carte Noire"]]
         );
+        die(var_dump($list[1]->getOptions()[0] === null));
 
     }
 
