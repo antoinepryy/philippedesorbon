@@ -46,15 +46,9 @@ $(".shop-button").click(function(){
                             increaseNumber(id);
                         }
                     },
-                    error: function (request, status, error) {           // Add this part so you could maybe get a better error message
-                        alert(request.statusText + ", " + error);
-                    }
                 });
             }
         },
-        error: function (request, status, error) {           // Add this part so you could maybe get a better error message
-            alert(request.statusText + ", " + error);
-        }
     });
 });
 
