@@ -25,13 +25,12 @@ $(".shop-button").click(function(){
         data : 'bottleId=' + id,
         success : function(response, statut){
             if (response[0]){
-               console.log(response[1]);
                var selectOptions = "";
-                for (var i = 0; i < response[1].length; i++) {
-                    selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'>"+response[1][i][1]+" | "+ response[1][i][2] + " &euro;</option>";
-                }
-                document.getElementById('modal-option').style.display = "block";
-                document.getElementById('option-select').innerHTML = selectOptions;
+               for (var i = 0; i < response[1].length; i++){
+                   selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'>"+response[1][i][1]+" | "+ response[1][i][2] + " &euro;</option>";
+               }
+               document.getElementById('modal-option').style.display = "block";
+               document.getElementById('option-select').innerHTML = selectOptions;
             }
             else{
                 $.ajax({
