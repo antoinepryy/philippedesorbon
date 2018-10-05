@@ -347,6 +347,14 @@ option:not(:hover) {
     top: -167px;
 }
 
+.links-std{
+    color: black;
+}
+.links-std:hover{
+    color: black;
+    text-decoration: none;
+}
+
 
 
 /* Smartphones */

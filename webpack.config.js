@@ -15,6 +15,7 @@ Encore
     .addEntry('vignoble', './assets/js/vignoble.js')
     .addEntry('accueil', './assets/js/accueil.js')
     .addEntry('boutique', './assets/js/boutique.js')
+    .addEntry('panier', './assets/js/panier.js')
 
     /*
      * FEATURE CONFIG

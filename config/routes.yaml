@@ -26,6 +26,10 @@ boutique:
     path: /Boutique
     controller: App\Controller\DefaultController::boutique
 
+panier:
+    path: /Panier
+    controller: App\Controller\DefaultController::panier
+
 mentionslegales:
     path: /MentionsLegales
     controller: App\Controller\DefaultController::mentionslegales

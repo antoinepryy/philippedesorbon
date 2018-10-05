@@ -29,9 +29,11 @@
         <a href="{{ path('index') }}" class="m-auto">
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}">
         </a>
-        
-
-
+        <div style="position: absolute; top: 5%; right: 5%">
+            <a style="" class="segoe links-std" href="{{ path('panier') }}">
+                MON PANIER (<span class="cart-quantity">{{ cartSize }}</span>)
+            </a>
+        </div>
     </div>
     <div class="text-center edwardian">
         <span class="fs-18">Maison fondée à Reims en 1968</span>
@@ -41,6 +43,11 @@
         <a href="{{ path('index') }}">
             <img class="m-auto" id="sm-picture" style="width: 50px; padding-top: 5px;" src="{{ asset('ressource/image/header/logo_fleur_lys.jpg') }}">
         </a>
+        <div style="position: absolute; top: 5%; right: 5%">
+            <a style="" class="segoe links-std" href="{{ path('panier') }}">
+                MON PANIER (<span class="cart-quantity">{{ cartSize }}</span>)
+            </a>
+        </div>
     </div>
 
 
