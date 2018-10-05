@@ -26,11 +26,22 @@ class ShopController extends Controller
      * @Route("/GetCart", name="get_cart")
      */
     public function getCart(SessionInterface $session,Request $request){
-        if ($request->isXmlHttpRequest()) {
+
             $cart = $session->get('cart');
+            $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+            for ($i=0 ; $i < count($cart); $i++) {
+                if(count($cart[$i])===2){
+                    continue;
+                }
+                elseif(count($cart[$i])===3){
+                    $options = $optionRepository->findOneBy(
+                        ['id'=>$cart[$i][2]]
+                    );
+                    $cart[$i][2]=$options->getPrice();
+                }
+            }
             return  new JsonResponse($cart);
-        }
-        return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
+
     }
 
     /**

@@ -126,14 +126,29 @@ function renderCart(cart){
         document.getElementById('cart-section').style.display = "none";
         document.getElementById('cart-recap').style.display = "none";
     }
+    var block;
+    var quantity;
+    var price;
+    var totalPrice;
     for (var i = 0; i < cart.length; i++) {
-        var block = document.getElementById('champagne-'+cart[i][0]);
-        var quantity = document.getElementById('quantity-'+cart[i][0]);
-        var price = document.getElementById('price-'+cart[i][0]);
-        block.style.display = "flex";
-        quantity.innerHTML = cart[i][1].toString();
-        var totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
-        document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
+        if (cart[i].length===3){
+            block = document.getElementById('champagne-'+cart[i][0]);
+            quantity = document.getElementById('quantity-'+cart[i][0]);
+            price = document.getElementById('price-'+cart[i][0]).innerText = cart[i][2].toString();
+            block.style.display = "flex";
+            quantity.innerHTML = cart[i][1].toString();
+            totalPrice = parseInt(quantity.innerHTML) * parseFloat(cart[i][2]);
+            document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
+        }
+        else if(cart[i].length===2){
+            block = document.getElementById('champagne-'+cart[i][0]);
+            quantity = document.getElementById('quantity-'+cart[i][0]);
+            price = document.getElementById('price-'+cart[i][0]);
+            block.style.display = "flex";
+            quantity.innerHTML = cart[i][1].toString();
+            totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
+            document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
+        }
     }
     totalCalculation();
 }
