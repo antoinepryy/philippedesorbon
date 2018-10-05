@@ -27,20 +27,24 @@ class ShopController extends Controller
      */
     public function getCart(SessionInterface $session,Request $request){
 
-            $cart = $session->get('cart');
-            $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
-            for ($i=0 ; $i < count($cart); $i++) {
-                if(count($cart[$i])===2){
-                    continue;
-                }
-                elseif(count($cart[$i])===3){
-                    $options = $optionRepository->findOneBy(
-                        ['id'=>$cart[$i][2]]
-                    );
-                    $cart[$i][2]=$options->getPrice();
-                }
+        $cart = $session->get('cart');
+        if (is_null($cart)){
+            $cart = [];
+            $session->set('cart',$cart);
+        }
+        $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+        for ($i=0 ; $i < count($cart); $i++) {
+            if(count($cart[$i])===2){
+                continue;
             }
-            return  new JsonResponse($cart);
+            elseif(count($cart[$i])===3){
+                $options = $optionRepository->findOneBy(
+                    ['id'=>$cart[$i][2]]
+                );
+                $cart[$i][2]=$options->getPrice();
+            }
+        }
+        return  new JsonResponse($cart);
 
     }
 
@@ -49,10 +53,6 @@ class ShopController extends Controller
      */
     public function preOrder(SessionInterface $session,Request $request){
         $cart = $session->get('cart');
-        if (is_null($cart)){
-            $cart = [];
-            $session->set('cart',$cart);
-        }
         $bottleId = $request->query->get('bottleId');
         $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
         $options = $optionRepository->findBy(

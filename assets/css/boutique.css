@@ -44,3 +44,14 @@
 #modal-cross{
     cursor: pointer;
 }
+
+#modal-box-validation, #modal-validation{
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.md-show{
+    top: 50px!important;
+}

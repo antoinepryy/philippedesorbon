@@ -7,6 +7,7 @@ var id;
 
 
 
+
 $.ajax({
     url : pathGetCart,
     type : 'GET',
@@ -42,6 +43,7 @@ $(".shop-button").click(function(){
                         if (response[0]){
                             unHideProduct(id, response[1]);
                             refreshCartQtt(response[2]);
+                            animateValidation();
                         }
                         else{
                             increaseNumber(id);
@@ -56,7 +58,6 @@ $(".shop-button").click(function(){
 $("#add-product-option").click(function() {
     var addOption = document.getElementById('option-select');
     var value = addOption[addOption.selectedIndex].value;
-    console.log(addOption[addOption.selectedIndex]);
     $.ajax({
         url : pathAddProduct,
         type : 'GET',
@@ -67,6 +68,7 @@ $("#add-product-option").click(function() {
             if (response[0]){
                 unHideProductWithOption(id, response[1], response[3]);
                 refreshCartQtt(response[2]);
+                animateValidation();
             }
             else{
                 increaseNumber(id);
@@ -112,7 +114,7 @@ $(".remove-all-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            hideProduct(id, response);
+            hideProduct(id, response[0]);
             refreshCartQtt(response[0]);
         },
 
@@ -185,9 +187,13 @@ function reduceNumber(id){
 
 
 function hideProduct(id, cart){
+
     var block = document.getElementById('champagne-'+id);
     block.style.display = "none";
+
     if (cart.length===0){
+
+
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
     }
@@ -253,3 +259,11 @@ function refreshCartQtt(cart){
 $('#modal-cross').click(function(){
     document.getElementById('modal-option').style.display = "none";
 });
+
+
+function animateValidation(){
+    $('#modal-box-validation').addClass("md-show");
+    setTimeout(function() {
+        $('#modal-box-validation').removeClass("md-show");
+    }, 1500);
+}
