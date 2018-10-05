@@ -41,6 +41,7 @@ $(".shop-button").click(function(){
                     success : function(response, statut){
                         if (response[0]){
                             unHideProduct(id, response[1]);
+                            refreshCartQtt(response[2]);
                         }
                         else{
                             increaseNumber(id);
@@ -64,6 +65,7 @@ $("#add-product-option").click(function() {
             document.getElementById('modal-option').style.display = "none";
             if (response[0]){
                 unHideProduct(id, response[1]);
+                refreshCartQtt(response[2]);
             }
             else{
                 increaseNumber(id);
@@ -110,6 +112,7 @@ $(".remove-all-button").click(function(){
         data : 'bottleId=' + id,
         success : function(response, statut){
             hideProduct(id, response);
+            refreshCartQtt(response[0]);
         },
 
 
@@ -149,6 +152,9 @@ function reduceNumber(id){
     var idBefore = parseInt(element.innerHTML.toString());
     if(idBefore !== 6){
         var idAfter = idBefore - 6;
+    }
+    else{
+        var idAfter = idBefore;
     }
     element.innerHTML = idAfter.toString();
     var price = document.getElementById('price-'+id);
@@ -205,6 +211,10 @@ function totalCalculation(){
 }
 
 function refreshCartQtt(cart){
+    $('.cart-quantity').each(function(){
+            this.innerHTML = cart.length.toString();
+        }
+    )
 
 }
 

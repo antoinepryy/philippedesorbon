@@ -101,7 +101,7 @@ class ShopController extends Controller
                 }
             }
             $session->set('cart',$cart);
-            return  new JsonResponse([$isHidden, $quantity]);
+            return  new JsonResponse([$isHidden, $quantity, $cart]);
 
     }
 
@@ -125,7 +125,7 @@ class ShopController extends Controller
             $session->set('cart',$cart);
 
 
-            return  new JsonResponse($cart);
+            return  new JsonResponse([$cart]);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
@@ -145,7 +145,7 @@ class ShopController extends Controller
                 }
             }
             $session->set('cart',$cart);
-            return  new JsonResponse($cart);
+            return  new JsonResponse([$cart]);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
     }
