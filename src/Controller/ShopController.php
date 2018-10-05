@@ -62,8 +62,17 @@ class ShopController extends Controller
         $hasOptions = isset($options[0]);
         if ($hasOptions){
             $optionsTab = [];
+            $alreadyOrdered = false;
+            for ($i=0 ; $i < count($cart); $i++) {
+                if($cart[$i][0]==$bottleId){
+                    $alreadyOrdered = true;
+                }
+            }
             for ($i=0 ; $i < count($options); $i++) {
                 array_push($optionsTab, [$options[$i]->getId(),$options[$i]->getName(), $options[$i]->getPrice()]);
+            }
+            if($alreadyOrdered){
+                return  new JsonResponse([false]);
             }
             return  new JsonResponse([true, $optionsTab]);
         }
