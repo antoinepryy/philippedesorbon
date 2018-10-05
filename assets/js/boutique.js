@@ -204,6 +204,10 @@ function totalCalculation(){
     document.getElementById('total-all').innerHTML = sousTotal.toString();
 }
 
+function refreshCartQtt(cart){
+
+}
+
 $('#modal-cross').click(function(){
     document.getElementById('modal-option').style.display = "none";
 });
