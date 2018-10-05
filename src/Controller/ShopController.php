@@ -43,7 +43,6 @@ class ShopController extends Controller
             $session->set('cart',$cart);
         }
         $bottleId = $request->query->get('bottleId');
-        $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
         $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
         $options = $optionRepository->findBy(
             ['champagne'=>$bottleId]
@@ -72,17 +71,34 @@ class ShopController extends Controller
             $quantity = 0;
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
-            for ($i=0 ; $i < count($cart); $i++) {
-                if($cart[$i][0]==$bottleId){
-                    $cart[$i][1] = $cart[$i][1] + 6;
-                    $quantity = $cart[$i][1];
-                    break;
-                };
+            $champagneOption = $request->query->get('champagneOption');
+            if($champagneOption===null){
+                for ($i=0 ; $i < count($cart); $i++) {
+                    if($cart[$i][0]==$bottleId){
+                        $cart[$i][1] = $cart[$i][1] + 6;
+                        $quantity = $cart[$i][1];
+                        break;
+                    };
+                }
+                if ($i==count($cart)){
+                    array_push($cart, [intval($bottleId), 6]);
+                    $quantity = 6;
+                    $isHidden = true;
+                }
             }
-            if ($i==count($cart)){
-                array_push($cart, [intval($bottleId), 6]);
-                $quantity = 6;
-                $isHidden = true;
+            else{
+                for ($i=0 ; $i < count($cart); $i++) {
+                    if($cart[$i][0]==$bottleId){
+                        $cart[$i][1] = $cart[$i][1] + 6;
+                        $quantity = $cart[$i][1];
+                        break;
+                    };
+                }
+                if ($i==count($cart)){
+                    array_push($cart, [intval($bottleId), 6, $champagneOption]);
+                    $quantity = 6;
+                    $isHidden = true;
+                }
             }
             $session->set('cart',$cart);
             return  new JsonResponse([$isHidden, $quantity]);

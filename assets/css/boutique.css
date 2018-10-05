@@ -39,9 +39,7 @@
     cursor: pointer;
 }
 
-#modal-box > div{
-    height: calc(100% / 3);
-}
+
 
 #modal-cross{
     cursor: pointer;

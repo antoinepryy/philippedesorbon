@@ -16,7 +16,7 @@
 }
 
 .savoirfaire-slide3{
-    background-image: url("../../public/ressource/image/savoirfaire/fut.jpg");
+    background-image: url("../../public/ressource/image/savoirfaire/cuve.jpg");
     min-height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;

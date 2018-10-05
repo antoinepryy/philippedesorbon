@@ -6,7 +6,6 @@ var pathRemoveAll = $("#remove-all").attr("data-path");
 
 
 
-
 $.ajax({
     url : pathGetCart,
     type : 'GET',
@@ -55,7 +54,21 @@ $(".shop-button").click(function(){
 $("#add-product-option").click(function() {
     var addOption = document.getElementById('option-select');
     var value = addOption[addOption.selectedIndex].value;
-    console.log(value);
+    $.ajax({
+        url : pathAddProduct,
+        type : 'GET',
+        dataType : 'json',
+        data : 'bottleId=' + id + '&champagneOption=' + value,
+        success : function(response, statut){
+            document.getElementById('modal-option').style.display = "none";
+            if (response[0]){
+                unHideProduct(id, response[1]);
+            }
+            else{
+                increaseNumber(id);
+            }
+        },
+    });
 });
 
 

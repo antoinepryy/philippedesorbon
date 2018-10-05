@@ -338,6 +338,10 @@ option:not(:hover) {
     width: calc(100%  /3);
 }
 
+.third-height{
+    height: calc(100%  / 3);
+}
+
 .anchor{
     position: absolute;
     top: -167px;
