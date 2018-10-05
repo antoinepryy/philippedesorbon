@@ -27,7 +27,7 @@ $(".shop-button").click(function(){
             if (response[0]){
                var selectOptions = "";
                for (var i = 0; i < response[1].length; i++){
-                   selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'>"+response[1][i][1]+" | "+ response[1][i][2] + " &euro;</option>";
+                   selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'><span class='option-name'>"+response[1][i][1]+"</span> | <span class='option-price'>"+ response[1][i][2] + "</span> &euro;</option>";
                }
                document.getElementById('modal-option').style.display = "block";
                document.getElementById('option-select').innerHTML = selectOptions;
@@ -56,6 +56,7 @@ $(".shop-button").click(function(){
 $("#add-product-option").click(function() {
     var addOption = document.getElementById('option-select');
     var value = addOption[addOption.selectedIndex].value;
+    console.log(addOption[addOption.selectedIndex]);
     $.ajax({
         url : pathAddProduct,
         type : 'GET',
@@ -64,7 +65,7 @@ $("#add-product-option").click(function() {
         success : function(response, statut){
             document.getElementById('modal-option').style.display = "none";
             if (response[0]){
-                unHideProduct(id, response[1]);
+                unHideProductWithOption(id, response[1], response[3]);
                 refreshCartQtt(response[2]);
             }
             else{
@@ -150,11 +151,12 @@ function increaseNumber(id){
 function reduceNumber(id){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
+    var idAfter;
     if(idBefore !== 6){
-        var idAfter = idBefore - 6;
+        idAfter = idBefore - 6;
     }
     else{
-        var idAfter = idBefore;
+        idAfter = idBefore;
     }
     element.innerHTML = idAfter.toString();
     var price = document.getElementById('price-'+id);
@@ -194,6 +196,21 @@ function unHideProduct(id, quantity) {
     element.innerHTML = quantity.toString();
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(quantity) * parseFloat(price.innerHTML);
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
+    totalCalculation();
+}
+
+function unHideProductWithOption(id, quantity, optionPrice) {
+    document.getElementById('empty-cart').style.display = "none";
+    document.getElementById('cart-section').style.display = "block";
+    document.getElementById('cart-recap').style.display = "block";
+    var block = document.getElementById('champagne-'+id);
+    var element = document.getElementById('quantity-'+id);
+    block.style.display = "flex";
+    element.innerHTML = quantity.toString();
+    //var price = document.getElementById('price-'+id);
+    document.getElementById('price-'+id).innerHTML = optionPrice;
+    var totalPrice = parseInt(quantity) * parseFloat(optionPrice);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
     totalCalculation();
 }

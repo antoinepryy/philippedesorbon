@@ -72,6 +72,9 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             $champagneOption = $request->query->get('champagneOption');
+            $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+
+            $optionPrice = null;
             if($champagneOption===null){
                 for ($i=0 ; $i < count($cart); $i++) {
                     if($cart[$i][0]==$bottleId){
@@ -87,6 +90,10 @@ class ShopController extends Controller
                 }
             }
             else{
+                $option = $optionRepository->findOneBy(
+                    ['id'=>$champagneOption]
+                );
+                $optionPrice = $option->getPrice();
                 for ($i=0 ; $i < count($cart); $i++) {
                     if($cart[$i][0]==$bottleId){
                         $cart[$i][1] = $cart[$i][1] + 6;
@@ -101,7 +108,7 @@ class ShopController extends Controller
                 }
             }
             $session->set('cart',$cart);
-            return  new JsonResponse([$isHidden, $quantity, $cart]);
+            return  new JsonResponse([$isHidden, $quantity, $cart, $optionPrice]);
 
     }
 
