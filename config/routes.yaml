@@ -52,5 +52,9 @@ commande:
     path: /Commande
     controller: App\Controller\DefaultController::commande
 
+checkout:
+    path: /Checkout
+    controller: App\Controller\DefaultController::checkout
+
 
 

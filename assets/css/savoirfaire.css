@@ -85,9 +85,10 @@
 .txt-s-3{
     position: absolute;
     right: 5%;
-    top: 50%;
-    width: 35%;
-    transform: translateY(-50%);
+    top: 0;
+    width: 40%;
+    background-color: #2E2B2B;
+    height: 100%;
 }
 
 .txt-s-4{

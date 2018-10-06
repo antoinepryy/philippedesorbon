@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,8 +18,14 @@ class SecurityController extends AbstractController
     /**
      * @Route("/Connexion", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login(AuthenticationUtils $authenticationUtils, SessionInterface $session)
     {
+        if ($session->has('cart')){
+            $cartSize = count($session->get('cart'));
+        }
+        else{
+            $cartSize = 0;
+        }
         $error = $authenticationUtils->getLastAuthenticationError();
 
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -26,6 +33,7 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
+            'cartSize' => $cartSize
         ));
     }
 

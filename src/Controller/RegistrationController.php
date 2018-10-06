@@ -12,6 +12,7 @@ use App\Form\UserType;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -21,8 +22,14 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/Inscription", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session)
     {
+        if ($session->has('cart')){
+            $cartSize = count($session->get('cart'));
+        }
+        else{
+            $cartSize = 0;
+        }
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
 
@@ -43,8 +50,10 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render(
-            'registration/register.html.twig',
-            array('form' => $form->createView())
+            'registration/register.html.twig', [
+                'form' => $form->createView(),
+                'cartSize' => $cartSize
+                ]
         );
     }
 }

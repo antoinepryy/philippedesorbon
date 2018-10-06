@@ -22,9 +22,18 @@ require('../css/register.css');
 var $ = require('jquery');
 var path = window.location.pathname;
 var fromTop = getScrollTop();
-$('#fixed-hd').toggleClass("down", (fromTop > 185));
-$('#header-nav').toggleClass("fixed", (fromTop > 185));
-$('.void-fill').toggleClass("fill", (fromTop > 185));
+if (path !== '/Boutique' || path !== '/Panier'){
+    $('#fixed-hd').toggleClass("down", (fromTop > 185));
+    $('#header-nav').toggleClass("fixed", (fromTop > 185));
+    $('.void-fill').toggleClass("fill", (fromTop > 185));
+    $(window).on("scroll", function() {
+        var fromTop = getScrollTop();
+        $('#fixed-hd').toggleClass("down", (fromTop > 200));
+        $('#header-nav').toggleClass("fixed", (fromTop > 200));
+        $('.void-fill').toggleClass("fill", (fromTop > 200));
+    });
+}
+
 switch (path) {
     case '/LaMaison':
         defineActive(path);
@@ -63,12 +72,7 @@ function getScrollTop(){
 }
 
 
-$(window).on("scroll", function() {
-    var fromTop = getScrollTop();
-    $('#fixed-hd').toggleClass("down", (fromTop > 200));
-    $('#header-nav').toggleClass("fixed", (fromTop > 200));
-    $('.void-fill').toggleClass("fill", (fromTop > 200));
-});
+
 
 if (readCookie('isAgeOK') === null){
     var today = new Date();
