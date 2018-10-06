@@ -198,6 +198,10 @@ class DefaultController extends Controller
             ]);
     }
 
+    public function foodGrid(){
+        return $this->render('view/foodGrid.html.twig');
+    }
+
 
     public function robots($template = null)
     {
