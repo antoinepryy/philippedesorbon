@@ -244,7 +244,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function checkout(){
+    public function orderValidated(){
         return $this->render('view/foodGrid.html.twig');
     }
 
