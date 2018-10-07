@@ -56,5 +56,11 @@ checkout:
     path: /Checkout
     controller: App\Controller\DefaultController::checkout
 
+gastronomie:
+    path: /Gastronomie/{plat}
+    controller: App\Controller\DefaultController::gastronomie
+
+
+
 
 

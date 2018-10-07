@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div style="display: flex;">
+        <div style="width: 20vw">
+            {% block picture %}
+            {% endblock %}
+        </div>
+        <div class="container-fluid p-2 fc-grey-cs">
+            <div class="row">
+                <div class="col-4 text-center">
+                    {% block foodType %}
+                    {% endblock %}
+                </div>
+                <div class="col-8 text-center">
+                    <h1 class="fs-1 font-weight-bold" style="color: #2E2B2B">PLAISIRS CHAMPENOIS</h1>
+                    <h2 class="fs-1">{% block foodTitle %}{% endblock %}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-center">
+                    <h3 class="fs-1 font-italic">Temps</h3>
+                    <p class="font-weight-bold active fs-08">
+                        {% block temps %}
+                        {% endblock %}
+                    </p>
+                    <h3 class="fs-1 font-italic">Accord Mets / Vins</h3>
+                    <p class="font-weight-bold active fs-08">
+                        {% block metVins %}
+                        {% endblock %}
+                    </p>
+                </div>
+                <div class="col-5">
+                    <h3 class="fs-1 font-italic">Ingrédients</h3>
+                    <p class="fs-08">
+                        {% block ingredients %}
+                        {% endblock %}
+                    </p>
+                    <h3 class="fs-1 font-italic">Pour le décor</h3>
+                    <p class="fs-08">
+                        {% block decor %}
+                        {% endblock %}
+                    </p>
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div>
+
+    </div>
+    <div class="p-5">
+        <h1 class="segoe fs-1 text-center">AUTRES PLAISIRS CHAMPENOIS</h1>
+        {{ render(controller(
+            'App\\Controller\\DefaultController::foodGrid'
+        )) }}
+    </div>
+
+{% endblock %}

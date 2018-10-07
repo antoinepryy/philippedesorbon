@@ -199,6 +199,52 @@ class DefaultController extends Controller
     }
 
     public function foodGrid(){
+    return $this->render('view/foodGrid.html.twig');
+    }
+
+    public function gastronomie($plat, SessionInterface $session){
+        if ($session->has('cart')){
+            $cartSize = count($session->get('cart'));
+        }
+        else{
+            $cartSize = 0;
+        }
+
+        switch ($plat){
+            case 'Charlotte':
+                $food = "charlotte";
+                break;
+            case 'CoquilleSaintJacques':
+                $food = "coquilleSaintJacques";
+                break;
+            case 'Soupe':
+                $food = "soupe";
+                break;
+            case 'Velouté':
+                $food = "langoustines";
+                break;
+            case 'Risotto':
+                $food = "risotto";
+                break;
+            case 'Huîtres':
+                $food = "huitres";
+                break;
+            case 'Lotte':
+                $food = "lotte";
+                break;
+            case 'Poireaux':
+                $food = "poireaux";
+                break;
+            case 'Granité':
+                $food = "granite";
+                break;
+        }
+        return $this->render('view/food/'.$food.'.html.twig',[
+            'cartSize' => $cartSize
+        ]);
+    }
+
+    public function checkout(){
         return $this->render('view/foodGrid.html.twig');
     }
 
