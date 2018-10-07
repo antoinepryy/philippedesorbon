@@ -235,6 +235,17 @@
     <div class="savoirfaire-slide7">
 
     </div>
+    <div class="relpos">
+        <div id="Gastronomie" class="anchor">
+        </div>
+        <div class="text-center">
+            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">GASTRONOMIE CHAMPENOISE</h2>
+        </div>
+        {{ render(controller(
+            'App\\Controller\\DefaultController::foodGrid'
+        )) }}
+
+    </div>
     <div class="container text-center my-5">
 
         <div class="segoe font-weight-bold active fs-12">
@@ -243,13 +254,7 @@
             DE LA CIVILISATION »
         </div>
         <div class="edwardian active fs-15 w-75 ml-auto">Talleyrand</div>
-        <div id="Gastronomie">
 
-            {{ render(controller(
-                'App\\Controller\\DefaultController::foodGrid'
-            )) }}
-
-        </div>
     </div>
 
 {% endblock %}

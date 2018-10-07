@@ -21,6 +21,6 @@ $('a[href^="#"]').click(function(){
     }
     $('html, body').animate({
         scrollTop:$(the_id).offset().top
-    }, 'slow');
+    }, 1000);
     return false;
 });

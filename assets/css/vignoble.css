@@ -72,11 +72,12 @@
 
 .vignoble-txt-1{
     position: absolute;
-    right:2%;
+    right:5%;
     top: 0;
     width: 35%;
-    background-color: #2E2B2B;
+    background-color: #2E2B2B!important;
     height: 100%;
+
 }
 
 .vignoble-txt-1>div{
