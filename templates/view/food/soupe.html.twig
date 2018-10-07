@@ -1,6 +1,48 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/st_jacques.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Entrée
+{% endblock %}
+{% block foodTitle %}
+    Soupe de Pois au Champagne
+{% endblock %}
+{% block temps %}
+    20 min préparation<br>
+    10 min de cuisson<br><br>
+    4 personnes
+{% endblock %}
+{% block metVins%}
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Carte Noire
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        600 grs petits pois surgelés<br>
+        1 litre bouillon de poule<br>
+        25 cl crème liquide<br>
+        400 grs crevettes roses<br><br>
 
+
+        2 flutes de Champagne<br>
+        Philippe de Sorbon Carte Noire
+
+    </p>
+
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_carte_noire.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Cuire les petits pois dans un faitout dans le bouillon 10 minutes.<br>
+    Mixer longuement jusqu'à l'obtention d'un velouté et remettre à chauffer doucement.<br>
+    Eplucher les crevettes roses et les réserver.<br><br>
+
+    Juste avant de servir, ajouter la crème fraîche et les crevettes, verser dans la soupière et au dernier moment,ajouter le Champagne.<br>
+    Le velouté arrive effervescent à table.... Divin.
 {% endblock %}

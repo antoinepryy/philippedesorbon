@@ -1,6 +1,50 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/poireaux.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Plat
+{% endblock %}
+{% block foodTitle %}
+    Saint-Jacques en crème de poireaux et Champagne{% endblock %}
+{% block temps %}
+    20 min préparation<br>
+    40 min de cuisson<br><br>
+    2 personnes
+{% endblock %}
+{% block metVins%}
+
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Carte Noire
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        2 beaux jeunes poireaux<br>
+        40 cl de crème liquide<br>
+        6 à 8 coquilles Saint-jacques bien fraîches<br>
+        sel, poivre, beurre<br><br>
+
+        une flute de Champagne<br>
+        Philippe de Sorbon Millésimé 2011
+    </p>
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_millesime.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Fendre les poireaux, les laver et les émincer finement.<br>
+    Les faire revenir en casserole avec du beurre fondu jusqu'à blondissement.<br>
+    Ajouter le Champagne.<br>
+    Laisser réduire doucement de moitié.<br>
+    Incorporer la crème fraîche, saler, poivrer et laisser réduire à nouveau de moitié.la fondue de poireaux doit être extrêmement fondante.<br>
+    Nettoyer les Saint-jacques et les couper en 2 dans le sens de la hauteur.<br>
+    Mettre les escalopes dans la sauce.Laisser cuire 3 minutes sans bouillir. rectifier l'assaisonnement.<br>
+    Servir très chaud accompagné du Champagne philippe de Sorbon Millésimé 1999.<br><br>
+
+    Mon conseil: plat idéal pour un dîner en tête-à-tête. la fondue crémée peut être préparée à l'avance, il ne reste plus qu'à réchauffer et cuire les escalopes 3 minutes.....
 
 {% endblock %}

@@ -31,23 +31,24 @@
                     </p>
                 </div>
                 <div class="col-5">
-                    <h3 class="fs-1 font-italic">Ingrédients</h3>
-                    <p class="fs-08">
                         {% block ingredients %}
                         {% endblock %}
-                    </p>
-                    <h3 class="fs-1 font-italic">Pour le décor</h3>
-                    <p class="fs-08">
-                        {% block decor %}
-                        {% endblock %}
-                    </p>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
+                    {% block pictureChampagne %}
+                    {% endblock %}
+                </div>
 
-                </div>
             </div>
 
         </div>
+    </div>
+    <div class="container text-center fc-grey-cs p-4">
+        <h3 class="fs-1">Recette</h3>
+        <p class="fs-08">
+        {% block recette %}
+        {% endblock %}
+        </p>
     </div>
 
 

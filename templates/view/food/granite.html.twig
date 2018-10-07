@@ -1,6 +1,43 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/granite.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Dessert
+{% endblock %}
+{% block foodTitle %}
+    Soupe de Granité Champagne, fraises et biscuits de Reims{% endblock %}
+{% block temps %}
+    15 min préparation<br>
+    10 min de cuisson<br><br>
+    6 personnes
+{% endblock %}
+{% block metVins%}
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Carte Noire
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        150 g de sucre<br>
+        500 g de fraises<br>
+        1 paquet de biscuits roses de Reims<br><br>
 
+        1 bouteille de champagne<br>
+        Philippe de Sorbon Perles de Rosé
+    </p>
+
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_carte_noire.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Portez à ébullition 15 cl d’eau avec le sucre, puis laissez refroidir. Une fois le sirop complètement refroidi, mélangez-le au champagne. Versez le mélange dans un récipient large et peu profond et mettez-le au congélateur pendant 3 h au minimum, en remuant de temps en temps à l’aide d’une fourchette ou d’un petit fouet, des bords vers le centre pour obtenir de belles paillettes.<br><br>
+
+    Pendant ce temps, lavez et équeutez les fraises. Coupez-les en dés et garnissez-en le fond de verrines.<br>
+    Emiettez du bout des doigts les biscuits en petits morceaux et recouvrez-en les fraises. Réservez au frais.<br>
+    Au moment de servir, recouvrez les verrines avec le granité et servez aussitôt.
 {% endblock %}

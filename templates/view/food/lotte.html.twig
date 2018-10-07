@@ -1,6 +1,50 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/lotte.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Plat
+{% endblock %}
+{% block foodTitle %}
+    Médaillons de lotte au Champagne{% endblock %}
+{% block temps %}
+    20 min préparation<br>
+    15 min de cuisson<br><br>
+    6 personnes
+{% endblock %}
+{% block metVins%}
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Blanc de Blancs
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        6 médaillons de lotte désossés<br>
+        3 coeurs de laitue<br>
+        1 petit pot d'oeufs de saumon<br>
+        30 cl de crème fraîche épaisse<br>
+        1 jaune d'oeuf<br>
+        30 grs beurre<br>
+        quelques branches d'aneth, sel, poivre<br><br>
 
+        50 cl Champagne Philippe de Sorbon<br>
+        Blanc de Blancs
+
+
+    </p>
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_blanc.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Plongez 2 min les coeurs de laitue dans de l'eau bouillante salée, égouttez-les et coupez-les en 2.<br>
+    Dans une sauteuse, mettez-les à fondre doucement dans le beurre avec sel et poivre, sans couvrir.<br><br>
+
+    Mettez le Champagne à frémir dans une casserole, et pochez-y les médaillons de lotte 10 min. Egouttez-les et disposez-les sur la laitue dans un plat de service préchauffé, couvrez et réservez.<br><br>
+
+    Dans un bol, délayez le jaune d'oeuf avec la crème. Faites réduire à feu vif le Champagne de moitié, puis hors du feu, ajoutez la crème, fouettez pour obtenir une sauce onctueuse.<br>
+    rectifiez l'assaisonnement, nappez le poisson de sauce, décorez d'oeufs de saumon et d'aneth. Servez aussitôt.
 {% endblock %}

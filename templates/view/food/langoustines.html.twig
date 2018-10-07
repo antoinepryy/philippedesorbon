@@ -1,6 +1,54 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/veloute.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Entrée
+{% endblock %}
+{% block foodTitle %}
+    Velouté de langoustines au Champagne
+{% endblock %}
+{% block temps %}
+    40 min préparation<br>
+    45 min de cuisson<br><br>
+    8 personnes
+{% endblock %}
+{% block metVins%}
 
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Carte d'Or
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        24 langoustines crues<br>
+        2 oignons<br>
+        2 carottes<br>
+        1 échalote<br>
+        1 bouquet garni<br>
+        2 jaunes d'oeufs<br>
+        20 cl crème fraîche épaisse<br>
+        1 c.à café de concentré de tomates<br>
+        3 cl de cognac<br>
+        sel,poivre, huile d'olive, fumet de crustacé<br><br>
+
+        1/2 Bouteille de Champagne<br>
+        Philippe de Sorbon Carte d'Or
+    </p>
+
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_carte_or.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Peler et couper en petits dés carottes, oignons et échalotes.<br>
+    Dans une cocotte, faire dorer les langoustines avec l'huile d'olive, verser le cognac et flamber.<br><br>
+
+    Retirer les langoustines. Ajouter les légumes dans la cocotte et laisser suer 10 minutes. Ajouter le concentré de tomates,le fumet de crustacé, saler, poivrer et couvrir d'1,5l d'eau puis verser le Champagne. Porter à ébullition et laisser mijoter 30 minutes à feu doux.<br>
+    Ouvrir 16 langoustines et ajouter leur chair.<br>
+    Incorporer les jaunes d'oeufs battus avec la crème juste avant de servir.<br>
+    Mettre dans chaque assiette une langoustine et verser le velouté.<br>
 {% endblock %}

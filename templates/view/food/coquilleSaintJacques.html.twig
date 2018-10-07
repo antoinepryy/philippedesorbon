@@ -1,6 +1,48 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/st_jacques.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Entrée
+{% endblock %}
+{% block foodTitle %}
+    Coquille Saint Jacques à la nage et Champagne Blanc de Blancs
+{% endblock %}
+{% block temps %}
+    30 min préparation<br>
+    15 min de cuisson<br><br>
+    4 personnes
+{% endblock %}
+{% block metVins%}
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Blanc de Blancs
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        12 Noix de Saint Jacques<br>
+        250 g de girolles<br>
+        2 carottes<br>
+        2 poireaux<br>
+        2 oignons<br>
+        graines de coriandre<br>
+        baies roses<br>
+        persil<br><br>
 
+        1/2 bouteille Champagne Blanc de Blancs
+    </p>
+
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_blanc.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Faire transpirer dans une sauteuse 250 g de girolles jusqu'à évaporation de l'eau.<br>
+    Couper en fins bâtonnets 2 carottes, 2 poireaux et 2 oignons.<br>
+    Ajouter dans la sauteuse avec un peu de beurre et les étuver 5 min avec les girolles.<br>
+    Mouiller avec 35 cl de Champagne Blanc de Blancs, faire bouiller puis laisser frémir 10 min. Saler, poivrer, ajouter 1 cuillère à café de graines de coriandre, des baies roses et du persil.<br>
+    Mettre dans la sauteuse 12 coquilles Saint-Jacques lavées à l'eau froide et essuyées et les pocher 1 min de chaque côté. Servir dans des assiettes bien chaudes.<br>
 {% endblock %}

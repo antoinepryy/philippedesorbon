@@ -1,6 +1,53 @@
 {% extends 'view/food/foodTemplate.html.twig' %}
 
-{% block test %}
-    Charlotte
+{% block picture %}
+    <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/huitres.jpg') }}">
+{% endblock %}
+{% block foodType %}
+    Plat
+{% endblock %}
+{% block foodTitle %}
+    Huîtres chaudes au Champagne{% endblock %}
+{% block temps %}
+    30 min préparation<br>
+    10 min de cuisson<br><br>
+    4 personnes
+{% endblock %}
+{% block metVins%}
+
+    Accord idéal avec<br>
+    le Champagne<br>
+    Philippe de Sorbon<br>
+    Intemporelle
+{% endblock %}
+{% block ingredients %}
+    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <p class="fs-08">
+        24 huîtres creuses n° 3 de Marennes<br>
+        2 cl de Champagne<br>
+        3 oeufs<br>
+        125 g de beurre clarifié<br>
+        cerfeuil<br><br>
+
+        1 Bouteuille de Champagne<br>
+        Philippe de Sorbon Intemporelle
+    </p>
+{% endblock %}
+{% block pictureChampagne %}
+    <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_intemporelle.jpg') }}">
+{% endblock %}
+{% block recette %}
+    Ouvrez les huîtres , récupérez le jus et gardez les coquilles.<br>
+    Rincez les huîtres et disposez-les à plat sur du papier absorbant. Rincez également les coquilles d'huîtres et laissez-les sécher.<br><br>
+
+    Passez le jus d'huîtres dans un linge étamine afin d'en retirer les particules.<br>
+    Pochez les huîtres dans leur jus et disposez-les dans leurs coquilles sur des assiettes plates (sur un lit d'algues ou de gros sel).<br><br>
+
+    Ajoutez le Champagne au jus d'huîtres et faites réduire. Incorporez les jaunes d'oeufs et montez le sabayon en fouettant vivement. Le corps doit être mousseux et doit épaissir.<br>
+    Le faire cuire légèrement et incorporer le beurre tiède en sabayon. Le sabayon et le beurre doivent être à la même température, ce sera la clé de la réussite.<br>
+    Rectifiez l'assaisonnement et nappez toutes les huîtres.<br>
+    Décorez avec un brin de cerfeuil et servir aussitôt.<br><br>
+
+    Nous vous conseillons d'accompagner ce plat d'une grande délicatesse par la CUVEE INTEMPORELLE.
 
 {% endblock %}
