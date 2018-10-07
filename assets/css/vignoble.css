@@ -98,6 +98,17 @@
     width: 80%;
 }
 
+
+
+.vigne-txt{
+    display: table;
+}
+
+.vigne-txt > p{
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .vignes{
     width: 15em;
     height: 21em;
@@ -105,14 +116,21 @@
 }
 .vignes>div{
     overflow: hidden;
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.vignes h2{
+    height: 50px;
+    line-height: 50px;
+
 }
 .slideup{
     bottom: 0;
 }
 .text-hidden{
-    bottom: calc(-100%);
+    bottom: 50px;
+    transform: translateY(100%);
 }
 .vignoble-section{
     height: 20vh;
