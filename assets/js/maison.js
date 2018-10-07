@@ -21,19 +21,19 @@ $('.circle').click(function(){
     })
     switch(indexAnim){
         case '1':
-            slideContainer.style.transform = "translateX(calc(-50% + 34vw))";
+            slideContainer.style.transform = "translateX(calc(-50% + 46vw))";
             break;
         case '2':
-            slideContainer.style.transform = "translateX(calc(-50% + 17vw))";
+            slideContainer.style.transform = "translateX(calc(-50% + 23vw))";
             break;
         case '3':
             slideContainer.style.transform = "translateX(calc(-50%))";
             break;
         case '4':
-            slideContainer.style.transform = "translateX(calc(-50% - 17vw))";
+            slideContainer.style.transform = "translateX(calc(-50% - 23vw))";
             break;
         case '5':
-            slideContainer.style.transform = "translateX(calc(-50% - 34vw))";
+            slideContainer.style.transform = "translateX(calc(-50% - 46vw))";
             break;
     }
     activeSlide.classList.add("slide-active");
