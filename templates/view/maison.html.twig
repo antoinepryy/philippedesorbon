@@ -138,19 +138,38 @@
                 Une longue et belle histoire d'hommes et de terroirs
             </p>
         </div>
-        <div class="container text-center fc-grey-cs" style="height: 100vh;">
+        <div class="container-fluid text-center fc-grey-cs" style=" overflow: hidden" >
+            <div class="my-4" style="height: 17vw;">
+                <div class="relpos">
+                    <div id="slide-container" style=" width: 85vw; display: flex; position: absolute; left: 50%; transform: translateX(-50%)">
+                        <div id="pict-1" class="slide-maison" style="width: 17vw; height: 17vw; opacity: 0.5;">
+                            <img style="width: 17vw; height: 17vw;" src="{{ asset('ressource/image/maison/slide_1.jpg') }}">
+                        </div>
+                        <div id="pict-2" class="slide-maison" style="width: 17vw; height: 17vw; opacity: 0.5;">
+                            <img style="width: 17vw; height: 17vw;" src="{{ asset('ressource/image/maison/slide_2.jpg') }}">
+                        </div>
+                        <div id="pict-3" class="slide-maison slide-active" style="width: 17vw; height: 17vw; opacity: 0.5;">
+                            <img style="width: 17vw; height: 17vw;" src="{{ asset('ressource/image/maison/slide_3.jpg') }}">
+                        </div>
+                        <div id="pict-4" class="slide-maison" style="width: 17vw; height: 17vw; opacity: 0.5;">
+                            <img style="width: 17vw; height: 17vw;" src="{{ asset('ressource/image/maison/slide_4.jpg') }}">
+                        </div>
+                        <div id="pict-5" class="slide-maison" style="width: 17vw; height: 17vw; opacity: 0.5;">
+                            <img style="width: 17vw; height: 17vw;" src="{{ asset('ressource/image/maison/slide_5.jpg') }}">
+                        </div>
+                    </div>
+                </div>
 
-            <div class="my-5">
-                <img id="anim-picture" style="width: 235px; height: auto; border-radius: 10px;" src="{{ asset('ressource/image/maison/slide_1.jpg') }}">
             </div>
+
             <div class="m-auto" style="position: relative; width: 50%; height: 50px;">
                 <div class="bar" style="position: absolute; width: 100%; height: 1px; background-color: black;">
                 </div>
-                <div id="circle-1" class="circle circle-active">
+                <div id="circle-1" class="circle">
                 </div>
                 <div id="circle-2" class="circle">
                 </div>
-                <div id="circle-3" class="circle">
+                <div id="circle-3" class="circle  circle-active">
                 </div>
                 <div id="circle-4" class="circle">
                 </div>
