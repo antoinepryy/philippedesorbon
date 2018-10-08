@@ -56,6 +56,10 @@ checkout:
     path: /Checkout
     controller: App\Controller\DefaultController::checkout
 
+order_validated:
+    path: /CommandeValidee
+    controller: App\Controller\DefaultController::orderValidated
+
 gastronomie:
     path: /Gastronomie/{plat}
     controller: App\Controller\DefaultController::gastronomie

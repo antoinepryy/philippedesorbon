@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Champagne;
+use App\Entity\ChampagneOption;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -244,7 +245,48 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function orderValidated(){
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session){
+        $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
+        $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+        //$champagneListClassique = $repository->findBy(['type' => 'Classique']);
+        $cart = $session->get('cart');
+        $user = $this->getUser();
+        $orderContent = [];
+        foreach ($cart as $champagne){
+            if (count($champagne) === 3){
+                array_push($orderContent,$champagne[1].' x '.$champagneRepository->findOneBy(['id'=>$champagne[0]])->getName().' '.$optionRepository->findOneBy(['id'=>$champagne[2]])->getName());
+            }
+            else {
+                array_push($orderContent, $champagne[1].' x '.$champagneRepository->findOneBy(['id'=>$champagne[0]])->getName());
+            }
+        }
+
+        $messageClient = (new \Swift_Message('Philippe de Sorbon'))
+            ->setFrom('antoine.ap.57@gmail.com')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'emails/orderClient.html.twig',
+                    array('orderContent' => $orderContent)
+                ),
+                'text/html'
+            );
+
+        $messageAdmin = (new \Swift_Message('Hello Email'))
+            ->setFrom('antoine.ap.57@gmail.com')
+            ->setTo('antoine.ap.57@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'emails/orderClient.html.twig',
+                    array('orderContent' => $orderContent)
+                ),
+                'text/html'
+            );
+
+        $mailer->send($messageClient);
+        $mailer->send($messageAdmin);
+        $session->set('cart',[]);
+
         return $this->render('view/foodGrid.html.twig');
     }
 
