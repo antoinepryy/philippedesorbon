@@ -46,7 +46,7 @@ class RegistrationController extends AbstractController
             $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
             $this->container->get('security.token_storage')->setToken($token);
             $this->container->get('session')->set('_security_main', serialize($token));
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('order_validated');
         }
 
         return $this->render(

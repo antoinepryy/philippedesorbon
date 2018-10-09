@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
+use Swift_Image;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -252,12 +253,19 @@ class DefaultController extends Controller
         $cart = $session->get('cart');
         $user = $this->getUser();
         $orderContent = [];
+        $orderPrice = 0;
+
         foreach ($cart as $champagne){
             if (count($champagne) === 3){
-                array_push($orderContent,$champagne[1].' x '.$champagneRepository->findOneBy(['id'=>$champagne[0]])->getName().' '.$optionRepository->findOneBy(['id'=>$champagne[2]])->getName());
+                $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
+                $champagneOption = $optionRepository->findOneBy(['id'=>$champagne[2]]);
+                array_push($orderContent,$champagne[1].' x '.$champagneModel->getName().' '.$champagneOption->getName());
+                $orderPrice += $champagneOption->getPrice();
             }
             else {
-                array_push($orderContent, $champagne[1].' x '.$champagneRepository->findOneBy(['id'=>$champagne[0]])->getName());
+                $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
+                array_push($orderContent, $champagne[1].' x '.$champagneModel->getName());
+                $orderPrice += $champagneModel->getPrice();
             }
         }
 
@@ -266,19 +274,24 @@ class DefaultController extends Controller
             ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
-                    'emails/orderClient.html.twig',
-                    array('orderContent' => $orderContent)
+                    'emails/orderClient.html.twig', [
+                        'orderContent' => $orderContent,
+                        'totalPrice' => $orderPrice
+                    ]
                 ),
                 'text/html'
             );
 
-        $messageAdmin = (new \Swift_Message('Hello Email'))
+        $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('antoine.ap.57@gmail.com')
             ->setTo('antoine.ap.57@gmail.com')
             ->setBody(
                 $this->renderView(
-                    'emails/orderClient.html.twig',
-                    array('orderContent' => $orderContent)
+                    'emails/orderAdmin.html.twig', [
+                        'orderContent' => $orderContent,
+                        'totalPrice' => $orderPrice,
+                        'clientEmail' => $user->getEmail()
+                    ]
                 ),
                 'text/html'
             );
@@ -287,7 +300,9 @@ class DefaultController extends Controller
         $mailer->send($messageAdmin);
         $session->set('cart',[]);
 
-        return $this->render('view/foodGrid.html.twig');
+        return $this->render('view/validOrder.html.twig',[
+            'cartSize' => 0
+        ]);
     }
 
 

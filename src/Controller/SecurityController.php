@@ -51,6 +51,6 @@ class SecurityController extends AbstractController
 
         $mailer->send($message);
 
-        return $this->render('view/accueil.html.twig');
+        return $this->redirectToRoute('order_validated');
     }
 }
