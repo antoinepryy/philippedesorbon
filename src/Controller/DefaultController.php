@@ -259,13 +259,15 @@ class DefaultController extends Controller
             if (count($champagne) === 3){
                 $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
                 $champagneOption = $optionRepository->findOneBy(['id'=>$champagne[2]]);
-                array_push($orderContent,$champagne[1].' x '.$champagneModel->getName().' '.$champagneOption->getName());
-                $orderPrice += $champagneOption->getPrice();
+                $champagneQuantity = $champagne[1];
+                array_push($orderContent,$champagneQuantity.' x '.$champagneModel->getName().' '.$champagneOption->getName());
+                $orderPrice += $champagneOption->getPrice()*$champagneQuantity;
             }
             else {
+                $champagneQuantity = $champagne[1];
                 $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
                 array_push($orderContent, $champagne[1].' x '.$champagneModel->getName());
-                $orderPrice += $champagneModel->getPrice();
+                $orderPrice += $champagneModel->getPrice()*$champagneQuantity;
             }
         }
 
@@ -284,7 +286,7 @@ class DefaultController extends Controller
 
         $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('antoine.ap.57@gmail.com')
-            ->setTo('antoine.ap.57@gmail.com')
+            ->setTo('n.wallaert@gmail.com')
             ->setBody(
                 $this->renderView(
                     'emails/orderAdmin.html.twig', [
@@ -303,6 +305,16 @@ class DefaultController extends Controller
         return $this->render('view/validOrder.html.twig',[
             'cartSize' => 0
         ]);
+    }
+
+    public function checkout(){
+        $user = $this->getUser();
+        if ($user === null){
+            return $this->redirectToRoute('login');
+        }
+        else{
+            return $this->redirectToRoute('order_validated');
+        }
     }
 
 
