@@ -2,6 +2,7 @@
     font-family: customEdwardian;
     src: url('../../public/ressource/fonts/AlexBrush-Regular.ttf');
 }
+
 #header{background-color: white;}
 
 .header-list, .footer-list {
@@ -418,6 +419,10 @@ option:not(:hover) {
 
     .hide-mobile{
         display: none;
+    }
+
+    .unhide-mobile{
+        display: block!important;
     }
     .sticky-nav-sec{
         display: none;
