@@ -1,3 +1,14 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('../../public/ressource/fonts/AlexBrush-Regular.ttf');
+}
+
+.myFirstFont{
+    font-family: myFirstFont, sans-serif;
+}
+
+
+
 #header{background-color: white;}
 
 .header-list, .footer-list {
