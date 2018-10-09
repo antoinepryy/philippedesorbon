@@ -1,14 +1,7 @@
 @font-face {
-    font-family: myFirstFont;
+    font-family: customEdwardian;
     src: url('../../public/ressource/fonts/AlexBrush-Regular.ttf');
 }
-
-.myFirstFont{
-    font-family: myFirstFont, sans-serif;
-}
-
-
-
 #header{background-color: white;}
 
 .header-list, .footer-list {
@@ -163,7 +156,7 @@
 }
 
 .edwardian{
-    font-family: "Edwardian Script ITC", sans-serif!important;
+    font-family: "Edwardian Script ITC", customEdwardian, sans-serif!important;
 }
 
 .segoe{
