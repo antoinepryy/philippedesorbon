@@ -416,6 +416,9 @@ option:not(:hover) {
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
+    .hide-mobile{
+        display: none;
+    }
     .sticky-nav-sec{
         display: none;
     }
