@@ -8,7 +8,7 @@
 
 .maison-slide2{
     background-image: url("../../public/ressource/image/maison/lettre.jpg");
-    min-height: 100vh;
+    height: 100vh;
     background-attachment: fixed;
     background-position: 0px 165px;
     background-repeat: no-repeat;
@@ -17,17 +17,13 @@
 
 .maison-slide3{
     background-image: url("../../public/ressource/image/maison/arbre.jpg");
-    min-height: 400px;
+    height: 400px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-
-#Histoire p{
-    font-size: 1.1em;
-}
 
 .house-picture{
     height: auto;
@@ -84,6 +80,32 @@
     background-color: #CEBB87;
     width: 2vw;
     height: 2vw;
+}
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .maison-slide1{
+        background-size: 100vw;
+        height: 25vh;
+    }
+
+    .maison-slide2{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .maison-slide3{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
 }
 
 
