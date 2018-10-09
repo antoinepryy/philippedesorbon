@@ -1,6 +1,6 @@
 .vignoble-slide1{
     background-image: url("../../public/ressource/image/vignoble/vignoble.jpg");
-    background-position: center;
+    background-position: 0 -70px;
     background-repeat: no-repeat;
     background-size: 100vw;
     height: calc(100vh - 250px);

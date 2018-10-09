@@ -286,7 +286,7 @@ class DefaultController extends Controller
 
         $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('antoine.ap.57@gmail.com')
-            ->setTo('n.wallaert@gmail.com')
+            ->setTo('antoine.ap.57@gmail.com')
             ->setBody(
                 $this->renderView(
                     'emails/orderAdmin.html.twig', [
