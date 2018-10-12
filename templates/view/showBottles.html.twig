@@ -1,13 +1,14 @@
 <div class="py-5 container-fluid" style="background-color: black; display: flex;">
-    <div style="width: 55%;" class="text-center">
+    <div style="width: 60%;" class="text-center">
         <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
         <div class="row">
             {% for champagne in champagneClassique %}
-                <div class="col">
+                <div class="col bottle-col">
                     <div>
                         <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                            <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
-                        </a>                        <div class="text-white segoe" style="opacity: 0.6">
+                            <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                        </a>
+                        <div class="text-white segoe" style="opacity: 0.6;">
                             {{ champagne.name }}
                         </div>
                     </div>
@@ -15,19 +16,17 @@
             {% endfor %}
         </div>
     </div>
-    <div style="width: 10%;">
 
-    </div>
-    <div style="width: 35%;" class="text-center">
+    <div style="width: 40%;" class="text-center">
         <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
         <div class="row">
             {% for champagne in champagneCollection %}
-                <div class="col">
+                <div class="col bottle-col">
                     <div>
                         <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                            <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                            <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
                         </a>
-                        <div class="text-white segoe" style="opacity: 0.6">
+                        <div class="text-white segoe" style="opacity: 0.6;">
                             {{ champagne.name }}
                         </div>
                     </div>

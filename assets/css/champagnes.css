@@ -11,6 +11,29 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 110vh;
+    height: 110vh;
 }
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+
+    .champagnes-slide1{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .champagnes-slide2{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
+
 

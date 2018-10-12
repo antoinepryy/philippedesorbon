@@ -332,6 +332,10 @@ option:not(:hover) {
     justify-content: center;
 }
 
+.bottle-col{
+    height: 70vh;
+}
+
 
 
 
@@ -453,6 +457,15 @@ option:not(:hover) {
 
     .w-50-r{
         width: 100%;
+    }
+
+
+    .champagne-bottle{
+        height: 20vh!important;
+    }
+
+    .bottle-col{
+        height: 30vh;
     }
 
 
