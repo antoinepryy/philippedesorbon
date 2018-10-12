@@ -119,18 +119,27 @@
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .txt-s-2{
+        transform: translate(-50%, -50%);
+        left: 50%;
         width: 50%;
     }
     .txt-s-3{
+        transform: translate(50%);
         width: 50%;
+        right: 50%;
     }
     .txt-s-4{
+        transform: translate(-50%);
+        left: 50%;
         width: 50%;
     }
     .txt-s-5{
+        transform: translate(-50%, -50%);
+        left: 50%;
         width: 50%;
     }
     .txt-s-6 {
+        transform: translate(-50%, -50%);
         width: 50%;
     }
 
@@ -185,7 +194,7 @@
     }
 
     .sf-txt{
-        font-size: 1.6vw;
+        font-size: 2.4vw;
     }
 
 }

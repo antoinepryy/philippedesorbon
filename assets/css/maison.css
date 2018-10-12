@@ -81,6 +81,8 @@
     height: 2vw;
 }
 
+
+
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .maison-slide1{
@@ -99,6 +101,10 @@
         background-size: 100vw;
         height: 25vh;
         background-attachment: unset;
+    }
+
+    .pds-container{
+        height: 25vh;
     }
 }
 
