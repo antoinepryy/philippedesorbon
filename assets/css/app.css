@@ -92,61 +92,26 @@
     font-size: 0.4em;
 }
 
+.fsr-1{
+    font-size: 1vw;
+}
+.fsr-12{
+    font-size: 1.2vw;
+}
+.fsr-14{
+    font-size: 1.4vw;
+}
+.fsr-16{
+    font-size: 1.6vw;
+}
 .fsr-18{
     font-size: 1.8vw;
 }
 
-.fsr-17{
-    font-size: 1.7vw;
+.fsr-20{
+    font-size: 2vw;
 }
 
-.fsr-16{
-    font-size: 1.6vw;
-}
-
-.fsr-15{
-    font-size: 1.5vw;
-}
-
-.fsr-14{
-    font-size: 1.4vw;
-}
-
-.fsr-13{
-    font-size: 1.3vw;
-}
-
-.fsr-12{
-    font-size: 1.2vw;
-}
-
-.fsr-11{
-    font-size: 1.1vw;
-}
-
-.fsr-1{
-    font-size: 1vw;
-}
-
-.fsr-08{
-    font-size: 0.8vw;
-}
-
-.fsr-07{
-    font-size: 0.7vw;
-}
-
-.fsr-06{
-    font-size: 0.6vw;
-}
-
-.fsr-05{
-    font-size: 0.5vw;
-}
-
-.fsr-04{
-    font-size: 0.4vw;
-}
 
 .no-decoration:hover{
     text-decoration: none;
@@ -427,6 +392,65 @@ option:not(:hover) {
     .sticky-nav-sec{
         display: none;
     }
+
+    .fs-18{
+        font-size: 3.3vw;
+    }
+
+    .fs-17{
+        font-size: 3.2vw;
+    }
+
+    .fs-16{
+        font-size: 3.1vw;
+    }
+
+    .fs-15{
+        font-size: 3vw;
+    }
+
+    .fs-14{
+        font-size: 2.8vw;
+    }
+
+    .fs-13{
+        font-size: 2.6vw;
+    }
+
+    .fs-12{
+        font-size: 2.4vw;
+    }
+
+    .fs-11{
+        font-size: 2.2vw;
+    }
+
+    .fs-1{
+        font-size: 2vw;
+    }
+
+    .fs-08{
+        font-size: 1.8vw;
+    }
+
+    .fs-07{
+        font-size: 1.6vw;
+    }
+
+    .fs-06{
+        font-size: 1.4vw;
+    }
+
+    .fs-05{
+        font-size: 1.2vw;
+    }
+
+    .fs-04{
+        font-size: 1vw;
+    }
+
+
+
 }
 
 /* Tablets */
