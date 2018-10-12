@@ -8,7 +8,7 @@
 
 .savoirfaire-slide2{
     background-image: url("../../public/ressource/image/savoirfaire/vendange.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 .savoirfaire-slide3{
     background-image: url("../../public/ressource/image/savoirfaire/cuve.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 
 .savoirfaire-slide4{
     background-image: url("../../public/ressource/image/savoirfaire/coupe_champagne.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 
 .savoirfaire-slide5{
     background-image: url("../../public/ressource/image/savoirfaire/cave.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@
 
 .savoirfaire-slide6{
     background-image: url("../../public/ressource/image/savoirfaire/champagne.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -53,7 +53,7 @@
 
 .savoirfaire-slide7{
     background-image: url("../../public/ressource/image/savoirfaire/bouchon.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -71,7 +71,7 @@
 
 
 .sf-txt{
-    font-size: 0.9em;
+    font-size: 1vw;
 }
 
 .txt-s-2{
@@ -135,6 +135,55 @@
     }
     .savoirfaire-slide5{
         min-height: 120vh;
+    }
+
+    .savoirfaire-slide1{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide2{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide3{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide4{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide5{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide6{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .savoirfaire-slide7{
+        background-size: 100vw;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
     }
 
 }
