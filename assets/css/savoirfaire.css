@@ -71,7 +71,7 @@
 
 
 .sf-txt{
-    font-size: 1vw;
+    font-size: 0.8em;
 }
 
 .txt-s-2{
@@ -119,71 +119,73 @@
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .txt-s-2{
-        width: 90%;
+        width: 50%;
     }
     .txt-s-3{
-        width: 90%;
+        width: 50%;
     }
     .txt-s-4{
-        width: 90%;
+        width: 50%;
     }
     .txt-s-5{
-        width: 90%;
+        width: 50%;
     }
     .txt-s-6 {
-        width: 90%;
-    }
-    .savoirfaire-slide5{
-        min-height: 120vh;
+        width: 50%;
     }
 
+
     .savoirfaire-slide1{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide2{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide3{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide4{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide5{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide6{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .savoirfaire-slide7{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 70vh;
         background-position: center;
         background-attachment: unset;
+    }
+
+    .sf-txt{
+        font-size: 1.6vw;
     }
 
 }

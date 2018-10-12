@@ -17,11 +17,7 @@
     background-color: #333;
 }
 
-.header-list a{
-    display: block;
-    font-family: "Book Antiqua", sans-serif;
-    font-size: 1.15vw;
-}
+
 
 .footer-list a {
     display: block;
@@ -232,6 +228,8 @@
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
     letter-spacing: 2px;
+    font-family: "Book Antiqua", sans-serif;
+    font-size: 1.15vw;
 }
 
 .sticky-nav-sec ul li a{
@@ -447,6 +445,14 @@ option:not(:hover) {
 
     .fs-04{
         font-size: 1vw;
+    }
+
+    .w-100-r{
+        width: 100%;
+    }
+
+    .w-50-r{
+        width: 100%;
     }
 
 
