@@ -38,10 +38,6 @@ contact:
     path: /Contact
     controller: App\Controller\DefaultController::contact
 
-robotstxt:
-    path: /robots.txt
-    controller: App\Controller\DefaultController::robots
-
 logout:
     path: /Logout
 
@@ -63,6 +59,10 @@ order_validated:
 gastronomie:
     path: /Gastronomie/{plat}
     controller: App\Controller\DefaultController::gastronomie
+
+sitemap:
+    path: /sitemap
+    controller: App\Controller\GoogleController::sitemap
 
 
 

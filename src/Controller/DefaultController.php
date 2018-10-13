@@ -10,7 +10,6 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
-use Swift_Image;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -222,13 +221,13 @@ class DefaultController extends Controller
             case 'Soupe':
                 $food = "soupe";
                 break;
-            case 'Velouté':
+            case 'Veloute':
                 $food = "langoustines";
                 break;
             case 'Risotto':
                 $food = "risotto";
                 break;
-            case 'Huîtres':
+            case 'Huitres':
                 $food = "huitres";
                 break;
             case 'Lotte':
@@ -237,7 +236,7 @@ class DefaultController extends Controller
             case 'Poireaux':
                 $food = "poireaux";
                 break;
-            case 'Granité':
+            case 'Granite':
                 $food = "granite";
                 break;
         }
