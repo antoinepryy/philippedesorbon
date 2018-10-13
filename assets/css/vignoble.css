@@ -138,12 +138,12 @@
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .vignoble-txt-1{
-        width: 80%;
+        width: 50%;
         left: 50%;
         transform: translateX(-50%);
     }
     .vignoble-slide3{
-        min-height: 140vh;
+        height: 140vh;
     }
     .vignoble-txt-2{
         width: 80%;
@@ -153,13 +153,13 @@
         width: 80%;
     }
     .vignoble-slide4-left {
-        min-height: 90vh;
+        height: 90vh;
     }
     .vignoble-slide4-right {
-        min-height: 90vh;
+        height: 90vh;
     }
     .vignoble-slide5{
-        min-height: 90vh;
+        height: 90vh;
     }
     .vignes-container{
         display: block;
@@ -189,25 +189,10 @@
     }
 
     .vignoble-slide4-left {
-        width: 50%;
-        height: fit-content;
-        background-image: url("../../public/ressource/image/vignoble/champagne_eglise.jpg");
-        min-height: calc(100vh - 168px);
-        background-attachment: fixed;
-        background-position: left;
-        background-repeat: no-repeat;
-        background-size: 50%;
     }
 
     .vignoble-slide4-right{
-        width: 50%;
-        height: fit-content;
-        background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
-        min-height: calc(100vh - 168px);
-        background-attachment: fixed;
-        background-position: right;
-        background-repeat: no-repeat;
-        background-size: 50%;
+
     }
 
     .vignoble-slide5{
