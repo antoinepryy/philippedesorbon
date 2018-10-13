@@ -81,6 +81,19 @@
     height: 2vw;
 }
 
+.bar-container{
+    position: relative;
+    width: 50%;
+    height: 50px;
+}
+
+.bar-container > .bar{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+
 
 
 /* Smartphones */
@@ -105,6 +118,20 @@
 
     .pds-container{
         height: 25vh;
+    }
+
+    .circle-active{
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .circle{
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .bar-container{
+        width: 80%;
     }
 }
 
