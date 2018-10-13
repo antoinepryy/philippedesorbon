@@ -135,6 +135,10 @@
     position: relative;
 }
 
+.map-container{
+    height: 250px;
+}
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .vignoble-txt-1{
@@ -161,12 +165,10 @@
     .vignoble-slide5{
         height: 90vh;
     }
-    .vignes-container{
-        display: block;
-    }
+
     .vignes{
-        width: 14em;
-        height: 21em;
+        width: 15vw;
+        height: 25vh;
         overflow: hidden;
     }
 
@@ -183,8 +185,9 @@
     }
 
     .vignoble-slide3{
-        background-size: 100vw;
-        height: 25vh;
+        background-position: bottom;
+        background-size: cover;
+        height: 90vh;
         background-attachment: unset;
     }
 
@@ -196,9 +199,13 @@
     }
 
     .vignoble-slide5{
-        background-size: 100vw;
-        height: 25vh;
+        background-size: cover;
+        height: 90vh;
         background-attachment: unset;
+    }
+
+    .map-container{
+        height: 10vh;
     }
 }
 
