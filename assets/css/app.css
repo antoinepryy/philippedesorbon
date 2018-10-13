@@ -504,6 +504,9 @@ option:not(:hover) {
         letter-spacing: 1px;
         font-size: 1.6vw;
     }
+    .champagne-bottle{
+        opacity: 1;
+    }
 
 
 }

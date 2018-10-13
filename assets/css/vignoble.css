@@ -8,7 +8,7 @@
 
 .vignoble-slide2{
     background-image: url("../../public/ressource/image/vignoble/glace.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 .vignoble-slide3{
     background-image: url("../../public/ressource/image/vignoble/vignoble_champagne.jpg");
-    min-height: 130vh;
+    height: 130vh;
     background-attachment: fixed;
     background-position: 0px 170px;
     background-repeat: no-repeat;
@@ -26,9 +26,8 @@
 
 .vignoble-slide4-left {
     width: 50%;
-    height: fit-content;
     background-image: url("../../public/ressource/image/vignoble/champagne_eglise.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: left;
     background-repeat: no-repeat;
@@ -37,9 +36,8 @@
 
 .vignoble-slide4-right{
     width: 50%;
-    height: fit-content;
     background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
-    min-height: calc(100vh - 168px);
+    height: calc(100vh - 168px);
     background-attachment: fixed;
     background-position: right;
     background-repeat: no-repeat;
@@ -48,7 +46,7 @@
 
 .vignoble-slide5{
     background-image: url("../../public/ressource/image/vignoble/entretien_vignoble.jpg");
-    min-height: 100vh;
+    height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -170,6 +168,52 @@
         width: 14em;
         height: 21em;
         overflow: hidden;
+    }
+
+    .vignoble-slide1{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide2{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide3{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide4-left {
+        width: 50%;
+        height: fit-content;
+        background-image: url("../../public/ressource/image/vignoble/champagne_eglise.jpg");
+        min-height: calc(100vh - 168px);
+        background-attachment: fixed;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 50%;
+    }
+
+    .vignoble-slide4-right{
+        width: 50%;
+        height: fit-content;
+        background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
+        min-height: calc(100vh - 168px);
+        background-attachment: fixed;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: 50%;
+    }
+
+    .vignoble-slide5{
+        background-size: 100vw;
+        height: 25vh;
+        background-attachment: unset;
     }
 }
 
