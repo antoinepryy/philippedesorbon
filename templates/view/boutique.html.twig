@@ -15,7 +15,7 @@
                         <div class="col">
                             <div>
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                                 </a>
                                 <div class="text-white font-weight-bold segoe py-2" style="opacity: 0.8">
                                     {{ champagne.name }}
@@ -38,7 +38,7 @@
                         <div class="col">
                             <div>
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                                 </a>
                                 <div class="text-white font-weight-bold segoe py-2" style="opacity: 0.8">
                                     {{ champagne.name }}
@@ -89,7 +89,7 @@
             <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div" style="display: none;">
                 <div class="col-3" style="display: flex">
                     <div class="w-50">
-                        <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                        <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                     </div>
                     <div style="width:50%;display:flex;justify-content:center;align-items:center;">
                         {{ champagne.name|upper }}
@@ -120,7 +120,7 @@
                 <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div shop-animate-all" style="display: none;">
                     <div class="col-3" style="display: flex">
                         <div class="w-50">
-                            <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="presentation of the bottle or food that can be associated with">
+                            <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                         </div>
                         <div style="width:50%;display:flex;justify-content:center;align-items:center;">
                             {{ champagne.name|upper }}
