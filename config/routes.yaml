@@ -64,6 +64,10 @@ sitemap:
     path: /sitemap
     controller: App\Controller\GoogleController::sitemap
 
+robotstxt:
+    path: /robots.txt
+    controller: App\Controller\GoogleController::robots
+
 
 
 
