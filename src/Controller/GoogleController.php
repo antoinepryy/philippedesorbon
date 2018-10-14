@@ -20,8 +20,8 @@ class GoogleController extends Controller
 
     public function sitemap(){
         $response = new Response();
-        $response->headers->set('Content-Type', 'text/xml');
+        $response->headers->set('Content-Type', 'xml');
 
-        return $this->render('sitemap.html.twig', array(), $response);
+        return $this->render('sitemap.xml.twig', array(), $response);
     }
 }
