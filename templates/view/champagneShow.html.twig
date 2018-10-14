@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+
+
+    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo1  }} ');">
+
+    </div>
     <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
         <ul class="champagnes-list justify-content-around m-0">
             <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">Carte Noire</a></li>
@@ -11,10 +16,6 @@
             <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'millesime2011'}) }}">Millésime 2011</a></li>
         </ul>
     </nav>
-
-    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo1  }} ');">
-
-    </div>
     <div class="container text-center py-4">
         <h1 class="segoe active p-2 fs-2">{{ champagne.name|upper }}</h1>
         <h2 class="edwardian active p-2 fs-18">{{ champagne.subtitle1 }}</h2>
@@ -27,14 +28,14 @@
     </div>
     <div class="container py-4">
         <div class="row">
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md text-center">
                 <h3 class="active segoe fs-14">{{ champagne.subtitle21|upper }}</h3>
                 <p class="segoe fs-1">
                     {{ champagne.presentation21|nl2br }}
                 </p>
             </div>
             {% if champagne.subtitle22 or champagne.presentation22 %}
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md text-center">
                 {% if champagne.subtitle22|upper %}
                 <h3 class="active segoe fs-14">{{ champagne.subtitle22|upper }}</h3>
                 {% endif %}
@@ -46,7 +47,7 @@
             </div>
             {% endif %}
             {% if champagne.subtitle23 or champagne.presentation23 %}
-            <div class="col-12  col-md-4 text-center">
+            <div class="col-12 col-md text-center">
                 {% if champagne.subtitle23|upper %}
                 <h3 class="active segoe fs-14">{{ champagne.subtitle23|upper }}</h3>
                 {% endif %}
@@ -76,7 +77,7 @@
     <div class="container py-4">
         <div class="row">
             {% if champagne.subtitle4 or champagne.presentation4 %}
-            <div class="col-12 col-md-8 text-center">
+            <div class="col-12 col-md text-center">
                 <div>
                     {% if champagne.subtitle4 %}
                     <h3 class="segoe active fs-14">{{ champagne.subtitle4|upper }}</h3>
@@ -90,7 +91,7 @@
             </div>
             {% endif %}
             {% if champagne.photoParagraph1 %}
-                <div class="col-12 col-md-4 text-center">
+                <div class="col-12 col-md text-center">
                     <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1  }} " alt="photo to illustrate the paragraph next to this one">
                 </div>
             {% endif %}
@@ -109,7 +110,7 @@
     <div class="container py-4">
         <div class="row">
             {% if champagne.subtitle5 or champagne.presentation5 %}
-            <div class="col-12 col-md-6  text-center">
+            <div class="col-12 col-md  text-center">
                 <div class="">
                     {% if champagne.subtitle5 %}
                     <h3 class="segoe active fs-14">{{ champagne.subtitle5|upper }}</h3>
@@ -123,7 +124,7 @@
             {% endif %}
             </div>
             {% if champagne.photoParagraph2 %}
-            <div class="col-12 col-md-6 text-center">
+            <div class="col-12 col-md text-center">
                     <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2  }} " alt="photo to illustrate the paragraph next to this one">
             </div>
             {% endif %}
