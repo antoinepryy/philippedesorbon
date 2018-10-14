@@ -1,47 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
+        <ul class="champagnes-list justify-content-around m-0">
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">Carte Noire</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">Carte d'Or</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'perlesderose'}) }}">Perles de Rosé</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'blancdeblancs'}) }}">Blanc de Blancs</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'intemporelle'}) }}">Intemporelle</a></li>
+            <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'millesime2011'}) }}">Millésime 2011</a></li>
+        </ul>
+    </nav>
 
     <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo1  }} ');">
 
     </div>
-    <div class="container text-center my-5">
-        <h1 class="segoe active p-2">{{ champagne.name|upper }}</h1>
-        <h2 class="edwardian active p-2">{{ champagne.subtitle1 }}</h2>
-        <p class="p-2">
+    <div class="container text-center py-4">
+        <h1 class="segoe active p-2 fs-2">{{ champagne.name|upper }}</h1>
+        <h2 class="edwardian active p-2 fs-18">{{ champagne.subtitle1 }}</h2>
+        <p class="p-2 fs-1">
             {{ champagne.presentation1|nl2br }}
         </p>
     </div>
     <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo2  }} ');">
 
     </div>
-    <div class="container p-3">
+    <div class="container py-4">
         <div class="row">
-            <div class="col text-center">
-                <h3 class="active segoe">{{ champagne.subtitle21|upper }}</h3>
-                <p class="segoe">
+            <div class="col-12 col-md-4 text-center">
+                <h3 class="active segoe fs-14">{{ champagne.subtitle21|upper }}</h3>
+                <p class="segoe fs-1">
                     {{ champagne.presentation21|nl2br }}
                 </p>
             </div>
             {% if champagne.subtitle22 or champagne.presentation22 %}
-            <div class="col text-center">
+            <div class="col-12 col-md-4 text-center">
                 {% if champagne.subtitle22|upper %}
-                <h3 class="active segoe">{{ champagne.subtitle22|upper }}</h3>
+                <h3 class="active segoe fs-14">{{ champagne.subtitle22|upper }}</h3>
                 {% endif %}
                 {% if champagne.subtitle22|upper %}
-                <p class="segoe">
+                <p class="segoe fs-1">
                     {{ champagne.presentation22|nl2br }}
                 </p>
                 {% endif %}
             </div>
             {% endif %}
             {% if champagne.subtitle23 or champagne.presentation23 %}
-            <div class="col text-center">
+            <div class="col-12  col-md-4 text-center">
                 {% if champagne.subtitle23|upper %}
-                <h3 class="active segoe">{{ champagne.subtitle23|upper }}</h3>
+                <h3 class="active segoe fs-14">{{ champagne.subtitle23|upper }}</h3>
                 {% endif %}
                 {% if champagne.subtitle23|upper %}
-                    <p class="segoe">
+                    <p class="segoe fs-1">
                         {{ champagne.presentation23|nl2br }}
                     </p>
                 {% endif %}
@@ -51,8 +61,8 @@
 
 
         {% if champagne.subtitle3 %}
-        <div class="text-center my-4">
-            <span class="segoe active fs-10 font-weight-bold">{{ champagne.subtitle3|upper }}</span>
+        <div class="text-center py-4">
+            <span class="segoe active fs-1 font-weight-bold">{{ champagne.subtitle3|upper }}</span>
         </div>
         {% endif %}
     </div>
@@ -62,16 +72,16 @@
     </div>
     {% endif %}
 
-    <div class="container py-5">
+    <div class="container py-4">
         <div class="row">
             {% if champagne.subtitle4 or champagne.presentation4 %}
             <div class="col text-center">
                 <div>
                     {% if champagne.subtitle4 %}
-                    <h3 class="segoe active">{{ champagne.subtitle4|upper }}</h3>
+                    <h3 class="segoe active fs-14">{{ champagne.subtitle4|upper }}</h3>
                     {% endif %}
                     {% if champagne.presentation4 %}
-                    <p class="segoe">
+                    <p class="segoe fs-1">
                         {{ champagne.presentation4|nl2br }}
                     </p>
                     {% endif %}
@@ -92,16 +102,16 @@
     </div>
     {% endif %}
 
-    <div class="container">
-        <div class="row py-4">
+    <div class="container py-4">
+        <div class="row">
             {% if champagne.subtitle5 or champagne.presentation5 %}
             <div class="col text-center">
                 <div class="">
                     {% if champagne.subtitle5 %}
-                    <h3 class="segoe active">{{ champagne.subtitle5|upper }}</h3>
+                    <h3 class="segoe active fs-14">{{ champagne.subtitle5|upper }}</h3>
                     {% endif %}
                     {% if champagne.presentation5 %}
-                    <p class="segoe">
+                    <p class="segoe fs-1">
                         {{ champagne.presentation5|nl2br }}
                     </p>
                     {% endif %}
