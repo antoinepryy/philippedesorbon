@@ -22,6 +22,6 @@ class GoogleController extends Controller
         $response = new Response();
         $response->headers->set('Content-Type', 'text/xml');
 
-        return $this->render('sitemap.xml', array(), $response);
+        return $this->render('sitemap.html.twig', array(), $response);
     }
 }
