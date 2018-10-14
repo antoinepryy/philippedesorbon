@@ -61,7 +61,7 @@ gastronomie:
     controller: App\Controller\DefaultController::gastronomie
 
 sitemap:
-    path: /sitemap
+    path: /sitemap.xml
     controller: App\Controller\GoogleController::sitemap
 
 robotstxt:
