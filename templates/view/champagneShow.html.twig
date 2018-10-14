@@ -72,10 +72,11 @@
     </div>
     {% endif %}
 
+    {% if champagne.subtitle4 or champagne.presentation4 or champagne.photoParagraph1 %}
     <div class="container py-4">
         <div class="row">
             {% if champagne.subtitle4 or champagne.presentation4 %}
-            <div class="col text-center">
+            <div class="col-12 col-md-8 text-center">
                 <div>
                     {% if champagne.subtitle4 %}
                     <h3 class="segoe active fs-14">{{ champagne.subtitle4|upper }}</h3>
@@ -89,12 +90,13 @@
             </div>
             {% endif %}
             {% if champagne.photoParagraph1 %}
-                <div class="col-4">
-                    <img style="height: 200px; width: auto; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1  }} " alt="photo to illustrate the paragraph next to this one">
+                <div class="col-12 col-md-4 text-center">
+                    <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1  }} " alt="photo to illustrate the paragraph next to this one">
                 </div>
             {% endif %}
         </div>
     </div>
+    {% endif %}
 
     {% if champagne.photo4 %}
     <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo4  }} ');">
@@ -102,10 +104,12 @@
     </div>
     {% endif %}
 
+
+    {% if champagne.subtitle5 or champagne.presentation5 or champagne.photoParagraph2 %}
     <div class="container py-4">
         <div class="row">
             {% if champagne.subtitle5 or champagne.presentation5 %}
-            <div class="col text-center">
+            <div class="col-12 col-md-6  text-center">
                 <div class="">
                     {% if champagne.subtitle5 %}
                     <h3 class="segoe active fs-14">{{ champagne.subtitle5|upper }}</h3>
@@ -119,12 +123,13 @@
             {% endif %}
             </div>
             {% if champagne.photoParagraph2 %}
-            <div class="col text-center">
-                    <img style="height: 200px; width: auto; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2  }} " alt="photo to illustrate the paragraph next to this one">
+            <div class="col-12 col-md-6 text-center">
+                    <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2  }} " alt="photo to illustrate the paragraph next to this one">
             </div>
             {% endif %}
         </div>
     </div>
+    {% endif %}
     <div>
         {{ render(controller(
             'App\\Controller\\DefaultController::showBottles'
