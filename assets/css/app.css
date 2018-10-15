@@ -362,6 +362,13 @@ option:not(:hover) {
 .w-25-pc{
     width: 25%;
 }
+
+#age-verification > div {
+    position:fixed;
+    top: 70%;
+    transform:translate(-50%,-50%);
+    left: 50%;
+}
 @keyframes fadein {
     from {
         opacity:0;
@@ -403,6 +410,9 @@ option:not(:hover) {
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
+    #age-verification > div {
+        top: 50%;
+    }
 
     .hide-mobile{
         display: none;

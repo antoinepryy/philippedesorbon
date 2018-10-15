@@ -55,3 +55,62 @@
 .md-show{
     top: 50px!important;
 }
+
+#modal-box{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    height: 35%;
+    width: 30%;
+    background-color: black;
+}
+
+#modal-option{
+    display: none;
+    z-index: 4000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(46, 43, 43, 0.75);
+}
+
+#modal-box-validation{
+    z-index: 4000;
+    position: fixed;
+    top: -250px;
+    left:50%;
+    transform: translate(-50%, 0);
+    height: 25%;
+    width: 25%;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #modal-box{
+        height: 40%;
+        width: 70%;
+    }
+
+    #modal-box-validation{
+        height: 30%;
+        width: 60%;
+    }
+
+    .boutique-slide1{
+        background-size: cover;
+        height: 70vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
