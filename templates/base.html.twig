@@ -30,8 +30,12 @@
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}" alt="Logo de la maison Philippe de Sorbon">
         </a>
         <div style="position: absolute; top: 5%; right: 5%">
+            <a style="" class="segoe links-std" href="#">
+                <img style="height: 30px" src="{{ asset('ressource/icons/user.png') }}" alt="symbole représentant un utilisateur">
+            </a>
+            <span> | </span>
             <a style="" class="segoe links-std" href="{{ path('panier') }}">
-                MON PANIER (<span class="cart-quantity">{{ cartSize }}</span>)
+                <img style="height: 30px" src="{{ asset('ressource/icons/cart.png') }}" alt="symbole représentant un utilisateur">(<span class="cart-quantity">{{ cartSize }}</span>)
             </a>
         </div>
     </div>
@@ -44,8 +48,12 @@
             <img class="m-auto" id="sm-picture" style="width: 50px; padding-top: 5px;" src="{{ asset('ressource/image/header/logo_fleur_lys.jpg') }}" alt="Logo minimaliste de la maison Philippe de Sorbon">
         </a>
         <div style="position: absolute; top: 5%; right: 5%">
+            <a style="" class="segoe links-std" href="#">
+                <img style="height: 30px" src="{{ asset('ressource/icons/user.png') }}" alt="symbole représentant un utilisateur">
+            </a>
+            <span> | </span>
             <a style="" class="segoe links-std" href="{{ path('panier') }}">
-                MON PANIER (<span class="cart-quantity">{{ cartSize }}</span>)
+                <img style="height: 30px" src="{{ asset('ressource/icons/cart.png') }}" alt="symbole représentant un utilisateur">(<span class="cart-quantity">{{ cartSize }}</span>)
             </a>
         </div>
     </div>
