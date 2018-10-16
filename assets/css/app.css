@@ -257,18 +257,18 @@
     background-color: #787171;;
 }
 
-select, select > option{
+.select-transparent, .select-transparent > option{
     color: white;
     background: transparent!important;
     padding: 3px 10px;
 
 }
 
-select:focus{
+.select-transparent:focus{
     border-color: white;
     outline: 0;
 }
-option:not(:hover) {
+.select-transparent option:not(:hover) {
     color:black;
 }
 

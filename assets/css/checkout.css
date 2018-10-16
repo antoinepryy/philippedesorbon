@@ -1,0 +1,8 @@
+.checkout-bg{
+    background-image: url("../../public/ressource/image/checkout/champagne_glass.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: calc(100vh - 300px);
+
+}

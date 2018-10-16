@@ -19,10 +19,9 @@ class DefaultController extends Controller
 {
     public function index(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/accueil.html.twig',
@@ -31,10 +30,9 @@ class DefaultController extends Controller
 
     public function maison(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/maison.html.twig',
@@ -43,10 +41,9 @@ class DefaultController extends Controller
 
     public function savoirfaire(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/savoirfaire.html.twig',
@@ -55,10 +52,9 @@ class DefaultController extends Controller
 
     public function champagnes(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/champagnes.html.twig',
@@ -67,31 +63,28 @@ class DefaultController extends Controller
 
     public function champagneShow($id, SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         $product = $this->getDoctrine()
             ->getRepository(Champagne::class)
             ->findOneBy(array('urlLink' => $id));
         if (!$product) {
-            throw $this->createNotFoundException(
-            );
+            throw $this->createNotFoundException();
         }
         return $this->render('view/champagneShow.html.twig', [
             'champagne' => $product,
             'cartSize' => $cartSize
-            ]);
+        ]);
     }
 
     public function vignoble(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/vignoble.html.twig',
@@ -100,10 +93,9 @@ class DefaultController extends Controller
 
     public function boutique(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -119,10 +111,9 @@ class DefaultController extends Controller
 
     public function panier(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -138,35 +129,32 @@ class DefaultController extends Controller
 
     public function mentionslegales(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/mentionslegales.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function contact( SessionInterface $session)
+    public function contact(SessionInterface $session)
     {
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         return $this->render('view/contact.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function commande(SessionInterface $session,Request $request)
+    public function commande(SessionInterface $session, Request $request)
     {
         $cart = $session->get('cart');
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -181,35 +169,33 @@ class DefaultController extends Controller
             ]);
     }
 
-    public function account(SessionInterface $session,Request $request)
+    public function account(SessionInterface $session, Request $request)
     {
         $cart = $session->get('cart');
-        if ($session->has('cart')){
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
-        if( $this->getUser()){
+        if ($this->getUser()) {
             $user = $this->getUser();
             return $this->render('view/compte.html.twig',
                 [
                     'cartSize' => $cartSize,
                     'user' => $user
                 ]);
-        }
-        else{
+        } else {
             return $this->redirectToRoute('login');
         }
 
 
     }
 
-    public function showBottles(SessionInterface $session){
-        if ($session->has('cart')){
+    public function showBottles(SessionInterface $session)
+    {
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -223,19 +209,20 @@ class DefaultController extends Controller
             ]);
     }
 
-    public function foodGrid(){
-    return $this->render('view/foodGrid.html.twig');
+    public function foodGrid()
+    {
+        return $this->render('view/foodGrid.html.twig');
     }
 
-    public function gastronomie($plat, SessionInterface $session){
-        if ($session->has('cart')){
+    public function gastronomie($plat, SessionInterface $session)
+    {
+        if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
-        }
-        else{
+        } else {
             $cartSize = 0;
         }
 
-        switch ($plat){
+        switch ($plat) {
             case 'Charlotte':
                 $food = "charlotte";
                 break;
@@ -264,12 +251,13 @@ class DefaultController extends Controller
                 $food = "granite";
                 break;
         }
-        return $this->render('view/food/'.$food.'.html.twig',[
+        return $this->render('view/food/' . $food . '.html.twig', [
             'cartSize' => $cartSize
         ]);
     }
 
-    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session){
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session)
+    {
         $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
         $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
         //$champagneListClassique = $repository->findBy(['type' => 'Classique']);
@@ -278,19 +266,18 @@ class DefaultController extends Controller
         $orderContent = [];
         $orderPrice = 0;
 
-        foreach ($cart as $champagne){
-            if (count($champagne) === 3){
-                $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
-                $champagneOption = $optionRepository->findOneBy(['id'=>$champagne[2]]);
+        foreach ($cart as $champagne) {
+            if (count($champagne) === 3) {
+                $champagneModel = $champagneRepository->findOneBy(['id' => $champagne[0]]);
+                $champagneOption = $optionRepository->findOneBy(['id' => $champagne[2]]);
                 $champagneQuantity = $champagne[1];
-                array_push($orderContent,$champagneQuantity.' x '.$champagneModel->getName().' '.$champagneOption->getName());
-                $orderPrice += $champagneOption->getPrice()*$champagneQuantity;
-            }
-            else {
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName() . ' ' . $champagneOption->getName());
+                $orderPrice += $champagneOption->getPrice() * $champagneQuantity;
+            } else {
                 $champagneQuantity = $champagne[1];
-                $champagneModel = $champagneRepository->findOneBy(['id'=>$champagne[0]]);
-                array_push($orderContent, $champagne[1].' x '.$champagneModel->getName());
-                $orderPrice += $champagneModel->getPrice()*$champagneQuantity;
+                $champagneModel = $champagneRepository->findOneBy(['id' => $champagne[0]]);
+                array_push($orderContent, $champagne[1] . ' x ' . $champagneModel->getName());
+                $orderPrice += $champagneModel->getPrice() * $champagneQuantity;
             }
         }
 
@@ -321,33 +308,26 @@ class DefaultController extends Controller
                 'text/html'
             );
 
-        if($cart != []){
+        if ($cart != []) {
             $mailer->send($messageClient);
             $mailer->send($messageAdmin);
-            $session->set('cart',[]);
+            $session->set('cart', []);
         }
 
-        return $this->render('view/validOrder.html.twig',[
+        return $this->render('view/validOrder.html.twig', [
             'cartSize' => 0
         ]);
     }
 
-    public function checkout(){
-        $user = $this->getUser();
-        if ($user === null){
-            return $this->redirectToRoute('login');
-        }
-        else{
-            return $this->redirectToRoute('order_validated');
-        }
-    }
-
-
-    public function robots($template = null)
+    public function checkout(SessionInterface $session)
     {
-        $response = new Response();
-        $response->headers->set('Content-Type', 'text/plain');
-
-        return $this->render('robots.txt.twig', array(), $response);
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+        return $this->render('view/checkout.html.twig', [
+            'cartSize' => $cartSize
+        ]);
     }
 }
