@@ -321,9 +321,11 @@ class DefaultController extends Controller
                 'text/html'
             );
 
-        $mailer->send($messageClient);
-        $mailer->send($messageAdmin);
-        $session->set('cart',[]);
+        if($cart != []){
+            $mailer->send($messageClient);
+            $mailer->send($messageAdmin);
+            $session->set('cart',[]);
+        }
 
         return $this->render('view/validOrder.html.twig',[
             'cartSize' => 0

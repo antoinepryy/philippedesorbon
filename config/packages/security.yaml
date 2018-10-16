@@ -15,14 +15,15 @@ security:
             anonymous: true
             pattern:    ^/
             http_basic: ~
-            provider: our_db_provider
             form_login:
                       login_path: login
                       check_path: login
-                      use_referer: true
+                      default_target_path: index
             logout:
                       path:   /Logout
                       target: /
+
+
 
             # activate different ways to authenticate
 
@@ -36,4 +37,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/CommandeValidee, roles: ROLE_USER }

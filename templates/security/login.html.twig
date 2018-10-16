@@ -9,15 +9,8 @@
         <div class="login-form-container">
             <form action="{{ path('login') }}" method="post" class="text-center">
                 <input type="text" class="form-control my-1" id="username" name="_username" placeholder="Email" value="{{ last_username }}" />
-
                 <input type="password" class="form-control my-1" id="password" name="_password" placeholder="Mot de passe"/>
-
-                {#
-                    If you want to control the URL the user
-                    is redirected to on success (more details below)
-                    <input type="hidden" name="_target_path" value="/account" />
-                #}
-
+                {#<input type="hidden" name="_target_path" value="/account" />#}
                 <button type="submit" class="my-2">Se connecter</button>
             </form>
         </div>
