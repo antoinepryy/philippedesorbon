@@ -30,7 +30,7 @@
             <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/header/titre.jpg') }}" alt="Logo de la maison Philippe de Sorbon">
         </a>
         <div style="position: absolute; top: 5%; right: 5%">
-            <a style="" class="segoe links-std" href="#">
+            <a style="" class="segoe links-std" href="{{ path('compte') }}">
                 <img style="height: 30px" src="{{ asset('ressource/icons/user.png') }}" alt="symbole représentant un utilisateur">
             </a>
             <span> | </span>
@@ -87,8 +87,20 @@
         </ul>
     </nav>
 </div>
-<div id="age-verification" style="position:fixed; top: 0;width: 100vw; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
-    <div class="text-center w-50">
+<div id="age-verification" style="position:fixed; top: 0;width: 100%; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
+    <div>
+        <div style="height: 200px; background-color: transparent">
+            <div class="text-center" style="display: flex; width: 100%;position: relative">
+                <a href="{{ path('index') }}" class="m-auto">
+                    <img class="m-auto" id="big-picture" style="display: block;width: 210px;" src="{{ asset('ressource/image/app/titre.png') }}" alt="Logo de la maison Philippe de Sorbon">
+                </a>
+            </div>
+            <div class="text-center edwardian">
+                <span class="fs-18">Maison fondée à Reims en 1968</span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center w-50 text-age">
         <p class="active segoe">
             POUR ACCÉDER AU SITE PHILIPPE DE SORBON
         </p>

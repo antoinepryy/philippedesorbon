@@ -181,6 +181,24 @@ class DefaultController extends Controller
             ]);
     }
 
+    public function account(SessionInterface $session,Request $request)
+    {
+        $cart = $session->get('cart');
+        if ($session->has('cart')){
+            $cartSize = count($session->get('cart'));
+        }
+        else{
+            $cartSize = 0;
+        }
+        $user = $this->getUser();
+        return $this->render('view/compte.html.twig',
+            [
+                'cartSize' => $cartSize,
+                'user' => $user
+            ]);
+
+    }
+
     public function showBottles(SessionInterface $session){
         if ($session->has('cart')){
             $cartSize = count($session->get('cart'));

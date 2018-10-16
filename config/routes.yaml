@@ -43,6 +43,7 @@ logout:
 
 compte:
     path: /MonCompte
+    controller: App\Controller\DefaultController::account
 
 commande:
     path: /Commande
