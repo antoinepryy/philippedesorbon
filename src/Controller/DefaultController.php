@@ -190,12 +190,18 @@ class DefaultController extends Controller
         else{
             $cartSize = 0;
         }
-        $user = $this->getUser();
-        return $this->render('view/compte.html.twig',
-            [
-                'cartSize' => $cartSize,
-                'user' => $user
-            ]);
+        if( $this->getUser()){
+            $user = $this->getUser();
+            return $this->render('view/compte.html.twig',
+                [
+                    'cartSize' => $cartSize,
+                    'user' => $user
+                ]);
+        }
+        else{
+            return $this->redirectToRoute('login');
+        }
+
 
     }
 
