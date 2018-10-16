@@ -11,8 +11,12 @@
                 <input type="text" class="form-control my-1" id="username" name="_username" placeholder="Email" value="{{ last_username }}" />
                 <input type="password" class="form-control my-1" id="password" name="_password" placeholder="Mot de passe"/>
                 {#<input type="hidden" name="_target_path" value="/account" />#}
-                <button type="submit" class="my-2">Se connecter</button>
+                <button type="submit" class="my-2 login-button pointer">Se connecter</button>
             </form>
+            <div class="text-center">
+                <a class="text-white" href="{{ path('user_registration') }}">Pas de compte ? Cliquez ici !</a>
+                <a class="text-white" href="{{ path('forgot_password') }}">Mot de passe oublié</a>
+            </div>
         </div>
 
 
