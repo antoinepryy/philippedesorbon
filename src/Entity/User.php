@@ -102,7 +102,7 @@ class User implements UserInterface
     private $addressZipCode;
 
     /**
-     * @ORM\Column(type="string", length=191)
+     * @ORM\Column(type="string", length=191, nullable=true)
      */
     private $passwordLink;
 
