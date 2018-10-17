@@ -73,6 +73,8 @@ class SecurityController extends AbstractController
             ]);
             if ($foundUser != null){
 
+                $success = "Un mail a été envoyé à l'addresse correspondante !";
+
                 $generatedHash = sha1(uniqid());
                 $foundUser->setPasswordLink($generatedHash);
                 $entityManager = $this->getDoctrine()->getManager();
@@ -92,8 +94,10 @@ class SecurityController extends AbstractController
                     );
 
                 $mailer->send($messageClient);
-                return $this->render('view/accueil.html.twig', [
-                    'cartSize' => $cartSize
+                return $this->render('security/forgotPassword.html.twig', [
+                    'cartSize' => $cartSize,
+                    'form' => $form->createView(),
+                    'success' => $success
                 ]);
 
 
