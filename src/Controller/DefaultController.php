@@ -10,6 +10,9 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -319,15 +322,32 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function checkout(SessionInterface $session)
+    public function checkout(SessionInterface $session, Request $request)
     {
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
             $cartSize = 0;
         }
+
+        $defaultData = [];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('paymentMethod', ChoiceType::class,[
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA'),
+                    'attr' => array('disabled' => 'disabled'),
+                ])
+            ->add('send', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "name", "email", and "message" keys
+            $data = $form->getData();
+        }
         return $this->render('view/checkout.html.twig', [
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'form' => $form->createView(),
         ]);
     }
 }

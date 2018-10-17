@@ -11,6 +11,9 @@
                 <option value="cheque">Chèque</option>
                 <option value="CRCA" disabled>Paiement en ligne (disponible prochainement)</option>
             </select>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
 
         </div>
 
