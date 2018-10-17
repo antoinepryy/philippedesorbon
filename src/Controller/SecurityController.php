@@ -99,10 +99,11 @@ class SecurityController extends AbstractController
 
             }
             else{
-                $errorMessage = "Addresse Email invalide";
+                $error = "Addresse Email invalide";
                 return $this->render('security/forgotPassword.html.twig', [
                     'cartSize' => $cartSize,
-                    'errorMessage' => $errorMessage
+                    'error' => $error,
+                    'form' => $form->createView(),
                 ]);
             }
 
@@ -142,6 +143,7 @@ class SecurityController extends AbstractController
                 $data = $form->getData();
                 $password = $passwordEncoder->encodePassword($foundUser, $data['plainPassword']);
                 $foundUser->setPassword($password);
+                $foundUser->setPasswordLink(null);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($foundUser);
                 $entityManager->flush();
@@ -169,7 +171,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
-    public function changePassword(SessionInterface $session, Request $request, $hashCode = "" ){
+    public function changePassword(SessionInterface $session, Request $request ){
 
     }
 }
