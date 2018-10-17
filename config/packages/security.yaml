@@ -38,3 +38,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/CommandeValidee, roles: ROLE_USER }
+        - { path: ^/Checkout, roles: ROLE_USER }
