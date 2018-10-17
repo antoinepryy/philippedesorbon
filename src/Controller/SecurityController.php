@@ -8,6 +8,9 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -40,17 +43,34 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MotDePasseOublie", name="forgot_password")
      */
-    public function forgotPassword(\Swift_Mailer $mailer)
+    public function forgotPassword(SessionInterface $session, Request $request)
     {
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('antoine.ap.57@gmail.com')
-            ->setTo('treffel.liane@gmail.com')
-            ->setBody(
-                "Coucou"
-            );
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
 
-        $mailer->send($message);
+        $defaultData = [];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('email', TextType::class,[
+                    'label' => 'Adresse mail'
+                ]
+            )
+            ->add('Valider', SubmitType::class)
+            ->getForm();
 
-        return $this->redirectToRoute('order_validated');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            return $this->render('security/forgotPassword.html.twig', [
+                'cartSize' => $cartSize
+            ]);
+        }
+        return $this->render('security/forgotPassword.html.twig', [
+            'cartSize' => $cartSize,
+            'form' => $form->createView(),
+        ]);
     }
 }

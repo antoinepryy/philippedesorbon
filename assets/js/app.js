@@ -19,6 +19,7 @@ require('../css/champagneshow.css');
 require('../css/login.css');
 require('../css/register.css');
 require('../css/checkout.css');
+require('../css/forgotPassword.css');
 require('../css/app.css');
 
 var $ = require('jquery');
