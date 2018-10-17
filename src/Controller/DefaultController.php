@@ -333,20 +333,29 @@ class DefaultController extends Controller
         $defaultData = [];
         $form = $this->createFormBuilder($defaultData)
             ->add('paymentMethod', ChoiceType::class,[
-                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA')
-                ],
-                'choice_attr' => function($choiceValue, $key, $value) {
-                    // adds a class like attending_yes, attending_no, etc
-                    return ['class' => 'attending_'.strtolower($key)];
-                })
-            ->add('send', SubmitType::class)
+                    'label' => 'Moyen de paiement',
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne (disponible prochainement)' => 'CRCA'),
+                    'choice_attr' => function($choiceValue, $key, $value) {
+                        if($value == 'CRCA'){
+                            return ['disabled' => 'disabled'];
+                        }
+                        else{
+                            return [];
+                        }
+
+                    }
+                    ]
+            )
+            ->add('Confirmer', SubmitType::class)
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
+            return $this->render('view/validOrder.html.twig', [
+                'cartSize' => '0'
+            ]);
         }
         return $this->render('view/checkout.html.twig', [
             'cartSize' => $cartSize,

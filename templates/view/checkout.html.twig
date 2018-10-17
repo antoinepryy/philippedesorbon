@@ -2,15 +2,9 @@
 
 {% block content %}
     <div class="checkout-bg relpos text-center">
-        <div class="checkout-container center-div bg-white p-5" style="border: 1px solid black;">
+        <div class="checkout-container center-div bg-white p-3" style="border: 1px solid black;">
             <h1 class="edwardian fs-16 active">Votre commande</h1>
             <p>Veuillez choisir votre mode de paiement :</p>
-
-            <select id="payment-type">
-                <option value="virement">Virement</option>
-                <option value="cheque">Chèque</option>
-                <option value="CRCA" disabled>Paiement en ligne (disponible prochainement)</option>
-            </select>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
