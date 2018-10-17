@@ -140,6 +140,7 @@ class SecurityController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $success = "Mot de passe modifié !";
                 $data = $form->getData();
                 $password = $passwordEncoder->encodePassword($foundUser, $data['plainPassword']);
                 $foundUser->setPassword($password);
@@ -148,9 +149,10 @@ class SecurityController extends AbstractController
                 $entityManager->persist($foundUser);
                 $entityManager->flush();
 
-                return $this->render('view/accueil.html.twig', [
+                return $this->render('security/forgotPassword.html.twig', [
                     'cartSize' => $cartSize,
                     'form' => $form->createView(),
+                    'success' => $success
                 ]);
             }
 
