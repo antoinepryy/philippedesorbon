@@ -3,6 +3,7 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    height: calc(100vh - 250px);
 }
 
 .register1 .form-control, .register1 button{

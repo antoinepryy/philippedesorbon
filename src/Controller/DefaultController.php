@@ -353,9 +353,18 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            return $this->render('view/validOrder.html.twig', [
-                'cartSize' => '0'
-            ]);
+            switch ($data['paymentMethod']){
+                case 'virement':
+                    return $this->redirectToRoute('order_validated');
+                    break;
+                case 'cheque':
+                    return $this->redirectToRoute('order_validated');
+                    break;
+                case 'CRCA':
+                    break;
+
+            }
+            return $this->redirectToRoute('order_validated');
         }
         return $this->render('view/checkout.html.twig', [
             'cartSize' => $cartSize,
