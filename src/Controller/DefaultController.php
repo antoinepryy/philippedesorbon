@@ -333,9 +333,12 @@ class DefaultController extends Controller
         $defaultData = [];
         $form = $this->createFormBuilder($defaultData)
             ->add('paymentMethod', ChoiceType::class,[
-                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA'),
-                    'attr' => array('disabled' => 'disabled'),
-                ])
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA')
+                ],
+                'choice_attr' => function($choiceValue, $key, $value) {
+                    // adds a class like attending_yes, attending_no, etc
+                    return ['class' => 'attending_'.strtolower($key)];
+                })
             ->add('send', SubmitType::class)
             ->getForm();
 
