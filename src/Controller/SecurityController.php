@@ -127,7 +127,7 @@ class SecurityController extends AbstractController
             'passwordLink' => $hashCode
         ]);
         if ($foundUser != null ){
-            $form = $this->createFormBuilder($foundUser)
+            $form = $this->createFormBuilder([])
                 ->add('plainPassword', RepeatedType::class, array(
                     'type' => PasswordType::class,
                     'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
@@ -139,7 +139,8 @@ class SecurityController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                $password = $passwordEncoder->encodePassword($foundUser, $foundUser->getPlainPassword());
+                $data = $form->getData();
+                $password = $passwordEncoder->encodePassword($foundUser, $data['plainPassword']);
                 $foundUser->setPassword($password);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($foundUser);
@@ -166,7 +167,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/ChangementMotDePasse/{hashCode}", name="change_password")
+     * @Route("/ChangementMotDePasse", name="change_password")
      */
     public function changePassword(SessionInterface $session, Request $request, $hashCode = "" ){
 
