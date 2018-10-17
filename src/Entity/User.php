@@ -101,7 +101,26 @@ class User implements UserInterface
      */
     private $addressZipCode;
 
+    /**
+     * @ORM\Column(type="string", length=191)
+     */
+    private $passwordLink;
 
+    /**
+     * @return mixed
+     */
+    public function getPasswordLink()
+    {
+        return $this->passwordLink;
+    }
+
+    /**
+     * @param mixed $passwordLink
+     */
+    public function setPasswordLink($passwordLink): void
+    {
+        $this->passwordLink = $passwordLink;
+    }
 
 
     /**

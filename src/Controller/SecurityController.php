@@ -72,7 +72,7 @@ class SecurityController extends AbstractController
             if ($foundUser != null){
 
                 $messageClient = (new \Swift_Message('Philippe de Sorbon'))
-                    ->setFrom('antoine.ap.57@gmail.com')
+                    ->setFrom('philippedesorbon@gmail.com')
                     ->setTo($foundUser->getEmail())
                     ->setBody(
                         $this->renderView(

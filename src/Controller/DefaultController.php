@@ -285,7 +285,7 @@ class DefaultController extends Controller
         }
 
         $messageClient = (new \Swift_Message('Philippe de Sorbon'))
-            ->setFrom('antoine.ap.57@gmail.com')
+            ->setFrom('philippedesorbon@gmail.com')
             ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
@@ -298,8 +298,8 @@ class DefaultController extends Controller
             );
 
         $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
-            ->setFrom('antoine.ap.57@gmail.com')
-            ->setTo('antoine.ap.57@gmail.com')
+            ->setFrom('philippedesorbon@gmail.com')
+            ->setTo('philippedesorbon@gmail.com')
             ->setBody(
                 $this->renderView(
                     'emails/orderAdmin.html.twig', [
