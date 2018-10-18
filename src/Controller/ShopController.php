@@ -54,6 +54,7 @@ class ShopController extends Controller
      * @Route("/PreOrder", name="pre_order")
      */
     public function preOrder(SessionInterface $session,Request $request){
+        //NOT FINISHED
         $cart = $session->get('cart');
         $bottleId = $request->query->get('bottleId');
         $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
@@ -89,6 +90,7 @@ class ShopController extends Controller
      * @Route("/AddProduct", name="add_product")
      */
     public function addProduct(SessionInterface $session,Request $request){
+            //NOT FINISHED
             $isHidden = false;
             $quantity = 0;
             $cart = $session->get('cart');
@@ -134,6 +136,8 @@ class ShopController extends Controller
      */
     public function removeOneProduct(SessionInterface $session, Request $request){
 
+        //NOT FINISHED
+
         if ($request->isXmlHttpRequest()) {
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
@@ -172,6 +176,7 @@ class ShopController extends Controller
      * @Route("/RemoveAllProducts", name="remove_all_products")
      */
     public function removeAllProduct(SessionInterface $session, Request $request){
+        //NOT FINISHED
         if ($request->isXmlHttpRequest()) {
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
