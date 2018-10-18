@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use DOMDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -46,7 +47,7 @@ class CRCAController extends Controller
         // mysql_connect...
         // On r�cup�re la cl� secr�te HMAC (stock�e dans une base de donn�es par exemple) et que l�on renseigne dans la variable $keyTest;
         //$keyTest = '0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF';
-        $keyTest = 'votre cl� g�n�r�e depuis le back office (admin.paybox.com)';
+        $keyTest = 'CA6B888E44130C8ABD6584D6D539E01C70C845669BCFE027B79877C506C9E9369A7A352ECF64554DAC485FFF2A322868DF70307053C17E5AB8999D20CBCE8014';
 
 
 
@@ -69,6 +70,7 @@ class CRCAController extends Controller
                 break;}
             // else : La machine est disponible mais les services ne le sont pas.
         }
+
         //curl_close($ch); <== voir paybox
         if(!$serveurOK){
             die("Erreur : Aucun serveur n'a �t� trouv�");}
@@ -113,6 +115,26 @@ class CRCAController extends Controller
         // suivante
         // print_r(hash_algos());
         $hmac = strtoupper(hash_hmac('sha512', $msg, $binKey));
+
+        return $this->render('CRCA/onlinePayment.html.twig',[
+            'serveurOK' => $serveurOK,
+            'pbx_site' => $pbx_site,
+            'pbx_rang' => $pbx_rang,
+            'pbx_identifiant' => $pbx_identifiant,
+            'pbx_cmd' => $pbx_cmd,
+            'pbx_porteur' => $pbx_porteur,
+            'pbx_total' => $pbx_total,
+            'pbx_devise' => '978',
+            'pbx_effectue' => $pbx_effectue,
+            'pbx_annule' => $pbx_annule,
+            'pbx_repondre_a' => $pbx_repondre_a,
+            'pbx_refuse' => $pbx_refuse,
+            'pbx_retour' => $pbx_retour,
+            'dateTime' => $dateTime,
+            'pbx_hmac' => $hmac,
+            'cartSize' => 0
+
+        ]);
 
     }
 
