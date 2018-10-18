@@ -30,6 +30,9 @@ class ShopController extends Controller
      */
     public function getCart(SessionInterface $session,Request $request){
 
+        // cart scheme => [[id champ, qtt, id option  (optional) ], .. ]
+        // return  => [[id champ, qtt, price (optional) ], .. ]
+
         $cart = $session->get('cart');
         if (is_null($cart)){ // si pas de panier
             $cart = [];
@@ -45,6 +48,7 @@ class ShopController extends Controller
                     ['id'=>$cart[$i][2]]
                 );
                 $cart[$i][2]=$options->getPrice();
+                array_push($cart[$i],$options->getName());
             }
         }
         return  new JsonResponse($cart);
