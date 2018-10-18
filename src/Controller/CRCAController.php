@@ -25,7 +25,7 @@ class CRCAController extends Controller
 
         // Ennonciation de variables
         $pbx_site = '2039805';
-        $pbx_rang = '001';
+        $pbx_rang = '01';
         $pbx_identifiant = '933494528';
         $pbx_cmd = 'cmd_test1';								//variable de test cmd_test1
         $pbx_porteur = 'test@test.fr';							//variable de test test@test.fr
@@ -47,8 +47,11 @@ class CRCAController extends Controller
         // mysql_connect...
         // On r�cup�re la cl� secr�te HMAC (stock�e dans une base de donn�es par exemple) et que l�on renseigne dans la variable $keyTest;
         //$keyTest = '0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF';
-        $keyTest = 'CA6B888E44130C8ABD6584D6D539E01C70C845669BCFE027B79877C506C9E9369A7A352ECF64554DAC485FFF2A322868DF70307053C17E5AB8999D20CBCE8014';
 
+        //test
+        $keyTest = 'CA6B888E44130C8ABD6584D6D539E01C70C845669BCFE027B79877C506C9E9369A7A352ECF64554DAC485FFF2A322868DF70307053C17E5AB8999D20CBCE8014';
+        //prod
+        //$keyTest = '293F885EE28F52E31BB7EE6E7DC0FC607BC03E362087C6DFE0D0F8E8CC4FC9751B4A8F10DC9160B5E7B42E52CE5B343B53FBC06C8B407D602222AD7A7E5EA2AF';
 
 
 // --------------- TESTS DE DISPONIBILITE DES SERVEURS ---------------
@@ -103,11 +106,10 @@ class CRCAController extends Controller
             "&PBX_REFUSE=".$pbx_refuse.
             "&PBX_HASH=SHA512".
             "&PBX_TIME=".$dateTime;
-        // echo $msg;
+        //echo $msg;
 
         // Si la cl� est en ASCII, On la transforme en binaire
         $binKey = pack("H*", $keyTest);
-
         // On calcule l�empreinte (� renseigner dans le param�tre PBX_HMAC) gr�ce � la fonction hash_hmac et //
         // la cl� binaire
         // On envoi via la variable PBX_HASH l'algorithme de hachage qui a �t� utilis� (SHA512 dans ce cas)
