@@ -35,11 +35,11 @@ class CRCAController extends Controller
         $pbx_total = str_replace(".", "", $pbx_total);
 
         // Param�trage des urls de redirection apr�s paiement
-        $pbx_effectue = 'http://www.votre-site.extention/page-de-confirmation';
-        $pbx_annule = 'http://www.votre-site.extention/page-d-annulation';
-        $pbx_refuse = 'http://www.votre-site.extention/page-de-refus';
+        $pbx_effectue = 'http://www.philippedesorbon.tk/';
+        $pbx_annule = 'http://www.philippedesorbon.tk/';
+        $pbx_refuse = 'http://www.philippedesorbon.tk/';
         // Param�trage de l'url de retour back office site
-        $pbx_repondre_a = 'http://www.votre-site.extention/page-de-back-office-site';
+        $pbx_repondre_a = 'http://www.philippedesorbon.tk/';
         // Param�trage du retour back office site
         $pbx_retour = 'Mt:M;Ref:R;Auto:A;Erreur:E';
 
