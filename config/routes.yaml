@@ -41,21 +41,17 @@ contact:
 logout:
     path: /Logout
 
-compte:
-    path: /MonCompte
-    controller: App\Controller\DefaultController::account
-
 commande:
     path: /Commande
     controller: App\Controller\DefaultController::commande
 
 checkout:
     path: /Checkout
-    controller: App\Controller\DefaultController::checkout
+    controller: App\Controller\OrderController::checkout
 
 order_validated:
     path: /CommandeValidee
-    controller: App\Controller\DefaultController::orderValidated
+    controller: App\Controller\OrderController::orderValidated
 
 gastronomie:
     path: /Gastronomie/{plat}

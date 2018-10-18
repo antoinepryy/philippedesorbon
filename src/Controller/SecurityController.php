@@ -175,6 +175,31 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * @Route("/MonCompte", name="compte")
+     */
+    public function account(SessionInterface $session, Request $request)
+    {
+        $cart = $session->get('cart');
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+        if ($this->getUser()) {
+            $user = $this->getUser();
+            return $this->render('view/compte.html.twig',
+                [
+                    'cartSize' => $cartSize,
+                    'user' => $user
+                ]);
+        } else {
+            return $this->redirectToRoute('login');
+        }
+
+
+    }
+
+    /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
     public function changePassword(SessionInterface $session, Request $request ){
