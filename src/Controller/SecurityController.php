@@ -196,12 +196,16 @@ class SecurityController extends AbstractController
      * @Route("/ChangementMotDePasse", name="change_password")
      */
     public function changePassword(SessionInterface $session, Request $request,  UserPasswordEncoderInterface $passwordEncoder){
+
         $cart = $session->get('cart');
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
             $cartSize = 0;
         }
+        return $this->render('dev.html.twig',[
+            'cartSize' => $cartSize
+        ]);;
         $form = $this->createFormBuilder([])
             ->add('password', PasswordType::class,[
                 'label' => 'Ancien mot de passe'
@@ -264,6 +268,9 @@ class SecurityController extends AbstractController
         } else {
             $cartSize = 0;
         }
+        return $this->render('dev.html.twig',[
+            'cartSize' => $cartSize
+        ]);;
 
 
         return $this->render('security/modifierInfos.html.twig', [
@@ -281,7 +288,13 @@ class SecurityController extends AbstractController
         } else {
             $cartSize = 0;
         }
-        return $this->render('security/mesCommandes.html.twig');
+        return $this->render('dev.html.twig',[
+            'cartSize' => $cartSize
+        ]);;
+
+        return $this->render('security/mesCommandes.html.twig',[
+            'cartSize' => $cartSize
+        ]);
     }
 
     /**
@@ -289,11 +302,15 @@ class SecurityController extends AbstractController
      */
     public function myAddresses(SessionInterface $session, Request $request ){
         $cart = $session->get('cart');
+
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
             $cartSize = 0;
         }
+        return $this->render('dev.html.twig',[
+            'cartSize' => $cartSize
+        ]);;
         return $this->render('security/mesAddresses.html.twig');
     }
 }
