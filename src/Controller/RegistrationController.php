@@ -34,9 +34,8 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $success = "Votre compte a bien été crée !";
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
             $entityManager = $this->getDoctrine()->getManager();
@@ -45,11 +44,28 @@ class RegistrationController extends AbstractController
             $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
             $this->container->get('security.token_storage')->setToken($token);
             $this->container->get('session')->set('_security_main', serialize($token));
-            return $this->redirectToRoute('order_validated');
+            $user = $this->getUser();
+            return $this->render(
+                'view/compte.html.twig', [
+                    'cartSize' => $cartSize,
+                    'success' => $success,
+                    'user' => $user
+                ]
+            );
+        }
+        elseif ($form->isSubmitted() && !$form->isValid()){
+            $error = $form->getErrors();
+            return $this->render(
+                'security/register.html.twig', [
+                    'form' => $form->createView(),
+                    'cartSize' => $cartSize,
+                    'error' => $error
+                ]
+            );
         }
 
         return $this->render(
-            'registration/register.html.twig', [
+            'security/register.html.twig', [
                 'form' => $form->createView(),
                 'cartSize' => $cartSize
                 ]

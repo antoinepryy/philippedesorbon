@@ -39,3 +39,7 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/CommandeValidee, roles: ROLE_USER }
         - { path: ^/Checkout, roles: ROLE_USER }
+        - { path: ^/ChangerMotDePasse, roles: ROLE_USER }
+        - { path: ^/MonCompte, roles: ROLE_USER }
+        - { path: ^/ModifierInformations, roles: ROLE_USER }
+        - { path: ^/MesCommandes, roles: ROLE_USER }

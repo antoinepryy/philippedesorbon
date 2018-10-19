@@ -185,24 +185,114 @@ class SecurityController extends AbstractController
         } else {
             $cartSize = 0;
         }
-        if ($this->getUser()) {
-            $user = $this->getUser();
-            return $this->render('view/compte.html.twig',
-                [
-                    'cartSize' => $cartSize,
-                    'user' => $user
-                ]);
-        } else {
-            return $this->redirectToRoute('login');
-        }
 
-
+        $user = $this->getUser();
+        return $this->render('view/compte.html.twig',
+            [
+                'cartSize' => $cartSize,
+                'user' => $user
+            ]);
     }
 
     /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
     public function changePassword(SessionInterface $session, Request $request ){
+        $cart = $session->get('cart');
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+        $form = $this->createFormBuilder([])
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
+                'second_options' => array('label' => 'Confirmer mot de passe', 'attr'=>['placeholder'=>'Confirmer mot de passe']),
+            ))
+            ->add('Valider', SubmitType::class)
+            ->getForm();
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $success = "Mot de passe modifié !";
+            $data = $form->getData();
+//            $password = $passwordEncoder->encodePassword($foundUser, $data['plainPassword']);
+//            $foundUser->setPassword($password);
+//            $foundUser->setPasswordLink(null);
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($foundUser);
+//            $entityManager->flush();
+
+            return $this->render('security/forgotPassword.html.twig', [
+                'cartSize' => $cartSize,
+                'form' => $form->createView(),
+                'success' => $success
+            ]);
+        }
+
+        return $this->render('security/forgotPassword.html.twig', [
+            'cartSize' => $cartSize,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/ModifierInformations", name="change_infos")
+     */
+    public function changeInfos(SessionInterface $session, Request $request ){
+        $cart = $session->get('cart');
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+        $form = $this->createFormBuilder([])
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
+                'second_options' => array('label' => 'Confirmer mot de passe', 'attr'=>['placeholder'=>'Confirmer mot de passe']),
+            ))
+            ->add('Valider', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $success = "Mot de passe modifié !";
+            $data = $form->getData();
+            //$password = $passwordEncoder->encodePassword($foundUser, $data['plainPassword']);
+            //$foundUser->setPassword($password);
+            //$foundUser->setPasswordLink(null);
+            //$entityManager = $this->getDoctrine()->getManager();
+            //$entityManager->persist($foundUser);
+            //$entityManager->flush();
+
+            return $this->render('security/forgotPassword.html.twig', [
+                'cartSize' => $cartSize,
+                'form' => $form->createView(),
+                'success' => $success
+            ]);
+        }
+
+        return $this->render('security/forgotPassword.html.twig', [
+            'cartSize' => $cartSize,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/MesCommandes", name="my_orders")
+     */
+    public function myOrders(SessionInterface $session, Request $request ){
+        $cart = $session->get('cart');
+        if ($session->has('cart')) {
+            $cartSize = count($session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+
+        return $this->render('security/forgotPassword.html.twig');
     }
 }

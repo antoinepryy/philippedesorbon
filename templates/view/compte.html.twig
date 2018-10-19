@@ -3,8 +3,13 @@
 {% block content %}
 <div class="container text-center py-3" style="min-height: calc(100vh - 300px);">
     <h1 class="edwardian active" style="font-size: 4vw">Mon compte</h1>
+    {% if success is defined %}
+        <div class="alert alert-success" role="alert">
+            {{ success }}
+        </div>
+    {% endif %}
+    <div class="row text-center">
 
-    <div class="row">
         <div class="col-md-6 col-12">
             <h2 class="fs-2 edwardian">Informations</h2>
             <div style="display: flex; justify-content: space-around">
@@ -22,8 +27,7 @@
                     </p>
                     <p class="fs-1">
                         {{ user.addressStreet }}<br>
-                        {{ user.addressZipCode }}<br>
-                        {{ user.addressCity }}<br>
+                        {{ user.addressZipCode }} {{ user.addressCity }}<br>
                         {{ user.addressCountry }}
                     </p>
                 </div>
