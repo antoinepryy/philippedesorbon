@@ -16,10 +16,8 @@ require('../css/champagnes.css');
 require('../css/contact.css');
 require('../css/mentionslegales.css');
 require('../css/champagneshow.css');
-require('../css/login.css');
-require('../css/register.css');
 require('../css/checkout.css');
-require('../css/forgotPassword.css');
+require('../css/account.css');
 require('../css/app.css');
 
 var $ = require('jquery');
