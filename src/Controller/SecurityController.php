@@ -9,6 +9,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -174,7 +177,6 @@ class SecurityController extends AbstractController
      */
     public function account(SessionInterface $session, Request $request)
     {
-        $cart = $session->get('cart');
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
@@ -197,19 +199,14 @@ class SecurityController extends AbstractController
      */
     public function changePassword(SessionInterface $session, Request $request,  UserPasswordEncoderInterface $passwordEncoder){
 
-        $cart = $session->get('cart');
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
             $cartSize = 0;
         }
-        return $this->render('dev.html.twig',[
-            'cartSize' => $cartSize
-        ]);;
+        $user = $this->getUser();
+
         $form = $this->createFormBuilder([])
-            ->add('password', PasswordType::class,[
-                'label' => 'Ancien mot de passe'
-            ])
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
@@ -222,32 +219,19 @@ class SecurityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $user = $this->getUser();
-            $oldHashPassFound = $user->getPassword();
-            $oldPassForm = $data['password'];
-            $oldPassHashForm = $passwordEncoder->encodePassword($user, $oldPassForm);
-            die(var_dump($oldHashPassFound == $oldPassHashForm));
-            if($oldPassFound){
-                $success = "Mot de passe modifié avec succès !";
-                $password = $passwordEncoder->encodePassword($user, $data['plainPassword']);
-                $user->setPassword($password);
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($user);
-                $entityManager->flush();
-                return $this->render('security/modifierMotDePasse.html.twig', [
-                    'cartSize' => $cartSize,
-                    'form' => $form->createView(),
-                    'success' => $success
-                ]);
-            }
-            else{
-                $error = "Erreur dans le changement de mot de passe";
-                return $this->render('security/modifierMotDePasse.html.twig', [
-                    'cartSize' => $cartSize,
-                    'form' => $form->createView(),
-                    'error' => $error
-                ]);
-            }
+            $plainpass = $data['plainPassword'];
+            $hashPass = $passwordEncoder->encodePassword($user, $plainpass);
+            $success = "Mot de passe modifié avec succès !";
+            $user->setPassword($hashPass);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return $this->render('security/modifierMotDePasse.html.twig', [
+                'cartSize' => $cartSize,
+                'form' => $form->createView(),
+                'success' => $success
+            ]);
+
         }
         return $this->render('security/modifierMotDePasse.html.twig', [
             'cartSize' => $cartSize,
@@ -262,19 +246,79 @@ class SecurityController extends AbstractController
      * @Route("/ModifierInformations", name="change_infos")
      */
     public function changeInfos(SessionInterface $session, Request $request ){
-        $cart = $session->get('cart');
         if ($session->has('cart')) {
             $cartSize = count($session->get('cart'));
         } else {
             $cartSize = 0;
         }
-        return $this->render('dev.html.twig',[
-            'cartSize' => $cartSize
-        ]);;
 
+        $user = $this->getUser();
+
+
+        $form = $this->createFormBuilder([])
+            ->add('civility', ChoiceType::class, [
+                'choices'=>['Monsieur'=>'Monsieur','Madame'=>'Madame'],
+                'label'=>'Civilité',
+                ])
+            ->add('email', EmailType::class, [
+                'label'=>'Email',
+                'data' => $user->getEmail()
+
+            ])
+            ->add('firstName', TextType::class, [
+                'label'=>'Prénom',
+                'data' => $user->getfirstName()
+            ])
+            ->add('lastName', TextType::class, [
+                'label'=>'Nom',
+                'data' => $user->getlastName()
+                ]
+            )
+            ->add('addressStreet', TextType::class, [
+                'label'=>'Addresse',
+                'data' => $user->getaddressStreet()
+            ])
+            ->add('addressCity', TextType::class, [
+                'label'=>'Ville',
+                'data' => $user->getaddressCity()
+            ])
+            ->add('addressZipCode', TextType::class, [
+                'label'=>'Code Postal',
+                'data' => $user->getaddressZipCode()
+            ])
+            ->add('addressCountry', TextType::class, [
+                'label'=>'Pays',
+                'data' => $user->getaddressCountry()
+            ])
+            ->add('Valider', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $success = "Informations modifiées avec succès !";
+            $data = $form->getData();
+            $user->setcivility($data['civility']);
+            $user->setfirstName($data['firstName']);
+            $user->setlastName($data['lastName']);
+            $user->setaddressStreet($data['addressStreet']);
+            $user->setaddressCity($data['addressCity']);
+            $user->setaddressCountry($data['addressCountry']);
+            $user->setaddressZipCode($data['addressZipCode']);
+            $user->setEmail($data['email']);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return $this->render('security/modifierInfos.html.twig', [
+                'cartSize' => $cartSize,
+                'form' => $form->createView(),
+                'success' => $success
+            ]);
+
+        }
 
         return $this->render('security/modifierInfos.html.twig', [
             'cartSize' => $cartSize,
+            'form' => $form->createView()
         ]);
     }
 

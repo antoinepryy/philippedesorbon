@@ -15,11 +15,10 @@
 }
 
 .account-button-container{
-    height: 90%;
 }
 
 .account-button-container div{
-     height: calc(100% / 3);
+    height: calc(100% / 4);
  }
 
 .account-button-container button{

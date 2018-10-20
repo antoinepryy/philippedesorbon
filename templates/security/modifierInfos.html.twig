@@ -1,10 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="container-fluid bg-dark" style="height: calc(100vh - 300px)">
-        <h1 class="text-white">En cours de développement</h1>
+    <div class="container p-5 text-center" style="min-height: calc(100vh - 300px);">
+        {% if error is defined %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if success is defined %}
+            <div class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+        {% endif %}
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.civility) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.firstName) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.lastName) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.email) }}
+            </div>
 
-
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.addressStreet) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.addressCity) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.addressZipCode) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.addressCountry) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
 
 

@@ -7,6 +7,7 @@
  */
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -83,21 +84,25 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
      */
     private $addressStreet;
 
     /**
      * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
      */
     private $addressCity;
 
     /**
      * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
      */
     private $addressCountry;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
      */
     private $addressZipCode;
 
@@ -200,6 +205,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->roles = array('ROLE_USER');
+        $this->orders = new ArrayCollection();
     }
 
 
