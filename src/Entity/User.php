@@ -203,10 +203,10 @@ class User implements UserInterface
     }
 
 
-
     public function __construct()
     {
         $this->roles = array('ROLE_USER');
+        $this->passwordLink = null;
     }
 
 

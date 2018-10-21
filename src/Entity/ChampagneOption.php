@@ -27,10 +27,20 @@ class ChampagneOption
     private $price;
 
     /**
+     * @ORM\Column(type="integer", nullable = true)
+     */
+    private $stepOrder;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Champagne", inversedBy="champagneOptions")
      * @ORM\JoinColumn(nullable=false)
      */
     private $champagne;
+
+    public function __construct()
+    {
+        $this->stepOrder = null;
+    }
 
     public function getId(): ?int
     {
@@ -71,5 +81,16 @@ class ChampagneOption
         $this->champagne = $champagne;
 
         return $this;
+    }
+
+    public function getStepOrder()
+    {
+        return $this->stepOrder;
+    }
+
+
+    public function setStepOrder($stepOrder): void
+    {
+        $this->stepOrder = $stepOrder;
     }
 }

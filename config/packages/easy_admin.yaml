@@ -55,8 +55,10 @@ easy_admin:
                           - name
                           - price
                           - champagne
+                          - stepOrder
                 form:
                       fields:
                           - name
                           - price
                           - champagne
+                          - stepOrder
