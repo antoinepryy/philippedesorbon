@@ -27,7 +27,7 @@ class ChampagneOption
     private $price;
 
     /**
-     * @ORM\Column(type="integer", nullable = true)
+     * @ORM\Column(type="integer")
      */
     private $stepOrder;
 

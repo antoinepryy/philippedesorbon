@@ -202,6 +202,11 @@ class Champagne
     private $updatedAt;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $stepOrder;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\ChampagneOption", mappedBy="champagne", orphanRemoval=true)
      */
     private $champagneOptions;
@@ -647,6 +652,17 @@ class Champagne
         }
 
         return $this;
+    }
+
+    public function getStepOrder()
+    {
+        return $this->stepOrder;
+    }
+
+
+    public function setStepOrder($stepOrder): void
+    {
+        $this->stepOrder = $stepOrder;
     }
 
 //    public function hasOptions(){

@@ -21,12 +21,13 @@ easy_admin:
                           - name
                           - urlLink
                           - price
-                          #- { property: 'photo_bouteille', type: 'image', base_path: '%app.path.champagne_images%' }
+                          - stepOrder
                 form:
                       fields:
                           - name
                           - urlLink
                           - price
+                          - stepOrder
                           - { property: 'type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
                           - subtitle_1
                           - presentation_1
