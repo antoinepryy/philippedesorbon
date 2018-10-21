@@ -206,7 +206,8 @@ class SecurityController extends AbstractController
         }
         $user = $this->getUser();
 
-        $form = $this->createFormBuilder([])
+        $form = $this->createFormBuilder($user, array('validation_groups' => array('change_password')))
+
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Mot de passe', 'attr'=>['placeholder'=>'Mot de passe']),
@@ -218,14 +219,15 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $plainpass = $data['plainPassword'];
-            $hashPass = $passwordEncoder->encodePassword($user, $plainpass);
+
             $success = "Mot de passe modifié avec succès !";
-            $user->setPassword($hashPass);
+
+            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+
             return $this->render('security/modifierMotDePasse.html.twig', [
                 'cartSize' => $cartSize,
                 'form' => $form->createView(),
@@ -255,15 +257,14 @@ class SecurityController extends AbstractController
         $user = $this->getUser();
 
 
-        $form = $this->createFormBuilder([])
+        $form = $this->createFormBuilder($user, array('validation_groups' => array('change_infos')))
             ->add('civility', ChoiceType::class, [
                 'choices'=>['Monsieur'=>'Monsieur','Madame'=>'Madame'],
-                'label'=>'Civilité',
+                'data'=>$user->getCivility(),
                 ])
             ->add('email', EmailType::class, [
                 'label'=>'Email',
                 'data' => $user->getEmail()
-
             ])
             ->add('firstName', TextType::class, [
                 'label'=>'Prénom',
@@ -296,15 +297,6 @@ class SecurityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $success = "Informations modifiées avec succès !";
-            $data = $form->getData();
-            $user->setcivility($data['civility']);
-            $user->setfirstName($data['firstName']);
-            $user->setlastName($data['lastName']);
-            $user->setaddressStreet($data['addressStreet']);
-            $user->setaddressCity($data['addressCity']);
-            $user->setaddressCountry($data['addressCountry']);
-            $user->setaddressZipCode($data['addressZipCode']);
-            $user->setEmail($data['email']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();

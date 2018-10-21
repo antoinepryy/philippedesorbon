@@ -34,38 +34,38 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=191, unique=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $civility;
 
     /**
      * @ORM\Column(type="string", length=191, unique=true)
-     * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
+     * @Assert\Email(groups={"registration, change_infos"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=191, unique=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=191, unique=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=191, unique=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $lastName;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * @Assert\NotBlank(groups={"registration, change_password"})
+     * @Assert\Length(min=7, groups={"registration, change_password"})
      */
     private $plainPassword;
 
@@ -84,25 +84,25 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=191)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $addressStreet;
 
     /**
      * @ORM\Column(type="string", length=191)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $addressCity;
 
     /**
      * @ORM\Column(type="string", length=191)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $addressCountry;
 
     /**
-     * @ORM\Column(type="string", length=191)
-     * @Assert\NotBlank()
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(groups={"registration, change_infos"})
      */
     private $addressZipCode;
 
