@@ -11,6 +11,8 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -41,9 +43,9 @@ class UserType extends AbstractType
                 ['attr'=>['placeholder'=>'Adresse']])
             ->add('addressCity', TextType::class,
                 ['attr'=>['placeholder'=>'Ville']])
-            ->add('addressZipCode', TextType::class,
+            ->add('addressZipCode', IntegerType::class,
                 ['attr'=>['placeholder'=>'Code Postal']])
-            ->add('addressCountry', TextType::class,
+            ->add('addressCountry', CountryType::class,
                 ['attr'=>['placeholder'=>'Pays']])
         ;
     }

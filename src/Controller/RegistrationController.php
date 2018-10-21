@@ -12,18 +12,21 @@ use App\Form\UserType;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class RegistrationController extends AbstractController
 {
     /**
      * @Route("/Inscription", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session, ValidatorInterface $validator)
     {
+
         if ($session->has('cart')){
             $cartSize = count($session->get('cart'));
         }
@@ -31,7 +34,7 @@ class RegistrationController extends AbstractController
             $cartSize = 0;
         }
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, array('validation_groups' => array('registration', 'Default')));
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -54,12 +57,25 @@ class RegistrationController extends AbstractController
             );
         }
         elseif ($form->isSubmitted() && !$form->isValid()){
-            $error = $form->getErrors();
+
+
+            $errors = $validator->validate($user);
+
+            if (count($errors) > 0) {
+                /*
+                 * Uses a __toString method on the $errors variable which is a
+                 * ConstraintViolationList object. This gives us a nice string
+                 * for debugging.
+                 */
+                $errorsString = (string)$errors;
+            }
+
+
             return $this->render(
                 'security/register.html.twig', [
                     'form' => $form->createView(),
                     'cartSize' => $cartSize,
-                    'error' => $error
+                    'error' => $errorsString
                 ]
             );
         }

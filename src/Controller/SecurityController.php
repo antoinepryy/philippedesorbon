@@ -9,6 +9,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -18,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -283,11 +286,11 @@ class SecurityController extends AbstractController
                 'label'=>'Ville',
                 'data' => $user->getaddressCity()
             ])
-            ->add('addressZipCode', TextType::class, [
+            ->add('addressZipCode', IntegerType::class, [
                 'label'=>'Code Postal',
                 'data' => $user->getaddressZipCode()
             ])
-            ->add('addressCountry', TextType::class, [
+            ->add('addressCountry', CountryType::class, [
                 'label'=>'Pays',
                 'data' => $user->getaddressCountry()
             ])
@@ -326,7 +329,7 @@ class SecurityController extends AbstractController
         }
         return $this->render('dev.html.twig',[
             'cartSize' => $cartSize
-        ]);;
+        ]);
 
         return $this->render('security/mesCommandes.html.twig',[
             'cartSize' => $cartSize
@@ -346,7 +349,9 @@ class SecurityController extends AbstractController
         }
         return $this->render('dev.html.twig',[
             'cartSize' => $cartSize
-        ]);;
+        ]);
         return $this->render('security/mesAddresses.html.twig');
     }
+
+
 }

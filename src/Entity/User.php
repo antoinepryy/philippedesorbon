@@ -64,6 +64,7 @@ class User implements UserInterface
     private $lastName;
 
     /**
+     * @Assert\Length(max=4096)
      * @Assert\NotBlank(groups={"registration, change_password"})
      * @Assert\Length(min=7, groups={"registration, change_password"})
      */
@@ -103,6 +104,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(groups={"registration, change_infos"})
+     * @Assert\Type(type="integer", groups={"registration, change_infos"})
      */
     private $addressZipCode;
 
@@ -205,7 +207,6 @@ class User implements UserInterface
     public function __construct()
     {
         $this->roles = array('ROLE_USER');
-        $this->orders = new ArrayCollection();
     }
 
 
@@ -305,6 +306,10 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    public function promoteAdmin(){
+        $this->roles = array('ROLE_USER', 'ROLE_ADMIN');
     }
 
     public function eraseCredentials()
