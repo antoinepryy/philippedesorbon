@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
+use App\Service\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,30 +22,12 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class OrderController extends Controller
 {
 
-    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session)
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager)
     {
-        $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
-        $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
-        //$champagneListClassique = $repository->findBy(['type' => 'Classique']);
         $cart = $session->get('cart');
         $user = $this->getUser();
-        $orderContent = [];
-        $orderPrice = 0;
-
-        foreach ($cart as $champagne) {
-            if (count($champagne) === 3) {
-                $champagneModel = $champagneRepository->findOneBy(['id' => $champagne[0]]);
-                $champagneOption = $optionRepository->findOneBy(['id' => $champagne[2]]);
-                $champagneQuantity = $champagne[1];
-                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName() . ' ' . $champagneOption->getName());
-                $orderPrice += $champagneOption->getPrice() * $champagneQuantity;
-            } else {
-                $champagneQuantity = $champagne[1];
-                $champagneModel = $champagneRepository->findOneBy(['id' => $champagne[0]]);
-                array_push($orderContent, $champagne[1] . ' x ' . $champagneModel->getName());
-                $orderPrice += $champagneModel->getPrice() * $champagneQuantity;
-            }
-        }
+        $orderPrice = $cartManager->totalCalculation();
+        $orderContent = $cartManager->orderContent();
 
         $messageClient = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('philippedesorbon@gmail.com')

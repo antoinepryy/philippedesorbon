@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
 use App\Entity\Option;
+use App\Service\CartManager;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -205,9 +206,9 @@ class ShopController extends Controller
     /**
      * @Route("/test", name="test")
      */
-    public function test(SessionInterface $session){
-
-
+    public function test(CartManager $cartManager){
+        $test = $cartManager->totalCalculation();
+        return new Response($test);
 
     }
 
