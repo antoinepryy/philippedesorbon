@@ -28,7 +28,7 @@ class OrderController extends Controller
         $user = $this->getUser();
         $orderPrice = $cartManager->totalCalculation();
         $orderContent = $cartManager->orderContent();
-        $cartSize = $cartManager->cartSize();
+
 
         switch ($method){
             case 'Virement':
@@ -72,6 +72,8 @@ class OrderController extends Controller
             $mailer->send($messageAdmin);
             $session->set('cart', []);
         }
+
+        $cartSize = $cartManager->cartSize();
 
         return $this->render('view/validOrder.html.twig', [
             'cartSize' => $cartSize

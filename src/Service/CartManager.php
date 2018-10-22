@@ -36,7 +36,7 @@ class CartManager
           $orderPrice = 0;
           foreach ($cart as $champagne) {
               if (count($champagne) === 3) {
-                  $champagnePrice = $this->champagneOptionRepository->findOneBy(['id' => $champagne[0]])->getPrice();
+                  $champagnePrice = $this->champagneOptionRepository->findOneBy(['id' => $champagne[2]])->getPrice();
                   $champagneQuantity = $champagne[1];
                   $orderPrice += $champagnePrice * $champagneQuantity;
               }
