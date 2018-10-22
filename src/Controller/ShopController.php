@@ -93,43 +93,38 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             $champagneOption = $request->query->get('champagneOption');
+            $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
             $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
-
             $optionPrice = null;
-            if($champagneOption===null){ // Si cuvée sans option
-                for ($i=0 ; $i < count($cart); $i++) {
-                    if($cart[$i][0]==$bottleId){
-                        $cart[$i][1] = $cart[$i][1] + 6; // Ajout de 6 bouteilles
-                        $quantity = $cart[$i][1];
-                        break;
-                    };
+
+            for ($i=0 ; $i < count($cart); $i++) {
+                if($cart[$i][0]==$bottleId && count($cart[$i])==2){ // Si possibilité de baisser la qqt
+                    $step = intval($champagneRepository->find($bottleId)->getStepOrder());
+                    $cart[$i][1] = $cart[$i][1] + $step;
+                    break;
                 }
-                if ($i==count($cart)){
-                    array_push($cart, [intval($bottleId), 6]); // Si bouteille n'était pas dans panier
-                    $quantity = 6;
-                    $isHidden = true; // Sert à faire apparaitre la bouteille dnas la vue
-                }
-            }
-            else{ // Si champagne avec options
-                $option = $optionRepository->findOneBy(
-                    ['id'=>$champagneOption]
-                );
-                $optionPrice = $option->getPrice();
-                for ($i=0 ; $i < count($cart); $i++) {
-                    if($cart[$i][0]==$bottleId){ // Si champagne dans le panier
-                        $cart[$i][1] = $cart[$i][1] + 6;
-                        $quantity = $cart[$i][1];
-                        break;
-                    };
-                }
-                if ($i==count($cart)){ // Si champagne pas dans le panier
-                    array_push($cart, [intval($bottleId), 6, $champagneOption]);
-                    $quantity = 6;
-                    $isHidden = true;
+                else if($cart[$i][0]==$bottleId && count($cart[$i]) == 3){ // Si pas possible de baisser la qtt
+                    $step = intval($optionRepository->find($cart[$i][2])->getStepOrder());
+                    $cart[$i][1] = $cart[$i][1] + $step;
+                    break;
                 }
             }
+            if ($i==count($cart)){
+                if($champagneOption == null){
+                    $step = intval($champagneRepository->find($bottleId)->getStepOrder());
+                    array_push($cart, [intval($bottleId), $step]);
+                }
+                else{
+                    $step = intval($optionRepository->find($champagneOption)->getStepOrder());
+                    $optionPrice = $optionRepository->find($champagneOption)->getPrice();
+                    array_push($cart, [intval($bottleId), $step, $champagneOption]);
+                }
+                $quantity = $step;
+                $isHidden = true;
+            }
+
             $session->set('cart',$cart);
-            return  new JsonResponse([$isHidden, $quantity, $cart, $optionPrice]);
+            return  new JsonResponse([$isHidden, $quantity, $cart, $optionPrice, $step]);
 
     }
 
@@ -142,17 +137,31 @@ class ShopController extends Controller
             $cart = $session->get('cart');
             $bottleId = $request->query->get('bottleId');
             for ($i=0 ; $i < count($cart); $i++) {
-                if($cart[$i][0]==$bottleId && $cart[$i][1]!=6){ // Si possibilité de baisser la qqt
-                    $cart[$i][1] = $cart[$i][1] - 6;
+                if($cart[$i][0]==$bottleId && count($cart[$i])==2){
+                    $champagneRepository = $this->getDoctrine()->getRepository(Champagne::class);
+                    $step = intval($champagneRepository->find($bottleId)->getStepOrder());
+                    if ($cart[$i][1]!=$step){
+                        $cart[$i][1] = $cart[$i][1] - $step;
+                    }
+                    else{
+                        continue;
+                    }
                     break;
                 }
-                else if($cart[$i][0]==$bottleId && $cart[$i][1]==6){ // Si pas possible de baisser la qtt
-                    //array_splice($cart, $i,1);
+                else if($cart[$i][0]==$bottleId && count($cart[$i]) == 3){
+                    $optionRepository = $this->getDoctrine()->getRepository(ChampagneOption::class);
+                    $step = intval($optionRepository->find($cart[$i][2])->getStepOrder());
+                    if ($cart[$i][1]!=$step){
+                        $cart[$i][1] = $cart[$i][1] - $step;
+                    }
+                    else{
+                        continue;
+                    }
                     break;
                 }
             }
             $session->set('cart',$cart);
-            return  new JsonResponse([$cart]);
+            return  new JsonResponse([$cart, $step]);
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
 
@@ -199,11 +208,6 @@ class ShopController extends Controller
     public function test(SessionInterface $session){
 
 
-        $repository = $this->getDoctrine()->getRepository(Option::class);
-        $list = $repository->findBy(
-            ['champagne'=>'4']
-        );
-        die(var_dump($list[0]->getName(), $list[1]->getName()));
 
     }
 
