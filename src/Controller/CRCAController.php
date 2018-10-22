@@ -19,7 +19,7 @@ class CRCAController extends Controller
 {
 
     /**
-     * @Route("/OnlinePayment", name="online_payment")
+     * @Route("/PaiementEnLigne", name="online_payment")
      */
     public function sendRequest(){
 
@@ -27,7 +27,7 @@ class CRCAController extends Controller
         $pbx_site = '2039805';
         $pbx_rang = '01';
         $pbx_identifiant = '933494528';
-        $pbx_cmd = 'cmd_test1';								//variable de test cmd_test1
+        $pbx_cmd = 'cmd_test2';								//variable de test cmd_test1
         $pbx_porteur = 'test@test.fr';							//variable de test test@test.fr
         $pbx_total = '100';									//variable de test 100
         // Suppression des points ou virgules dans le montant
@@ -36,8 +36,8 @@ class CRCAController extends Controller
 
         // Param�trage des urls de redirection apr�s paiement
         $pbx_effectue = 'http://www.philippedesorbon.tk/PaiementValide';
-        $pbx_annule = 'http://www.philippedesorbon.tk/checkout';
-        $pbx_refuse = 'http://www.philippedesorbon.tk/checkout';
+        $pbx_annule = 'http://www.philippedesorbon.tk/Checkout';
+        $pbx_refuse = 'http://www.philippedesorbon.tk/Checkout';
         // Param�trage de l'url de retour back office site
         $pbx_repondre_a = 'http://www.philippedesorbon.tk/';
         // Param�trage du retour back office site
