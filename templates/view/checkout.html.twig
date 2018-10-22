@@ -1,10 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="checkout-bg relpos text-center">
-        <div class="checkout-container center-div bg-white p-3" style="border: 1px solid black;">
-            <h1 class="edwardian fs-16 active">Votre commande</h1>
-            <p>Veuillez choisir votre mode de paiement :</p>
+    <div class="checkout-bg text-center p-5">
+        <div class="checkout-container container bg-white m-auto" style="border: 1px solid black; width: 50%; height: 50%;">
+            <h1 class="edwardian fs-18 active">Votre commande</h1>
+            <p>
+                Total à régler : {{ total }} &euro;<br>
+            </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 text-center">
+                        <h2 class="edwardian fs-15">Adresse de facturation</h2>
+                        <p>
+                            {{ user.addressStreet }}<br>
+                            {{ user.addressZipCode }}<br>
+                            {{ user.addressCity }}<br>
+                            {{ user.addressCountry }}
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <h2 class="edwardian fs-15">Adresse de facturation</h2>
+                        <p>
+                            {{ user.addressStreet }}<br>
+                            {{ user.addressZipCode }}<br>
+                            {{ user.addressCity }}<br>
+                            {{ user.addressCountry }}
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <p>
+                Veuillez choisir votre mode de paiement :
+            </p>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}

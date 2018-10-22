@@ -80,6 +80,8 @@ class OrderController extends Controller
 
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
+        $orderPrice = $cartManager->totalCalculation();
+        $user = $this->getUser();
         $cartSize = $cartManager->cartSize();
         $defaultData = [];
         $form = $this->createFormBuilder($defaultData)
@@ -120,11 +122,12 @@ class OrderController extends Controller
                     break;
 
             }
-            return $this->redirectToRoute('order_validated');
         }
         return $this->render('view/checkout.html.twig', [
             'cartSize' => $cartSize,
             'form' => $form->createView(),
+            'total' => $orderPrice,
+            'user' => $user
         ]);
     }
 
