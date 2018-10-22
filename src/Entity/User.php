@@ -8,6 +8,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -114,6 +115,16 @@ class User implements UserInterface
     private $passwordLink;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="buyer", orphanRemoval=true)
+     */
+    private $orders;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\DeliveryAddress", mappedBy="owner", orphanRemoval=true)
+     */
+    private $deliveryAddresses;
+
+    /**
      * @return mixed
      */
     public function getPasswordLink()
@@ -207,6 +218,8 @@ class User implements UserInterface
     {
         $this->roles = array('ROLE_USER');
         $this->passwordLink = null;
+        $this->orders = new ArrayCollection();
+        $this->deliveryAddresses = new ArrayCollection();
     }
 
 
@@ -314,5 +327,67 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setBuyer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->contains($order)) {
+            $this->orders->removeElement($order);
+            // set the owning side to null (unless already changed)
+            if ($order->getBuyer() === $this) {
+                $order->setBuyer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DeliveryAddress[]
+     */
+    public function getDeliveryAddresses(): Collection
+    {
+        return $this->deliveryAddresses;
+    }
+
+    public function addDeliveryAddress(DeliveryAddress $deliveryAddress): self
+    {
+        if (!$this->deliveryAddresses->contains($deliveryAddress)) {
+            $this->deliveryAddresses[] = $deliveryAddress;
+            $deliveryAddress->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDeliveryAddress(DeliveryAddress $deliveryAddress): self
+    {
+        if ($this->deliveryAddresses->contains($deliveryAddress)) {
+            $this->deliveryAddresses->removeElement($deliveryAddress);
+            // set the owning side to null (unless already changed)
+            if ($deliveryAddress->getOwner() === $this) {
+                $deliveryAddress->setOwner(null);
+            }
+        }
+
+        return $this;
     }
 }
