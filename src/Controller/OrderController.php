@@ -28,6 +28,7 @@ class OrderController extends Controller
         $user = $this->getUser();
         $orderPrice = $cartManager->totalCalculation();
         $orderContent = $cartManager->orderContent();
+        $cartSize = $cartManager->cartSize();
 
         $messageClient = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('philippedesorbon@gmail.com')
@@ -63,18 +64,13 @@ class OrderController extends Controller
         }
 
         return $this->render('view/validOrder.html.twig', [
-            'cartSize' => 0
+            'cartSize' => $cartSize
         ]);
     }
 
-    public function checkout(SessionInterface $session, Request $request)
+    public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
-
+        $cartSize = $cartManager->cartSize();
         $defaultData = [];
         $form = $this->createFormBuilder($defaultData)
             ->add('paymentMethod', ChoiceType::class,[

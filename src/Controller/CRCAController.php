@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Service\CartManager;
 use DOMDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +22,8 @@ class CRCAController extends Controller
     /**
      * @Route("/PaiementEnLigne", name="online_payment")
      */
-    public function sendRequest(){
+    public function sendRequest(CartManager $cartManager){
+        $cartSize = $cartManager->cartSize();
 
         // Ennonciation de variables
         $pbx_site = '2039805';
@@ -135,7 +137,7 @@ class CRCAController extends Controller
             'pbx_retour' => $pbx_retour,
             'dateTime' => $dateTime,
             'pbx_hmac' => $hmac,
-            'cartSize' => 0
+            'cartSize' => $cartSize
 
         ]);
 

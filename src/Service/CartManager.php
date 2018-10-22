@@ -68,4 +68,13 @@ class CartManager
         return $orderContent;
     }
 
+    public function cartSize(){
+        if ($this->session->has('cart')) {
+            $cartSize = count($this->session->get('cart'));
+        } else {
+            $cartSize = 0;
+        }
+        return $cartSize;
+    }
+
 }

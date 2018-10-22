@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Entity\User;
+use App\Service\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,15 +25,10 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/Inscription", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session, ValidatorInterface $validator)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session, ValidatorInterface $validator, CartManager $cartManager)
     {
 
-        if ($session->has('cart')){
-            $cartSize = count($session->get('cart'));
-        }
-        else{
-            $cartSize = 0;
-        }
+        $cartSize = $cartManager->cartSize();
         $user = new User();
         $form = $this->createForm(UserType::class, $user, array('validation_groups' => array('registration', 'Default')));
 

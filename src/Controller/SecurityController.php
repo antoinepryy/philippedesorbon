@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Service\CartManager;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,18 +32,11 @@ class SecurityController extends AbstractController
     /**
      * @Route("/Connexion", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils, SessionInterface $session)
+    public function login(AuthenticationUtils $authenticationUtils, SessionInterface $session, CartManager $cartManager)
     {
-        if ($session->has('cart')){
-            $cartSize = count($session->get('cart'));
-        }
-        else{
-            $cartSize = 0;
-        }
+        $cartSize = $cartManager->cartSize();
         $error = $authenticationUtils->getLastAuthenticationError();
-
         $lastUsername = $authenticationUtils->getLastUsername();
-
         return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
@@ -53,13 +47,9 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MotDePasseOublie", name="forgot_password")
      */
-    public function forgotPassword(SessionInterface $session, Request $request, \Swift_Mailer $mailer)
+    public function forgotPassword(SessionInterface $session, Request $request, \Swift_Mailer $mailer, CartManager $cartManager)
     {
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+        $cartSize = $cartManager->cartSize();
         $defaultData = [];
         $form = $this->createFormBuilder($defaultData)
             ->add('email', TextType::class,[
@@ -127,12 +117,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/RecupererMotDePasse/{hashCode}", name="recover_password")
      */
-    public function recoverPassword(SessionInterface $session, Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode){
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+    public function recoverPassword(SessionInterface $session, Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode, CartManager $cartManager){
+        $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(User::class);
         $foundUser = $repository->findOneBy([
             'passwordLink' => $hashCode
@@ -178,13 +164,9 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MonCompte", name="compte")
      */
-    public function account(SessionInterface $session, Request $request)
+    public function account(SessionInterface $session, Request $request, CartManager $cartManager)
     {
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+        $cartSize = $cartManager->cartSize();
 
         $user = $this->getUser();
         return $this->render('view/compte.html.twig',
@@ -200,13 +182,10 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
-    public function changePassword(SessionInterface $session, Request $request,  UserPasswordEncoderInterface $passwordEncoder){
+    public function changePassword(SessionInterface $session, Request $request,  UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager){
 
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+        $cartSize = $cartManager->cartSize();
+
         $user = $this->getUser();
 
         $form = $this->createFormBuilder($user, array('validation_groups' => array('change_password')))
@@ -250,12 +229,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ModifierInformations", name="change_infos")
      */
-    public function changeInfos(SessionInterface $session, Request $request ){
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+    public function changeInfos(SessionInterface $session, Request $request, CartManager $cartManager ){
+        $cartSize = $cartManager->cartSize();
 
         $user = $this->getUser();
 
@@ -320,13 +295,9 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MesCommandes", name="my_orders")
      */
-    public function myOrders(SessionInterface $session, Request $request ){
-        $cart = $session->get('cart');
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
+    public function myOrders(SessionInterface $session, Request $request, CartManager $cartManager ){
+        $cartSize = $cartManager->cartSize();
+
         return $this->render('dev.html.twig',[
             'cartSize' => $cartSize
         ]);
@@ -339,14 +310,9 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MesAddresses", name="my_addresses")
      */
-    public function myAddresses(SessionInterface $session, Request $request ){
-        $cart = $session->get('cart');
+    public function myAddresses(SessionInterface $session, Request $request, CartManager $cartManager ){
+        $cartSize = $cartManager->cartSize();
 
-        if ($session->has('cart')) {
-            $cartSize = count($session->get('cart'));
-        } else {
-            $cartSize = 0;
-        }
         return $this->render('dev.html.twig',[
             'cartSize' => $cartSize
         ]);
