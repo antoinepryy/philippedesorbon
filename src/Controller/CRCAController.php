@@ -35,9 +35,9 @@ class CRCAController extends Controller
         $pbx_total = str_replace(".", "", $pbx_total);
 
         // Param�trage des urls de redirection apr�s paiement
-        $pbx_effectue = 'http://www.philippedesorbon.tk/';
-        $pbx_annule = 'http://www.philippedesorbon.tk/';
-        $pbx_refuse = 'http://www.philippedesorbon.tk/';
+        $pbx_effectue = 'http://www.philippedesorbon.tk/PaiementValide';
+        $pbx_annule = 'http://www.philippedesorbon.tk/checkout';
+        $pbx_refuse = 'http://www.philippedesorbon.tk/checkout';
         // Param�trage de l'url de retour back office site
         $pbx_repondre_a = 'http://www.philippedesorbon.tk/';
         // Param�trage du retour back office site
@@ -79,7 +79,7 @@ class CRCAController extends Controller
         if(!$serveurOK){
             die("Erreur : Aucun serveur n'a �t� trouv�");}
         // Activation de l'univers de pr�production
-        //$serveurOK = 'preprod-tpeweb.paybox.com';
+        $serveurOK = 'preprod-tpeweb.paybox.com';
 
         //Cr�ation de l'url cgi paybox
         $serveurOK = 'https://'.$serveurOK.'/cgi/MYchoix_pagepaiement.cgi';
@@ -140,5 +140,14 @@ class CRCAController extends Controller
         ]);
 
     }
+
+    /**
+     * @Route("/PaiementValide", name="valid_payment")
+     */
+    public function validated(){
+        return new Response(200);
+    }
+
+
 
 }
