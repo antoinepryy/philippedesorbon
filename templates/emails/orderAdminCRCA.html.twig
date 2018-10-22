@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<p>
+    Une commande a été passée par <span class="font-weight-bold">{{ client.email }}</span><br>
+    Moyen de paiement : Paiement en ligne Crédit Agricole<br>
+    Contenu de la commande :<br>
+<ul>
+    {% for line in orderContent %}
+        <li>{{ line }}</li>
+    {% endfor %}
+</ul><br>
+Prix total : {{ totalPrice }} &euro;<br>
+</p>
+</body>
+
+</html>
+

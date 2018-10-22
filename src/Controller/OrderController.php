@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class OrderController extends Controller
 {
 
-    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager)
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager, $method)
     {
         $cart = $session->get('cart');
         $user = $this->getUser();
@@ -30,14 +30,24 @@ class OrderController extends Controller
         $orderContent = $cartManager->orderContent();
         $cartSize = $cartManager->cartSize();
 
+        switch ($method){
+            case 'Virement':
+                break;
+            case 'Cheque':
+                break;
+            case 'CRCA':
+                break;
+        }
+
         $messageClient = (new \Swift_Message('Philippe de Sorbon'))
             ->setFrom('philippedesorbon@gmail.com')
             ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
-                    'emails/orderClient.html.twig', [
+                    'emails/orderClient'.$method.'.html.twig', [
                         'orderContent' => $orderContent,
-                        'totalPrice' => $orderPrice
+                        'totalPrice' => $orderPrice,
+                        'client' => $user
                     ]
                 ),
                 'text/html'
@@ -48,10 +58,10 @@ class OrderController extends Controller
             ->setTo('philippedesorbon@gmail.com')
             ->setBody(
                 $this->renderView(
-                    'emails/orderAdmin.html.twig', [
+                    'emails/orderAdmin'.$method.'.html.twig', [
                         'orderContent' => $orderContent,
                         'totalPrice' => $orderPrice,
-                        'clientEmail' => $user->getEmail()
+                        'client' => $user
                     ]
                 ),
                 'text/html'
@@ -96,12 +106,17 @@ class OrderController extends Controller
             $data = $form->getData();
             switch ($data['paymentMethod']){
                 case 'virement':
-                    return $this->redirectToRoute('order_validated');
+                    return $this->redirectToRoute('order_validated',[
+                        'method' => 'Virement'
+                    ]);
                     break;
                 case 'cheque':
-                    return $this->redirectToRoute('order_validated');
+                    return $this->redirectToRoute('order_validated',[
+                        'method' => 'Cheque'
+                    ]);
                     break;
                 case 'CRCA':
+                    return $this->redirectToRoute('online_payment');
                     break;
 
             }

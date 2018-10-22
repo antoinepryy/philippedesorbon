@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -251,6 +252,11 @@ class SecurityController extends AbstractController
             ->add('lastName', TextType::class, [
                 'label'=>'Nom',
                 'data' => $user->getlastName()
+                ]
+            )
+            ->add('phoneNumber', TelType::class, [
+                    'label'=>'Téléphone',
+                    'data' => $user->getphoneNumber()
                 ]
             )
             ->add('addressStreet', TextType::class, [

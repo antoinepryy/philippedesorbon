@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="register1 p-3">
+    <div class="register1 p-5">
         <div class="container text-center">
-            {{ form_errors(form) }}
+            {% if error is defined %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
             {{ form_start(form) }}
             <div class="row">
                 <div class="col">
@@ -42,6 +46,11 @@
                     {{ form_row(form.plainPassword.first) }}
                 </div>
                 <div class="col">
+                    {{ form_row(form.phoneNumber) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
                     {{ form_row(form.plainPassword.second) }}
                 </div>
             </div>

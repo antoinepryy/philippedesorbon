@@ -125,6 +125,29 @@ class User implements UserInterface
     private $deliveryAddresses;
 
     /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank(groups={"registration, change_infos"})
+     */
+    private $phoneNumber;
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param mixed $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getPasswordLink()

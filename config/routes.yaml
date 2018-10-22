@@ -50,7 +50,7 @@ checkout:
     controller: App\Controller\OrderController::checkout
 
 order_validated:
-    path: /CommandeValidee
+    path: /CommandeValidee/{method}
     controller: App\Controller\OrderController::orderValidated
 
 gastronomie:
