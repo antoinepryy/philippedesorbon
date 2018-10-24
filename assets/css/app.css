@@ -92,25 +92,6 @@
     font-size: 0.4em;
 }
 
-.fsr-1{
-    font-size: 1vw;
-}
-.fsr-12{
-    font-size: 1.2vw;
-}
-.fsr-14{
-    font-size: 1.4vw;
-}
-.fsr-16{
-    font-size: 1.6vw;
-}
-.fsr-18{
-    font-size: 1.8vw;
-}
-
-.fsr-20{
-    font-size: 2vw;
-}
 
 
 .no-decoration:hover{
@@ -233,6 +214,10 @@
     transition: all 0.3s linear;
     letter-spacing: 2px;
     font-family: "Book Antiqua", sans-serif;
+
+}
+
+#header-nav > ul li a{
     font-size: 1.15vw;
 }
 
