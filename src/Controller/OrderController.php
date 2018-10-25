@@ -86,6 +86,7 @@ class OrderController extends Controller
 
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
+
         $curentOrder = new Commande();
         $orderPrice = $cartManager->totalCalculation();
         $entityManager = $this->getDoctrine()->getManager();
@@ -100,6 +101,9 @@ class OrderController extends Controller
 
         $curentOrder->setPrice($orderPrice);
         $cartSize = $cartManager->cartSize();
+        return $this->render('dev.html.twig',[
+            'cartSize' => $cartSize
+        ]);
         $curentOrder->setBuyer($user);
         $form = $this->createFormBuilder($curentOrder)
             ->add('addressStreetDelivery', TextType::class, [
@@ -140,6 +144,7 @@ class OrderController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             switch ($curentOrder->getPaymentMethod()){
                 case 'virement':
+                    $curentOrder->setPaymentMethod('virement');
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
@@ -147,6 +152,7 @@ class OrderController extends Controller
                     ]);
                     break;
                 case 'cheque':
+                    $curentOrder->setPaymentMethod('cheque');
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
@@ -154,6 +160,7 @@ class OrderController extends Controller
                     ]);
                     break;
                 case 'CRCA':
+                    $curentOrder->setPaymentMethod('CRCA');
                     return $this->redirectToRoute('online_payment');
                     break;
 

@@ -313,17 +313,6 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/MesAddresses", name="my_addresses")
-     */
-    public function myAddresses(SessionInterface $session, Request $request, CartManager $cartManager ){
-        $cartSize = $cartManager->cartSize();
-
-        return $this->render('dev.html.twig',[
-            'cartSize' => $cartSize
-        ]);
-        return $this->render('security/mesAddresses.html.twig');
-    }
 
 
 }
