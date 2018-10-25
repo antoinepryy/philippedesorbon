@@ -7,9 +7,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Entity(repositoryClass="CommandeRepository")
  */
-class Order
+class Commande
 {
     /**
      * @ORM\Id()
@@ -23,10 +23,6 @@ class Order
      */
     private $price;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $orderNumber;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orders")
@@ -38,6 +34,12 @@ class Order
      * @ORM\Column(type="integer")
      */
     private $paymentMethod;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressStreetFact;
 
     /**
      * @ORM\Column(type="string", length=191)
@@ -102,17 +104,6 @@ class Order
         return $this;
     }
 
-    public function getOrderNumber(): ?int
-    {
-        return $this->orderNumber;
-    }
-
-    public function setOrderNumber(int $orderNumber): self
-    {
-        $this->orderNumber = $orderNumber;
-
-        return $this;
-    }
 
     public function getBuyer(): ?User
     {

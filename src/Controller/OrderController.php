@@ -11,7 +11,7 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
-use App\Entity\Order;
+use App\Entity\Commande;
 use App\Service\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -86,7 +86,7 @@ class OrderController extends Controller
 
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
-        $curentOrder = new Order();
+        $curentOrder = new Commande();
         $orderPrice = $cartManager->totalCalculation();
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
