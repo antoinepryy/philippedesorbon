@@ -38,19 +38,19 @@ class Order
      * @ORM\Column(type="string", length=191)
      * @Assert\NotBlank()
      */
-    private $addressStreet;
+    private $addressStreetFact;
 
     /**
      * @ORM\Column(type="string", length=191)
      * @Assert\NotBlank()
      */
-    private $addressCity;
+    private $addressCityFact;
 
     /**
      * @ORM\Column(type="string", length=191)
      * @Assert\NotBlank()
      */
-    private $addressCountry;
+    private $addressCountryFact;
 
 
     /**
@@ -58,7 +58,33 @@ class Order
      * @Assert\NotBlank()
      * @Assert\Type(type="integer")
      */
-    private $addressZipCode;
+    private $addressZipCodeFact;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressStreetDelivery;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressCityDelivery;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressCountryDelivery;
+
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Type(type="integer")
+     */
+    private $addressZipCodeDelivery;
 
     public function getId(): ?int
     {
@@ -104,64 +130,132 @@ class Order
     /**
      * @return mixed
      */
-    public function getAddressStreet()
+    public function getAddressStreetFact()
     {
-        return $this->addressStreet;
+        return $this->addressStreetFact;
     }
 
     /**
-     * @param mixed $addressStreet
+     * @param mixed $addressStreetFact
      */
-    public function setAddressStreet($addressStreet): void
+    public function setAddressStreetFact($addressStreetFact): void
     {
-        $this->addressStreet = $addressStreet;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAddressCity()
-    {
-        return $this->addressCity;
-    }
-
-    /**
-     * @param mixed $addressCity
-     */
-    public function setAddressCity($addressCity): void
-    {
-        $this->addressCity = $addressCity;
+        $this->addressStreetFact = $addressStreetFact;
     }
 
     /**
      * @return mixed
      */
-    public function getAddressCountry()
+    public function getAddressCityFact()
     {
-        return $this->addressCountry;
+        return $this->addressCityFact;
     }
 
     /**
-     * @param mixed $addressCountry
+     * @param mixed $addressCityFact
      */
-    public function setAddressCountry($addressCountry): void
+    public function setAddressCityFact($addressCityFact): void
     {
-        $this->addressCountry = $addressCountry;
+        $this->addressCityFact = $addressCityFact;
     }
 
     /**
      * @return mixed
      */
-    public function getAddressZipCode()
+    public function getAddressCountryFact()
     {
-        return $this->addressZipCode;
+        return $this->addressCountryFact;
     }
 
     /**
-     * @param mixed $addressZipCode
+     * @param mixed $addressCountryFact
      */
-    public function setAddressZipCode($addressZipCode): void
+    public function setAddressCountryFact($addressCountryFact): void
     {
-        $this->addressZipCode = $addressZipCode;
+        $this->addressCountryFact = $addressCountryFact;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressZipCodeFact()
+    {
+        return $this->addressZipCodeFact;
+    }
+
+    /**
+     * @param mixed $addressZipCodeFact
+     */
+    public function setAddressZipCodeFact($addressZipCodeFact): void
+    {
+        $this->addressZipCodeFact = $addressZipCodeFact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressStreetDelivery()
+    {
+        return $this->addressStreetDelivery;
+    }
+
+    /**
+     * @param mixed $addressStreetDelivery
+     */
+    public function setAddressStreetDelivery($addressStreetDelivery): void
+    {
+        $this->addressStreetDelivery = $addressStreetDelivery;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressCityDelivery()
+    {
+        return $this->addressCityDelivery;
+    }
+
+    /**
+     * @param mixed $addressCityDelivery
+     */
+    public function setAddressCityDelivery($addressCityDelivery): void
+    {
+        $this->addressCityDelivery = $addressCityDelivery;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressCountryDelivery()
+    {
+        return $this->addressCountryDelivery;
+    }
+
+    /**
+     * @param mixed $addressCountryDelivery
+     */
+    public function setAddressCountryDelivery($addressCountryDelivery): void
+    {
+        $this->addressCountryDelivery = $addressCountryDelivery;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressZipCodeDelivery()
+    {
+        return $this->addressZipCodeDelivery;
+    }
+
+    /**
+     * @param mixed $addressZipCodeDelivery
+     */
+    public function setAddressZipCodeDelivery($addressZipCodeDelivery): void
+    {
+        $this->addressZipCodeDelivery = $addressZipCodeDelivery;
+    }
+
+
+    
+    
 }

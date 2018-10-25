@@ -119,10 +119,6 @@ class User implements UserInterface
      */
     private $orders;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\DeliveryAddress", mappedBy="owner", orphanRemoval=true)
-     */
-    private $deliveryAddresses;
 
     /**
      * @ORM\Column(type="string", length=191)
@@ -383,34 +379,4 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|DeliveryAddress[]
-     */
-    public function getDeliveryAddresses(): Collection
-    {
-        return $this->deliveryAddresses;
-    }
-
-    public function addDeliveryAddress(DeliveryAddress $deliveryAddress): self
-    {
-        if (!$this->deliveryAddresses->contains($deliveryAddress)) {
-            $this->deliveryAddresses[] = $deliveryAddress;
-            $deliveryAddress->setOwner($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDeliveryAddress(DeliveryAddress $deliveryAddress): self
-    {
-        if ($this->deliveryAddresses->contains($deliveryAddress)) {
-            $this->deliveryAddresses->removeElement($deliveryAddress);
-            // set the owning side to null (unless already changed)
-            if ($deliveryAddress->getOwner() === $this) {
-                $deliveryAddress->setOwner(null);
-            }
-        }
-
-        return $this;
-    }
 }
