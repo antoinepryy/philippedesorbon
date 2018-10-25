@@ -5,3 +5,8 @@
     background-size: cover;
     min-height: calc(100vh - 300px);
 }
+
+.del-address label, .payment label{
+    display: none;
+
+}

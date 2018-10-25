@@ -35,10 +35,9 @@ class Order
     private $buyer;
 
     /**
-     * @ORM\Column(type="string", length=191)
-     * @Assert\NotBlank()
+     * @ORM\Column(type="integer")
      */
-    private $addressStreetFact;
+    private $paymentMethod;
 
     /**
      * @ORM\Column(type="string", length=191)
@@ -254,6 +253,24 @@ class Order
     {
         $this->addressZipCodeDelivery = $addressZipCodeDelivery;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentMethod()
+    {
+        return $this->paymentMethod;
+    }
+
+    /**
+     * @param mixed $paymentMethod
+     */
+    public function setPaymentMethod($paymentMethod): void
+    {
+        $this->paymentMethod = $paymentMethod;
+    }
+
+
 
 
     

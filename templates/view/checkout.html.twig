@@ -8,24 +8,28 @@
                 Total à régler : {{ total }} &euro;<br>
             </p>
             <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-6 text-center">
+                <div class="row py-5">
+                    <div class="col-12 col-md-6 text-center fact-address">
                         <h2 class="edwardian fs-15">Adresse de facturation</h2>
-                        <p>
-                            {{ user.addressStreet }}<br>
-                            {{ user.addressZipCode }}<br>
-                            {{ user.addressCity }}<br>
-                            {{ user.addressCountry }}
-                        </p>
+                        <div>
+                            <div class="p-3">
+                                <div>{{ user.addressStreet }}</div><br>
+                                <div>{{ user.addressZipCode }}</div><br>
+                                <div>{{ user.addressCity }}</div><br>
+                                <div>{{ user.addressCountry }}</div>
+                            </div>
+
+                        </div>
                         <a href="{{ path('change_infos') }}">Modifier addresse de facturation</a>
                     </div>
-                    <div class="col-12 col-md-6 text-center">
+                    <div class="col-12 col-md-6 text-center del-address">
                         <h2 class="edwardian fs-15">Adresse de facturation</h2>
                         <p>
-                            {{ user.addressStreet }}<br>
-                            {{ user.addressZipCode }}<br>
-                            {{ user.addressCity }}<br>
-                            {{ user.addressCountry }}
+                            {{ form_start(form) }}
+                            {{ form_row(form.addressStreetDelivery) }}
+                            {{ form_row(form.addressZipCodeDelivery) }}
+                            {{ form_row(form.addressCityDelivery) }}
+                            {{ form_row(form.addressCountryDelivery) }}
                         </p>
                     </div>
 
@@ -35,8 +39,9 @@
             <p>
                 Veuillez choisir votre mode de paiement :
             </p>
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
+
+            <div class="w-50 text-center m-auto payment">{{ form_row(form.paymentMethod) }}</div>
+
             {{ form_end(form) }}
 
         </div>

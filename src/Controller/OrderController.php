@@ -11,10 +11,14 @@ namespace App\Controller;
 
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
+use App\Entity\Order;
 use App\Service\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -82,11 +86,38 @@ class OrderController extends Controller
 
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
+        $curentOrder = new Order();
         $orderPrice = $cartManager->totalCalculation();
+        $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        $curentOrder->setAddressCityFact($user->getAddressCity());
+
+        $curentOrder->setAddressCountryFact($user->getAddressCountry());
+
+        $curentOrder->setAddressStreetFact($user->getAddressStreet());
+
+        $curentOrder->setAddressZipCodeFact($user->getAddressZipCode());
+
+        $curentOrder->setPrice($orderPrice);
         $cartSize = $cartManager->cartSize();
-        $defaultData = [];
-        $form = $this->createFormBuilder($defaultData)
+        $curentOrder->setBuyer($user);
+        $form = $this->createFormBuilder($curentOrder)
+            ->add('addressStreetDelivery', TextType::class, [
+                'attr'=>['placeholder'=>'Adresse'],
+                'data'=>$user->getAddressStreet()
+                ])
+            ->add('addressCityDelivery', TextType::class, [
+                'attr'=>['placeholder'=>'Ville'],
+                'data'=>$user->getAddressCity()
+            ])
+            ->add('addressZipCodeDelivery', IntegerType::class, [
+                'attr'=>['placeholder'=>'Code Postal'],
+                'data'=>$user->getAddressZipCode()
+            ])
+            ->add('addressCountryDelivery', CountryType::class, [
+                'attr'=>['placeholder'=>'Pays'],
+                'data'=>$user->getAddressCountry()
+            ])
             ->add('paymentMethod', ChoiceType::class,[
                     'label' => 'Moyen de paiement',
                     'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne (disponible prochainement)' => 'CRCA'),
@@ -107,14 +138,17 @@ class OrderController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            switch ($data['paymentMethod']){
+            switch ($curentOrder->getPaymentMethod()){
                 case 'virement':
+                    $entityManager->persist($curentOrder);
+                    $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
                         'method' => 'Virement'
                     ]);
                     break;
                 case 'cheque':
+                    $entityManager->persist($curentOrder);
+                    $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
                         'method' => 'Cheque'
                     ]);
