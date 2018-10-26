@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
- * @ORM\Entity(repositoryClass="CommandeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CommandeRepository")
  */
 class Commande
 {
@@ -31,9 +31,16 @@ class Commande
     private $buyer;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
      */
     private $paymentMethod;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressNameFact;
 
     /**
      * @ORM\Column(type="string", length=191)
@@ -60,6 +67,12 @@ class Commande
      * @Assert\Type(type="integer")
      */
     private $addressZipCodeFact;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     * @Assert\NotBlank()
+     */
+    private $addressNameDelivery;
 
     /**
      * @ORM\Column(type="string", length=191)
@@ -256,10 +269,44 @@ class Commande
     /**
      * @param mixed $paymentMethod
      */
-    public function setPaymentMethod($paymentMethod): void
+    public function setPaymentMethod($paymentMethod)
     {
         $this->paymentMethod = $paymentMethod;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressNameFact()
+    {
+        return $this->addressNameFact;
+    }
+
+    /**
+     * @param mixed $addressNameFact
+     */
+    public function setAddressNameFact($addressNameFact): void
+    {
+        $this->addressNameFact = $addressNameFact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressNameDelivery()
+    {
+        return $this->addressNameDelivery;
+    }
+
+    /**
+     * @param mixed $addressNameDelivery
+     */
+    public function setAddressNameDelivery($addressNameDelivery): void
+    {
+        $this->addressNameDelivery = $addressNameDelivery;
+    }
+
+
 
 
 

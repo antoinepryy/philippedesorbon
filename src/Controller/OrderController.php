@@ -86,26 +86,31 @@ class OrderController extends Controller
 
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
     {
+        if($cartManager->isEmpty() == true){
+            return $this->redirectToRoute('boutique');
+        }
 
         $curentOrder = new Commande();
         $orderPrice = $cartManager->totalCalculation();
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        $userName = $user->getFirstName()." ".$user->getLastName();
+        $curentOrder->setAddressNameFact($userName);
         $curentOrder->setAddressCityFact($user->getAddressCity());
-
         $curentOrder->setAddressCountryFact($user->getAddressCountry());
-
         $curentOrder->setAddressStreetFact($user->getAddressStreet());
-
         $curentOrder->setAddressZipCodeFact($user->getAddressZipCode());
-
         $curentOrder->setPrice($orderPrice);
         $cartSize = $cartManager->cartSize();
-        return $this->render('dev.html.twig',[
-            'cartSize' => $cartSize
-        ]);
+//        return $this->render('dev.html.twig',[
+//            'cartSize' => $cartSize
+//        ]);
         $curentOrder->setBuyer($user);
         $form = $this->createFormBuilder($curentOrder)
+            ->add('addressNameDelivery', TextType::class, [
+                'attr'=>['placeholder'=>'Adresse'],
+                'data'=>$userName
+            ])
             ->add('addressStreetDelivery', TextType::class, [
                 'attr'=>['placeholder'=>'Adresse'],
                 'data'=>$user->getAddressStreet()

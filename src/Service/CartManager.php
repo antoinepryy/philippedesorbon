@@ -77,4 +77,13 @@ class CartManager
         return $cartSize;
     }
 
+    public function isEmpty(){
+        if ($this->cartSize() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
