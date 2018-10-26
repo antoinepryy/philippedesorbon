@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+<title>Boutique</title>
+<meta name="description" content="Commandez en ligne nos produits et découvrez nos meilleures cuvées
+assemblées avec respect de la tradition de nos ancêtres">
+{% endblock %}
+
 {% block content %}
     <div id="get-cart" data-path="{{path('get_cart')}}"></div>
     <div id="pre-order" data-path="{{path('pre_order')}}"></div>

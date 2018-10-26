@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+
+{% block meta %}
+<title>{{ champagne.name }}</title>
+<meta name="description" content="{{ champagne.presentation1 }}">
+{% endblock %}
+
 {% block content %}
 
 

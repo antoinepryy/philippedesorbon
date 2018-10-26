@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+<title>Panier</title>
+<meta name="description" content="Commandez en ligne nos produits">
+{% endblock %}
+
 {% block content %}
     <div id="get-cart" data-path="{{path('get_cart')}}"></div>
     <div id="pre-order" data-path="{{path('pre_order')}}"></div>
