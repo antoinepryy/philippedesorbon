@@ -63,3 +63,11 @@ easy_admin:
                           - price
                           - champagne
                           - stepOrder
+            Commande:
+                class: App\Entity\Commande
+                list:
+                      fields:
+                          - id
+                          - buyer
+                          - content
+                          - dateTime

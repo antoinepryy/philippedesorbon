@@ -31,7 +31,7 @@ class OrderController extends Controller
         $cart = $session->get('cart');
         $user = $this->getUser();
         $orderPrice = $cartManager->totalCalculation();
-        $orderContent = $cartManager->orderContent();
+        $orderContent = $cartManager->orderContentWithPrice();
 
 
         switch ($method){
@@ -92,6 +92,7 @@ class OrderController extends Controller
 
         $curentOrder = new Commande();
         $orderPrice = $cartManager->totalCalculation();
+        $orderContentArray = $cartManager->orderContentWithPrice();
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $userName = $user->getFirstName()." ".$user->getLastName();
@@ -150,6 +151,8 @@ class OrderController extends Controller
             switch ($curentOrder->getPaymentMethod()){
                 case 'virement':
                     $curentOrder->setPaymentMethod('virement');
+                    $curentOrder->setDateTime(new \DateTime());
+                    $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
@@ -158,6 +161,8 @@ class OrderController extends Controller
                     break;
                 case 'cheque':
                     $curentOrder->setPaymentMethod('cheque');
+                    $curentOrder->setDateTime(new \DateTime());
+                    $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
                     return $this->redirectToRoute('order_validated',[
@@ -175,7 +180,8 @@ class OrderController extends Controller
             'cartSize' => $cartSize,
             'form' => $form->createView(),
             'total' => $orderPrice,
-            'user' => $user
+            'user' => $user,
+            'content' => $orderContentArray
         ]);
     }
 

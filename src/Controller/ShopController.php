@@ -207,8 +207,8 @@ class ShopController extends Controller
      * @Route("/test", name="test")
      */
     public function test(CartManager $cartManager){
-        $test = $cartManager->totalCalculation();
-        return new Response($test);
+        $test = $cartManager->arrayToLongTextOrderPrice();
+        die(var_dump($test));
 
     }
 

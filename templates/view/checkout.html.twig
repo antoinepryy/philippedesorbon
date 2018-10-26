@@ -2,13 +2,16 @@
 
 {% block content %}
     <div class="checkout-bg text-center p-5">
-        <div class="checkout-container container bg-white m-auto" style="border: 1px solid black; width: 50%; height: 50%;">
+        <div class="checkout-container container bg-white m-auto p-3" style="border: 1px solid black; width: 50%; height: 50%;">
             <h1 class="edwardian fs-18 active">Votre commande</h1>
             <p>
+                {% for line in content %}
+                - {{ line }} <br>
+                {% endfor %}<br>
                 Total à régler : {{ total }} &euro;<br>
             </p>
             <div class="container">
-                <div class="row py-5">
+                <div class="row py-2">
                     <div class="col-12 col-md-6 text-center fact-address">
                         <h2 class="edwardian fs-15">Adresse de facturation</h2>
                         <div>

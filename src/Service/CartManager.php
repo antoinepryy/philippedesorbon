@@ -68,6 +68,38 @@ class CartManager
         return $orderContent;
     }
 
+    public function orderContentWithPrice(){
+        $cart = $this->session->get('cart');
+        $orderContent = [];
+        foreach ($cart as $champagne) {
+            if (count($champagne) === 3) {
+                $champagneModel = $this->champagneRepository->findOneBy(['id' => $champagne[0]]);
+                $champagneOption = $this->champagneOptionRepository->findOneBy(['id' => $champagne[2]]);
+                $champagneQuantity = $champagne[1];
+                $price = floatval($champagneQuantity * $champagneOption->getPrice());
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName() . ' ' . $champagneOption->getName().' : '.$price.' €');
+            } else {
+                $champagneQuantity = $champagne[1];
+                $champagneModel = $this->champagneRepository->findOneBy(['id' => $champagne[0]]);
+                $price = floatval($champagneQuantity * $champagneModel->getPrice());
+
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName().' : '.$price. ' €');
+            }
+        }
+
+        return $orderContent;
+    }
+
+    public function arrayToLongTextOrderPrice(){
+        $array = $this->orderContentWithPrice();
+        $text = "";
+        foreach ($array as $line){
+            $text = $text.$line." \n \r ";
+        }
+
+        return nl2br($text);
+    }
+
     public function cartSize(){
         if ($this->session->has('cart')) {
             $cartSize = count($this->session->get('cart'));

@@ -361,6 +361,11 @@ class User implements UserInterface
         return $this;
     }
 
+    public function __toString(){
+        $name = $this->firstName.' '.$this->getLastName();
+        return $name ;
+    }
+
     public function removeOrder(Commande $order): self
     {
         if ($this->orders->contains($order)) {

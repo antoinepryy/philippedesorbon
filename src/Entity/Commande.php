@@ -100,6 +100,16 @@ class Commande
      */
     private $addressZipCodeDelivery;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateTime;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -304,6 +314,34 @@ class Commande
     public function setAddressNameDelivery($addressNameDelivery): void
     {
         $this->addressNameDelivery = $addressNameDelivery;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getDateTime(): ?\DateTimeInterface
+    {
+        return $this->dateTime;
+    }
+
+    public function setDateTime(\DateTimeInterface $dateTime): self
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    public function __toString(){
+        return 'Commande#'.$this->getId() ;
     }
 
 
