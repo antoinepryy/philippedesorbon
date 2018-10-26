@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity
  * @UniqueEntity(fields="email", message="Email already taken")
- * @UniqueEntity(fields="username", message="Username already taken")
+ * @UniqueEntity(fields="username", message="Email already taken")
  */
 class User implements UserInterface
 {
@@ -27,10 +27,6 @@ class User implements UserInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @return mixed
-     */
 
 
     /**
@@ -238,7 +234,6 @@ class User implements UserInterface
         $this->roles = array('ROLE_USER');
         $this->passwordLink = null;
         $this->orders = new ArrayCollection();
-        $this->deliveryAddresses = new ArrayCollection();
     }
 
 
