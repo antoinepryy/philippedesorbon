@@ -16,11 +16,16 @@ use App\Service\CartManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
 class OrderController extends Controller
@@ -34,7 +39,7 @@ class OrderController extends Controller
         $orderContent = $cartManager->orderContentWithPrice();
 
 
-        switch ($method){
+        switch ($method) {
             case 'Virement':
                 break;
             case 'Cheque':
@@ -48,7 +53,7 @@ class OrderController extends Controller
             ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
-                    'emails/orderClient'.$method.'.html.twig', [
+                    'emails/orderClient' . $method . '.html.twig', [
                         'orderContent' => $orderContent,
                         'totalPrice' => $orderPrice,
                         'client' => $user
@@ -62,7 +67,7 @@ class OrderController extends Controller
             ->setTo('philippedesorbon@gmail.com')
             ->setBody(
                 $this->renderView(
-                    'emails/orderAdmin'.$method.'.html.twig', [
+                    'emails/orderAdmin' . $method . '.html.twig', [
                         'orderContent' => $orderContent,
                         'totalPrice' => $orderPrice,
                         'client' => $user
@@ -84,9 +89,9 @@ class OrderController extends Controller
         ]);
     }
 
-    public function checkout(SessionInterface $session, Request $request, CartManager $cartManager)
+    public function checkout(SessionInterface $session, Request $request, CartManager $cartManager, ValidatorInterface $validator)
     {
-        if($cartManager->isEmpty() == true){
+        if ($cartManager->isEmpty() == true) {
             return $this->redirectToRoute('boutique');
         }
 
@@ -95,12 +100,12 @@ class OrderController extends Controller
         $orderContentArray = $cartManager->orderContentWithPrice();
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $userName = $user->getFirstName()." ".$user->getLastName();
-        $curentOrder->setAddressNameFact($userName);
-        $curentOrder->setAddressCityFact($user->getAddressCity());
-        $curentOrder->setAddressCountryFact($user->getAddressCountry());
-        $curentOrder->setAddressStreetFact($user->getAddressStreet());
-        $curentOrder->setAddressZipCodeFact($user->getAddressZipCode());
+        $userName = $user->getFirstName() . " " . $user->getLastName();
+//        $curentOrder->setAddressNameFact($userName);
+//        $curentOrder->setAddressCityFact($user->getAddressCity());
+//        $curentOrder->setAddressCountryFact($user->getAddressCountry());
+//        $curentOrder->setAddressStreetFact($user->getAddressStreet());
+//        $curentOrder->setAddressZipCodeFact($user->getAddressZipCode());
         $curentOrder->setPrice($orderPrice);
         $cartSize = $cartManager->cartSize();
 //        return $this->render('dev.html.twig',[
@@ -108,34 +113,65 @@ class OrderController extends Controller
 //        ]);
         $curentOrder->setBuyer($user);
         $form = $this->createFormBuilder($curentOrder)
+            ->add('addressNameFact', TextType::class, [
+                'attr' => ['placeholder' => 'Nom'],
+                'data' => $userName
+            ])
+            ->add('addressStreetFact', TextType::class, [
+                'attr' => ['placeholder' => 'Adresse de facturation'],
+                'data' => $user->getAddressStreet()
+            ])
+            ->add('addressCityFact', TextType::class, [
+                'attr' => ['placeholder' => 'Ville'],
+                'data' => $user->getAddressCity()
+            ])
+            ->add('addressZipCodeFact', IntegerType::class, [
+                'attr' => ['placeholder' => 'Code Postal'],
+                'data' => $user->getAddressZipCode()
+            ])
+            ->add('addressCountryFact', CountryType::class, [
+                'attr' => ['placeholder' => 'Pays'],
+                'data' => $user->getAddressCountry()
+            ])
+            ->add('telFact', TelType::class, [
+                'attr' => ['placeholder' => 'Téléphone'],
+                'data' => $user->getPhoneNumber()
+            ])
             ->add('addressNameDelivery', TextType::class, [
-                'attr'=>['placeholder'=>'Adresse'],
-                'data'=>$userName
+                'attr' => ['placeholder' => 'Adresse de livraison'],
+                'data' => $userName
             ])
             ->add('addressStreetDelivery', TextType::class, [
-                'attr'=>['placeholder'=>'Adresse'],
-                'data'=>$user->getAddressStreet()
-                ])
+                'attr' => ['placeholder' => 'Adresse'],
+                'data' => $user->getAddressStreet()
+            ])
             ->add('addressCityDelivery', TextType::class, [
-                'attr'=>['placeholder'=>'Ville'],
-                'data'=>$user->getAddressCity()
+                'attr' => ['placeholder' => 'Ville'],
+                'data' => $user->getAddressCity()
             ])
             ->add('addressZipCodeDelivery', IntegerType::class, [
-                'attr'=>['placeholder'=>'Code Postal'],
-                'data'=>$user->getAddressZipCode()
+                'attr' => ['placeholder' => 'Code Postal'],
+                'data' => $user->getAddressZipCode()
             ])
             ->add('addressCountryDelivery', CountryType::class, [
-                'attr'=>['placeholder'=>'Pays'],
-                'data'=>$user->getAddressCountry()
+                'attr' => ['placeholder' => 'Pays'],
+                'data' => $user->getAddressCountry()
             ])
-            ->add('paymentMethod', ChoiceType::class,[
+            ->add('telDelivery', TelType::class, [
+                'attr' => ['placeholder' => 'Téléphone'],
+                'data' => $user->getPhoneNumber()
+            ])
+            ->add('dateDelivery', DateType::class, [
+                'widget' => 'single_text',
+                'required'=>false
+            ])
+            ->add('paymentMethod', ChoiceType::class, [
                     'label' => 'Moyen de paiement',
                     'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne (disponible prochainement)' => 'CRCA'),
-                    'choice_attr' => function($choiceValue, $key, $value) {
-                        if($value == 'CRCA'){
+                    'choice_attr' => function ($choiceValue, $key, $value) {
+                        if ($value == 'CRCA') {
                             return ['disabled' => 'disabled'];
-                        }
-                        else{
+                        } else {
                             return [];
                         }
 
@@ -148,14 +184,14 @@ class OrderController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            switch ($curentOrder->getPaymentMethod()){
+            switch ($curentOrder->getPaymentMethod()) {
                 case 'virement':
                     $curentOrder->setPaymentMethod('virement');
                     $curentOrder->setDateTime(new \DateTime());
                     $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
-                    return $this->redirectToRoute('order_validated',[
+                    return $this->redirectToRoute('order_validated', [
                         'method' => 'Virement'
                     ]);
                     break;
@@ -165,7 +201,7 @@ class OrderController extends Controller
                     $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
-                    return $this->redirectToRoute('order_validated',[
+                    return $this->redirectToRoute('order_validated', [
                         'method' => 'Cheque'
                     ]);
                     break;
@@ -175,6 +211,20 @@ class OrderController extends Controller
                     break;
 
             }
+        } elseif ($form->isSubmitted() && !$form->isValid()){
+            $errors = $validator->validate($curentOrder);
+
+            if (count($errors) > 0) {
+                return $this->render('view/checkout.html.twig', [
+                    'cartSize' => $cartSize,
+                    'form' => $form->createView(),
+                    'total' => $orderPrice,
+                    'user' => $user,
+                    'content' => $orderContentArray,
+                    'errors' => $errors
+                ]);
+            }
+
         }
         return $this->render('view/checkout.html.twig', [
             'cartSize' => $cartSize,
@@ -183,6 +233,7 @@ class OrderController extends Controller
             'user' => $user,
             'content' => $orderContentArray
         ]);
-    }
 
+
+    }
 }

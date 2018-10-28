@@ -6,7 +6,7 @@
     min-height: calc(100vh - 300px);
 }
 
-.del-address label, .payment label{
+.checkout-bg label{
     display: none;
 
 }

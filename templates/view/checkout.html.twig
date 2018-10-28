@@ -2,55 +2,71 @@
 
 {% block content %}
     <div class="checkout-bg p-5">
-        <div class="checkout-container container bg-white m-auto p-3" style="border: 1px solid black; width: 50%; height: 50%;">
+        <div class="checkout-container container bg-white m-auto p-3" style="border: 1px solid black; width: 80%; height: 50%;">
             <div class="text-center">
-            <h1 class="edwardian fs-2 active">Votre commande</h1>
-            <p>
-                {% for line in content %}
-                {{ line }} <br>
-                {% endfor %}<br>
-                Total à régler : {{ total }} &euro;<br>
-            </p>
+                <h1 class="edwardian fs-2 active">Votre commande</h1>
+                {% if errors is defined %}
+                {% for error in errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error.message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <p>
+                    {% for line in content %}
+                    {{ line }} <br>
+                    {% endfor %}<br>
+                    Total à régler : {{ total }} &euro;<br>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                </p>
+            </div>
+
             <div class="container">
                 <div class="row py-2">
                     <div class="col-12 col-md-6 text-center fact-address">
                         <h2 class="edwardian fs-17">Adresse de facturation</h2>
-                        <div>
-                            <div class="py-5">
-                                <div>{{ user.firstName }} {{ user.lastName }}</div>
-                                <div>{{ user.addressStreet }}</div>
-                                <div>{{ user.addressZipCode }}</div>
-                                <div>{{ user.addressCity }}</div>
-                                <div>{{ user.addressCountry }}</div>
-                            </div>
+                        <p>
+                            {{ form_row(form.addressNameFact) }}
+                            {{ form_row(form.addressStreetFact) }}
+                            {{ form_row(form.addressZipCodeFact) }}
+                            {{ form_row(form.addressCityFact) }}
+                            {{ form_row(form.addressCountryFact) }}
+                            {{ form_row(form.telFact) }}
+                        </p>
 
-                        </div>
+
+
                     </div>
                     <div class="col-12 col-md-6 text-center del-address">
                         <h2 class="edwardian fs-17">Adresse de livraison</h2>
                         <p>
-                            {{ form_start(form) }}
                             {{ form_row(form.addressNameDelivery) }}
                             {{ form_row(form.addressStreetDelivery) }}
                             {{ form_row(form.addressZipCodeDelivery) }}
                             {{ form_row(form.addressCityDelivery) }}
                             {{ form_row(form.addressCountryDelivery) }}
+                            {{ form_row(form.telDelivery) }}
                         </p>
                     </div>
 
                 </div>
+                <div class="row py-2 text-center">
+                    <div class="col">
+                        <p class="fs-1">
+                            Délais de livraison :<br><br>
+                            - pour la France Métropolitaine, compter approximativement une semaine.<br>
+                            - pour la France extra-Métropolitaine ou pays étrangers, le service vous contactera par courriel ou téléphone<br><br>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            Date de livraison désirée (min. 7 jours) :
+                        </p>
+                        {{ form_row(form.dateDelivery) }}
+                    </div>
 
-            </div>
-            </div>
-            <div class="p-3">
-                <div class="text-center">
-                    <a href="{{ path('change_infos') }}">Modifier addresse de facturation</a><br><br>
-                    <p class="fs-1">
-                        Délais de livraison :<br><br>
-                        - pour la France Métropolitaine, compter approximativement<br>une semaine.<br>
-                        - pour la France extra-Métropolitaine ou pays étrangers,<br>le service vous contactera par courriel ou téléphone<br><br>
-                        Veuillez choisir votre mode de paiement :
-                    </p>
                 </div>
 
             </div>

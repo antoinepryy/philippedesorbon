@@ -1,47 +1,50 @@
 easy_admin:
+    site_name: 'Philippe De Sorbon'
     design:
           brand_color: 'black'
     entities:
             User:
+                label: 'Utilisateurs'
+                disabled_actions: ['new', 'edit']
                 class: App\Entity\User
                 list:
                       fields:
                           - id
-                          - firstName
-                          - lastName
+                          - { property: 'firstName', label: 'Prénom'}
+                          - { property: 'lastName', label: 'Nom'}
                           - email
-                form:
-                      fields:
-                          - roles
+                          - { property: 'phoneNumber', label: 'Téléphone'}
             Champagne:
+                label: 'Cuvée'
+                disabled_actions: ['search']
                 class: App\Entity\Champagne
                 list:
                       fields:
                           - id
-                          - name
-                          - urlLink
-                          - price
-                          - stepOrder
+                          - { property: 'name', label: 'Nom'}
+                          - { property: 'urlLink', label: 'Lien URL'}
+                          - { property: 'price', label: 'Prix'}
+                          - { property: 'stepOrder', label: 'Bouteilles / Carton'}
                 form:
                       fields:
-                          - name
-                          - urlLink
-                          - price
-                          - stepOrder
-                          - { property: 'type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
-                          - subtitle_1
-                          - presentation_1
-                          - subtitle_2_1
-                          - presentation_2_1
-                          - subtitle_2_2
-                          - presentation_2_2
-                          - subtitle_2_3
-                          - presentation_2_3
-                          - subtitle_3
-                          - subtitle_4
-                          - presentation_4
-                          - subtitle_5
-                          - presentation_5
+                          - { property: 'name', label: 'Nom'}
+                          - { property: 'urlLink', label: 'Lien URL'}
+                          - { property: 'price', label: 'Prix'}
+                          - { property: 'stepOrder', label: 'Bouteilles / Carton'}
+                          - { property: 'type',label: 'Type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
+                          - { property: 'subtitle_1', label: 'Titre 1'}
+                          - { property: 'presentation_1', label: 'Texte 1'}
+                          - { property: 'subtitle_2_1', label: 'Titre 2.1'}
+                          - { property: 'presentation_2_1', label: 'Texte 2.1'}
+                          - { property: 'subtitle_2_2', label: 'Titre 2.2'}
+                          - { property: 'presentation_2_2', label: 'Texte 2.2'}
+                          - { property: 'subtitle_2_3', label: 'Titre 2.3'}
+                          - { property: 'presentation_2_3', label: 'Texte 2.3'}
+                          - { property: 'subtitle_3', label: 'Titre 3'}
+                          - { property: 'subtitle_4', label: 'Titre 4'}
+                          - { property: 'presentation_4', label: 'Texte 4'}
+                          - { property: 'subtitle_5', label: 'Texte 5'}
+                          - { property: 'presentation_5', label: 'Texte 5' }
                           - { property: 'photoFile_1', type: 'vich_image' }
                           - { property: 'photoFile_2', type: 'vich_image' }
                           - { property: 'photoFile_3', type: 'vich_image' }
@@ -50,6 +53,8 @@ easy_admin:
                           - { property: 'photoFile_paragraph_2', type: 'vich_image' }
                           - { property: 'photoFile_bouteille', type: 'vich_image' }
             ChampagneOption:
+                label: 'Modèle'
+                disabled_actions: ['search']
                 class: App\Entity\ChampagneOption
                 list:
                       fields:
@@ -64,6 +69,7 @@ easy_admin:
                           - champagne
                           - stepOrder
             Commande:
+                disabled_actions: ['new', 'delete']
                 class: App\Entity\Commande
                 list:
                       fields:
@@ -71,3 +77,8 @@ easy_admin:
                           - buyer
                           - content
                           - dateTime
+                          - dateDelivery
+                          - addressStreetDelivery
+                          - addressCityDelivery
+                          - addressZipCodeDelivery
+                          - addressCountryDelivery

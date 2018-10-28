@@ -110,6 +110,25 @@ class Commande
      */
     private $dateTime;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     * @Assert\Range(
+     *      min = "+7 days",
+     *      minMessage="délai de livraison spécifié trop court"
+     * )
+     */
+    private $dateDelivery;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     */
+    private $telDelivery;
+
+    /**
+     * @ORM\Column(type="string", length=191)
+     */
+    private $telFact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -343,6 +362,50 @@ class Commande
     public function __toString(){
         return 'Commande#'.$this->getId() ;
     }
+
+    public function getDateDelivery(): ?\DateTimeInterface
+    {
+        return $this->dateDelivery;
+    }
+
+    public function setDateDelivery(?\DateTimeInterface $dateDelivery): self
+    {
+        $this->dateDelivery = $dateDelivery;
+
+        return $this;
+    }
+
+    public function getTelDelivery(): ?string
+    {
+        return $this->telDelivery;
+    }
+
+    public function setTelDelivery(string $telDelivery): self
+    {
+        $this->telDelivery = $telDelivery;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelFact()
+    {
+        return $this->telFact;
+    }
+
+    /**
+     * @param mixed $telFact
+     */
+    public function setTelFact($telFact): void
+    {
+        $this->telFact = $telFact;
+    }
+
+
+
+
 
 
 
