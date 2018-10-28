@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="checkout-bg text-center p-5">
+    <div class="checkout-bg p-5">
         <div class="checkout-container container bg-white m-auto p-3" style="border: 1px solid black; width: 50%; height: 50%;">
+            <div class="text-center">
             <h1 class="edwardian fs-18 active">Votre commande</h1>
             <p>
                 {% for line in content %}
-                - {{ line }} <br>
+                {{ line }} <br>
                 {% endfor %}<br>
                 Total à régler : {{ total }} &euro;<br>
             </p>
             <div class="container">
                 <div class="row py-2">
                     <div class="col-12 col-md-6 text-center fact-address">
-                        <h2 class="edwardian fs-15">Adresse de facturation</h2>
+                        <h2 class="edwardian fs-17">Adresse de facturation</h2>
                         <div>
                             <div class="py-5">
                                 <div>{{ user.firstName }} {{ user.lastName }}</div>
@@ -26,7 +27,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 text-center del-address">
-                        <h2 class="edwardian fs-15">Adresse de livraison</h2>
+                        <h2 class="edwardian fs-17">Adresse de livraison</h2>
                         <p>
                             {{ form_start(form) }}
                             {{ form_row(form.addressNameDelivery) }}
@@ -38,16 +39,28 @@
                     </div>
 
                 </div>
-                <a href="{{ path('change_infos') }}">Modifier addresse de facturation</a>
 
             </div>
-            <p>
-                Veuillez choisir votre mode de paiement :
-            </p>
+            </div>
+            <div class="p-3">
+                <div class="text-center">
+                    <a href="{{ path('change_infos') }}">Modifier addresse de facturation</a><br><br>
+                    <p class="fs-1">
+                        Délais de livraison :<br><br>
+                        - pour la France Métropolitaine, compter approximativement<br>une semaine.<br>
+                        - pour la France extra-Métropolitaine ou pays étrangers,<br>le service vous contactera par courriel ou téléphone<br><br>
+                        Veuillez choisir votre mode de paiement :
+                    </p>
+                </div>
 
-            <div class="w-50 text-center m-auto payment">{{ form_row(form.paymentMethod) }}</div>
+            </div>
 
-            {{ form_end(form) }}
+
+            <div class="w-50 text-center m-auto payment">{{ form_row(form.paymentMethod) }}
+                {{ form_end(form) }}
+            </div>
+
+
 
         </div>
 
