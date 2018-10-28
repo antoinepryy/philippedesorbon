@@ -45,6 +45,11 @@ DirectoryIndex index.php
     # - disable this feature by commenting the following 2 lines or
     # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
     #   following RewriteCond (best solution)
+
+    RewriteCond %{QUERY_STRING} ^page=champagnes$
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes? [R=301,L]
+
+
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
 
