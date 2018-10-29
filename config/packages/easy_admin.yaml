@@ -23,13 +23,13 @@ easy_admin:
                           - id
                           - { property: 'name', label: 'Nom'}
                           - { property: 'urlLink', label: 'Lien URL'}
-                          - { property: 'price', label: 'Prix'}
+                          - { property: 'price', label: 'Prix', format: "%01.2f"}
                           - { property: 'stepOrder', label: 'Bouteilles / Carton'}
                 form:
                       fields:
                           - { property: 'name', label: 'Nom'}
                           - { property: 'urlLink', label: 'Lien URL'}
-                          - { property: 'price', label: 'Prix'}
+                          - { property: 'price', label: 'Prix', format: "%01.2f"}
                           - { property: 'stepOrder', label: 'Bouteilles / Carton'}
                           - { property: 'type',label: 'Type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
                           - { property: 'subtitle_1', label: 'Titre 1'}
@@ -45,40 +45,42 @@ easy_admin:
                           - { property: 'presentation_4', label: 'Texte 4'}
                           - { property: 'subtitle_5', label: 'Texte 5'}
                           - { property: 'presentation_5', label: 'Texte 5' }
-                          - { property: 'photoFile_1', type: 'vich_image' }
-                          - { property: 'photoFile_2', type: 'vich_image' }
-                          - { property: 'photoFile_3', type: 'vich_image' }
-                          - { property: 'photoFile_4', type: 'vich_image' }
-                          - { property: 'photoFile_paragraph_1', type: 'vich_image' }
-                          - { property: 'photoFile_paragraph_2', type: 'vich_image' }
-                          - { property: 'photoFile_bouteille', type: 'vich_image' }
+                          - { property: 'photoFile_1', type: 'vich_image', label: "Fond d'écran 1" }
+                          - { property: 'photoFile_2', type: 'vich_image', label: "Fond d'écran 2"  }
+                          - { property: 'photoFile_3', type: 'vich_image', label: "Fond d'écran 3"  }
+                          - { property: 'photoFile_4', type: 'vich_image', label: "Fond d'écran 4"  }
+                          - { property: 'photoFile_paragraph_1', type: 'vich_image', label: "Photo paragraphe 1"  }
+                          - { property: 'photoFile_paragraph_2', type: 'vich_image', label: "Photo paragraphe 2"}
+                          - { property: 'photoFile_bouteille', type: 'vich_image', label: "Photo bouteille" }
             ChampagneOption:
                 label: 'Modèle'
                 disabled_actions: ['search']
                 class: App\Entity\ChampagneOption
                 list:
                       fields:
-                          - name
-                          - price
-                          - champagne
-                          - stepOrder
+                          - { property: 'name', label: 'Nom'}
+                          - { property: 'price', label: 'Prix', format: "%01.2f"}
+                          - { property: 'champagne', label: 'Cuvée associée'}
+                          - { property: 'stepOrder', label: 'Bouteilles / Carton' }
                 form:
                       fields:
-                          - name
-                          - price
-                          - champagne
-                          - stepOrder
+                          - { property: 'name', label: 'Nom'}
+                          - { property: 'price', label: 'Prix', format: "%01.2f"}
+                          - { property: 'champagne', label: 'Cuvée associée'}
+                          - { property: 'stepOrder', label: 'Bouteilles / Carton' }
             Commande:
-                disabled_actions: ['new', 'delete']
+                disabled_actions: ['new', 'delete', 'edit']
                 class: App\Entity\Commande
                 list:
                       fields:
                           - id
-                          - buyer
-                          - content
-                          - dateTime
-                          - dateDelivery
-                          - addressStreetDelivery
-                          - addressCityDelivery
-                          - addressZipCodeDelivery
-                          - addressCountryDelivery
+                          - { property: 'buyer', label: 'Client'}
+                          - { property: 'price', label: 'Total'}
+                          - { property: 'content', label: 'Contenu'}
+                          - { property: 'dateTime', label: 'Date de la commande'}
+                          - { property: 'dateDelivery', label: 'Date de livraison'}
+                          - { property: 'addressNameDelivery', label: 'Nom'}
+                          - { property: 'addressStreetDelivery', label: 'Addresse'}
+                          - { property: 'addressCityDelivery', label: 'Ville'}
+                          - { property: 'addressZipCodeDelivery', label: 'Code Postal'}
+                          - { property: 'addressCountryDelivery', label: 'Pays'}

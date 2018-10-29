@@ -23,7 +23,7 @@ require('../css/app.css');
 var $ = require('jquery');
 var path = window.location.pathname;
 var fromTop = getScrollTop();
-if (path !== '/Boutique' && path !== '/Panier'){
+if (path !== '/Boutique' && path !== '/Panier' && path !== '/Checkout' && path !== '/ModifierInformations'){
     $('#fixed-hd').toggleClass("down", (fromTop > 185));
     $('#header-nav').toggleClass("fixed", (fromTop > 185));
     $('.void-fill').toggleClass("fill", (fromTop > 185));
