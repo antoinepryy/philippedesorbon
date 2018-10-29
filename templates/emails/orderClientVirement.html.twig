@@ -22,7 +22,7 @@
             <li>{{ line }}</li>
         {% endfor %}
     </ul><br>
-    Prix total : {{ totalPrice }} &euro;<br>
+    Prix total : {{ totalPrice|number_format(2) }} &euro;<br>
     </p>
 </div>
 <div style="justify-content: center">

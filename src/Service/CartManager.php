@@ -34,7 +34,10 @@ class CartManager
     public function totalCalculation(){
           $cart = $this->session->get('cart');
           $orderPrice = 0;
+          $nbrBottle = 0;
+          $delivery = 0;
           foreach ($cart as $champagne) {
+              $nbrBottle += $champagne[1];
               if (count($champagne) === 3) {
                   $champagnePrice = $this->champagneOptionRepository->findOneBy(['id' => $champagne[2]])->getPrice();
                   $champagneQuantity = $champagne[1];
@@ -46,7 +49,19 @@ class CartManager
                   $orderPrice += $champagnePrice * $champagneQuantity;
               }
           }
-          return $orderPrice;
+        if ( 0 < $nbrBottle && $nbrBottle< 12){
+            $delivery = 18;
+        }
+        else if (11 < $nbrBottle && $nbrBottle< 18){
+            $delivery = 24;
+        }
+        else if (17 < $nbrBottle && $nbrBottle< 24){
+            $delivery = 36;
+        }
+        else{
+            $delivery = 0;
+        }
+        return $orderPrice + $delivery;
     }
 
     public function orderContent(){
@@ -61,7 +76,7 @@ class CartManager
             } else {
                 $champagneQuantity = $champagne[1];
                 $champagneModel = $this->champagneRepository->findOneBy(['id' => $champagne[0]]);
-                array_push($orderContent, $champagne[1] . ' x ' . $champagneModel->getName());
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName());
             }
         }
 
@@ -77,13 +92,13 @@ class CartManager
                 $champagneOption = $this->champagneOptionRepository->findOneBy(['id' => $champagne[2]]);
                 $champagneQuantity = $champagne[1];
                 $price = floatval($champagneQuantity * $champagneOption->getPrice());
-                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName() . ' ' . $champagneOption->getName().' : '.$price.' €');
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName() . ' ' . $champagneOption->getName().' : '.sprintf("%01.2f", $price).' €');
             } else {
                 $champagneQuantity = $champagne[1];
                 $champagneModel = $this->champagneRepository->findOneBy(['id' => $champagne[0]]);
                 $price = floatval($champagneQuantity * $champagneModel->getPrice());
 
-                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName().' : '.$price. ' €');
+                array_push($orderContent, $champagneQuantity . ' x ' . $champagneModel->getName().' : '.sprintf("%01.2f", $price). ' €');
             }
         }
 

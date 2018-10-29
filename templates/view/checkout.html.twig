@@ -16,7 +16,7 @@
                     {% for line in content %}
                     {{ line }} <br>
                     {% endfor %}<br>
-                    Total à régler : {{ total }} &euro;<br>
+                    Total à régler : {{ total|number_format(2) }} &euro;<br>
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
 
