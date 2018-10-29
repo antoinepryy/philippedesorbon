@@ -79,7 +79,7 @@ function renderCart(cart){
         if (cart[i].length===3){
             block = document.getElementById('champagne-'+cart[i][0]);
             quantity = document.getElementById('quantity-'+cart[i][0]);
-            price = document.getElementById('price-'+cart[i][0]).innerText = cart[i][2].toString();
+            price = document.getElementById('price-'+cart[i][0]).innerText = cart[i][2].toFixed(2);
             block.style.display = "flex";
             quantity.innerHTML = cart[i][1].toString();
             totalPrice = parseInt(quantity.innerHTML) * parseFloat(cart[i][2]);
@@ -142,7 +142,6 @@ function hideProduct(id, cart){
     element.innerHTML = "0";
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
 }
-
 
 function totalCalculation(cart){
     var priceList = document.getElementsByClassName("total-price");
