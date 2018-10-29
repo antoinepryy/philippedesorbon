@@ -7,74 +7,16 @@ var id;
 
 
 
+
 $.ajax({
     url : pathGetCart,
     type : 'GET',
     dataType : 'json',
     success : function(response, statut){
         renderCart(response);
-    },
+        totalCalculation(response);
+    }
 });
-
-$(".shop-button").click(function(){
-    id = $(this).attr('id');
-    $.ajax({
-        url : pathPreOrder,
-        type : 'GET',
-        dataType : 'json',
-        data : 'bottleId=' + id,
-        success : function(response, statut){
-            if (response[0]){
-                var selectOptions = "";
-                for (var i = 0; i < response[1].length; i++){
-                    selectOptions = selectOptions + "<option value='"+ response[1][i][0]+"'><span class='option-name'>"+response[1][i][1]+"</span> | <span class='option-price'>"+ response[1][i][2] + "</span> &euro;</option>";
-                }
-                document.getElementById('modal-option').style.display = "block";
-                document.getElementById('option-select').innerHTML = selectOptions;
-            }
-            else{
-                $.ajax({
-                    url : pathAddProduct,
-                    type : 'GET',
-                    dataType : 'json',
-                    data : 'bottleId=' + id,
-                    success : function(response, statut){
-                        if (response[0]){
-                            unHideProduct(id, response[1]);
-                            refreshCartQtt(response[2]);
-                        }
-                        else{
-                            increaseNumber(id);
-                        }
-                    },
-                });
-            }
-        },
-    });
-});
-
-$("#add-product-option").click(function() {
-    var addOption = document.getElementById('option-select');
-    var value = addOption[addOption.selectedIndex].value;
-    console.log(addOption[addOption.selectedIndex]);
-    $.ajax({
-        url : pathAddProduct,
-        type : 'GET',
-        dataType : 'json',
-        data : 'bottleId=' + id + '&champagneOption=' + value,
-        success : function(response, statut){
-            document.getElementById('modal-option').style.display = "none";
-            if (response[0]){
-                unHideProductWithOption(id, response[1], response[3]);
-                refreshCartQtt(response[2]);
-            }
-            else{
-                increaseNumber(id);
-            }
-        },
-    });
-});
-
 
 $(".add-button").click(function(){
     id = $(this).attr('id');
@@ -84,7 +26,8 @@ $(".add-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            increaseNumber(id);
+            increaseNumber(id, response[4]);
+            totalCalculation(response[2]);
         },
     });
 });
@@ -97,7 +40,8 @@ $(".remove-one-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            reduceNumber(id);
+            reduceNumber(id, response[1]);
+            totalCalculation(response[0]);
         },
 
 
@@ -112,8 +56,9 @@ $(".remove-all-button").click(function(){
         dataType : 'json',
         data : 'bottleId=' + id,
         success : function(response, statut){
-            hideProduct(id, response);
+            hideProduct(id, response[0]);
             refreshCartQtt(response[0]);
+            totalCalculation(response[0]);
         },
 
 
@@ -126,34 +71,47 @@ function renderCart(cart){
         document.getElementById('cart-section').style.display = "none";
         document.getElementById('cart-recap').style.display = "none";
     }
+    var block;
+    var quantity;
+    var price;
+    var totalPrice;
     for (var i = 0; i < cart.length; i++) {
-        var block = document.getElementById('champagne-'+cart[i][0]);
-        var quantity = document.getElementById('quantity-'+cart[i][0]);
-        var price = document.getElementById('price-'+cart[i][0]);
-        block.style.display = "flex";
-        quantity.innerHTML = cart[i][1].toString();
-        var totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
-        document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toString()
+        if (cart[i].length===3){
+            block = document.getElementById('champagne-'+cart[i][0]);
+            quantity = document.getElementById('quantity-'+cart[i][0]);
+            price = document.getElementById('price-'+cart[i][0]).innerText = cart[i][2].toString();
+            block.style.display = "flex";
+            quantity.innerHTML = cart[i][1].toString();
+            totalPrice = parseInt(quantity.innerHTML) * parseFloat(cart[i][2]);
+            document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toFixed(2);
+        }
+        else if(cart[i].length===2){
+            block = document.getElementById('champagne-'+cart[i][0]);
+            quantity = document.getElementById('quantity-'+cart[i][0]);
+            price = document.getElementById('price-'+cart[i][0]);
+            block.style.display = "flex";
+            quantity.innerHTML = cart[i][1].toString();
+            totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
+            document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toFixed(2);
+        }
     }
-    totalCalculation();
 }
-function increaseNumber(id){
+function increaseNumber(id, step){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
-    var idAfter = idBefore + 6;
+    var idAfter = idBefore + step;
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
-    totalCalculation();
 }
 
-function reduceNumber(id){
+function reduceNumber(id, step){
     var element = document.getElementById('quantity-'+id);
     var idBefore = parseInt(element.innerHTML.toString());
     var idAfter;
-    if(idBefore !== 6){
-        idAfter = idBefore - 6;
+    if(idBefore !== step){
+        idAfter = idBefore - step;
     }
     else{
         idAfter = idBefore;
@@ -161,17 +119,17 @@ function reduceNumber(id){
     element.innerHTML = idAfter.toString();
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString()
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
-    totalCalculation();
-
 
 }
 
 
 function hideProduct(id, cart){
+
     var block = document.getElementById('champagne-'+id);
     block.style.display = "none";
+
     if (cart.length===0){
         document.getElementById('empty-cart').style.display = "block";
         document.getElementById('cart-section').style.display = "none";
@@ -182,49 +140,38 @@ function hideProduct(id, cart){
     var element = document.getElementById('quantity-'+id);
     var totalPrice = 0;
     element.innerHTML = "0";
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
-    totalCalculation();
+    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
 }
 
-function unHideProduct(id, quantity) {
-    document.getElementById('empty-cart').style.display = "none";
-    document.getElementById('cart-section').style.display = "block";
-    document.getElementById('cart-recap').style.display = "block";
-    var block = document.getElementById('champagne-'+id);
-    var element = document.getElementById('quantity-'+id);
-    block.style.display = "flex";
-    element.innerHTML = quantity.toString();
-    var price = document.getElementById('price-'+id);
-    var totalPrice = parseInt(quantity) * parseFloat(price.innerHTML);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
-    totalCalculation();
-}
 
-function unHideProductWithOption(id, quantity, optionPrice) {
-    document.getElementById('empty-cart').style.display = "none";
-    document.getElementById('cart-section').style.display = "block";
-    document.getElementById('cart-recap').style.display = "block";
-    var block = document.getElementById('champagne-'+id);
-    var element = document.getElementById('quantity-'+id);
-    block.style.display = "flex";
-    element.innerHTML = quantity.toString();
-    //var price = document.getElementById('price-'+id);
-    document.getElementById('price-'+id).innerHTML = optionPrice;
-    var totalPrice = parseInt(quantity) * parseFloat(optionPrice);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toString();
-    totalCalculation();
-}
-
-function totalCalculation(){
+function totalCalculation(cart){
     var priceList = document.getElementsByClassName("total-price");
+    var deliveryField = document.getElementById('livraison');
     var sousTotal = 0;
+    var nbrBottle = 0;
     for (var i = 0; i < priceList.length; i++){
         if (!isNaN(parseFloat(priceList[i].innerHTML))){
             sousTotal += parseFloat(priceList[i].innerHTML);
         }
     }
-    document.getElementById('sous-total').innerHTML = sousTotal.toString();
-    document.getElementById('total-all').innerHTML = sousTotal.toString();
+    for (var j = 0; j < cart.length; j++){
+        nbrBottle += parseInt(cart[j][1]);
+    }
+
+    if ( 0 < parseInt(nbrBottle) && parseInt(nbrBottle)< 12){
+        deliveryField.innerHTML = "18.00";
+    }
+    else if (11 < parseInt(nbrBottle) && parseInt(nbrBottle)< 18){
+        deliveryField.innerHTML = "24.00";
+    }
+    else if (17 < parseInt(nbrBottle) && parseInt(nbrBottle)< 24){
+        deliveryField.innerHTML = "36.00";
+    }
+    else{
+        deliveryField.innerHTML = "00.00";
+    }
+    document.getElementById('sous-total').innerHTML = sousTotal.toFixed(2);
+    document.getElementById('total-all').innerHTML = (parseFloat(sousTotal) + parseInt(deliveryField.innerHTML)).toFixed(2);
 }
 
 function refreshCartQtt(cart){
@@ -235,6 +182,4 @@ function refreshCartQtt(cart){
 
 }
 
-$('#modal-cross').click(function(){
-    document.getElementById('modal-option').style.display = "none";
-});
+

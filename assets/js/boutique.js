@@ -14,6 +14,7 @@ $.ajax({
     dataType : 'json',
     success : function(response, statut){
         renderCart(response);
+        totalCalculation(response);
         }
 });
 
@@ -43,10 +44,12 @@ $(".shop-button").click(function(){
                         if (response[0]){
                             unHideProduct(id, response[4]);
                             refreshCartQtt(response[2]);
+                            totalCalculation(response[2]);
                             animateValidation();
                         }
                         else{
                             increaseNumber(id, response[4]);
+                            totalCalculation(response[2]);
                         }
                     },
                 });
@@ -68,10 +71,12 @@ $("#add-product-option").click(function() {
             if (response[0]){
                 unHideProductWithOption(id, response[4], response[3]);
                 refreshCartQtt(response[2]);
+                totalCalculation(response[2]);
                 animateValidation();
             }
             else{
                 increaseNumber(id, response[4]);
+                totalCalculation(response[2]);
             }
         },
     });
@@ -87,6 +92,7 @@ $(".add-button").click(function(){
         data : 'bottleId=' + id,
         success : function(response, statut){
             increaseNumber(id, response[4]);
+            totalCalculation(response[2]);
         },
     });
 });
@@ -100,6 +106,7 @@ $(".remove-one-button").click(function(){
         data : 'bottleId=' + id,
         success : function(response, statut){
             reduceNumber(id, response[1]);
+            totalCalculation(response[0]);
         },
 
 
@@ -116,6 +123,7 @@ $(".remove-all-button").click(function(){
         success : function(response, statut){
             hideProduct(id, response[0]);
             refreshCartQtt(response[0]);
+            totalCalculation(response[0]);
         },
 
 
@@ -152,7 +160,6 @@ function renderCart(cart){
             document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toFixed(2);
         }
     }
-    totalCalculation();
 }
 function increaseNumber(id, step){
     var element = document.getElementById('quantity-'+id);
@@ -162,7 +169,6 @@ function increaseNumber(id, step){
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
-    totalCalculation();
 }
 
 function reduceNumber(id, step){
@@ -180,8 +186,6 @@ function reduceNumber(id, step){
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
-    totalCalculation();
-
 
 }
 
@@ -202,7 +206,6 @@ function hideProduct(id, cart){
     var totalPrice = 0;
     element.innerHTML = "0";
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
-    totalCalculation();
 }
 
 function unHideProduct(id, quantity) {
@@ -216,7 +219,6 @@ function unHideProduct(id, quantity) {
     var price = document.getElementById('price-'+id);
     var totalPrice = parseInt(quantity) * parseFloat(price.innerHTML);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
-    totalCalculation();
 }
 
 function unHideProductWithOption(id, quantity, optionPrice) {
@@ -231,19 +233,36 @@ function unHideProductWithOption(id, quantity, optionPrice) {
     document.getElementById('price-'+id).innerHTML = optionPrice;
     var totalPrice = parseInt(quantity) * parseFloat(optionPrice);
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
-    totalCalculation();
 }
 
-function totalCalculation(){
+function totalCalculation(cart){
     var priceList = document.getElementsByClassName("total-price");
+    var deliveryField = document.getElementById('livraison');
     var sousTotal = 0;
+    var nbrBottle = 0;
     for (var i = 0; i < priceList.length; i++){
         if (!isNaN(parseFloat(priceList[i].innerHTML))){
             sousTotal += parseFloat(priceList[i].innerHTML);
         }
     }
-    document.getElementById('sous-total').innerHTML = sousTotal.toString();
-    document.getElementById('total-all').innerHTML = sousTotal.toString();
+    for (var j = 0; j < cart.length; j++){
+        nbrBottle += parseInt(cart[j][1]);
+    }
+
+    if ( 0 < parseInt(nbrBottle) && parseInt(nbrBottle)< 12){
+        deliveryField.innerHTML = "18.00";
+    }
+    else if (11 < parseInt(nbrBottle) && parseInt(nbrBottle)< 18){
+        deliveryField.innerHTML = "24.00";
+    }
+    else if (17 < parseInt(nbrBottle) && parseInt(nbrBottle)< 24){
+        deliveryField.innerHTML = "36.00";
+    }
+    else{
+        deliveryField.innerHTML = "00.00";
+    }
+    document.getElementById('sous-total').innerHTML = sousTotal.toFixed(2);
+    document.getElementById('total-all').innerHTML = (parseFloat(sousTotal) + parseInt(deliveryField.innerHTML)).toFixed(2);
 }
 
 function refreshCartQtt(cart){
