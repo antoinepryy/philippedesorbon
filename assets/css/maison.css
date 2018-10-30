@@ -99,19 +99,19 @@
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .maison-slide1{
-        background-size: 100vw;
+        background-size: cover;
         height: 25vh;
     }
 
     .maison-slide2{
-        background-size: 100vw;
+        background-size: cover;
         height: 25vh;
         background-position: center;
         background-attachment: unset;
     }
 
     .maison-slide3{
-        background-size: 100vw;
+        background-size: cover;
         height: 25vh;
         background-attachment: unset;
     }

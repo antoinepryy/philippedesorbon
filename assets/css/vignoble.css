@@ -168,13 +168,13 @@
     }
 
     .vignoble-slide1{
-        background-size: 100vw;
+        background-size: cover;
         height: 25vh;
         background-attachment: unset;
     }
 
     .vignoble-slide2{
-        background-size: 100vw;
+        background-size: cover;
         height: 25vh;
         background-attachment: unset;
     }
