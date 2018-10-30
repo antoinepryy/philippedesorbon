@@ -395,8 +395,9 @@
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
+
     #age-verification > .text-age {
-        top: 50%;
+        top: 40%;
     }
 
     .hide-mobile{
