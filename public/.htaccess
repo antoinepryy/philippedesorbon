@@ -78,6 +78,9 @@ DirectoryIndex index.php
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=blanc
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/blancdeblancs? [R=301,L]
 
+    RewriteCond %{QUERY_STRING} ^/LaMaison3Histoire
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique [R=302,L]
+
     RewriteCond %{QUERY_STRING} ^page=accueil&spage=commander
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique? [R=301,L]
 
