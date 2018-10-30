@@ -58,7 +58,7 @@ DirectoryIndex index.php
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=maison&spage=histoire$
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison%23Histoire? [R=301,L]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison/$1#Histoire? [NE, R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=cartedor$
     RewriteRule ^$ http://www.champagne-philippedesorbon.com/Champagnes/cartedor? [R=301,L]
