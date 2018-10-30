@@ -46,28 +46,28 @@ DirectoryIndex index.php
     # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
     #   following RewriteCond (best solution)
     RewriteCond %{HTTP_HOST} !^www\.
-    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=champagnes$
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=accueil&spage=contact
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Contact? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Contact? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=maison$
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=maison&spage=histoire$
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison/Histoire? [R=301,NE]
 
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=cartedor
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/cartedor? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/cartedor? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=intemporelle
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/intemporelle? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/intemporelle? [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^page=accueil&spage=commander
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique? [R=301]
+    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique? [R=301,L]
 
 
 
