@@ -57,9 +57,6 @@ DirectoryIndex index.php
     RewriteCond %{QUERY_STRING} ^page=maison$
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison? [R=301,L]
 
-    RewriteCond %{QUERY_STRING} ^page=maison&spage=histoire$
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/LaMaison/Histoire? [R=301,NE]
-
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=cartedor
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/cartedor? [R=301,L]
 
@@ -78,8 +75,6 @@ DirectoryIndex index.php
     RewriteCond %{QUERY_STRING} ^page=champagnes&spage=blanc
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Champagnes/blancdeblancs? [R=301,L]
 
-    RewriteCond %{QUERY_STRING} ^LaMaison3Histoire
-    RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique [R=302,L]
 
     RewriteCond %{QUERY_STRING} ^page=accueil&spage=commander
     RewriteRule ^index.php$ http://www.champagne-philippedesorbon.com/Boutique? [R=301,L]
