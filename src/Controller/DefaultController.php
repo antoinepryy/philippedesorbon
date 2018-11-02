@@ -76,10 +76,24 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
         $champagneListClassique = $repository->findBy(['type' => 'Classique']);
         $champagneListCollection = $repository->findBy(['type' => 'Collection']);
+        $allChampagne = $repository->findAll();
+        $champagneWithoutOption = [];
+        $champagneWithOption = [];
+        foreach ($allChampagne as $champagne){
+            if (count($champagne->getChampagneOptions())==0){
+                array_push($champagneWithoutOption, $champagne);
+            }
+            else{
+                $availableOptions = $champagne->getChampagneOptions();
+                array_push($champagneWithOption, [$champagne->getphotoBouteille(), $availableOptions]);
+            }
+        }
         return $this->render('view/boutique.html.twig',
             [
                 'champagneClassique' => $champagneListClassique,
                 'champagneCollection' => $champagneListCollection,
+                'champagneWithoutOption' => $champagneWithoutOption,
+                'champagneWithOption' => $champagneWithOption,
                 'cartSize' => $cartSize
             ]);
     }

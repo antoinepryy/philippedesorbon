@@ -665,16 +665,4 @@ class Champagne
         $this->stepOrder = $stepOrder;
     }
 
-//    public function hasOptions(){
-//        $repository = $this->getDoctrine()->getRepository(ChampagneOption::class);
-//        $list = $repository->findBy(
-//            ['champagne'=>'4']
-//        );
-//        if ($this->getOptions()[0] === null){
-//            return false;
-//        }
-//        else{
-//            return true;
-//        }
-//    }
 }
