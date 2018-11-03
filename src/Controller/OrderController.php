@@ -101,16 +101,10 @@ class OrderController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $userName = $user->getFirstName() . " " . $user->getLastName();
-//        $curentOrder->setAddressNameFact($userName);
-//        $curentOrder->setAddressCityFact($user->getAddressCity());
-//        $curentOrder->setAddressCountryFact($user->getAddressCountry());
-//        $curentOrder->setAddressStreetFact($user->getAddressStreet());
-//        $curentOrder->setAddressZipCodeFact($user->getAddressZipCode());
+
         $curentOrder->setPrice($orderPrice);
         $cartSize = $cartManager->cartSize();
-//        return $this->render('dev.html.twig',[
-//            'cartSize' => $cartSize
-//        ]);
+
         $curentOrder->setBuyer($user);
         $form = $this->createFormBuilder($curentOrder)
             ->add('addressNameFact', TextType::class, [
@@ -155,7 +149,8 @@ class OrderController extends Controller
             ])
             ->add('addressCountryDelivery', CountryType::class, [
                 'attr' => ['placeholder' => 'Pays'],
-                'data' => $user->getAddressCountry()
+                'data' => 'FR',
+                'disabled' => true
             ])
             ->add('telDelivery', TelType::class, [
                 'attr' => ['placeholder' => 'Téléphone'],
@@ -188,6 +183,7 @@ class OrderController extends Controller
                 case 'virement':
                     $curentOrder->setPaymentMethod('virement');
                     $curentOrder->setDateTime(new \DateTime());
+                    $curentOrder->setAddressCountryDelivery('FR');
                     $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
