@@ -85,7 +85,7 @@ class DefaultController extends Controller
             }
             else{
                 $availableOptions = $champagne->getChampagneOptions();
-                array_push($champagneWithOption, [$champagne->getphotoBouteille(), $availableOptions]);
+                array_push($champagneWithOption, $availableOptions);
             }
         }
         return $this->render('view/boutique.html.twig',

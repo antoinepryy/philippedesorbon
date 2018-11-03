@@ -88,39 +88,10 @@ assemblées avec respect de la tradition de nos ancêtres">
                     SUPPRIMER
                 </div>
             </div>
-            {% for champagne in champagneClassique %}
-            <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div" style="display: none;">
-                <div class="col-3" style="display: flex">
-                    <div class="w-50">
-                        <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                    </div>
-                    <div style="width:50%;display:flex;justify-content:center;align-items:center;">
-                        {{ champagne.name|upper }}
-                    </div>
-                </div>
-                <div class="col-3" style="display: inline-flex; justify-content: space-around">
-                    <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
-                        -
-                    </div>
-                    <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
-                    </div>
-                    <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
-                        +
-                    </div>
-                </div>
-                <div class="col-2">
-                    <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
-                </div>
-                <div class="col-2">
-                    <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
-                </div>
-                <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
-                    X
-                </div>
-            </div>
-            {% endfor %}
-            {% for champagne in champagneCollection %}
-                <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div shop-animate-all" style="display: none;">
+
+
+                {% for champagne in champagneWithoutOption %}
+                <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div fs-1" style="display: none">
                     <div class="col-3" style="display: flex">
                         <div class="w-50">
                             <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
@@ -133,7 +104,7 @@ assemblées avec respect de la tradition de nos ancêtres">
                         <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
                             -
                         </div>
-                        <div  class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
+                        <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
                         </div>
                         <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
                             +
@@ -149,14 +120,115 @@ assemblées avec respect de la tradition de nos ancêtres">
                         X
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+                {% for champagneType in champagneWithOption %}
+                    {% for champagne in champagneType %}
+                        <div id="champagne-{{ champagne.champagne.id }}-{{ champagne.id }}" class="row segoe text-white py-4 middle-div fs-1" style="display: none;">
+                            <div class="col-3" style="display: flex">
+                                <div class="w-50">
+                                    <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                                </div>
+                                <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+                                    {{ champagne.champagne.name|upper }} {{ champagne.name|upper }}
+                                </div>
+                            </div>
+                            <div class="col-3" style="display: inline-flex; justify-content: space-around">
+                                <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.champagne.id }}-{{ champagne.id }}">
+                                    -
+                                </div>
+                                <div class="quantity third-width h-100" id="quantity-{{ champagne.champagne.id }}-{{ champagne.id }}">
+                                </div>
+                                <div class="pointer third-width h-100 add-button" id="{{ champagne.champagne.id }}-{{ champagne.id }}">
+                                    +
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <span id="price-{{ champagne.champagne.id }}-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
+                            </div>
+                            <div class="col-2">
+                                <span class="total-price" id="total-price-{{ champagne.champagne.id }}-{{ champagne.id }}"></span> &euro;
+                            </div>
+                            <div class="col-2 pointer remove-all-button" id="{{ champagne.champagne.id }}-{{ champagne.id }}">
+                                X
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                {% endfor %}
+
+
+
+
+
+                {#{% for champagne in champagneClassique %}
+                <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div" style="display: none;">
+                    <div class="col-3" style="display: flex">
+                        <div class="w-50">
+                            <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                        </div>
+                        <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+                            {{ champagne.name|upper }}
+                        </div>
+                    </div>
+                    <div class="col-3" style="display: inline-flex; justify-content: space-around">
+                        <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
+                            -
+                        </div>
+                        <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
+                        </div>
+                        <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
+                            +
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
+                    </div>
+                    <div class="col-2">
+                        <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
+                    </div>
+                    <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
+                        X
+                    </div>
+                </div>
+                {% endfor %}
+                {% for champagne in champagneCollection %}
+                    <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div shop-animate-all" style="display: none;">
+                        <div class="col-3" style="display: flex">
+                            <div class="w-50">
+                                <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                            </div>
+                            <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+                                {{ champagne.name|upper }}
+                            </div>
+                        </div>
+                        <div class="col-3" style="display: inline-flex; justify-content: space-around">
+                            <div class="pointer third-width h-100 remove-one-button" id="{{ champagne.id }}">
+                                -
+                            </div>
+                            <div  class="quantity third-width h-100" id="quantity-{{ champagne.id }}">
+                            </div>
+                            <div class="pointer third-width h-100 add-button" id="{{ champagne.id }}">
+                                +
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
+                        </div>
+                        <div class="col-2">
+                            <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
+                        </div>
+                        <div class="col-2 pointer remove-all-button" id="{{ champagne.id }}">
+                            X
+                        </div>
+                    </div>
+                {% endfor %}#}
 
 
 
         </div>
         </div>
     </div>
-    <div id="cart-recap" style="background-color: black">
+    <div id="cart-recap" style="background-color: black" class="fs-1">
     <div>
         <div class="container p-3">
             <div class="row segoe text-white py-2">
