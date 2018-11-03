@@ -4,6 +4,9 @@ var pathAddProduct = $("#add-product").attr("data-path");
 var pathRemoveOne = $("#remove-one").attr("data-path");
 var pathRemoveAll = $("#remove-all").attr("data-path");
 var id;
+var champagneOption;
+var strSelect;
+
 
 
 
@@ -48,7 +51,7 @@ $(".shop-button").click(function(){
                             animateValidation();
                         }
                         else{
-                            increaseNumber(id, response[4]);
+                            increaseNumber(id,champagneOption, response[4]);
                             totalCalculation(response[2]);
                         }
                     },
@@ -60,22 +63,22 @@ $(".shop-button").click(function(){
 
 $("#add-product-option").click(function() {
     var addOption = document.getElementById('option-select');
-    var value = addOption[addOption.selectedIndex].value;
+    var champagneOption = addOption[addOption.selectedIndex].value;
     $.ajax({
         url : pathAddProduct,
         type : 'GET',
         dataType : 'json',
-        data : 'bottleId=' + id + '&champagneOption=' + value,
+        data : 'bottleId=' + id + '&champagneOption=' + champagneOption,
         success : function(response, statut){
             document.getElementById('modal-option').style.display = "none";
             if (response[0]){
-                unHideProductWithOption(id, response[4], response[3]);
+                unHideProductWithOption(id,champagneOption, response[4], response[3]);
                 refreshCartQtt(response[2]);
                 totalCalculation(response[2]);
                 animateValidation();
             }
             else{
-                increaseNumber(id, response[4]);
+                increaseNumber(id,champagneOption, response[4]);
                 totalCalculation(response[2]);
             }
         },
@@ -84,28 +87,30 @@ $("#add-product-option").click(function() {
 
 
 $(".add-button").click(function(){
-    id = $(this).attr('id');
+    id = $(this).attr("data-champagne");
+    champagneOption = $(this).attr("data-champagne-option");
     $.ajax({
         url : pathAddProduct,
         type : 'GET',
         dataType : 'json',
-        data : 'bottleId=' + id,
+        data : 'bottleId=' + id + '&champagneOption=' + champagneOption,
         success : function(response, statut){
-            increaseNumber(id, response[4]);
+            increaseNumber(id,champagneOption, response[4]);
             totalCalculation(response[2]);
         },
     });
 });
 
 $(".remove-one-button").click(function(){
-    id = $(this).attr('id');
+    id = $(this).attr("data-champagne");
+    champagneOption = $(this).attr("data-champagne-option");
     $.ajax({
         url : pathRemoveOne,
         type : 'GET',
         dataType : 'json',
-        data : 'bottleId=' + id,
+        data : 'bottleId=' + id + '&champagneOption=' + champagneOption,
         success : function(response, statut){
-            reduceNumber(id, response[1]);
+            reduceNumber(id,champagneOption, response[1]);
             totalCalculation(response[0]);
         },
 
@@ -114,14 +119,15 @@ $(".remove-one-button").click(function(){
 });
 
 $(".remove-all-button").click(function(){
-    id = $(this).attr('id');
+    id = $(this).attr("data-champagne");
+    champagneOption = $(this).attr("data-champagne-option");
     $.ajax({
         url : pathRemoveAll,
         type : 'GET',
         dataType : 'json',
-        data : 'bottleId=' + id,
+        data : 'bottleId=' + id + '&champagneOption=' + champagneOption,
         success : function(response, statut){
-            hideProduct(id, response[0]);
+            hideProduct(id,champagneOption, response[0]);
             refreshCartQtt(response[0]);
             totalCalculation(response[0]);
         },
@@ -142,13 +148,13 @@ function renderCart(cart){
     var totalPrice;
     for (var i = 0; i < cart.length; i++) {
         if (cart[i].length===3){
-            block = document.getElementById('champagne-'+cart[i][0]);
-            quantity = document.getElementById('quantity-'+cart[i][0]);
-            price = document.getElementById('price-'+cart[i][0]).innerText = cart[i][2].toFixed(2);
+            block = document.getElementById('champagne-'+cart[i][0]+'-'+cart[i][2]);
+            quantity = document.getElementById('quantity-'+cart[i][0]+'-'+cart[i][2]);
+            price = document.getElementById('price-'+cart[i][0]+'-'+cart[i][2]);
             block.style.display = "flex";
             quantity.innerHTML = cart[i][1].toString();
-            totalPrice = parseInt(quantity.innerHTML) * parseFloat(cart[i][2]);
-            document.getElementById('total-price-'+cart[i][0]).innerHTML = totalPrice.toFixed(2);
+            totalPrice = parseInt(quantity.innerHTML) * parseFloat(price.innerHTML);
+            document.getElementById('total-price-'+cart[i][0]+'-'+cart[i][2]).innerHTML = totalPrice.toFixed(2);
         }
         else if(cart[i].length===2){
             block = document.getElementById('champagne-'+cart[i][0]);
@@ -161,18 +167,31 @@ function renderCart(cart){
         }
     }
 }
-function increaseNumber(id, step){
-    var element = document.getElementById('quantity-'+id);
+function increaseNumber(id,champagneOption, step){
+    console.log(id, champagneOption, step);
+    if (champagneOption===undefined){
+        strSelect=id;
+    }
+    else{
+        strSelect=id+'-'+champagneOption;
+    }
+    var element = document.getElementById('quantity-'+strSelect);
     var idBefore = parseInt(element.innerHTML.toString());
     var idAfter = idBefore + step;
-    var price = document.getElementById('price-'+id);
+    var price = document.getElementById('price-'+strSelect);
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
+    document.getElementById('total-price-'+strSelect).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
 }
 
-function reduceNumber(id, step){
-    var element = document.getElementById('quantity-'+id);
+function reduceNumber(id,champagneOption, step){
+    if (champagneOption===undefined){
+        strSelect=id;
+    }
+    else{
+        strSelect=id+'-'+champagneOption;
+    }
+    var element = document.getElementById('quantity-'+strSelect);
     var idBefore = parseInt(element.innerHTML.toString());
     var idAfter;
     if(idBefore !== step){
@@ -182,17 +201,23 @@ function reduceNumber(id, step){
         idAfter = idBefore;
     }
     element.innerHTML = idAfter.toString();
-    var price = document.getElementById('price-'+id);
+    var price = document.getElementById('price-'+strSelect);
     var totalPrice = parseInt(idAfter) * parseFloat(price.innerHTML);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
+    document.getElementById('total-price-'+strSelect).innerHTML = totalPrice.toFixed(2);
     element.innerHTML = idAfter.toString();
 
 }
 
 
-function hideProduct(id, cart){
-
-    var block = document.getElementById('champagne-'+id);
+function hideProduct(id,champagneOption, cart){
+    if (champagneOption === undefined){
+        strSelect=id;
+    }
+    else{
+        strSelect=id+'-'+champagneOption;
+    }
+    console.log(strSelect);
+    var block = document.getElementById('champagne-'+strSelect);
     block.style.display = "none";
 
     if (cart.length===0){
@@ -202,10 +227,10 @@ function hideProduct(id, cart){
     if(cart.length === 0){
         document.getElementById("cart-recap").style.display = "none";
     }
-    var element = document.getElementById('quantity-'+id);
+    var element = document.getElementById('quantity-'+strSelect);
     var totalPrice = 0;
     element.innerHTML = "0";
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
+    document.getElementById('total-price-'+strSelect).innerHTML = totalPrice.toFixed(2);
 }
 
 function unHideProduct(id, quantity) {
@@ -221,17 +246,17 @@ function unHideProduct(id, quantity) {
     document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
 }
 
-function unHideProductWithOption(id, quantity, optionPrice) {
+function unHideProductWithOption(id,champagneOption, quantity, optionPrice) {
     document.getElementById('empty-cart').style.display = "none";
     document.getElementById('cart-section').style.display = "block";
     document.getElementById('cart-recap').style.display = "block";
-    var block = document.getElementById('champagne-'+id);
-    var element = document.getElementById('quantity-'+id);
+    var block = document.getElementById('champagne-'+id+'-'+champagneOption);
+    var element = document.getElementById('quantity-'+id+'-'+champagneOption);
     block.style.display = "flex";
     element.innerHTML = quantity.toString();
-    document.getElementById('price-'+id).innerHTML = optionPrice.toFixed(2);
+    document.getElementById('price-'+id+'-'+champagneOption).innerHTML = optionPrice.toFixed(2);
     var totalPrice = parseInt(quantity) * parseFloat(optionPrice);
-    document.getElementById('total-price-'+id).innerHTML = totalPrice.toFixed(2);
+    document.getElementById('total-price-'+id+'-'+champagneOption).innerHTML = totalPrice.toFixed(2);
 }
 
 function totalCalculation(cart){
