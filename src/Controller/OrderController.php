@@ -162,15 +162,7 @@ class OrderController extends Controller
             ])
             ->add('paymentMethod', ChoiceType::class, [
                     'label' => 'Moyen de paiement',
-                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne (disponible prochainement)' => 'CRCA'),
-                    'choice_attr' => function ($choiceValue, $key, $value) {
-                        if ($value == 'CRCA') {
-                            return ['disabled' => 'disabled'];
-                        } else {
-                            return [];
-                        }
-
-                    }
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA'),
                 ]
             )
             ->add('Confirmer', SubmitType::class)
