@@ -11,7 +11,6 @@ namespace App\Controller;
 use App\Service\CartManager;
 use DOMDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,26 +21,28 @@ class CRCAController extends Controller
     /**
      * @Route("/PaiementEnLigne", name="online_payment")
      */
-    public function sendRequest(CartManager $cartManager){
+    public function sendRequest(CartManager $cartManager, SessionInterface $session){
+        $user = $this->getUser();
+        $idOrderCRCA = $session->get('idOrderCRCA');
+        $priceOrderCRCA = $session->get('priceOrderCRCA');
         $cartSize = $cartManager->cartSize();
-
         // Ennonciation de variables
         $pbx_site = '2039805';
         $pbx_rang = '01';
         $pbx_identifiant = '933494528';
-        $pbx_cmd = 'cmd_test2';								//variable de test cmd_test1
-        $pbx_porteur = 'test@test.fr';							//variable de test test@test.fr
-        $pbx_total = '100';									//variable de test 100
+        $pbx_cmd = $idOrderCRCA;								//variable de test cmd_test1
+        $pbx_porteur = $user->getEmail();							//variable de test test@test.fr
+        $pbx_total = $priceOrderCRCA;									//variable de test 100
         // Suppression des points ou virgules dans le montant
         $pbx_total = str_replace(",", "", $pbx_total);
         $pbx_total = str_replace(".", "", $pbx_total);
 
-        // Param�trage des urls de redirection apr�s paiement
-        $pbx_effectue = 'http://www.philippedesorbon.tk/PaiementValide';
-        $pbx_annule = 'http://www.philippedesorbon.tk/Checkout';
-        $pbx_refuse = 'http://www.philippedesorbon.tk/Checkout';
-        // Param�trage de l'url de retour back office site
-        $pbx_repondre_a = 'http://www.philippedesorbon.tk/';
+        // Paramétrage des urls de redirection apr�s paiement
+        $pbx_effectue = 'http://localhost:8000/CommandeValidee/CRCA';
+        $pbx_annule = 'http://localhost:8000/Checkout';
+        $pbx_refuse = 'http://localhost:8000/Checkout';
+        // Paramétrage de l'url de retour back office site
+        $pbx_repondre_a = 'http://localhost:8000/';
         // Param�trage du retour back office site
         $pbx_retour = 'Mt:M;Ref:R;Auto:A;Erreur:E';
 
@@ -51,7 +52,6 @@ class CRCAController extends Controller
         //$keyTest = '0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF';
 
         //test
-        //$keyTest = 'CA6B888E44130C8ABD6584D6D539E01C70C845669BCFE027B79877C506C9E9369A7A352ECF64554DAC485FFF2A322868DF70307053C17E5AB8999D20CBCE8014';
         $keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
         //prod
         //$keyTest = '293F885EE28F52E31BB7EE6E7DC0FC607BC03E362087C6DFE0D0F8E8CC4FC9751B4A8F10DC9160B5E7B42E52CE5B343B53FBC06C8B407D602222AD7A7E5EA2AF';
@@ -143,12 +143,6 @@ class CRCAController extends Controller
 
     }
 
-    /**
-     * @Route("/PaiementValide", name="valid_payment")
-     */
-    public function validated(){
-        return new Response(200);
-    }
 
 
 
