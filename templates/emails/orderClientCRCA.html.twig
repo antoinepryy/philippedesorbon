@@ -7,20 +7,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<p>
-    Bonjour {{ client.civility }} {{ client.firstName }} {{ client.lastName }},<br><br>
-    Votre commande a bien été reçue,<br>
-    nous allons vous contacter prochainement afin d'effectuer le virement.<br>
-    Contenu de la commande :<br>
+<div>
+    <p>
+        Bonjour {{ client.civility }} {{ client.firstName }} {{ client.lastName }},<br><br>
+        Merci d'avoir passé commande auprès de notre maison.<br>
+        Si vous avez des questions ou besoin d'autres informations, n'hésitez pas à nous contacter<br>
+        soit au 06 48 88 87 02 soit par mail wallaert@champagne-philippedesorbon.com.<br><br>
+
+        Contenu de la commande :<br>
     <ul>
-    {% for line in orderContent %}
-        <li>{{ line }}</li>
-    {% endfor %}
+        {% for line in orderContent %}
+            <li>{{ line }}</li>
+        {% endfor %}
     </ul><br>
     Prix total : {{ totalPrice|number_format(2) }} &euro;<br>
-    Cordialement,<br><br>
-    Martine WALLAERT
-</p>
+    </p>
+</div>
+<div style="justify-content: center">
+    <p>
+        Merci pour votre confiance<br>
+        En vous souhaitant d'agréables dégustations.<br><br>
+
+        Champagne Philippe de Sorbon<br>
+        Vous avez une question ? Besoin d'un conseil ? Contactez -nous :<br>
+        Par téléphone : 03 26 40 54 66<br>
+        Par email : wallaert@champagne-philippedesorbon.com<br><br>
+        www.champagne-philippedesorbon.com
+    </p>
+</div>
+
 </body>
 
 </html>
