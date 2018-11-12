@@ -30,75 +30,28 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class OrderController extends Controller
 {
-
-    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager, $method)
-    {
-        $cart = $session->get('cart');
-        $user = $this->getUser();
-        $orderPrice = $cartManager->totalCalculation();
-        $orderContent = $cartManager->orderContentWithPrice();
-
-
-        switch ($method) {
-            case 'Virement':
-                break;
-            case 'Cheque':
-                break;
-            case 'CRCA':
-                break;
-        }
-
-        $messageClient = (new \Swift_Message('Philippe de Sorbon'))
-            ->setFrom('philippedesorbon@gmail.com')
-            ->setTo($user->getEmail())
-            ->setBody(
-                $this->renderView(
-                    'emails/orderClient' . $method . '.html.twig', [
-                        'orderContent' => $orderContent,
-                        'totalPrice' => $orderPrice,
-                        'client' => $user
-                    ]
-                ),
-                'text/html'
-            );
-
-        $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
-            ->setFrom('philippedesorbon@gmail.com')
-            ->setTo('philippedesorbon@gmail.com')
-            ->setBody(
-                $this->renderView(
-                    'emails/orderAdmin' . $method . '.html.twig', [
-                        'orderContent' => $orderContent,
-                        'totalPrice' => $orderPrice,
-                        'client' => $user
-                    ]
-                ),
-                'text/html'
-            );
-
-        if ($cart != []) {
-            $mailer->send($messageClient);
-            $mailer->send($messageAdmin);
-            $session->set('cart', []);
-        }
-
-        $cartSize = $cartManager->cartSize();
-
-        return $this->render('view/validOrder.html.twig', [
-            'cartSize' => $cartSize
-        ]);
-    }
-
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager, ValidatorInterface $validator)
     {
+        $orderCanceled = false;
         if ($cartManager->isEmpty() == true) {
             return $this->redirectToRoute('boutique');
+        }
+
+
+        $entityManager = $this->getDoctrine()->getManager();
+        if ($session->has('idOrderCRCA') || $session->has('priceOrderCRCA')){//Si commande en attente
+            $commandeRepo = $this->getDoctrine()->getRepository(Commande::class);
+            $cancelledOrder= $commandeRepo->find($session->get('idOrderCRCA'));
+            $entityManager->remove($cancelledOrder);
+            $entityManager->flush();
+            $session->remove('idOrderCRCA');
+            $session->remove('priceOrderCRCA');
+            $orderCanceled = true;
         }
 
         $curentOrder = new Commande();
         $orderPrice = $cartManager->totalCalculation();
         $orderContentArray = $cartManager->orderContentWithPrice();
-        $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $userName = $user->getFirstName() . " " . $user->getLastName();
 
@@ -162,15 +115,7 @@ class OrderController extends Controller
             ])
             ->add('paymentMethod', ChoiceType::class, [
                     'label' => 'Moyen de paiement',
-                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne (disponible prochainement)' => 'CRCA'),
-                    'choice_attr' => function ($choiceValue, $key, $value) {
-                        if ($value == 'CRCA') {
-                            return ['disabled' => 'disabled'];
-                        } else {
-                            return [];
-                        }
-
-                    }
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA'),
                 ]
             )
             ->add('Confirmer', SubmitType::class)
@@ -195,6 +140,7 @@ class OrderController extends Controller
                     $curentOrder->setPaymentMethod('cheque');
                     $curentOrder->setDateTime(new \DateTime());
                     $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
+                    $curentOrder->setAddressCountryDelivery('FR');
                     $entityManager->persist($curentOrder);
                     $entityManager->flush();
                     return $this->redirectToRoute('order_validated', [
@@ -203,6 +149,13 @@ class OrderController extends Controller
                     break;
                 case 'CRCA':
                     $curentOrder->setPaymentMethod('CRCA');
+                    $curentOrder->setDateTime(new \DateTime());
+                    $curentOrder->setContent($cartManager->arrayToLongTextOrderPrice());
+                    $curentOrder->setAddressCountryDelivery('FR');
+                    $entityManager->persist($curentOrder);
+                    $entityManager->flush();
+                    $session->set('idOrderCRCA', $curentOrder->getId());
+                    $session->set('priceOrderCRCA', sprintf("%01.2f", $orderPrice));
                     return $this->redirectToRoute('online_payment');
                     break;
 
@@ -227,9 +180,66 @@ class OrderController extends Controller
             'form' => $form->createView(),
             'total' => $orderPrice,
             'user' => $user,
-            'content' => $orderContentArray
+            'content' => $orderContentArray,
+            'orderCanceled' => $orderCanceled
         ]);
 
 
+    }
+
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager, $method)
+    {
+        $cart = $session->get('cart');
+
+
+        if ($session->has('idOrderCRCA') || $session->has('priceOrderCRCA')){//Si commande en attente
+            $session->remove('idOrderCRCA');
+            $session->remove('priceOrderCRCA');
+        }
+
+        $user = $this->getUser();
+        $orderPrice = $cartManager->totalCalculation();
+        $orderContent = $cartManager->orderContentWithPrice();
+
+
+        $messageClient = (new \Swift_Message('Philippe de Sorbon'))
+            ->setFrom('philippedesorbon@gmail.com')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'emails/orderClient' . $method . '.html.twig', [
+                        'orderContent' => $orderContent,
+                        'totalPrice' => $orderPrice,
+                        'client' => $user
+                    ]
+                ),
+                'text/html'
+            );
+
+        $messageAdmin = (new \Swift_Message('Philippe de Sorbon'))
+            ->setFrom('philippedesorbon@gmail.com')
+            ->setTo('philippedesorbon@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'emails/orderAdmin' . $method . '.html.twig', [
+                        'orderContent' => $orderContent,
+                        'totalPrice' => $orderPrice,
+                        'client' => $user
+                    ]
+                ),
+                'text/html'
+            );
+
+        if ($cart != []) {
+            $mailer->send($messageClient);
+            $mailer->send($messageAdmin);
+            $session->set('cart', []);
+        }
+
+        $cartSize = $cartManager->cartSize();
+
+        return $this->render('view/validOrder.html.twig', [
+            'cartSize' => $cartSize
+        ]);
     }
 }
