@@ -38,11 +38,11 @@ class CRCAController extends Controller
         $pbx_total = str_replace(".", "", $pbx_total);
 
         // Paramétrage des urls de redirection apr�s paiement
-        $pbx_effectue = 'http://localhost:8000/CommandeValidee/CRCA';
-        $pbx_annule = 'http://localhost:8000/Checkout';
-        $pbx_refuse = 'http://localhost:8000/Checkout';
+        $pbx_effectue = 'http://www.champagne-philippedesorbon.com/CommandeValidee/CRCA';
+        $pbx_annule = 'http://www.champagne-philippedesorbon.com/Checkout';
+        $pbx_refuse = 'http://www.champagne-philippedesorbon.com/Checkout';
         // Paramétrage de l'url de retour back office site
-        $pbx_repondre_a = 'http://localhost:8000/';
+        $pbx_repondre_a = 'http://www.champagne-philippedesorbon.com/';
         // Param�trage du retour back office site
         $pbx_retour = 'Mt:M;Ref:R;Auto:A;Erreur:E';
 
@@ -52,9 +52,9 @@ class CRCAController extends Controller
         //$keyTest = '0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF';
 
         //test
-        $keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
+        //$keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
         //prod
-        //$keyTest = '293F885EE28F52E31BB7EE6E7DC0FC607BC03E362087C6DFE0D0F8E8CC4FC9751B4A8F10DC9160B5E7B42E52CE5B343B53FBC06C8B407D602222AD7A7E5EA2AF';
+        $keyTest = '293F885EE28F52E31BB7EE6E7DC0FC607BC03E362087C6DFE0D0F8E8CC4FC9751B4A8F10DC9160B5E7B42E52CE5B343B53FBC06C8B407D602222AD7A7E5EA2AF';
 
 
 // --------------- TESTS DE DISPONIBILITE DES SERVEURS ---------------
@@ -81,7 +81,7 @@ class CRCAController extends Controller
         if(!$serveurOK){
             die("Erreur : Aucun serveur n'a �t� trouv�");}
         // Activation de l'univers de pr�production
-        $serveurOK = 'preprod-tpeweb.paybox.com';
+        //$serveurOK = 'preprod-tpeweb.paybox.com';
 
         //Cr�ation de l'url cgi paybox
         $serveurOK = 'https://'.$serveurOK.'/cgi/MYchoix_pagepaiement.cgi';
