@@ -32,6 +32,7 @@ class OrderController extends Controller
 {
     public function checkout(SessionInterface $session, Request $request, CartManager $cartManager, ValidatorInterface $validator)
     {
+        $orderCanceled = false;
         if ($cartManager->isEmpty() == true) {
             return $this->redirectToRoute('boutique');
         }
@@ -45,6 +46,7 @@ class OrderController extends Controller
             $entityManager->flush();
             $session->remove('idOrderCRCA');
             $session->remove('priceOrderCRCA');
+            $orderCanceled = true;
         }
 
         $curentOrder = new Commande();
@@ -178,7 +180,8 @@ class OrderController extends Controller
             'form' => $form->createView(),
             'total' => $orderPrice,
             'user' => $user,
-            'content' => $orderContentArray
+            'content' => $orderContentArray,
+            'orderCanceled' => $orderCanceled
         ]);
 
 

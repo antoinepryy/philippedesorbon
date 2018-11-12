@@ -7,10 +7,18 @@
                 <h1 class="edwardian fs-2 active">Votre commande</h1>
                 {% if errors is defined %}
                 {% for error in errors %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger fs-1" role="alert">
                     {{ error.message }}
                 </div>
                 {% endfor %}
+                {% endif %}
+                {% if orderCanceled == true %}
+                        <div class="alert alert-danger" role="alert">
+                            <p class="fs-1">Votre commande a été annulée,<br>
+                                ou bien votre virement a été refusé.<br>
+                                Veuillez rééssayer
+                            </p>
+                        </div>
                 {% endif %}
                 <p>
                     {% for line in content %}
