@@ -1,4 +1,12 @@
 var $ = require('jquery');
+var imgSize;
+if (detectmob()){
+    imgSize= 40;
+}
+else{
+    imgSize= 25;
+}
+console.log(imgSize);
 
 
 $('a[href^="#"]').click(function(){
@@ -21,19 +29,19 @@ $('.circle').click(function(){
     })
     switch(indexAnim){
         case '1':
-            slideContainer.style.transform = "translateX(calc(-50% + 46vw))";
+            slideContainer.style.transform = "translateX(calc(-50% + "+ 2*imgSize + "vw))";
             break;
         case '2':
-            slideContainer.style.transform = "translateX(calc(-50% + 23vw))";
+            slideContainer.style.transform = "translateX(calc(-50% + "+ imgSize + "vw))";
             break;
         case '3':
             slideContainer.style.transform = "translateX(calc(-50%))";
             break;
         case '4':
-            slideContainer.style.transform = "translateX(calc(-50% - 23vw))";
+            slideContainer.style.transform = "translateX(calc(-50% - " + imgSize + "vw))";
             break;
         case '5':
-            slideContainer.style.transform = "translateX(calc(-50% - 46vw))";
+            slideContainer.style.transform = "translateX(calc(-50% - " + 2*imgSize + "vw))";
             break;
     }
     activeSlide.classList.add("slide-active");
@@ -43,3 +51,11 @@ $('.circle').click(function(){
     $('#anim-txt-'+indexAnim).addClass('fadein');
     $(this).addClass('circle-active');
 });
+
+function detectmob() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true;
+    } else {
+        return false;
+    }
+}

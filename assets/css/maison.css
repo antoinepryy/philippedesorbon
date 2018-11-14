@@ -110,6 +110,29 @@
     padding-bottom: 1rem;
 }
 
+.slide-anim{
+    height: 23vw;
+}
+
+#slide-container{
+    width: 115vw;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+#slide-container > div{
+    width: 23vw;
+    height: 23vw;
+    opacity: 0.5;
+}
+
+#slide-container > div > img{
+    width: 23vw;
+    height: 23vw;
+}
+
 
 
 /* Smartphones */
@@ -164,6 +187,29 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         padding-bottom: 0;
+    }
+
+    .slide-anim{
+        height: 40vw;
+    }
+
+    #slide-container{
+        width: 200vw;
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    #slide-container > div{
+        width: 40vw;
+        height: 40vw;
+        opacity: 0.5;
+    }
+
+    #slide-container > div > img{
+        width: 40vw;
+        height: 40vw;
     }
 
 
