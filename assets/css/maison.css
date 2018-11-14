@@ -185,7 +185,7 @@
 
     .histoire-container > h2{
         margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         padding-bottom: 0;
     }
 
@@ -210,6 +210,10 @@
     #slide-container > div > img{
         width: 40vw;
         height: 40vw;
+    }
+
+    .house-picture img{
+        width: 50%;
     }
 
 
