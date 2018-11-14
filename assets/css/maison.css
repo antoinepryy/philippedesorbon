@@ -94,6 +94,22 @@
     background-color: black;
 }
 
+.origine-title{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.maison-txt{
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+
+.histoire-container > h2{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+}
+
 
 
 /* Smartphones */
@@ -132,6 +148,22 @@
 
     .bar-container{
         width: 80%;
+    }
+
+    .origine-title{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .maison-txt{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    .histoire-container > h2{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0;
     }
 
 

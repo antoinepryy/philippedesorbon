@@ -143,6 +143,11 @@
     height: 250px;
 }
 
+.cepages{
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .vignoble-txt-1{
@@ -217,6 +222,11 @@
 
     .vignoble-title{
         font-size: 4.5vw;
+    }
+
+    .cepages{
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
     }
 }
 
