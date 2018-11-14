@@ -140,6 +140,12 @@ class DefaultController extends Controller
             ["cartSize" => $cartSize]);
     }
 
+    public function cgv(CartManager $cartManager){
+        $cartSize = $cartManager->cartSize();
+        return $this->render('view/cgv.html.twig',
+            ["cartSize" => $cartSize]);
+    }
+
     public function commande(SessionInterface $session, Request $request, CartManager $cartManager)
     {
         $cart = $session->get('cart');

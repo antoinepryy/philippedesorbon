@@ -34,6 +34,10 @@ mentionslegales:
     path: /MentionsLegales
     controller: App\Controller\DefaultController::mentionslegales
 
+CGV:
+    path: /CGV
+    controller: App\Controller\DefaultController::cgv
+
 contact:
     path: /Contact
     controller: App\Controller\DefaultController::contact
