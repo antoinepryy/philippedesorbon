@@ -63,6 +63,21 @@
         background-attachment: unset;
 
     }
+
+    .chapter div{
+        height: 3vh;
+    }
+
+    .title-sitemap{
+        height: 5vh;
+    }
+
+    .website-plan{
+        background: url("../../public/ressource/image/accueil/logo.jpg");
+        background-position: 50% 60%;
+        background-repeat: no-repeat;
+        background-size: 30vw;
+    }
 }
 
 /* Tablets */
