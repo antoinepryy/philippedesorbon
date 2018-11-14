@@ -34,6 +34,10 @@
     background-size: 50%;
 }
 
+.vignoble-title{
+    font-size: 1.5em;
+}
+
 .vignoble-slide4-right{
     width: 50%;
     background-image: url("../../public/ressource/image/vignoble/champagne_moulin.jpg");
@@ -162,8 +166,8 @@
     }
 
     .vignes{
-        width: 28vw;
-        height: 30vh;
+        width: 33vw;
+        height: 64vw;
         overflow: hidden;
     }
 
@@ -204,11 +208,15 @@
     }
 
     .map-container{
-        height: 10vh;
+        height: 17vh;
     }
 
     .vignes-container{
         width: 100%;
+    }
+
+    .vignoble-title{
+        font-size: 4.5vw;
     }
 }
 
