@@ -18,12 +18,12 @@ assemblées avec respect de la tradition de nos ancêtres">
                 <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
                 <div class="row">
                     {% for champagne in champagneClassique %}
-                        <div class="col">
+                        <div class="col-md-3 col-6">
                             <div>
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                                 </a>
-                                <div class="text-white font-weight-bold segoe py-2" style="opacity: 0.8">
+                                <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
                                 </div>
                                 <div class="active font-weight-bold segoe py-2">
@@ -41,12 +41,12 @@ assemblées avec respect de la tradition de nos ancêtres">
                 <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
                 <div class="row">
                     {% for champagne in champagneCollection %}
-                        <div class="col">
+                        <div class="col-md-6 col-11 offset-1">
                             <div>
                                 <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                                 </a>
-                                <div class="text-white font-weight-bold segoe py-2" style="opacity: 0.8">
+                                <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
                                 </div>
                                 <div class="active font-weight-bold segoe py-2">
