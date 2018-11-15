@@ -80,6 +80,38 @@
     }
 }
 
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .accueil-slide1{
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .accueil-slide2{
+        background-size: cover;
+        height: 100vh;
+        background-attachment: unset;
+
+    }
+
+    .chapter div{
+        height: 7vh;
+    }
+
+    .title-sitemap{
+        height: 10vh;
+    }
+
+    .website-plan{
+        background: url("../../public/ressource/image/accueil/logo.jpg");
+        background-position: 50% 60%;
+        background-repeat: no-repeat;
+        background-size: 30vw;
+    }
+
+}
+
+
 /* Tablets */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
