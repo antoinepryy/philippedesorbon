@@ -38,7 +38,7 @@
                 </div>
 
                 {% for champagne in champagneWithoutOption %}
-                    <div id="champagne-{{ champagne.id }}" class="row segoe text-white py-4 middle-div fs-1" style="display: none">
+                    <div id="champagne-{{ champagne.id }}" class="row no-gutters segoe text-white py-4 middle-div fs-08" style="display: none">
                         <div class="col-3" style="display: flex">
                             <div class="w-50">
                                 <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
@@ -70,7 +70,7 @@
                 {% endfor %}
                 {% for champagneType in champagneWithOption %}
                     {% for champagne in champagneType %}
-                        <div id="champagne-{{ champagne.champagne.id }}-{{ champagne.id }}" class="row segoe text-white py-4 middle-div fs-1" style="display: none;">
+                        <div id="champagne-{{ champagne.champagne.id }}-{{ champagne.id }}" class="row no-gutters segoe text-white py-4 middle-div fs-08" style="display: none;">
                             <div class="col-3" style="display: flex">
                                 <div class="w-50">
                                     <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.champagne.photoBouteille  }} " alt="picture of the champagne bottle">

@@ -8,5 +8,23 @@
 
 .checkout-bg label{
     display: none;
+}
+
+.checkout-container{
+    border: 1px solid black;
+    width: 80% !important;
+    height: 50%!important;
+}
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .checkout-container{
+        width: 95%!important;
+        height: auto!important;
+    }
+}
+
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
 
 }

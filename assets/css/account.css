@@ -75,7 +75,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 75vh;
 }
 
 .register3{
@@ -83,26 +83,23 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 75vh;
 }
 
 
 .register2 > div, .register3 > div {
-    height: calc(50vh / 3);
+    height: calc(75vh / 3);
     width: 100%;
 }
 
-.register2 > div > div , .register3 > div > div{
-    width: 100%;
-    height: 100%;
-}
 
 .register-title{
-    font-size: 5vw;
+    font-size: 6vw;
 }
 
 .register-subtitle{
-    font-size: 1.5vw;
+    font-size: 1.6vw;
+    line-height: 1.5;
 }
 
 /* Smartphones */
@@ -120,7 +117,6 @@
         width: 80%;
         margin: auto;
         padding-top: 25%;
-
     }
 
     .register2{
@@ -132,11 +128,24 @@
     }
 
     .register-title{
-        font-size: 9vw;
+        font-size: 11vw;
     }
 
     .register-subtitle{
-        font-size: 5vw;
+        font-size: 4vw;
+    }
+}
+
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .login-form-container{
+        position: unset;
+        right: auto;
+        top: auto;
+        transform: translate(0%,0%);
+        width: 80%;
+        margin: auto;
+        padding-top: 25%;
     }
 }
 
