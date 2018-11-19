@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="checkout-bg p-5">
-        <div class="checkout-container container bg-white m-auto p-3" style="border: 1px solid black; width: 80%; height: 50%;">
+    <div class="checkout-bg py-5">
+        <div class="checkout-container container bg-white m-auto p-3">
             <div class="text-center">
                 <h1 class="edwardian fs-2 active">Votre commande</h1>
                 {% if errors is defined %}
@@ -20,7 +20,7 @@
                             </p>
                         </div>
                 {% endif %}
-                <p>
+                <p class="fs-12">
                     {% for line in content %}
                     {{ line }} <br>
                     {% endfor %}<br>
@@ -33,7 +33,7 @@
 
             <div class="container">
                 <div class="row py-2">
-                    <div class="col-12 col-md-6 text-center fact-address">
+                    <div class="col-6 text-center fact-address">
                         <h2 class="edwardian fs-17">Adresse de facturation</h2>
                         <p>
                             {{ form_row(form.addressNameFact) }}
@@ -47,7 +47,7 @@
 
 
                     </div>
-                    <div class="col-12 col-md-6 text-center del-address">
+                    <div class="col-6 text-center del-address">
                         <h2 class="edwardian fs-17">Adresse de livraison</h2>
                         <p>
                             {{ form_row(form.addressNameDelivery) }}
@@ -61,15 +61,15 @@
 
                 </div>
                 <div class="row py-2 text-center">
-                    <div class="col">
-                        <p class="fs-1">
+                    <div class="col-12 col-sm-6">
+                        <p class="fs-12">
                             Informations de livraison :<br><br>
                             - pour la France Métropolitaine, compter approximativement une semaine.<br>
                             - pour la France extra-métropolitaine et export,<br> nous contacter pour le coût du port et les taxes.<br>
                         </p>
                     </div>
-                    <div class="col">
-                        <p>
+                    <div class="col-12 col-sm-6">
+                        <p class="fs-12">
                             Date de livraison désirée (min. 7 jours) :
                         </p>
                         {{ form_row(form.dateDelivery) }}
