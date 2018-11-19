@@ -8,5 +8,13 @@
 
 .checkout-bg label{
     display: none;
+}
+
+/* Smartphones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+}
+
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
 
 }
