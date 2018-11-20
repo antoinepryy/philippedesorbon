@@ -5,12 +5,12 @@
             {% for champagne in champagneClassique %}
                 <div class="col-md-3 col-6 bottle-col">
                     <div>
-                        <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                        <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                             <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                        </a>
                         <div class="text-white segoe" style="opacity: 0.6;">
                             {{ champagne.name }}
                         </div>
+                        </a>
                     </div>
                 </div>
             {% endfor %}
@@ -23,12 +23,12 @@
             {% for champagne in champagneCollection %}
                 <div class="col-md-6 col-md-offset-0 col-8 mx-auto bottle-col">
                     <div>
-                        <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                        <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                             <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                        </a>
                         <div class="text-white segoe" style="opacity: 0.6;">
                             {{ champagne.name }}
                         </div>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

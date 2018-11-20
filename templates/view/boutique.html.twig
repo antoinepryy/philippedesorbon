@@ -20,12 +20,13 @@ assemblées avec respect de la tradition de nos ancêtres">
                     {% for champagne in champagneClassique %}
                         <div class="col-md-3 col-6">
                             <div>
-                                <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                                <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                                </a>
+
                                 <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
                                 </div>
+                                </a>
                                 <div class="active font-weight-bold segoe py-2">
                                     {{ champagne.price|number_format(2) }} &euro;
                                 </div>
@@ -43,12 +44,12 @@ assemblées avec respect de la tradition de nos ancêtres">
                     {% for champagne in champagneCollection %}
                         <div class="col-md-6 col-md-offset-0 col-8 mx-auto">
                             <div>
-                                <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
+                                <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                                     <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                                </a>
                                 <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
                                 </div>
+                                </a>
                                 <div class="active font-weight-bold segoe py-2">
                                     {{ champagne.price|number_format(2) }} &euro;
                                 </div>
