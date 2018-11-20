@@ -3,7 +3,7 @@
         <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
         <div class="row">
             {% for champagne in champagneClassique %}
-                <div class="col bottle-col">
+                <div class="col-md-3 col-6 bottle-col">
                     <div>
                         <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                             <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
@@ -21,7 +21,7 @@
         <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
         <div class="row">
             {% for champagne in champagneCollection %}
-                <div class="col bottle-col">
+                <div class="col-md-6 col-md-offset-0 col-8 mx-auto bottle-col">
                     <div>
                         <a href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
                             <img class="champagne-bottle" style="height : 350px" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
