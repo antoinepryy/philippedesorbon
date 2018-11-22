@@ -307,13 +307,167 @@
     }
 }
 
-/* Tablets */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .vignoble-txt-1{
+        width: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .vignoble-slide3{
+        height: 140vh;
+    }
     .vignoble-txt-2{
         width: 80%;
     }
 
     .vignoble-txt-3{
         width: 80%;
+    }
+
+    .vignoble-slide5{
+        height: 90vh;
+    }
+
+    .vignes{
+        width: 33vw;
+        height: 64vw;
+        overflow: hidden;
+    }
+
+    .vignoble-slide1{
+        background-size: cover;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide2{
+        background-size: cover;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide3{
+        background-position: bottom;
+        background-size: cover;
+        height: 90vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide4-left {
+        height: 90vh;
+        background-size: cover;
+        background-attachment: unset;
+    }
+    .vignoble-slide4-right {
+        height: 90vh;
+        background-size: cover;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide5{
+        background-size: cover;
+        height: 90vh;
+        background-attachment: unset;
+    }
+
+    .map-container{
+        height: 17vh;
+    }
+
+    .vignes-container{
+        width: 100%;
+    }
+
+    .vignoble-title{
+        font-size: 4.5vw;
+    }
+
+    .cepages{
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+    }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .vignoble-txt-1{
+        width: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .vignoble-txt-2{
+        width: 85%;
+    }
+
+    .vignoble-txt-3{
+        width: 85%;
+    }
+
+
+    .vignes{
+        width: 30vw;
+        height: 45vw;
+        overflow: hidden;
+    }
+
+    .vignoble-slide1{
+        background-size: cover;
+        height: 50vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide2{
+        background-size: cover;
+        height: 50vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide3{
+        background-position: bottom;
+        background-size: cover;
+        height: 150vh;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide4-left {
+        height: 130vh;
+        background-size: cover;
+        background-attachment: unset;
+    }
+    .vignoble-slide4-right {
+        height: 130vh;
+        background-size: cover;
+        background-attachment: unset;
+    }
+
+    .vignoble-slide5{
+        background-size: cover;
+        height: 150vh;
+        background-attachment: unset;
+    }
+
+    .map-container{
+        height: 17vh;
+    }
+
+    .vignes-container{
+        width: 100%;
+    }
+
+    .vignoble-title{
+        font-size: 4.5vw;
+    }
+
+    .cepages{
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
     }
 }

@@ -322,9 +322,184 @@
     }
 }
 
-/* Tablets */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .maison-slide1{
+        background-size: cover;
+        height: 25vh;
+    }
 
+    .maison-slide2{
+        background-size: cover;
+        height: 25vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .maison-slide3{
+        background-size: cover;
+        height: 25vh;
+        background-attachment: unset;
+    }
+
+    .pds-container{
+        height: 25vh;
+    }
+
+    .circle-active{
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .circle{
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .bar-container{
+        width: 80%;
+    }
+
+    .origine-title{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .maison-txt{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    .histoire-container > h2{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0;
+    }
+
+    .slide-anim{
+        height: 40vw;
+    }
+
+    #slide-container{
+        width: 200vw;
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    #slide-container > div{
+        width: 40vw;
+        height: 40vw;
+        opacity: 0.5;
+    }
+
+    #slide-container > div > img{
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .house-picture img{
+        width: 50%;
+    }
+
+    .anim-container{
+        overflow: hidden;
+        min-height: 60vh;
+    }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .maison-slide1{
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .maison-slide2{
+        background-size: cover;
+        height: 100vh;
+        background-position: center;
+        background-attachment: unset;
+    }
+
+    .maison-slide3{
+        background-size: cover;
+        height: 100vh;
+        background-attachment: unset;
+    }
+
+    .pds-container{
+        height: 25vh;
+    }
+
+    .circle-active{
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .circle{
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .bar-container{
+        width: 80%;
+    }
+
+    .origine-title{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .maison-txt{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    .histoire-container > h2{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0;
+    }
+
+    .slide-anim{
+        height: 40vw;
+    }
+
+    #slide-container{
+        width: 200vw;
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    #slide-container > div{
+        width: 40vw;
+        height: 40vw;
+        opacity: 0.5;
+    }
+
+    #slide-container > div > img{
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .house-picture img{
+        width: 50%;
+    }
+
+    .sorbon-img{
+        width: auto;
+        height: 100%;
+    }
 }
 
 
