@@ -1,4 +1,4 @@
-.champagnes-slide1{
+.champagnes-slide1, .champagnes-slide2{
     background-image: url("../../public/ressource/image/champagnes/cave.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -6,30 +6,29 @@
     height: calc(100vh - 250px);
 }
 
+.champagnes-slide1{
+    background-image: url("../../public/ressource/image/champagnes/cave.jpg");
+}
+
 .champagnes-slide2{
     background-image: url("../../public/ressource/image/champagnes/horizon.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 110vh;
 }
 
 
 
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
-
-    .champagnes-slide1{
+    .champagnes-slide1, .champagnes-slide2{
         background-size: cover;
         height: 25vh;
         background-attachment: unset;
     }
+}
 
-    .champagnes-slide2{
-        background-size: cover;
-        height: 25vh;
-        background-attachment: unset;
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .champagnes-slide1, .champagnes-slide2{
+        height: 75vh;
     }
 }
 
@@ -38,17 +37,8 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) {
-
-    .champagnes-slide1{
-        background-size: cover;
+    .champagnes-slide1, .champagnes-slide2{
         height: 25vh;
-        background-attachment: unset;
-    }
-
-    .champagnes-slide2{
-        background-size: cover;
-        height: 25vh;
-        background-attachment: unset;
     }
 }
 
@@ -57,7 +47,9 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+    .champagnes-slide1, .champagnes-slide2{
+        height: 75vh;
+    }
 }
 
 

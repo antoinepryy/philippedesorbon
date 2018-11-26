@@ -15,6 +15,13 @@
     }
 }
 
+/* Smartphones(landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .bg-without-url{
+        height: 75vh;
+    }
+}
+
 /*
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -23,14 +30,16 @@
     .bg-without-url{
         background-size: cover;
         height: 25vh;
-        background-attachment: unset;
     }
 }
+
 
 /*
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+    .bg-without-url{
+        height: 75vh;
+    }
 }
