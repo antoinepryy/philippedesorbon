@@ -100,7 +100,7 @@
     .login{
         background-size: cover;
         height: calc(100vh - 300px);
-        min-height: 700px;
+        min-height: 320px;
     }
 
     .login-form-container{
