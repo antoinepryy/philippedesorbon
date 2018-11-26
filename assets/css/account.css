@@ -1,20 +1,14 @@
 .forgot-pass-bg{
     background-image: url("../../public/ressource/image/accountAndOrder/champagne_glass.jpg");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: calc(100vh - 300px);
 }
-
 .account-bg{
     background-image: url("../../public/ressource/image/accountAndOrder/champagne_glass.jpg");
+}
+.forgot-pass-bg, .account-bg{
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - 300px);
-}
-
-.account-button-container{
 }
 
 .account-button-container div{
@@ -72,14 +66,13 @@
 
 .register2{
     background-image: url("../../public/ressource/image/accountAndOrder/cave.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 75vh;
 }
 
 .register3{
     background-image: url("../../public/ressource/image/accountAndOrder/bouchon.jpg");
+}
+
+.register2, .register3{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -139,12 +132,7 @@
 /* Smartphones(landscape) */
 @media (min-width: 481px) and (max-width: 767px) {
     .login-form-container{
-        position: unset;
-        right: auto;
-        top: auto;
-        transform: translate(0%,0%);
-        width: 80%;
-        margin: auto;
+
         padding-top: 25%;
     }
 }
@@ -169,11 +157,7 @@
         padding-top: 25%;
     }
 
-    .register2{
-        min-height: 50vh;
-    }
-
-    .register3{
+    .register2, .register3{
         min-height: 50vh;
     }
 
@@ -192,13 +176,7 @@
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .login-form-container{
-        position: unset;
-        right: auto;
-        top: auto;
-        transform: translate(0%,0%);
-        width: 80%;
-        margin: auto;
-        padding-top: 25%;
+        padding-top: 10vh;
     }
 }
 

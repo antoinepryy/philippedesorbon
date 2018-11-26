@@ -22,6 +22,9 @@
         width: 95%!important;
         height: auto!important;
     }
+    .checkout-bg{
+        min-height: 480px;
+    }
 }
 
 /* Smartphones(landscape) */
@@ -30,6 +33,9 @@
         width: 95%!important;
         height: auto!important;
     }
+    .checkout-bg{
+        min-height: 320px;
+    }
 }
 
 /*
@@ -37,7 +43,9 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) {
-
+    .checkout-bg{
+        min-height: 1000px;
+    }
 }
 
 /*
@@ -45,5 +53,11 @@
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+    .checkout-bg{
+        min-height: 700px;
+    }
+    .checkout-container{
+        width: 95%!important;
+        height: auto!important;
+    }
 }
