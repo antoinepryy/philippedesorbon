@@ -71,7 +71,6 @@ class ShopController extends Controller
      * @Route("/AddProduct", name="add_product")
      */
     public function addProduct(SessionInterface $session,Request $request){
-            //NOT FINISHED
             $isHidden = false;
             $quantity = 0;
             $cart = $session->get('cart');
@@ -174,30 +173,5 @@ class ShopController extends Controller
         }
         return new JsonResponse('no results found', Response::HTTP_NOT_FOUND);
     }
-
-    /**
-     * @Route("/ClearCart", name="clear_cart")
-     */
-    public function clearCart(SessionInterface $session){
-        $session->set('cart',[]);
-        return new Response('ok');
-    }
-
-    /**
-     * @Route("/seeCart", name="see_cart")
-     */
-    public function seeCart(SessionInterface $session){
-        $cart = $session->get('cart');
-        die(var_dump($cart));
-    }
-
-    /**
-     * @Route("/test", name="test")
-     */
-    public function test(CartManager $cartManager){
-
-
-    }
-
 
 }

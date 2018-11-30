@@ -48,7 +48,7 @@ $(".shop-button").click(function(){
                             unHideProduct(id, response[4]);
                             refreshCartQtt(response[2]);
                             totalCalculation(response[2]);
-                            animateValidation();
+                            animateValidation(response[4]);
                         }
                         else{
                             increaseNumber(id,champagneOption, response[4]);
@@ -75,7 +75,7 @@ $("#add-product-option").click(function() {
                 unHideProductWithOption(id,champagneOption, response[4], response[3]);
                 refreshCartQtt(response[2]);
                 totalCalculation(response[2]);
-                animateValidation();
+                animateValidation(response[4]);
             }
             else{
                 increaseNumber(id,champagneOption, response[4]);
@@ -302,9 +302,10 @@ $('#modal-cross').click(function(){
 });
 
 
-function animateValidation(){
+function animateValidation(step){
+    document.getElementById("bottle-qtt").innerText = step;
     $('#modal-box-validation').addClass("md-show");
     setTimeout(function() {
         $('#modal-box-validation').removeClass("md-show");
-    }, 1500);
+    }, 2500);
 }
