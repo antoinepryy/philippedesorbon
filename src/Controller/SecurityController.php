@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\User;
 use App\Service\CartManager;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -304,13 +305,38 @@ class SecurityController extends AbstractController
     public function myOrders(SessionInterface $session, Request $request, CartManager $cartManager ){
         $cartSize = $cartManager->cartSize();
 
-        return $this->render('dev.html.twig',[
-            'cartSize' => $cartSize
+        $repository = $this->getDoctrine()->getRepository(Commande::class);
+        $userOrders = $repository->findBy([
+            'buyer' => $this->getUser()
         ]);
 
+
         return $this->render('security/mesCommandes.html.twig',[
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'orders' => $userOrders
         ]);
+    }
+
+    /**
+     * @Route("/Commande/{id}", name="order_content")
+     */
+    public function orderContent($id, SessionInterface $session, Request $request, CartManager $cartManager ){
+        $cartSize = $cartManager->cartSize();
+
+        $repository = $this->getDoctrine()->getRepository(Commande::class);
+        $userOrder = $repository->find($id);
+
+        if($userOrder->getBuyer() === $this->getUser()){
+            return $this->render('security/orderContent.html.twig',[
+                'cartSize' => $cartSize,
+                'content' => $userOrder->getContent(),
+                'price' => $userOrder->getPrice()
+            ]);
+        }
+        else{
+            throw $this->createNotFoundException('Cette commande n\'existe pas');
+        }
+
     }
 
 

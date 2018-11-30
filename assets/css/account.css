@@ -95,6 +95,10 @@
     line-height: 1.5;
 }
 
+.order-bg{
+    min-height: calc(100vh - 300px);
+}
+
 /* Smartphones */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .login{
