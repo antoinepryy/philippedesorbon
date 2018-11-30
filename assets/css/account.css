@@ -85,6 +85,10 @@
     width: 100%;
 }
 
+.change-pass label{
+    display: none;
+}
+
 
 .register-title{
     font-size: 6vw;

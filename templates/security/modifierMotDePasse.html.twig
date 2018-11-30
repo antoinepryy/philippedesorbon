@@ -12,9 +12,20 @@
                 {{ success }}
             </div>
         {% endif %}
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        <div class="container p-5 change-pass text-center">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    {{ form_row(form.plainPassword.first) }}
+                </div>
+                <div class="col-md-6 col-12">
+                    {{ form_row(form.plainPassword.second) }}
+                </div>
+
+            </div>
+            {{ form_end(form) }}
+        </div>
+
 
 
     </div>
