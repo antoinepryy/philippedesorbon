@@ -35,6 +35,11 @@ if (path !== '/Boutique' && path !== '/Panier' && path !== '/Checkout' && path !
     });
 }
 
+$(".champagne-bottle").hover(function() {
+    $(".champagne-bottle").toggleClass("champagne-bottle-hide");
+    $(this).toggleClass("champagne-bottle-show");
+});
+
 switch (path) {
     case '/LaMaison':
         defineActive(path);

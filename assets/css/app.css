@@ -186,16 +186,21 @@
 }
 
 .champagne-bottle{
-    opacity: 0.25;
+    opacity: 1;
     -webkit-transition: opacity 0.8s ease-out;
     -moz-transition: opacity 0.8s ease-out;
     -o-transition: opacity 0.8s ease-out;
     transition: opacity 0.8s ease-out;
 }
 
-.champagne-bottle:hover{
-    opacity: 1;
+.champagne-bottle-hide{
+    opacity: 0.25;
 }
+
+.champagne-bottle-show{
+    opacity: 1!important;
+}
+
 
 
 #header-nav > ul li, #footer-nav > ul li, .sticky-nav-sec ul li{
