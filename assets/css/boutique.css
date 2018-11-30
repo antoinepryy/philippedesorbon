@@ -73,7 +73,7 @@
 #modal-box-validation{
     z-index: 4000;
     position: fixed;
-    top: -250px;
+    top: -50vh;
     left:50%;
     transform: translate(-50%, 0);
     height: 25%;
