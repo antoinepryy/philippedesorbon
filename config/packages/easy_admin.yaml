@@ -76,9 +76,10 @@ easy_admin:
                           - id
                           - { property: 'buyer', label: 'Client'}
                           - { property: 'price', label: 'Total'}
+                          - { property: 'paymentMethod', label: 'Moyen de paiement'}
                           - { property: 'content', label: 'Contenu'}
                           - { property: 'dateTime', label: 'Date de la commande'}
-                          - { property: 'dateDelivery', label: 'Date de livraison'}
+                          - { property: 'dateDelivery', label: 'Date de livraison désirée'}
                           - { property: 'addressNameDelivery', label: 'Nom'}
                           - { property: 'addressStreetDelivery', label: 'Addresse'}
                           - { property: 'addressCityDelivery', label: 'Ville'}
