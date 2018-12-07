@@ -38,11 +38,11 @@ class CRCAController extends Controller
         $pbx_total = str_replace(".", "", $pbx_total);
 
         // Paramétrage des urls de redirection apr�s paiement
-        $pbx_effectue = 'http://www.champagne-philippedesorbon.com/CommandeValidee/CRCA';
-        $pbx_annule = 'http://www.champagne-philippedesorbon.com/Checkout';
-        $pbx_refuse = 'http://www.champagne-philippedesorbon.com/Checkout';
+        $pbx_effectue = 'https://www.champagne-philippedesorbon.com/CommandeValidee/CRCA';
+        $pbx_annule = 'https://www.champagne-philippedesorbon.com/Checkout';
+        $pbx_refuse = 'https://www.champagne-philippedesorbon.com/Checkout';
         // Paramétrage de l'url de retour back office site
-        $pbx_repondre_a = 'http://www.champagne-philippedesorbon.com/';
+        $pbx_repondre_a = 'https://www.champagne-philippedesorbon.com/';
         // Param�trage du retour back office site
         $pbx_retour = 'Mt:M;Ref:R;Auto:A;Erreur:E';
 
