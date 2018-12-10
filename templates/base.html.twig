@@ -41,16 +41,22 @@
         </a>
         <div style="position: absolute; top: 5%; right: 5%">
             <a style="" class="segoe links-std" href="{{ path('compte') }}">
-                <img style="height: 30px" src="{{ asset('ressource/icons/user.png') }}" alt="symbole représentant un utilisateur">
+                <img style="height: 30px" src="{{ asset('ressource/icons/user.png') }}" alt="user logo">
             </a>
             <span> | </span>
             <a style="" class="segoe links-std" href="{{ path('panier') }}">
-                <img style="height: 30px" src="{{ asset('ressource/icons/cart.png') }}" alt="symbole représentant un utilisateur">(<span class="cart-quantity">{{ cartSize }}</span>)
+                <img style="height: 30px" src="{{ asset('ressource/icons/cart.png') }}" alt="cart logo">(<span class="cart-quantity">{{ cartSize }}</span>)
             </a>
         </div>
+
     </div>
-    <div class="text-center edwardian">
+    <div class="text-center edwardian relpos">
         <span class="fs-18">Maison fondée à Reims en 1968</span>
+        <div style="position: absolute; top: 50%; right: 5%; transform: translateY(-50%)">
+            <a style="" class="links-std" href="https://www.facebook.com/philippedesorbon/" rel="nofollow">
+                <img style="height: 20px; width: auto" src="{{ asset('ressource/icons/facebook-logo.png') }}" alt="facebook logo">
+            </a>
+        </div>
     </div>
     </div>
     <div id="fixed-hd"  class="bg-white text-center" style="position: fixed; top: -70px;left: 0; right: 0; z-index: 1000;">
