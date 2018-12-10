@@ -184,10 +184,10 @@ function totalCalculation(cart){
     }
 
     if ( 0 < parseInt(nbrBottle) && parseInt(nbrBottle)< 12){
-        deliveryField.innerHTML = "18.00";
+        deliveryField.innerHTML = "22.00";
     }
     else if (11 < parseInt(nbrBottle) && parseInt(nbrBottle)< 18){
-        deliveryField.innerHTML = "24.00";
+        deliveryField.innerHTML = "30.00";
     }
     else if (17 < parseInt(nbrBottle) && parseInt(nbrBottle)< 24){
         deliveryField.innerHTML = "36.00";

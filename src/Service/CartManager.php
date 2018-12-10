@@ -50,10 +50,10 @@ class CartManager
               }
           }
         if ( 0 < $nbrBottle && $nbrBottle< 12){
-            $delivery = 18;
+            $delivery = 22;
         }
         else if (11 < $nbrBottle && $nbrBottle< 18){
-            $delivery = 24;
+            $delivery = 30;
         }
         else if (17 < $nbrBottle && $nbrBottle< 24){
             $delivery = 36;
