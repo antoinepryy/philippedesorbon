@@ -80,6 +80,7 @@ easy_admin:
                           - { property: 'content', label: 'Contenu'}
                           - { property: 'dateTime', label: 'Date de la commande'}
                           - { property: 'dateDelivery', label: 'Date de livraison désirée'}
+                          - { property: 'buyerComment', label: 'Commentaire'}
                           - { property: 'addressNameDelivery', label: 'Nom'}
                           - { property: 'addressStreetDelivery', label: 'Addresse'}
                           - { property: 'addressCityDelivery', label: 'Ville'}

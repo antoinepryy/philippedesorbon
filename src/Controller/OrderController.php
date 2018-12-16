@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -60,6 +61,10 @@ class OrderController extends Controller
 
         $curentOrder->setBuyer($user);
         $form = $this->createFormBuilder($curentOrder)
+            ->add('buyerComment', TextareaType::class, [
+                'attr' => ['placeholder' => 'Commentaire'],
+                'required' => false
+            ])
             ->add('addressNameFact', TextType::class, [
                 'attr' => ['placeholder' => 'Nom'],
                 'data' => $userName

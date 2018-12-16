@@ -106,6 +106,11 @@ class Commande
     private $content;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $buyerComment;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $dateTime;
@@ -402,6 +407,25 @@ class Commande
     {
         $this->telFact = $telFact;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBuyerComment()
+    {
+        return $this->buyerComment;
+    }
+
+    /**
+     * @param mixed $buyerComment
+     */
+    public function setBuyerComment($buyerComment): void
+    {
+        $this->buyerComment = $buyerComment;
+    }
+
+
+
 
 
 
