@@ -16,12 +16,12 @@ assemblées avec respect de la tradition de nos ancêtres">
         <div class="py-5 container-fluid" style="background-color: black; display: flex;">
             <div style="width: 60%;" class="text-center">
                 <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
-                <div class="row">
+                <div class="row no-gutters">
                     {% for champagne in champagneClassique %}
                         <div class="col-md-3 col-6">
                             <div>
-                                <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                                <a class="links-std champagne-bottle" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}" style="display: block;">
+                                    <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
 
                                 <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
@@ -40,12 +40,12 @@ assemblées avec respect de la tradition de nos ancêtres">
             </div>
             <div style="width: 40%;" class="text-center">
                 <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
-                <div class="row">
+                <div class="row no-gutters">
                     {% for champagne in champagneCollection %}
                         <div class="col-md-6 col-md-offset-0 col-8 mx-auto">
                             <div>
-                                <a class="links-std" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}">
-                                    <img class="champagne-bottle" style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                                <a class="links-std champagne-bottle" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}" style="display: block">
+                                    <img style="height: 350px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
                                 <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
                                     {{ champagne.name }}
                                 </div>
