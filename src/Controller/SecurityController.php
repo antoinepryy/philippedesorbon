@@ -241,6 +241,7 @@ class SecurityController extends AbstractController
             ->add('civility', ChoiceType::class, [
                 'choices'=>['Monsieur'=>'Monsieur','Madame'=>'Madame'],
                 'data'=>$user->getCivility(),
+                'label' => 'Civilité'
                 ])
             ->add('email', EmailType::class, [
                 'label'=>'Email',
@@ -261,7 +262,7 @@ class SecurityController extends AbstractController
                 ]
             )
             ->add('addressStreet', TextType::class, [
-                'label'=>'Addresse',
+                'label'=>'Adresse',
                 'data' => $user->getaddressStreet()
             ])
             ->add('addressCity', TextType::class, [
