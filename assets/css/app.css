@@ -185,6 +185,10 @@
     display: none;
 }
 
+.champagne-bottle > img{
+    height: 60vh;
+}
+
 .champagne-bottle{
     opacity: 1;
     -webkit-transition: opacity 0.8s ease-out;
@@ -485,7 +489,7 @@
     /*}*/
 
 
-    .champagne-bottle{
+    .champagne-bottle>img{
         height: 20vh!important;
     }
 
@@ -599,7 +603,7 @@
         font-size: 1.4vw;
     }
 
-    .champagne-bottle{
+    .champagne-bottle>img{
         height: 20vh!important;
     }
 
@@ -716,7 +720,7 @@
         font-size: 0.4vw;
     }
 
-    .champagne-bottle{
+    .champagne-bottle>img{
         height: 20vh!important;
     }
 
@@ -829,7 +833,7 @@
         font-size: 0.4vw;
     }
 
-    .champagne-bottle{
+    .champagne-bottle>img{
         height: 20vh!important;
     }
 
