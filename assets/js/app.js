@@ -23,6 +23,7 @@ require('../css/app.css');
 var $ = require('jquery');
 var path = window.location.pathname;
 var fromTop = getScrollTop();
+var selectCountry = document.getElementById('country');
 if (path !== '/Boutique' && path !== '/Panier' && path !== '/Checkout' && path !== '/ModifierInformations'){
     $('#fixed-hd').toggleClass("down", (fromTop > 185));
     $('#header-nav').toggleClass("fixed", (fromTop > 185));
@@ -76,62 +77,61 @@ function getScrollTop(){
         return D.scrollTop;
     }
 }
+verifyCookieAndUpdateLegalAge();
 
-
-
-
-if (readCookie('isAgeOK') === null){
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear()-18;
-    if(dd<10) {
-        dd = '0'+dd
-    }
-    if(mm<10) {
-        mm = '0'+mm
-    }
-    var limitDate = dd + '/' + mm + '/' + yyyy;
-    document.getElementById('limit-date').innerText = limitDate;
-    $('#age-verification').css('display','block');
-};
-
-$('#age-yes').on("click", function() {
-    $("#age-verification").css('display', 'none');
-    console.log(document.getElementById('country').value);
-    createCookie('isAgeOK', 1);
+$(selectCountry).change(function(){
+    verifyCookieAndUpdateLegalAge();
 });
 
-
-
-function defineActive(element){
-    element = element.substr(1);
-    document.getElementById(element).className = "active";
-}
-
-
-
-function createCookie(name,value,days) {
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        var expires = "; expires="+date.toGMTString();
+function verifyCookieAndUpdateLegalAge() {
+    if (readCookie('isAgeOK') === null) {
+        var choiceCountry = selectCountry.value;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear() - choiceCountry;
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        var limitDate = dd + '/' + mm + '/' + yyyy;
+        document.getElementById('limit-date').innerText = limitDate;
+        $('#age-verification').css('display', 'block');
     }
-    else var expires = "";
-    document.cookie = name+"="+value+expires+"; path=/";
 }
 
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    $('#age-yes').on("click", function () {
+        $("#age-verification").css('display', 'none');
+        console.log(selectCountry.value);
+        createCookie('isAgeOK', 1);
+    });
+
+
+    function defineActive(element) {
+        element = element.substr(1);
+        document.getElementById(element).className = "active";
     }
-    return null;
-}
 
-function eraseCookie(name) {
-    createCookie(name,"",-1);
-}
+
+    function createCookie(name, value, days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
