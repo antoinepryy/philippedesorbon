@@ -98,41 +98,18 @@ if (readCookie('isAgeOK') === null){
 
 $('#age-yes').on("click", function() {
     $("#age-verification").css('display', 'none');
+    console.log(document.getElementById('country').value);
     createCookie('isAgeOK', 1);
 });
 
 
-// function lowFooter() {
-//     document.getElementById("footer").style.position= "absolute";
-//     document.getElementById("footer").style.bottom= "0";
-//     document.getElementById("footer").style.left= "0";
-//     document.getElementById("footer").style.right= "0";
-// }
 
 function defineActive(element){
     element = element.substr(1);
     document.getElementById(element).className = "active";
 }
 
-//
-// var fadein_tween = TweenMax.to('#fadein-trigger', .375,{ opacity: 1 });
-// var fadeout_tween = TweenMax.to('#fadein-trigger', .375,{ opacity: 0 });
-//
-// var controller = new ScrollMagic.Controller();
-//
-// var fadein_scene = new ScrollMagic.Scene({
-//     triggerElement: '#fadein-trigger',
-//     reverse: true
-// })
-//     .setTween(fadein_tween)
-//     .addTo(controller);
-//
-// var fadeout_scene = new ScrollMagic.Scene({
-//     triggerElement: '#fadeout-trigger',
-//     reverse: true
-// })
-//     .setTween(fadeout_tween)
-//     .addTo(controller);
+
 
 function createCookie(name,value,days) {
     if (days) {
