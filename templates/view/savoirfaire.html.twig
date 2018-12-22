@@ -7,261 +7,483 @@
 {% endblock %}
 
 {% block content %}
-    <div class="savoirfaire-slide1">
+    {% if lg == 'fr' %}
+        <div class="savoirfaire-slide1">
 
-    </div>
+        </div>
 
-    <nav id="savoir-faire-nav" class="sticky-nav-sec z-index-nav-sec">
-        <ul class="savoir-faire-list justify-content-around ">
-            <li><a href="#Vendange">Vendange et pressurage</a></li>
-            <li><a href="#Vinification">Vinification</a></li>
-            <li><a href="#Assemblage">Assemblage</a></li>
-            <li><a href="#Vieillissement">Vieillissement sur lies</a></li>
-            <li><a href="#Remuage">Remuage et dégorgement</a></li>
-            <li><a href="#Gastronomie">Gastronomie</a></li>
-        </ul>
-    </nav>
-    <div class="text-center my-3 py-5">
+        <nav id="savoir-faire-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="savoir-faire-list justify-content-around ">
+                <li><a href="#Vendange">Vendange et pressurage</a></li>
+                <li><a href="#Vinification">Vinification</a></li>
+                <li><a href="#Assemblage">Assemblage</a></li>
+                <li><a href="#Vieillissement">Vieillissement sur lies</a></li>
+                <li><a href="#Remuage">Remuage et dégorgement</a></li>
+                <li><a href="#Gastronomie">Gastronomie</a></li>
+            </ul>
+        </nav>
+        <div class="text-center my-3 py-5">
             <h1 class="segoe font-weight-bold active fs-12">"UN SECRET SI LONGTEMPS GARDÉ ET MAINTENANT PARTAGÉ"</h1>
-    </div>
-
-    <div class="savoirfaire-slide2 relpos" >
-        <div id="Vendange" class="anchor">
         </div>
-        <div class="text-white txt-s-2 segoe w-50-r">
-            <h2 class="text-weight-bold my-3 fs-16">VENDANGES ET PRESSURAGE</h2>
-            <div class="sf-txt">
-                <p>
-                    Les raisins sont cueillis avec précaution
-                    à la main par un hourdon, équipe de vendangeurs,
-                    au meilleur moment de leur maturation. Ils sont
-                    apportés aux pressoirs du Mesnil sur Oger, de Mailly
-                    et de Reims, où ils sont triés par Cru et Cépage pour
-                    être rapidement pressés.<br>
-                    Ceux issus des plus belles vignes seront réservés
-                    pour les Millésimes, si l’année s’avère avoir un
-                    potentiel exceptionnel.
-                </p>
-                <p>
-                    Chaque « marc », soit 4000 kilogrammes de raisin,
-                    donne 2550 litres de jus, qui sont fractionnés.
-                    Les 2 050 premiers litres, les meilleurs, dits de
-                    1ère presse, constituent la Cuvée. Puis viennent
-                    500 litres de Taille lorsque l’on a «retroussé»,
-                    c’est-à-dire taillé le marc : les pressureurs retournent
-                    à la fourche les raisins après la première presse.
-                </p>
-                <p class="font-weight-bold">
-                    Nos Champagnes Carte d’Or, Millésimes et Cuvée
-                    Intemporelle sont exclusivement élaborés à partir
-                    de la première presse de nos trois cépages.
-                </p>
+
+        <div class="savoirfaire-slide2 relpos">
+            <div id="Vendange" class="anchor">
             </div>
-        </div>
-
-    </div>
-    <div class="text-center my-4">
-        <div>
-            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">VINIFICATION</h2>
-        </div>
-    </div>
-    <div class="savoirfaire-slide3 relpos">
-        <div  id="Vinification" class="anchor">
-        </div>
-        <div class="text-white txt-s-3 segoe w-100-r">
-            <div style="position:absolute; top: 50%; transform: translateY(-50%)" class="p-3">
-                <h3 class="text-weight-bold my-3 fs-16">Maitrise et professionnalisme</h3>
+            <div class="text-white txt-s-2 segoe w-50-r">
+                <h2 class="text-weight-bold my-3 fs-16">VENDANGES ET PRESSURAGE</h2>
                 <div class="sf-txt">
                     <p>
-                        Les jus sont placés dans des cuves
-                        pendant la fermentation alcoolique
-                        puis malo-lactique. L’évolution naturelle
-                        du vin est respectée, mais parfaitement
-                        maîtrisée, à température constante de 18°C.
-
+                        Les raisins sont cueillis avec précaution
+                        à la main par un hourdon, équipe de vendangeurs,
+                        au meilleur moment de leur maturation. Ils sont
+                        apportés aux pressoirs du Mesnil sur Oger, de Mailly
+                        et de Reims, où ils sont triés par Cru et Cépage pour
+                        être rapidement pressés.<br>
+                        Ceux issus des plus belles vignes seront réservés
+                        pour les Millésimes, si l’année s’avère avoir un
+                        potentiel exceptionnel.
                     </p>
                     <p>
-                        A la fin de la fermentation, les lies sont
-                        séparées par soutirage et l’on obtient des
-                        vins tranquilles, les Vins Clairs.
-
+                        Chaque « marc », soit 4000 kilogrammes de raisin,
+                        donne 2550 litres de jus, qui sont fractionnés.
+                        Les 2 050 premiers litres, les meilleurs, dits de
+                        1ère presse, constituent la Cuvée. Puis viennent
+                        500 litres de Taille lorsque l’on a «retroussé»,
+                        c’est-à-dire taillé le marc : les pressureurs retournent
+                        à la fourche les raisins après la première presse.
                     </p>
                     <p class="font-weight-bold">
-                        Nos vignobles sont harmonieusement
-                        répartis sur le terroir champenois de
-                        la Marne et plantés dans de bonnes
-                        proportions des trois cépages de la
-                        région. Nous obtenons ainsi une large
-                        palette de vins clairs permettant à
-                        l’assemblage de valoriser les qualités
-                        individuelles de chacun.
+                        Nos Champagnes Carte d’Or, Millésimes et Cuvée
+                        Intemporelle sont exclusivement élaborés à partir
+                        de la première presse de nos trois cépages.
                     </p>
                 </div>
             </div>
 
         </div>
-    </div>
-    <div class="text-center my-4">
-        <div>
-            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">ASSEMBLAGE</h2>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">VINIFICATION</h2>
+            </div>
         </div>
-    </div>
-    <div class="savoirfaire-slide4 relpos" >
-        <div id="Assemblage" class="anchor">
+        <div class="savoirfaire-slide3 relpos">
+            <div id="Vinification" class="anchor">
+            </div>
+            <div class="text-white txt-s-3 segoe w-100-r">
+                <div style="position:absolute; top: 50%; transform: translateY(-50%)" class="p-3">
+                    <h3 class="text-weight-bold my-3 fs-16">Maitrise et professionnalisme</h3>
+                    <div class="sf-txt">
+                        <p>
+                            Les jus sont placés dans des cuves
+                            pendant la fermentation alcoolique
+                            puis malo-lactique. L’évolution naturelle
+                            du vin est respectée, mais parfaitement
+                            maîtrisée, à température constante de 18°C.
+
+                        </p>
+                        <p>
+                            A la fin de la fermentation, les lies sont
+                            séparées par soutirage et l’on obtient des
+                            vins tranquilles, les Vins Clairs.
+
+                        </p>
+                        <p class="font-weight-bold">
+                            Nos vignobles sont harmonieusement
+                            répartis sur le terroir champenois de
+                            la Marne et plantés dans de bonnes
+                            proportions des trois cépages de la
+                            région. Nous obtenons ainsi une large
+                            palette de vins clairs permettant à
+                            l’assemblage de valoriser les qualités
+                            individuelles de chacun.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="text-white txt-s-4 segoe">
-            <div class="m-auto p-3 w-100-r" style="position: absolute; top: 50%; transform: translateY(-50%);">
-                <h3 class="text-weight-bold my-3 fs-16">L’Assemblage… ou le miracle du Champagne</h3>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">ASSEMBLAGE</h2>
+            </div>
+        </div>
+        <div class="savoirfaire-slide4 relpos">
+            <div id="Assemblage" class="anchor">
+            </div>
+            <div class="text-white txt-s-4 segoe">
+                <div class="m-auto p-3 w-100-r" style="position: absolute; top: 50%; transform: translateY(-50%);">
+                    <h3 class="text-weight-bold my-3 fs-16">L’Assemblage… ou le miracle du Champagne</h3>
+                    <div class="sf-txt">
+                        <p>
+                            Au printemps, après les frimas de l’hiver,
+                            tous les vins élevés en cuve sont patiemment
+                            dégustés. Ces différents crus nous permettent
+                            de prélever les palettes d’arômes et de saveurs
+                            nécessaires pour élaborer, touche après touche,
+                            nos assemblages Maison.
+                        </p>
+                        <p class="font-weight-bold">
+                            Comme le « nez » chez les parfumeurs, notre
+                            Chef de Caves va marier ces différents Crus et
+                            Cépages, et, le cas échéant, les Millésimes gardés
+                            en réserve afin d’obtenir les différentes Cuvées.
+                            Cette phase, la plus délicate, est un art qui requiert
+                            expérience et virtuosité.
+                        </p>
+                        <p>
+                            Chaque Cuvée, additionnée de liqueur et de levures
+                            sélectionnées, est ensuite mise en bouteilles, c’est le
+                            tirage. C’est ainsi que naissent notre Carte d’Or, nos
+                            Millésimes...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">LE VIEILLISSEMENT SUR LIES</h2>
+            </div>
+        </div>
+        <div class="savoirfaire-slide5 relpos">
+            <div id="Vieillissement" class="anchor">
+            </div>
+            <div class="text-white txt-s-5 segoe w-50-r">
+                <h3 class="text-weight-bold my-3 fs-16">Le vieillissement en cave</h3>
                 <div class="sf-txt">
                     <p>
-                        Au printemps, après les frimas de l’hiver,
-                        tous les vins élevés en cuve sont patiemment
-                        dégustés. Ces différents crus nous permettent
-                        de prélever les palettes d’arômes et de saveurs
-                        nécessaires pour élaborer, touche après touche,
-                        nos assemblages Maison.
-                    </p>
-                    <p class="font-weight-bold">
-                        Comme le « nez » chez les parfumeurs, notre
-                        Chef de Caves va marier ces différents Crus et
-                        Cépages, et, le cas échéant, les Millésimes gardés
-                        en réserve afin d’obtenir les différentes Cuvées.
-                        Cette phase, la plus délicate, est un art qui requiert
-                        expérience et virtuosité.
+                        Les bouteilles, couchées « sur lattes » reposent à 8-10°C, dans nos
+                        caves creusées dans la craie, à un taux d’humidité de 80 à 90%.
                     </p>
                     <p>
-                        Chaque Cuvée, additionnée de liqueur et de levures
-                        sélectionnées, est ensuite mise en bouteilles, c’est le
-                        tirage. C’est ainsi que naissent notre Carte d’Or, nos
-                        Millésimes...
+                        Sous l’action des levures, une seconde fermentation se déroule et
+                        provoque un dégagement de gaz carbonique qui se dissout
+                        dans le vin, créant une forte pression : c’est
+                        la « prise de mousse ». Le vin tranquille est devenu
+                        Champagne.
+                    </p>
+                    <p>
+                        Puis, un dépôt apparaît : les lies. Petit
+                        à petit, des arômes complexes forment le
+                        bouquet, les bulles s’affinent, le vin s’assouplit.
+                    </p>
+                    <p>
+                        Les vins vont encore se reposer en cave sur lattes le
+                        temps nécessaire pour atteindre leur pleine maturité :
+                    </p>
+                    <ul>
+                        <li>2 à 3 ans pour notre Carte Noire</li>
+                        <li>4 ans pour nos Carte d’Or, Perles de Rosé et Blanc de Blancs</li>
+                        <li>5 ans et plus pour nos Millésimes et Cuvée Intemporelle</li>
+                    </ul>
+                    <p>
+                        Durant cette période, à l’abri de la lumière, dans la fraîcheur constante de nos caves, le
+                        Champagne mûrit doucement pour atteindre l’incomparable délicatesse et la perfection de goût qui
+                        le caractérisent :
+                    </p>
+                    <p class="font-weight-bold">
+                        Un grand Champagne est lent à révéler sa personnalité.
+                        Le temps est son meilleur allié.
                     </p>
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="text-center my-4">
-        <div>
-            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">LE VIEILLISSEMENT SUR LIES</h2>
-        </div>
-    </div>
-    <div class="savoirfaire-slide5 relpos" >
-        <div id="Vieillissement" class="anchor">
-        </div>
-        <div class="text-white txt-s-5 segoe w-50-r">
-            <h3 class="text-weight-bold my-3 fs-16">Le vieillissement en cave</h3>
-            <div class="sf-txt">
-                <p>
-                    Les bouteilles, couchées « sur lattes » reposent à 8-10°C, dans nos
-                    caves creusées dans la craie, à un taux d’humidité de 80 à 90%.
-                </p>
-                <p>
-                    Sous l’action des levures, une seconde fermentation se déroule et
-                    provoque un dégagement de gaz carbonique qui se dissout
-                    dans le vin, créant une forte pression : c’est
-                    la « prise de mousse ». Le vin tranquille est devenu
-                    Champagne.
-                </p>
-                <p>
-                    Puis, un dépôt apparaît : les lies. Petit
-                    à petit, des arômes complexes forment le
-                    bouquet, les bulles s’affinent, le vin s’assouplit.
-                </p>
-                <p>
-                    Les vins vont encore se reposer en cave sur lattes le
-                    temps nécessaire pour atteindre leur pleine maturité :
-                </p>
-                <ul>
-                    <li>2 à 3 ans pour notre Carte Noire</li>
-                    <li>4 ans pour nos Carte d’Or, Perles de Rosé et Blanc de Blancs</li>
-                    <li>5 ans et plus pour nos Millésimes et Cuvée Intemporelle</li>
-                </ul>
-                <p>
-                    Durant cette période, à l’abri de la lumière, dans la fraîcheur constante de nos caves, le Champagne mûrit doucement pour atteindre l’incomparable délicatesse et la perfection de goût qui le caractérisent :
-                </p>
-                <p class="font-weight-bold">
-                    Un grand Champagne est lent à révéler sa personnalité.
-                    Le temps est son meilleur allié.
-                </p>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">REMUAGE ET DÉGORGEMENT</h2>
             </div>
         </div>
-    </div>
-    <div class="text-center my-4">
-        <div>
-            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">REMUAGE ET DÉGORGEMENT</h2>
+        <div class="savoirfaire-slide6 relpos">
+            <div id="Remuage" class="anchor">
+            </div>
+            <div class="text-white txt-s-6 segoe w-50-r">
+                <h3 class="text-weight-bold my-3 fs-16">Ultimes préparatifs</h3>
+                <div class="sf-txt">
+                    <p>
+                        Pendant le remuage, les bouteilles
+                        sont amenées progressivement à la
+                        position dite sur pointe, goulot en bas,
+                        et remuées chaque jour pour rassembler la lie
+                        sur le bouchon.
+                    </p>
+                    <p>
+                        Au dégorgement, la lie est expulsée et
+                        remplacée par la liqueur, faite de sucre de
+                        canne dissout dans un vin vieux de Champagne.
+                        C’est cette opération qui, par son dosage en
+                        sucre, déterminera l’appellation BRUT ou DEMI-SEC
+                        du Champagne.
+                    </p>
+                    <p>
+                        La bouteille reçoit ensuite son bouchon
+                        de liège et son muselet; elle est alors
+                        contrôlée individuellement, c’est le relevage.
+                    </p>
+                    <p>
+                        Enfin elle redescendra encore 3 à 4 mois
+                        en cave avant sa commercialisation afin
+                        de permettre une bonne homogénéisation
+                        du vin et de la liqueur.
+                    </p>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <div class="savoirfaire-slide6 relpos" >
-        <div id="Remuage" class="anchor">
+        <div class="container text-center my-5">
+
+            <div class="segoe font-weight-bold active my-3 fs-12">
+                « C’EST UNE ALCHIMIE MYSTERIEUSE OU LES CAVES OBSCURES<br>
+                CREUSEES DANS LA CRAIE PERMETTENT DES TRANSMUTATIONS<br>
+                D’OU SORTIRONT L’OR LIQUIDE ET LES BULLES AERIENNES.<br>
+                IL FAUT DIRE QUE LE SECRET A UN NOM : LE TRAVAIL,
+                LE TRAVAIL ET ENCORE LE TRAVAIL »
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
         </div>
-        <div class="text-white txt-s-6 segoe w-50-r">
-            <h3 class="text-weight-bold my-3 fs-16">Ultimes préparatifs</h3>
-            <div class="sf-txt">
-                <p>
-                    Pendant le remuage, les bouteilles
-                    sont amenées progressivement à la
-                    position dite sur pointe, goulot en bas,
-                    et remuées chaque jour pour rassembler la lie
-                    sur le bouchon.
-                </p>
-                <p>
-                    Au dégorgement, la lie est expulsée et
-                    remplacée par la liqueur, faite de sucre de
-                    canne dissout dans un vin vieux de Champagne.
-                    C’est cette opération qui, par son dosage en
-                    sucre, déterminera l’appellation BRUT ou DEMI-SEC
-                    du Champagne.
-                </p>
-                <p>
-                    La bouteille reçoit ensuite son bouchon
-                    de liège et son muselet; elle est alors
-                    contrôlée individuellement, c’est le relevage.
-                </p>
-                <p>
-                    Enfin elle redescendra encore 3 à 4 mois
-                    en cave avant sa commercialisation afin
-                    de permettre une bonne homogénéisation
-                    du vin et de la liqueur.
-                </p>
+        <div class="savoirfaire-slide7">
+
+        </div>
+        <div class="relpos">
+            <div id="Gastronomie" class="anchor">
+            </div>
+            <div class="text-center py-4">
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">GASTRONOMIE CHAMPENOISE</h2>
+            </div>
+            {{ render(controller(
+                'App\\Controller\\DefaultController::foodGrid'
+            )) }}
+
+        </div>
+        <div class="container text-center my-5">
+
+            <div class="segoe font-weight-bold active fs-12">
+
+                « LE CHAMPAGNE EST LE VIN
+                DE LA CIVILISATION »
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Talleyrand</div>
+
+        </div>
+
+
+
+    {% elseif lg == 'en' %}
+        <div class="savoirfaire-slide1">
+
+        </div>
+
+        <nav id="savoir-faire-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="savoir-faire-list justify-content-around ">
+                <li><a href="#Vendange">Harvest and Pressing</a></li>
+                <li><a href="#Vinification">Wine making</a></li>
+                <li><a href="#Assemblage">Assemblage</a></li>
+                <li><a href="#Vieillissement">Maturation on lies</a></li>
+                <li><a href="#Remuage">Shaking and degorging</a></li>
+                <li><a href="#Gastronomie">Fine Dining</a></li>
+            </ul>
+        </nav>
+        <div class="text-center my-3 py-5">
+            <h1 class="segoe font-weight-bold active fs-12">"A SECRET KEPT FOR SO LONG AND NOW SHARED"</h1>
+        </div>
+
+        <div class="savoirfaire-slide2 relpos">
+            <div id="Vendange" class="anchor">
+            </div>
+            <div class="text-white txt-s-2 segoe w-50-r">
+                <h2 class="text-weight-bold my-3 fs-16">HARVEST AND PRESSING</h2>
+                <div class="sf-txt">
+                    <p>
+                        The grapes are picked carefully by hand by an hourdon, team of pickers, at the best moment of
+                        their maturation. They are brought to the presses of Mesnil on Oger, Mailly and Reims, where
+                        they are sorted by Cru and Grape variety to be quickly pressed.<br>
+                        Those from the most beautiful vines will be reserved for the Millésimes, if the year proves to
+                        have an exceptional potential.
+                    </p>
+                    <p>
+                        Each "marc", or 4000 kilograms of grapes, gives 2550 liters of juice, which are fractionated.
+                        The first 2,050 liters, the best, called the "first press", make up the Cuvée. Then come 500
+                        liters of size when one "rolled up" the wine press: the grapes are return to the fork after the
+                        first press.
+                    </p>
+                    <p class="font-weight-bold">
+                        Our Carte d'Or, Millésimes and Cuvée Intemporelle Champagnes are exclusively made from the
+                        "first press" of our three grape varieties.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">WINE MAKING</h2>
             </div>
         </div>
+        <div class="savoirfaire-slide3 relpos">
+            <div id="Vinification" class="anchor">
+            </div>
+            <div class="text-white txt-s-3 segoe w-100-r">
+                <div style="position:absolute; top: 50%; transform: translateY(-50%)" class="p-3">
+                    <h3 class="text-weight-bold my-3 fs-16">Expertise and professionalism</h3>
+                    <div class="sf-txt">
+                        <p>
+                            The juices are placed in vats during alcoholic and malolactic fermentation. The natural
+                            evolution of the wine is respected, but perfectly controlled, at a constant temperature of
+                            18 ° C.
+                        </p>
+                        <p>
+                            At the end of the fermentation, the lees are separated by racking and we obtain still wines,
+                            the Clear Wines.
+                        </p>
+                        <p class="font-weight-bold">
+                            Our vineyards are harmoniously distributed on the Champagne terroir of Marne and planted in
+                            good proportions of the three grape varieties. We thus obtain a wide range of clear wines
+                            allowing the assembly to develop the individual qualities of each one.
+                        </p>
+                    </div>
+                </div>
 
-    </div>
-    <div class="container text-center my-5">
-
-        <div class="segoe font-weight-bold active my-3 fs-12">
-            « C’EST UNE ALCHIMIE MYSTERIEUSE OU LES CAVES OBSCURES<br>
-            CREUSEES DANS LA CRAIE PERMETTENT DES TRANSMUTATIONS<br>
-            D’OU SORTIRONT L’OR LIQUIDE ET LES BULLES AERIENNES.<br>
-            IL FAUT DIRE QUE LE SECRET A UN NOM : LE TRAVAIL,
-            LE TRAVAIL ET ENCORE LE TRAVAIL »
+            </div>
         </div>
-        <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
-    </div>
-    <div class="savoirfaire-slide7">
-
-    </div>
-    <div class="relpos">
-        <div id="Gastronomie" class="anchor">
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">ASSEMBLAGE</h2>
+            </div>
         </div>
-        <div class="text-center py-4">
-            <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">GASTRONOMIE CHAMPENOISE</h2>
+        <div class="savoirfaire-slide4 relpos">
+            <div id="Assemblage" class="anchor">
+            </div>
+            <div class="text-white txt-s-4 segoe">
+                <div class="m-auto p-3 w-100-r" style="position: absolute; top: 50%; transform: translateY(-50%);">
+                    <h3 class="text-weight-bold my-3 fs-16">Assemblage ... or the miracle of Champagne</h3>
+                    <div class="sf-txt">
+                        <p>
+                            In the spring, after the winter frosts, all the wines raised in vats are patiently tasted.
+                            These different wines allow us to take the large palettes of aromas and flavors necessary to
+                            elaborate, our assemblies House.
+                        </p>
+                        <p class="font-weight-bold">
+                            Like the "nose" in perfumers, our Cellar Manager will combine these different Crus and
+                            Grapes, and, where appropriate, the vintages kept in reserve to obtain the different Cuvées.
+                            This phase, the most delicate, is an art that requires experience and virtuosity.
+                        </p>
+                        <p>
+                            By this delicate work is obtained the "house style", whose secret is often evoked, but never
+                            revealed, which will give to our wines, year after year, the smoothness and the regularity
+                            that we know them.
+                        </p>
+                        <p>
+                            Each Cuvée, with added liquor and selected yeasts, is then bottled, this is the draw. This
+                            is how our Carte d'Or, our Millésimes are born...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        {{ render(controller(
-            'App\\Controller\\DefaultController::foodGrid'
-        )) }}
-
-    </div>
-    <div class="container text-center my-5">
-
-        <div class="segoe font-weight-bold active fs-12">
-
-            « LE CHAMPAGNE EST LE VIN
-            DE LA CIVILISATION »
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">MATURATION ON LIES</h2>
+            </div>
         </div>
-        <div class="edwardian active fs-15 w-75 ml-auto">Talleyrand</div>
+        <div class="savoirfaire-slide5 relpos">
+            <div id="Vieillissement" class="anchor">
+            </div>
+            <div class="text-white txt-s-5 segoe w-50-r">
+                <div class="sf-txt">
+                    <p>
+                        The bottles, lying "on slats" rest at 8-10 ° C, in our chalky cellars, at a humidity of 80 to
+                        90%.
+                    </p>
+                    <p>
+                        Under the action of the yeasts, a second fermentation takes place and causes a release of carbon
+                        dioxide which dissolves in the wine, creating a strong pressure: it is the "taking of foam". The
+                        still wine has become Champagne.
+                    </p>
+                    <p>
+                        Then, a deposit appears: the lees. Little by little, complex aromas form the bouquet, the
+                        bubbles are refined, the wine becomes softer.
+                    </p>
+                    <p>
+                        The wines will still rest in cellar on slats the time necessary to reach their full maturity :
+                    </p>
+                    <ul>
+                        <li>2 to 3 years for our Carte Noire,</li>
+                        <li>4 years for our Carte d'Or, Perles de Rosé and Blanc de Blancs,</li>
+                        <li>5 years and more for our Millésimes and the Cuvée Intemporelle.</li>
+                    </ul>
+                    <p>
+                        During this period, sheltered from the light, in the constant freshness of our cellars, the
+                        Champagne matures slowly to reach the incomparable delicacy and the perfection of taste that
+                        characterize it:
+                    </p>
+                    <p class="font-weight-bold">
+                        A big Champagne is slow to reveal his personality.
+                        Time is his best ally.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center my-4">
+            <div>
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">SHAKING AND DEGORGING</h2>
+            </div>
+        </div>
+        <div class="savoirfaire-slide6 relpos">
+            <div id="Remuage" class="anchor">
+            </div>
+            <div class="text-white txt-s-6 segoe w-50-r">
+                <h3 class="text-weight-bold my-3 fs-16">Ultimate preparations</h3>
+                <div class="sf-txt">
+                    <p>
+                        During ridddling, the bottles are gradually brought to the so-called "tip position", neck down, and shaked daily to collect the dregs on the cork.
+                    </p>
+                    <p>
+                        At degorging, the dregs are expelled and replaced by the liquor, made of cane sugar dissolved in an old wine of Champagne. This operation which, by its dosage in sugar, will defined the name BRUT or DEMI-SEC of the Champagne
+                    </p>
+                    <p>
+                        The bottle then receives its cork plug and muselet, before being individually controlled
+                    </p>
+                    <p>
+                        Finally, th bottle will come down again 3 to 4 months in cellar before its commercialization to allow a good homogenization of the wine and the liquor.
+                    </p>
+                </div>
+            </div>
 
-    </div>
+        </div>
+        <div class="container text-center my-5">
+
+            <div class="segoe font-weight-bold active my-3 fs-12">
+                « IT IS A MYSTERIOUS ALCHEMY WHERE THE DARK CELLAR DUG<br>
+                INTO THE CHALK ALLOW TRANSMUTATIONS FROM WHICH THE GOLD LIQUID<br>
+                AND THE AERIAL BUBBLES WILL APPEAR. <br>
+                THIS SECRET HAS A NAME: WORK, WORK AND WORK »
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
+        </div>
+        <div class="savoirfaire-slide7">
+
+        </div>
+        <div class="relpos">
+            <div id="Gastronomie" class="anchor">
+            </div>
+            <div class="text-center py-4">
+                <h2 class="fs-15 font-weight-bold fc-grey-cs py-4">FINE DINING</h2>
+            </div>
+            {{ render(controller(
+                'App\\Controller\\DefaultController::foodGrid'
+            )) }}
+
+        </div>
+        <div class="container text-center my-5">
+
+            <div class="segoe font-weight-bold active fs-12">
+                « CHAMPAGNE IS THE CIVILIZATION'S WINE »
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Talleyrand</div>
+
+        </div>
+    {% endif %}
 
 {% endblock %}
 
