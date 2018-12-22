@@ -83,6 +83,7 @@ $(selectCountry).change(function(){
     verifyCookieAndUpdateLegalAge();
 });
 
+
 function verifyCookieAndUpdateLegalAge() {
     if (readCookie('isAgeOK') === null) {
         var choiceCountry = selectCountry.value;
@@ -106,6 +107,11 @@ function verifyCookieAndUpdateLegalAge() {
         $("#age-verification").css('display', 'none');
         console.log(selectCountry.value);
         createCookie('isAgeOK', 1);
+    });
+
+    $('.chg-lg').on("click", function () {
+        createCookie('lg', this.id);
+        location.reload();
     });
 
 
