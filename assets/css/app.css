@@ -3,6 +3,10 @@
     src: url('../../public/ressource/fonts/AlexBrush-Regular.ttf');
 }
 
+.underline:hover{
+    text-decoration: underline;
+}
+
 #header{background-color: white;}
 
 .header-list, .footer-list {
@@ -19,14 +23,14 @@
 
 
 
-.footer-list a {
+.footer-list a, .footer-list div {
     display: block;
     font-family: "Book Antiqua", sans-serif;
     font-size: 0.8vw;
 }
 
 
-.header-list li a, .footer-list li a {
+.header-list li a, .footer-list li a, .footer-list li div {
     display: block;
     color: white;
     text-align: center;
@@ -213,7 +217,7 @@
     text-align: center;
 }
 
-#header-nav > ul li a, #footer-nav > ul li a{
+#header-nav > ul li a, #footer-nav > ul li a, #footer-nav ul li div{
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -514,7 +518,7 @@
         grid-template-rows: 25vw 25vw 25vw;
     }
 
-    #header-nav > ul li a, #footer-nav > ul li a{
+    #header-nav > ul li a, #footer-nav > ul li a, #footer-nav ul li div{
         letter-spacing: 1px;
         font-size: 1.6vw;
     }
@@ -628,7 +632,7 @@
         grid-template-rows: 25vw 25vw 25vw;
     }
 
-    #header-nav > ul li a, #footer-nav > ul li a{
+    #header-nav > ul li a, #footer-nav > ul li a, #footer-nav ul li div{
         letter-spacing: 1px;
         font-size: 1.6vw;
     }
@@ -745,7 +749,7 @@
         grid-template-rows: 25vw 25vw 25vw;
     }
 
-    #header-nav > ul li a, #footer-nav > ul li a{
+    #header-nav > ul li a, #footer-nav > ul li a, #footer-nav ul li div{
         letter-spacing: 1px;
         font-size: 1.6vw;
     }
@@ -858,7 +862,7 @@
         grid-template-rows: 25vw 25vw 25vw;
     }
 
-    #header-nav > ul li a, #footer-nav > ul li a{
+    #header-nav > ul li a, #footer-nav > ul li a, #footer-nav > ul li div{
         letter-spacing: 1px;
         font-size: 1.6vw;
     }
