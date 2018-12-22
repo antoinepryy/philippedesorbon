@@ -45,9 +45,6 @@ contact:
 logout:
     path: /Logout
 
-commande:
-    path: /Commande
-    controller: App\Controller\DefaultController::commande
 
 checkout:
     path: /Checkout

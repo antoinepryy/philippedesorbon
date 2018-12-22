@@ -23,36 +23,41 @@ class DefaultController extends Controller
 {
     public function index(CartManager $cartManager, LanguageManager $languageManager)
     {
-        $lg = $languageManager->getLanguageUsingCookie();
         $cartSize = $cartManager->cartSize();
         return $this->render('view/accueil.html.twig',[
             "cartSize" => $cartSize,
-            "lg"=>$lg
+            "lg"=>$languageManager->getLanguageUsingCookie()
         ]);
     }
 
-    public function maison(CartManager $cartManager)
+    public function maison(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/maison.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/maison.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+            ]);
     }
 
-    public function savoirfaire(CartManager $cartManager)
+    public function savoirfaire(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/savoirfaire.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/savoirfaire.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ]);
     }
 
-    public function champagnes(CartManager $cartManager)
+    public function champagnes(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/champagnes.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/champagnes.html.twig', [
+            "cartSize" => $cartSize,
+            "lg" => $languageManager->getLanguageUsingCookie()
+        ]);
     }
 
-    public function champagneShow($id, CartManager $cartManager)
+    public function champagneShow($id, CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $product = $this->getDoctrine()
@@ -63,18 +68,21 @@ class DefaultController extends Controller
         }
         return $this->render('view/champagneShow.html.twig', [
             'champagne' => $product,
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'lg'=>$languageManager->getLanguageUsingCookie()
         ]);
     }
 
-    public function vignoble(CartManager $cartManager)
+    public function vignoble(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/vignoble.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/vignoble.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ]);
     }
 
-    public function boutique(CartManager $cartManager)
+    public function boutique(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -98,11 +106,12 @@ class DefaultController extends Controller
                 'champagneCollection' => $champagneListCollection,
                 'champagneWithoutOption' => $champagneWithoutOption,
                 'champagneWithOption' => $champagneWithOption,
-                'cartSize' => $cartSize
+                'cartSize' => $cartSize,
+                'lg'=>$languageManager->getLanguageUsingCookie()
             ]);
     }
 
-    public function panier(CartManager $cartManager)
+    public function panier(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -126,44 +135,35 @@ class DefaultController extends Controller
                 'champagneCollection' => $champagneListCollection,
                 'champagneWithoutOption' => $champagneWithoutOption,
                 'champagneWithOption' => $champagneWithOption,
-                'cartSize' => $cartSize
+                'cartSize' => $cartSize,
+                'lg'=>$languageManager->getLanguageUsingCookie()
             ]);
     }
 
-    public function mentionslegales(CartManager $cartManager)
+    public function mentionslegales(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/mentionslegales.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/mentionslegales.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ]);
     }
 
-    public function contact(CartManager $cartManager)
+    public function contact(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/contact.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/contact.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ]);
     }
 
-    public function cgv(CartManager $cartManager){
+    public function cgv(CartManager $cartManager, LanguageManager $languageManager){
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/cgv.html.twig',
-            ["cartSize" => $cartSize]);
-    }
-
-    public function commande(SessionInterface $session, CartManager $cartManager)
-    {
-        $cart = $session->get('cart');
-        $cartSize = $cartManager->cartSize();
-        $repository = $this->getDoctrine()->getRepository(Champagne::class);
-        $champagneListClassique = $repository->findBy(['type' => 'Classique']);
-        $champagneListCollection = $repository->findBy(['type' => 'Collection']);
-        return $this->render('view/commande.html.twig',
-            [
-                'champagneClassique' => $champagneListClassique,
-                'champagneCollection' => $champagneListCollection,
-                'cart' => $cart,
-                'cartSize' => $cartSize
-            ]);
+        return $this->render('view/cgv.html.twig', [
+            "cartSize" => $cartSize,
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ]);
     }
 
 
@@ -186,7 +186,7 @@ class DefaultController extends Controller
         return $this->render('view/foodGrid.html.twig');
     }
 
-    public function gastronomie($plat, CartManager $cartManager)
+    public function gastronomie($plat, CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         switch ($plat) {
@@ -219,7 +219,8 @@ class DefaultController extends Controller
                 break;
         }
         return $this->render('view/food/' . $food . '.html.twig', [
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 
