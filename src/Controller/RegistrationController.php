@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/Inscription", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session, ValidatorInterface $validator, CartManager $cartManager)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager)
     {
 
         $cartSize = $cartManager->cartSize();

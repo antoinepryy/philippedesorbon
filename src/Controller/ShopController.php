@@ -28,7 +28,7 @@ class ShopController extends Controller
     /**
      * @Route("/GetCart", name="get_cart")
      */
-    public function getCart(SessionInterface $session,Request $request){
+    public function getCart(SessionInterface $session){
 
         // cart scheme => [[id champ, qtt, id option  (optional) ], .. ]
         // return  => [[id champ, qtt, price (optional) ], .. ]

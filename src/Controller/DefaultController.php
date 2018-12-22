@@ -21,37 +21,38 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class DefaultController extends Controller
 {
-    public function index(SessionInterface $session, CartManager $cartManager, LanguageManager $languageManager)
+    public function index(CartManager $cartManager, LanguageManager $languageManager)
     {
         $lg = $languageManager->getLanguageUsingCookie();
-        die(var_dump($lg));
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/accueil.html.twig',
-            ["cartSize" => $cartSize]);
+        return $this->render('view/accueil.html.twig',[
+            "cartSize" => $cartSize,
+            "lg"=>$lg
+        ]);
     }
 
-    public function maison(SessionInterface $session, CartManager $cartManager)
+    public function maison(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/maison.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function savoirfaire(SessionInterface $session, CartManager $cartManager)
+    public function savoirfaire(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/savoirfaire.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function champagnes(SessionInterface $session, CartManager $cartManager)
+    public function champagnes(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/champagnes.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function champagneShow($id, SessionInterface $session, CartManager $cartManager)
+    public function champagneShow($id, CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $product = $this->getDoctrine()
@@ -66,14 +67,14 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function vignoble(SessionInterface $session, CartManager $cartManager)
+    public function vignoble(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/vignoble.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function boutique(SessionInterface $session, CartManager $cartManager)
+    public function boutique(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -101,7 +102,7 @@ class DefaultController extends Controller
             ]);
     }
 
-    public function panier(SessionInterface $session, CartManager $cartManager)
+    public function panier(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -129,14 +130,14 @@ class DefaultController extends Controller
             ]);
     }
 
-    public function mentionslegales(SessionInterface $session, CartManager $cartManager)
+    public function mentionslegales(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/mentionslegales.html.twig',
             ["cartSize" => $cartSize]);
     }
 
-    public function contact(SessionInterface $session, CartManager $cartManager)
+    public function contact(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         return $this->render('view/contact.html.twig',
@@ -149,7 +150,7 @@ class DefaultController extends Controller
             ["cartSize" => $cartSize]);
     }
 
-    public function commande(SessionInterface $session, Request $request, CartManager $cartManager)
+    public function commande(SessionInterface $session, CartManager $cartManager)
     {
         $cart = $session->get('cart');
         $cartSize = $cartManager->cartSize();
@@ -166,7 +167,7 @@ class DefaultController extends Controller
     }
 
 
-    public function showBottles(SessionInterface $session, CartManager $cartManager)
+    public function showBottles(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -185,7 +186,7 @@ class DefaultController extends Controller
         return $this->render('view/foodGrid.html.twig');
     }
 
-    public function gastronomie($plat, SessionInterface $session, CartManager $cartManager)
+    public function gastronomie($plat, CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         switch ($plat) {

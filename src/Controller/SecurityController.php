@@ -34,7 +34,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/Connexion", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils, SessionInterface $session, CartManager $cartManager)
+    public function login(AuthenticationUtils $authenticationUtils, CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MotDePasseOublie", name="forgot_password")
      */
-    public function forgotPassword(SessionInterface $session, Request $request, \Swift_Mailer $mailer, CartManager $cartManager)
+    public function forgotPassword(Request $request, \Swift_Mailer $mailer, CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
         $defaultData = [];
@@ -119,7 +119,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/RecupererMotDePasse/{hashCode}", name="recover_password")
      */
-    public function recoverPassword(SessionInterface $session, Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode, CartManager $cartManager){
+    public function recoverPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode, CartManager $cartManager){
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(User::class);
         $foundUser = $repository->findOneBy([
@@ -166,7 +166,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MonCompte", name="compte")
      */
-    public function account(SessionInterface $session, Request $request, CartManager $cartManager)
+    public function account(CartManager $cartManager)
     {
         $cartSize = $cartManager->cartSize();
 
@@ -184,7 +184,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
-    public function changePassword(SessionInterface $session, Request $request,  UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager){
+    public function changePassword(Request $request,  UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager){
 
         $cartSize = $cartManager->cartSize();
 
@@ -231,7 +231,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ModifierInformations", name="change_infos")
      */
-    public function changeInfos(SessionInterface $session, Request $request, CartManager $cartManager ){
+    public function changeInfos(Request $request, CartManager $cartManager ){
         $cartSize = $cartManager->cartSize();
 
         $user = $this->getUser();
@@ -303,7 +303,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MesCommandes", name="my_orders")
      */
-    public function myOrders(SessionInterface $session, Request $request, CartManager $cartManager ){
+    public function myOrders(CartManager $cartManager ){
         $cartSize = $cartManager->cartSize();
 
         $repository = $this->getDoctrine()->getRepository(Commande::class);
@@ -321,7 +321,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/Commande/{id}", name="order_content")
      */
-    public function orderContent($id, SessionInterface $session, Request $request, CartManager $cartManager ){
+    public function orderContent($id, CartManager $cartManager ){
         $cartSize = $cartManager->cartSize();
 
         $repository = $this->getDoctrine()->getRepository(Commande::class);
