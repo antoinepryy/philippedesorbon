@@ -350,9 +350,5 @@ class SecurityController extends AbstractController
         else{
             throw $this->createNotFoundException('Cette commande n\'existe pas');
         }
-
     }
-
-
-
 }
