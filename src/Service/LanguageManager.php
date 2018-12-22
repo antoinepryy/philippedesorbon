@@ -27,7 +27,7 @@ class LanguageManager
         if ($languageCookie === null){
             return 'fr';
         }
-        return $languageCookie;
+        return 'en';
     }
 
 }
