@@ -1,329 +1,680 @@
 {% extends 'base.html.twig' %}
 
 {% block meta %}
-<title>Maison</title>
-<meta name="description" content="Histoire d'une famille au service du vin depuis plus d'un siècle">
+    <title>Maison</title>
+    <meta name="description" content="Histoire d'une famille au service du vin depuis plus d'un siècle">
 {% endblock %}
 
 {% block content %}
 
-    <div class="maison-slide1 relpos">
-        <div style="position: absolute; left: 10%; bottom: 10%;" class="text-center">
-            <h1 class="segoe text-white fs-12 font-weight-normal">
-                Histoire d'une famille au service du vin<br> depuis plus d'un siècle...
-            </h1>
-        </div>
-    </div>
-    <nav id="maison-nav" class="sticky-nav-sec z-index-nav-sec">
-        <ul class="maison-list justify-content-around fs-1" >
-            <li class="px-3"><a href="#Histoire">Histoire d'un passion partagée</a></li>
-            <li class="px-3"><a href="#Why">Pourquoi Philippe de Sorbon ?</a></li>
-            <li class="px-3"><a href="#Origines">Origines du mythe Champagne</a></li>
-        </ul>
-    </nav>
-
-    <div class="container-fluid text-center py-4">
-
-        <div class="segoe font-weight-bold active my-4 fs-13">
-            "LE CHAMPAGNE NOUS REVELE A NOUS-MEMES ET AUX AUTRES.<br>
-            IL NOUS MET EN EFFERVESCENCE"
-        </div>
-        <div class="edwardian active my-3 fs-15 w-75 ml-auto">Auguste Tétard  - Fondateur des champagnes Philippe de Sorbon</div>
-    </div>
-
-
-    <div class="maison-slide2"></div>
-    <div class="histoire-container container text-center py-3 relpos">
-        <div id="Histoire" class="anchor">
-        </div>
-        <h2 class="fs-16">Histoire d'une passion partagée</h2>
-        <div class="container-fluid hide-mobile">
-            <div class="row fs-08">
-                <div class="col-md-3 col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}" alt="picture of Auguste TETARD">
-                </div>
-                <div class="col-md-3 col-6 py-3">
-                    <span class="font-weight-bold">1922</span>
-                    <p>
-                        Maximilien TETARD, son fils, lui<br>
-                        succède et, 60 ans durant,<br>
-                        consacre sa vie à son affaire.<br> Fin
-                        dégustateur, il imprime à sa<br>
-                        Maison une réputation de sérieux<br>
-                        et de qualité.
-                    </p>
-
-                </div>
-                <div class="col-md-3 col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}" alt="picture of Nicole TETARD">
-                </div>
-                <div class="col-md-3 col-6 py-3">
-                    <span class="font-weight-bold">1989</span>
-                    <p>
-                        4ème génération: Martine WALLAERT-<br>
-                        LATHUILLIERE, secondée par son frère Philippe, partage la passion de ses<br>
-                        ancêtres et demeure très attachée à<br>
-                        l’élaboration traditionnelle des<br>
-                        Champagnes Philippe de Sorbon
-                    </p>
-                </div>
+    {% if lg == 'fr' %}
+        <div class="maison-slide1 relpos">
+            <div style="position: absolute; left: 10%; bottom: 10%;" class="text-center">
+                <h1 class="segoe text-white fs-12 font-weight-normal">
+                    Histoire d'une famille au service du vin<br> depuis plus d'un siècle...
+                </h1>
             </div>
-            <div class="row fs-08">
-                <div class="col-md-3 col-6 py-3">
+        </div>
+        <nav id="maison-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="maison-list justify-content-around fs-1">
+                <li class="px-3"><a href="#Histoire">Histoire d'un passion partagée</a></li>
+                <li class="px-3"><a href="#Why">Pourquoi Philippe de Sorbon ?</a></li>
+                <li class="px-3"><a href="#Origines">Origines du mythe Champagne</a></li>
+            </ul>
+        </nav>
 
-                    <span class="font-weight-bold">1901</span>
-                    <p>
-                        Auguste TETARD quitte sa<br> Creuse natale
-                        et s’installe en<br>Champagne, il est marchand<br>de vins.
-                    </p>
+        <div class="container-fluid text-center py-4">
 
-                </div>
-                <div class="col-md-3 col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}" alt="picture of Maximilien TETARD">
-                </div>
-                <div class="col-md-3 col-6 py-3">
-                    <span class="font-weight-bold">1968</span>
-                    <p>
-                        Nicole LATHUILLIERE-TETARD, sa petite-fille,
-                        acquiert des vignes à Verzenay,<br>
-                        Grand Cru, fleuron de la Champagne.<br>
-                        Oenologue, elle continue le développement<br> de l’entreprise
-                        familiale et assure une<br> qualité constante de ses Champagnes
-                    </p>
-                </div>
-                <div class="col-md-3 col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}" alt="picture of Martine WALLAERT">
-                </div>
+            <div class="segoe font-weight-bold active my-4 fs-13">
+                "LE CHAMPAGNE NOUS REVELE A NOUS-MEMES ET AUX AUTRES.<br>
+                IL NOUS MET EN EFFERVESCENCE"
+            </div>
+            <div class="edwardian active my-3 fs-15 w-75 ml-auto">Auguste Tétard - Fondateur des champagnes Philippe de
+                Sorbon
             </div>
         </div>
 
 
+        <div class="maison-slide2"></div>
+        <div class="histoire-container container text-center py-3 relpos">
+            <div id="Histoire" class="anchor">
+            </div>
+            <h2 class="fs-16">Histoire d'une passion partagée</h2>
+            <div class="container-fluid hide-mobile">
+                <div class="row fs-08">
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}"
+                             alt="picture of Auguste TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1922</span>
+                        <p>
+                            Maximilien TETARD, son fils, lui<br>
+                            succède et, 60 ans durant,<br>
+                            consacre sa vie à son affaire.<br> Fin
+                            dégustateur, il imprime à sa<br>
+                            Maison une réputation de sérieux<br>
+                            et de qualité.
+                        </p>
 
-
-
-        <div style="display: none" class="unhide-mobile">
-            <div class="row fs-08">
-                <div class="col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}" alt="picture of Auguste TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}"
+                             alt="picture of Nicole TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1989</span>
+                        <p>
+                            4ème génération: Martine WALLAERT-<br>
+                            LATHUILLIERE, secondée par son frère Philippe, partage la passion de ses<br>
+                            ancêtres et demeure très attachée à<br>
+                            l’élaboration traditionnelle des<br>
+                            Champagnes Philippe de Sorbon
+                        </p>
+                    </div>
                 </div>
-                <div class="col-6 py-3">
-                    <span class="font-weight-bold">1901</span>
-                    <p>
-                        Auguste TETARD quitte sa<br> Creuse natale
-                        et s’installe en<br>Champagne, il est marchand<br>de vins.
-                    </p>
+                <div class="row fs-08">
+                    <div class="col-md-3 col-6 py-3">
+
+                        <span class="font-weight-bold">1901</span>
+                        <p>
+                            Auguste TETARD quitte sa<br> Creuse natale
+                            et s’installe en<br>Champagne, il est marchand<br>de vins.
+                        </p>
+
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}"
+                             alt="picture of Maximilien TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1968</span>
+                        <p>
+                            Nicole LATHUILLIERE-TETARD, sa petite-fille,
+                            acquiert des vignes à Verzenay,<br>
+                            Grand Cru, fleuron de la Champagne.<br>
+                            Oenologue, elle continue le développement<br> de l’entreprise
+                            familiale et assure une<br> qualité constante de ses Champagnes
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}"
+                             alt="picture of Martine WALLAERT">
+                    </div>
                 </div>
             </div>
-            <div class="row fs-08">
-                <div class="col-6 py-3">
-                    <span class="font-weight-bold">1922</span>
-                    <p>
-                        Maximilien TETARD, son fils, lui<br>
-                        succède et, 60 ans durant,<br>
-                        consacre sa vie à son affaire.<br> Fin
-                        dégustateur, il imprime à sa<br>
-                        Maison une réputation de sérieux<br>
-                        et de qualité.
-                    </p>
-                </div>
-                <div class="col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}" alt="picture of Maximilien TETARD">
-                </div>
 
+
+            <div style="display: none" class="unhide-mobile">
+                <div class="row fs-08">
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}"
+                             alt="picture of Auguste TETARD">
+                    </div>
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1901</span>
+                        <p>
+                            Auguste TETARD quitte sa<br> Creuse natale
+                            et s’installe en<br>Champagne, il est marchand<br>de vins.
+                        </p>
+                    </div>
+                </div>
+                <div class="row fs-08">
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1922</span>
+                        <p>
+                            Maximilien TETARD, son fils, lui<br>
+                            succède et, 60 ans durant,<br>
+                            consacre sa vie à son affaire.<br> Fin
+                            dégustateur, il imprime à sa<br>
+                            Maison une réputation de sérieux<br>
+                            et de qualité.
+                        </p>
+                    </div>
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}"
+                             alt="picture of Maximilien TETARD">
+                    </div>
+
+                </div>
+                <div class="row fs-08">
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}"
+                             alt="picture of Nicole TETARD">
+                    </div>
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1968</span>
+                        <p>
+                            Nicole LATHUILLIERE-TETARD, sa petite-fille,
+                            acquiert des vignes à Verzenay,<br>
+                            Grand Cru, fleuron de la Champagne.<br>
+                            Oenologue, elle continue le développement<br> de l’entreprise
+                            familiale et assure une<br> qualité constante de ses Champagnes
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row fs-08">
+
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1989</span>
+                        <p>
+                            4ème génération: Martine WALLAERT-<br>
+                            LATHUILLIERE, secondée par son frère Philippe, partage la passion de ses<br>
+                            ancêtres et demeure très attachée à<br>
+                            l’élaboration traditionnelle des<br>
+                            Champagnes Philippe de Sorbon
+                        </p>
+                    </div>
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}"
+                             alt="picture of Martine WALLAERT">
+                    </div>
+                </div>
             </div>
-            <div class="row fs-08">
-                <div class="col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}" alt="picture of Nicole TETARD">
-                </div>
-                <div class="col-6 py-3">
-                    <span class="font-weight-bold">1968</span>
-                    <p>
-                        Nicole LATHUILLIERE-TETARD, sa petite-fille,
-                        acquiert des vignes à Verzenay,<br>
-                        Grand Cru, fleuron de la Champagne.<br>
-                        Oenologue, elle continue le développement<br> de l’entreprise
-                        familiale et assure une<br> qualité constante de ses Champagnes
-                    </p>
-                </div>
-
-            </div>
-            <div class="row fs-08">
-
-                <div class="col-6 py-3">
-                    <span class="font-weight-bold">1989</span>
-                    <p>
-                        4ème génération: Martine WALLAERT-<br>
-                        LATHUILLIERE, secondée par son frère Philippe, partage la passion de ses<br>
-                        ancêtres et demeure très attachée à<br>
-                        l’élaboration traditionnelle des<br>
-                        Champagnes Philippe de Sorbon
-                    </p>
-                </div>
-                <div class="col-6 relpos house-picture">
-                    <img class="center-div" src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}" alt="picture of Martine WALLAERT">
-                </div>
-            </div>
-        </div>
 
 
-        <div class="segoe maison-txt fs-12 font-weight-bold container">
-            <p>dont plusieurs milliers de bouteilles sont appréciées
-                chaque année par de nombreux amateurs avertis.
-            </p>
-            <p>...la cinquième génération apprend avec
-                patience le métier de vigneron et participe depuis
-                plusieurs années avec enthousiasme aux travaux
-                de la vigne et aux vendanges.
-        </div>
-
-
-    </div>
-    <div class="maison-slide3">
-
-
-    </div>
-    <div class="relpos pt-5">
-
-        <div class="bg-grey-cs my-5 p-5 segoe mx-auto display-flex-pc text-center"  style="width: 80%;">
-            <div id="Why" class="anchor">
-            </div>
-            <div class="w-25-pc relpos pds-container">
-                <img class="center-div sorbon-img" src="{{ asset('ressource/image/maison/Robert_SORBON.jpg') }}" alt="picture of Robert SORBON">
-            </div>
-            <div class="w-75-pc text-center text-white my-4">
-                <h2 class="fs-14 mb-4">POURQUOI PHILIPPE DE SORBON ?</h2>
-                <p class="fs-1">Travaillant dans les « galipes » (vignes, en patois champenois)
-                    depuis l’âge de 12 ans,<br> notre grand-père Maximilien TETARD rêvait
-                    d’étudier et d’aller à l’Université. Il était un<br> fervent admirateur
-                    de Robert de SORBON, enfant du pays Champenois, fondateur au<br> XIIIème
-                    siècle de la SORBONNE qui offrait aux enfants pauvres l’accès au Savoir.
+            <div class="segoe maison-txt fs-12 font-weight-bold container">
+                <p>dont plusieurs milliers de bouteilles sont appréciées
+                    chaque année par de nombreux amateurs avertis.
                 </p>
-                <p class="fs-1">Aussi, a-t-il rendu hommage à cet érudit religieux exceptionnel,
-                    en donnant son nom<br> aux Champagnes qu’il élaborait avec amour.
+                <p>...la cinquième génération apprend avec
+                    patience le métier de vigneron et participe depuis
+                    plusieurs années avec enthousiasme aux travaux
+                    de la vigne et aux vendanges.
                 </p>
-
             </div>
+        </div>
+        <div class="maison-slide3">
+
 
         </div>
-        <div class="origine-title text-center fc-grey-cs relpos">
-            <div id="Origines" class="anchor">
+        <div class="relpos pt-5">
+
+            <div class="bg-grey-cs my-5 p-5 segoe mx-auto display-flex-pc text-center" style="width: 80%;">
+                <div id="Why" class="anchor">
+                </div>
+                <div class="w-25-pc relpos pds-container">
+                    <img class="center-div sorbon-img" src="{{ asset('ressource/image/maison/Robert_SORBON.jpg') }}"
+                         alt="picture of Robert SORBON">
+                </div>
+                <div class="w-75-pc text-center text-white my-4">
+                    <h2 class="fs-14 mb-4">POURQUOI PHILIPPE DE SORBON ?</h2>
+                    <p class="fs-1">Travaillant dans les « galipes » (vignes, en patois champenois)
+                        depuis l’âge de 12 ans,<br> notre grand-père Maximilien TETARD rêvait
+                        d’étudier et d’aller à l’Université. Il était un<br> fervent admirateur
+                        de Robert de SORBON, enfant du pays Champenois, fondateur au<br> XIIIème
+                        siècle de la SORBONNE qui offrait aux enfants pauvres l’accès au Savoir.
+                    </p>
+                    <p class="fs-1">Aussi, a-t-il rendu hommage à cet érudit religieux exceptionnel,
+                        en donnant son nom<br> aux Champagnes qu’il élaborait avec amour.
+                    </p>
+
+                </div>
+
             </div>
-            <h2 class="mt-5 mb-2 fs-16">Origines du mythe Champagne</h2>
-            <p class="fs-1">
-                Une longue et belle histoire d'hommes et de terroirs
-            </p>
-        </div>
-        <div class="container-fluid text-center fc-grey-cs anim-container">
-            <div class="my-4 slide-anim">
-                <div class="relpos">
-                    <div id="slide-container" >
-                        <div id="pict-1" class="slide-maison" >
-                            <img  src="{{ asset('ressource/image/maison/slide_1.jpg') }}" alt="mosaïque Moyen-Age mettant en scène deux personnages">
+            <div class="origine-title text-center fc-grey-cs relpos">
+                <div id="Origines" class="anchor">
+                </div>
+                <h2 class="mt-5 mb-2 fs-16">Origines du mythe Champagne</h2>
+                <p class="fs-1">
+                    Une longue et belle histoire d'hommes et de terroirs
+                </p>
+            </div>
+            <div class="container-fluid text-center fc-grey-cs anim-container">
+                <div class="my-4 slide-anim">
+                    <div class="relpos">
+                        <div id="slide-container">
+                            <div id="pict-1" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_1.jpg') }}"
+                                     alt="mosaïque Moyen-Age mettant en scène deux personnages">
+                            </div>
+                            <div id="pict-2" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_2.jpg') }}"
+                                     alt="vitrail mettant en scène l'écrasement du raisin">
+                            </div>
+                            <div id="pict-3" class="slide-maison slide-active">
+                                <img src="{{ asset('ressource/image/maison/slide_3.jpg') }}"
+                                     alt="picture of Dom Pérignon">
+                            </div>
+                            <div id="pict-4" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_4.jpg') }}"
+                                     alt="peinture du 18ème siècle">
+                            </div>
+                            <div id="pict-5" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_5.jpg') }}"
+                                     alt="image de Paris en noir et blanc">
+                            </div>
                         </div>
-                        <div id="pict-2" class="slide-maison" >
-                            <img  src="{{ asset('ressource/image/maison/slide_2.jpg') }}" alt="vitrail mettant en scène l'écrasement du raisin">
-                        </div>
-                        <div id="pict-3" class="slide-maison slide-active" >
-                            <img  src="{{ asset('ressource/image/maison/slide_3.jpg') }}" alt="picture of Dom Pérignon">
-                        </div>
-                        <div id="pict-4" class="slide-maison" >
-                            <img  src="{{ asset('ressource/image/maison/slide_4.jpg') }}" alt="peinture du 18ème siècle">
-                        </div>
-                        <div id="pict-5" class="slide-maison" >
-                            <img  src="{{ asset('ressource/image/maison/slide_5.jpg') }}" alt="image de Paris en noir et blanc">
-                        </div>
+                    </div>
+
+                </div>
+
+                <div class="m-auto bar-container">
+                    <div class="bar">
+                    </div>
+                    <div id="circle-1" class="circle">
+                    </div>
+                    <div id="circle-2" class="circle">
+                    </div>
+                    <div id="circle-3" class="circle  circle-active">
+                    </div>
+                    <div id="circle-4" class="circle">
+                    </div>
+                    <div id="circle-5" class="circle">
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 0%; top: 50%; transform: translate(-50%,-50%)">
+                        III
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 25%; top: 50%; transform: translate(-50%,-50%)">
+                        XIII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 50%; top: 50%; transform: translate(-50%,-50%)">
+                        XVII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 75%; top: 50%; transform: translate(-50%,-50%)">
+                        XVIII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 100%; top: 50%; transform: translate(-50%,-50%)">
+                        XIX
+                    </div>
+                </div>
+                <div class="w-75 m-auto text-center fs-1">
+                    <div id="anim-txt-1" class="anim-txt">
+                        <p>
+                            On retrouve trace de vignobles en<br> Champagne, campania en latin,
+                            dès<br> l’époque Romaine, mais ce sont<br> indéniablement les religieux
+                            qui au<br> Moyen-Age développeront les vins<br> tranquilles de Champagne.
+                        </p>
+                    </div>
+                    <div id="anim-txt-2" class="anim-txt display-none">
+                        <p>
+                            Au XIIIème, la culture de la vigne se généralise, les<br> métayers
+                            obtiennent des terres en contrepartie<br> d’une « tenure à vinage »,
+                            c’est-à-dire l’obligation<br> de fournir en vins leurs seigneurs, les
+                            Comtes de<br> Champagne. Affirmant leur réputation au XVIème<br> siècle,
+                            ces vins clairs champenois rivalisent avec<br> les Bourgognes sur les tables royales.
+                        </p>
+                    </div>
+                    <div id="anim-txt-3" class="anim-txt display-none">
+                        <p>
+                            La fin du XVIIème voit la naissance des premiers<br>
+                            flacons et l’apparition d’un pétillement spontané<br> des vins alors inexpliqué.
+                        </p>
+                        <p>
+
+                            Dom Pérignon, cellérier de l’Abbaye d’Hautvillers,<br> ainsi que le frère Oudard,
+                            s’intéressent à cette<br> deuxième fermentation des vins qu’ils<br> sélectionnent et
+                            assemblent avec amour.<br> Ils obtiennent un vin clair à la mousse persistante :<br>
+                            <span class="font-weight-bold">Le Champagne est né...</span>
+                        </p>
+                    </div>
+                    <div id="anim-txt-4" class="anim-txt display-none">
+                        <p>
+                            Le développement commercial commence à la<br> fin du XVIIIème
+                            siècle grâce à l’apparition de<br> « flacons » plus résistants
+                            et à une meilleure<br> maîtrise de la prise de mousse.
+                        </p>
+                    </div>
+                    <div id="anim-txt-5" class="anim-txt display-none">
+                        <p>
+                            Au XIXème siècle, le monde entier<br> s’enthousiasme.<br><br>
+                            <span class="font-weight-bold">le Vin des Rois devient Roi des Vins</span><br><br>
+                            et le Champagne n’aura plus qu’un seul but...<br><br>
+                            <span class="font-weight-bold">faire de chaque instant une fête.</span><br>
+                        </p>
                     </div>
                 </div>
 
             </div>
 
-            <div class="m-auto bar-container">
-                <div class="bar">
+            <div class="text-center my-5">
+                <div class="segoe font-weight-bold active my-3 fs-14">
+                    "VENEZ MES FRERES, JE BOIS DES ETOILES"
                 </div>
-                <div id="circle-1" class="circle">
-                </div>
-                <div id="circle-2" class="circle">
-                </div>
-                <div id="circle-3" class="circle  circle-active">
-                </div>
-                <div id="circle-4" class="circle">
-                </div>
-                <div id="circle-5" class="circle">
-                </div>
-                <div class="date-1 active font-weight-bold"  style="position:absolute;left: 0%; top: 50%; transform: translate(-50%,-50%)">
-                    III
-                </div>
-                <div class="date-1 active font-weight-bold" style="position:absolute;left: 25%; top: 50%; transform: translate(-50%,-50%)">
-                    XIII
-                </div>
-                <div class="date-1 active font-weight-bold" style="position:absolute;left: 50%; top: 50%; transform: translate(-50%,-50%)">
-                    XVII
-                </div>
-                <div class="date-1 active font-weight-bold" style="position:absolute;left: 75%; top: 50%; transform: translate(-50%,-50%)">
-                    XVIII
-                </div>
-                <div class="date-1 active font-weight-bold" style="position:absolute;left: 100%; top: 50%; transform: translate(-50%,-50%)">
-                    XIX
-                </div>
+                <div class="edwardian active my-3 fs-14 w-75 ml-auto">Dom Pérignon</div>
             </div>
-            <div class="w-75 m-auto text-center fs-1">
-                <div id="anim-txt-1" class="anim-txt">
-                    <p>
-                        On retrouve trace de vignobles en<br> Champagne, campania en latin,
-                        dès<br> l’époque Romaine, mais ce sont<br> indéniablement les religieux
-                        qui au<br> Moyen-Age développeront les vins<br> tranquilles de Champagne.
-                    </p>
-                </div>
-                <div id="anim-txt-2" class="anim-txt display-none">
-                    <p>
-                        Au XIIIème, la culture de la vigne se généralise, les<br> métayers
-                        obtiennent des terres en contrepartie<br> d’une « tenure à vinage »,
-                        c’est-à-dire l’obligation<br> de fournir en vins leurs seigneurs, les
-                        Comtes de<br> Champagne. Affirmant leur réputation au XVIème<br> siècle,
-                        ces vins clairs champenois rivalisent avec<br> les Bourgognes sur les tables royales.
-                    </p>
-                </div>
-                <div id="anim-txt-3" class="anim-txt display-none">
-                    <p>
-                        La fin du XVIIème voit la naissance des premiers<br>
-                        flacons et l’apparition d’un pétillement spontané<br> des vins alors inexpliqué.
-                    </p>
-                    <p>
-
-                        Dom Pérignon, cellérier de l’Abbaye d’Hautvillers,<br> ainsi que le frère Oudard,
-                        s’intéressent à cette<br> deuxième fermentation des vins qu’ils<br> sélectionnent et
-                        assemblent avec amour.<br> Ils obtiennent un vin clair à la mousse persistante :<br>
-                        <span class="font-weight-bold">Le Champagne est né...</span>
-                    </p>
-                </div>
-                <div id="anim-txt-4" class="anim-txt display-none">
-                    <p>
-                        Le développement commercial commence à la<br> fin du XVIIIème
-                        siècle grâce à l’apparition de<br> « flacons » plus résistants
-                        et à une meilleure<br> maîtrise de la prise de mousse.
-                    </p>
-                </div>
-                <div id="anim-txt-5" class="anim-txt display-none">
-                    <p>
-                        Au XIXème siècle, le monde entier<br> s’enthousiasme.<br><br>
-                        <span class="font-weight-bold">le Vin des Rois devient Roi des Vins</span><br><br>
-                        et le Champagne n’aura plus qu’un seul but...<br><br>
-                        <span class="font-weight-bold">faire de chaque instant une fête.</span><br>
-                    </p>
-                </div>
-            </div>
-
         </div>
-
-        <div class="text-center my-5">
-            <div class="segoe font-weight-bold active my-3 fs-14">
-                "VENEZ MES FRERES, JE BOIS DES ETOILES"
+    {% elseif lg == 'en' %}
+        <div class="maison-slide1 relpos">
+            <div style="position: absolute; left: 10%; bottom: 10%;" class="text-center">
+                <h1 class="segoe text-white fs-12 font-weight-normal">
+                    History of a family at the service of wine for more than a century ...
+                </h1>
             </div>
-            <div class="edwardian active my-3 fs-14 w-75 ml-auto">Dom Pérignon</div>
+        </div>
+        <nav id="maison-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="maison-list justify-content-around fs-1">
+                <li class="px-3"><a href="#Histoire">Shared passion - Characters</a></li>
+                <li class="px-3"><a href="#Why">Origin of Philippe de Sorbon?</a></li>
+                <li class="px-3"><a href="#Origines">Beginning of the Champagne Myth</a></li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid text-center py-4">
+
+            <div class="segoe font-weight-bold active my-4 fs-13">
+                "CHAMPAGNE REVEALS TO OURSELVES AND OTHERS.<br>
+                 IT PUTS US IN TURMOIL"
+            </div>
+            <div class="edwardian active my-3 fs-15 w-75 ml-auto">Auguste Tétard - Fondateur des champagnes Philippe de
+                Sorbon
+            </div>
         </div>
 
 
-    </div>
+        <div class="maison-slide2"></div>
+        <div class="histoire-container container text-center py-3 relpos">
+            <div id="Histoire" class="anchor">
+            </div>
+            <h2 class="fs-16">SHARED PASSION - CHARACTERS</h2>
+            <div class="container-fluid hide-mobile">
+                <div class="row fs-08">
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}"
+                             alt="picture of Auguste TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1922</span>
+                        <p>
+                            Maximilien TETARD, his son,<br>
+                            succeeds him and, for 60<br>
+                            years, dedicates his life to his<br>
+                            business. Fine taster, he gives<br>
+                            his House a reputation for<br>
+                            seriousness and quality.
+                        </p>
+
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}"
+                             alt="picture of Nicole TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1989</span>
+                        <p>
+                            4th generation: Martine WALLAERT-<br>
+                            LATHUILLIERE shares the passion of her<br>
+                            ancestors and remains very attached to<br>
+                            the traditional production of the<br>
+                            Champagnes Philippe de Sorbon
+                        </p>
+                    </div>
+                </div>
+                <div class="row fs-08">
+                    <div class="col-md-3 col-6 py-3">
+
+                        <span class="font-weight-bold">1901</span>
+                        <p>
+                            Auguste TETARD leaves his<br>
+                            native Creuse and settles in<br>
+                            Champagne, he is a wine<br>
+                            merchant.
+                        </p>
+
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}"
+                             alt="picture of Maximilien TETARD">
+                    </div>
+                    <div class="col-md-3 col-6 py-3">
+                        <span class="font-weight-bold">1968</span>
+                        <p>
+                            Nicole LATHUILLIERE-TETARD, her<br>
+                            granddaughter, acquires vines in Verzenay,<br>
+                            Grand Cru, jewel of Champagne.<br>
+                            Oenologist, she continues the development<br>
+                            of the family House and ensures a constant<br>
+                            quality of her Champagnes
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}"
+                             alt="picture of Martine WALLAERT">
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="display: none" class="unhide-mobile">
+                <div class="row fs-08">
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Auguste_TETARD.jpg') }}"
+                             alt="picture of Auguste TETARD">
+                    </div>
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1901</span>
+                        <p>
+                            Auguste TETARD leaves his<br>
+                            native Creuse and settles in<br>
+                            Champagne, he is a wine<br>
+                            merchant.
+                        </p>
+                    </div>
+                </div>
+                <div class="row fs-08">
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1922</span>
+                        <p>
+                            Maximilien TETARD, his son,<br>
+                            succeeds him and, for 60<br>
+                            years, dedicates his life to his<br>
+                            business. Fine taster, he gives<br>
+                            his House a reputation for<br>
+                            seriousness and quality.
+                        </p>
+                    </div>
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div" src="{{ asset('ressource/image/maison/Maximilien_TETARD.jpg') }}"
+                             alt="picture of Maximilien TETARD">
+                    </div>
+
+                </div>
+                <div class="row fs-08">
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Nicole_LATHUILLIERE_TETARD.jpg') }}"
+                             alt="picture of Nicole TETARD">
+                    </div>
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1968</span>
+                        <p>
+                            Nicole LATHUILLIERE-TETARD, her<br>
+                            granddaughter, acquires vines in Verzenay,<br>
+                            Grand Cru, jewel of Champagne.<br>
+                            Oenologist, she continues the development<br>
+                            of the family House and ensures a constant<br>
+                            quality of her Champagnes
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row fs-08">
+
+                    <div class="col-6 py-3">
+                        <span class="font-weight-bold">1989</span>
+                        <p>
+                            4th generation: Martine WALLAERT-<br>
+                            LATHUILLIERE shares the passion of her<br>
+                            ancestors and remains very attached to<br>
+                            the traditional production of the<br>
+                            Champagnes Philippe de Sorbon
+                        </p>
+                    </div>
+                    <div class="col-6 relpos house-picture">
+                        <img class="center-div"
+                             src="{{ asset('ressource/image/maison/Martine_WALLAERT_LATHUILLIERE.jpg') }}"
+                             alt="picture of Martine WALLAERT">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="segoe maison-txt fs-12 font-weight-bold container">
+                <p>
+                    Many thousands of bottles are appreciated each year by champagne amateurs.
+                </p>
+                <p>... the fifth generation is still on school benches, but enthusiastically participates, for several
+                    years now in the grape harvests.</p>
+            </div>
+
+
+        </div>
+        <div class="maison-slide3">
+
+
+        </div>
+        <div class="relpos pt-5">
+
+            <div class="bg-grey-cs my-5 p-5 segoe mx-auto display-flex-pc text-center" style="width: 80%;">
+                <div id="Why" class="anchor">
+                </div>
+                <div class="w-25-pc relpos pds-container">
+                    <img class="center-div sorbon-img" src="{{ asset('ressource/image/maison/Robert_SORBON.jpg') }}"
+                         alt="picture of Robert SORBON">
+                </div>
+                <div class="w-75-pc text-center text-white my-4">
+                    <h2 class="fs-14 mb-4">ORIGIN OF PHILIPPE DE SORBON ?</h2>
+                    <p class="fs-1">
+                        Working in the vineyards since the age of 12, our grandfather Maximilien TETARD dreamed of
+                        studying and going to the University. He was a fervent admirer of Robert de SORBON, child of the
+                        Champenois country, founder of La SORBONNE in the 13th century who offered poor children access
+                        to knowledge.
+                    </p>
+                    <p class="fs-1">
+                        For that reason, he paid homage to this exceptional religious scholar, giving his name to the
+                        Champagnes he was developing with love.
+                    </p>
+                </div>
+
+            </div>
+            <div class="origine-title text-center fc-grey-cs relpos">
+                <div id="Origines" class="anchor">
+                </div>
+                <h2 class="mt-5 mb-2 fs-16">THE BEGINNING OF THE CHAMPAGNE MYTH</h2>
+                <p class="fs-1">
+                    Artisans of Champagne
+                </p>
+            </div>
+            <div class="container-fluid text-center fc-grey-cs anim-container">
+                <div class="my-4 slide-anim">
+                    <div class="relpos">
+                        <div id="slide-container">
+                            <div id="pict-1" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_1.jpg') }}"
+                                     alt="mosaïque Moyen-Age mettant en scène deux personnages">
+                            </div>
+                            <div id="pict-2" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_2.jpg') }}"
+                                     alt="vitrail mettant en scène l'écrasement du raisin">
+                            </div>
+                            <div id="pict-3" class="slide-maison slide-active">
+                                <img src="{{ asset('ressource/image/maison/slide_3.jpg') }}"
+                                     alt="picture of Dom Pérignon">
+                            </div>
+                            <div id="pict-4" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_4.jpg') }}"
+                                     alt="peinture du 18ème siècle">
+                            </div>
+                            <div id="pict-5" class="slide-maison">
+                                <img src="{{ asset('ressource/image/maison/slide_5.jpg') }}"
+                                     alt="image de Paris en noir et blanc">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="m-auto bar-container">
+                    <div class="bar">
+                    </div>
+                    <div id="circle-1" class="circle">
+                    </div>
+                    <div id="circle-2" class="circle">
+                    </div>
+                    <div id="circle-3" class="circle  circle-active">
+                    </div>
+                    <div id="circle-4" class="circle">
+                    </div>
+                    <div id="circle-5" class="circle">
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 0%; top: 50%; transform: translate(-50%,-50%)">
+                        III
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 25%; top: 50%; transform: translate(-50%,-50%)">
+                        XIII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 50%; top: 50%; transform: translate(-50%,-50%)">
+                        XVII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 75%; top: 50%; transform: translate(-50%,-50%)">
+                        XVIII
+                    </div>
+                    <div class="date-1 active font-weight-bold"
+                         style="position:absolute;left: 100%; top: 50%; transform: translate(-50%,-50%)">
+                        XIX
+                    </div>
+                </div>
+                <div class="w-75 m-auto text-center fs-1">
+                    <div id="anim-txt-1" class="anim-txt">
+                        <p>
+                            We find traces of vineyards in Champagne, campania in Latin, starting during the Roman era. However, it is undeniably the religious who in the Middle Ages will develop the still wines of Champagne.
+                        </p>
+                    </div>
+                    <div id="anim-txt-2" class="anim-txt display-none">
+                        <p>
+                            In the 13th century, the cultivation of the grape vine became widespread, sharecroppers obtained land in exchange for a “wine tenure", that is to say, the obligation to provide wines to their lords, the Counts of Champagne. Affirming their reputation in the sixteenth century, these clear Champenois wines compete with Burgundy on the royal tables.
+                        </p>
+                    </div>
+                    <div id="anim-txt-3" class="anim-txt display-none">
+                        <p>
+                            The end of the 17th century sees the birth of the first bottles and the appearance of a spontaneous sparkling in the wines that remains unexplained.
+                        </p>
+                        <p>
+                            Dom Pérignon, cellarer of the Abbey of Hautvillers, helped by the brother Oudard, were interested in this second fermentation of the wines which they selected and assembled with love. They produced a clear wine with persistent foam:
+                            <span class="font-weight-bold">Champagne is born ...</span>
+                        </p>
+                    </div>
+                    <div id="anim-txt-4" class="anim-txt display-none">
+                        <p>
+                            Commercial development began in the late eighteenth century with the emergence of more resistant bottles and better control of the fermentation process.
+                        </p>
+                    </div>
+                    <div id="anim-txt-5" class="anim-txt display-none">
+                        <p>
+                            In the nineteenth century, the world enthuses.<br><br>
+                            <span class="font-weight-bold">the Wine of Kings becomes King of Wines</span><br><br>
+                            and Champagne will have only one goal ...<br><br>
+                            <span class="font-weight-bold">make every moment a party.</span><br>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center my-5">
+                <div class="segoe font-weight-bold active my-3 fs-14">
+                    “BROTHER, COME QUICKLY, I AM DRINKING THE STARS"
+                </div>
+                <div class="edwardian active my-3 fs-14 w-75 ml-auto">Dom Pérignon</div>
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
 
