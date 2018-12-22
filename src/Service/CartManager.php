@@ -18,7 +18,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\TransactionRequiredException;
-use http\Env\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class CartManager

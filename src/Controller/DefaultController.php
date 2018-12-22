@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
 use App\Service\CartManager;
+use App\Service\LanguageManager;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,8 +21,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class DefaultController extends Controller
 {
-    public function index(SessionInterface $session, CartManager $cartManager)
+    public function index(SessionInterface $session, CartManager $cartManager, LanguageManager $languageManager)
     {
+        $lg = $languageManager->getLanguageUsingCookie();
+        die(var_dump($lg));
         $cartSize = $cartManager->cartSize();
         return $this->render('view/accueil.html.twig',
             ["cartSize" => $cartSize]);
