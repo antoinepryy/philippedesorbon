@@ -4,231 +4,415 @@
     <meta name="description" content="Présentation de notre vignoble situé à Reims, contrée du Champagne">
 {% endblock %}
 {% block content %}
-    <div class="vignoble-slide1">
+    {% if lg == 'fr' %}
+        <div class="vignoble-slide1">
 
-    </div>
-    <nav id="vignoble-nav" class="sticky-nav-sec z-index-nav-sec">
-        <ul class="vignoble-list justify-content-around">
-            <li><a id="LaMaison" href="#VignobleChampenois">Le vignoble Champenois</a></li>
-            <li><a id="SavoirFaire" href="#Vignobles">Nos vignobles</a></li>
-            <li><a id="Champagnes" href="#Cepages">Les cépages</a></li>
-            <li><a id="Champagnes" href="#Vigne">La vigne</a></li>
-        </ul>
-    </nav>
-    <div class="container text-center my-5">
-        <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
-            "C’EST LA CONJUGAISON EXCLUSIVE D'UN CLIMAT DIFFICILE,<br>
-            VIGNOBLE LE PLUS SEPTENTRIONAL,<br>
-            D'UN SOL PAUVRE, D'UN SOUS SOL CRAYEUX SANS ÉQUIVALENT<br>
-            QUI PERMET À LA CHAMPAGNE DE PRODUIRE UN VIN UNIQUE
-            AU MONDE :<br>
-            LE CHAMPAGNE"
         </div>
-        <div class="edwardian active my-3 fs-14 w-75 ml-auto">Martine Wallaert Lathuillière</div>
-    </div>
-    <div class="vignoble-slide2">
-
-    </div>
-    <div class="text-center vignoble-section">
-        <div class="m-auto center-div">
-            <h1 class="vignoble-title w-100 font-weight-bold fc-grey-cs py-4">LE VIGNOBLE CHAMPENOIS</h1>
-        </div>
-    </div>
-    <div class="vignoble-slide3 relpos" >
-        <div id="VignobleChampenois" class="anchor">
-        </div>
-        <div class="vignoble-txt-1 sf-txt text-white segoe">
-            <div class="m-auto p-4">
-                <span class="text-weight-bold">Une mosaïque de 300 000 jardins de vignerons</span>
-                <p>
-                    La prestigieuse Appellation Champagne représente
-                    actuellement 35 000 ha, répartis sur 321 villages
-                    ou « Crus », situés dans la Marne, l’Aube et l’Aisne.
-                </p>
-                <p>
-                    17 villages, Grands Crus ou Crus à 100% se partagent
-                    les plus nobles coteaux de la Marne.
-                </p>
-                <p>
-                    Puis viennent les 41 Premiers Crus ou Crus
-                    de 90 à 99%.
-                </p>
-                <p>
-                    Enfin les Crus de 80 à 89%,
-                    majoritaires dans l’Aube et l’Aisne.
-                </p>
-                <p>
-                    Les vignobles marnais sont répartis
-                    sur trois zones renommées :
-                </p>
-                <ul>
-                    <li>La Montagne de Reims, au Sud-Est
-                        de Reims où le Pinot Noir domine
-                        avec ses vins puissants et charpentés.
-                    </li>
-                    <li>
-                        La Vallée de la Marne, où alternent le
-                        Pinot Noir, à l’Est, et le Pinot Meunier,
-                        à l’Ouest.
-                    </li>
-                    <li>
-                        La Côte des Blancs, au Sud d’Epernay,
-                        site de prédilection du Chardonnay.
-                    </li>
-                </ul>
-                <div class="map-container text-center">
-                    <img style="height: 100%;" src="{{ asset('ressource/image/vignoble/carte_reims.jpg') }}" alt="map of Reims, city of France">
-                </div>
+        <nav id="vignoble-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="vignoble-list justify-content-around">
+                <li><a id="LaMaison" href="#VignobleChampenois">Le vignoble Champenois</a></li>
+                <li><a id="SavoirFaire" href="#Vignobles">Nos vignobles</a></li>
+                <li><a id="Champagnes" href="#Cepages">Les cépages</a></li>
+                <li><a id="Champagnes" href="#Vigne">La vigne</a></li>
+            </ul>
+        </nav>
+        <div class="container text-center my-5">
+            <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
+                "C’EST LA CONJUGAISON EXCLUSIVE D'UN CLIMAT DIFFICILE,<br>
+                VIGNOBLE LE PLUS SEPTENTRIONAL,<br>
+                D'UN SOL PAUVRE, D'UN SOUS SOL CRAYEUX SANS ÉQUIVALENT<br>
+                QUI PERMET À LA CHAMPAGNE DE PRODUIRE UN VIN UNIQUE
+                AU MONDE :<br>
+                LE CHAMPAGNE"
             </div>
+            <div class="edwardian active my-3 fs-14 w-75 ml-auto">Martine Wallaert Lathuillière</div>
+        </div>
+        <div class="vignoble-slide2">
 
-
-
         </div>
-
-    </div>
-    <div class="container text-center my-5">
-        <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
-            « DE LA CRAIE COMME TERRE NOURRICIERE POUR UNE VIGNE QUI CONNAIT RAREMENT LE SOLEIL.<br>
-            DES RAISINS PAUVRES EN SUCRE, ELEVES DANS LE FROID ET DONT L’ACIDITE TERRORISERAIT UN BORDELAIS.<br>
-            CE QUI SOUS D’AUTRES CLIMATS SERAIT CONSIDERE COMME VERDEUR DETESTABLE<br>
-            DEVIENT ICI FACTEUR DE FRAICHEUR, DE VIVACITE ET D’ELEGANCE. »
+        <div class="text-center vignoble-section">
+            <div class="m-auto center-div">
+                <h1 class="vignoble-title w-100 font-weight-bold fc-grey-cs py-4">LE VIGNOBLE CHAMPENOIS</h1>
+            </div>
         </div>
-        <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
-    </div>
-    <div class="text-center vignoble-section" style="background-color: #2E2B2B;">
-        <div class="mx-auto center-div">
-            <h1 class="vignoble-title font-weight-bold text-white py-4">NOS VIGNOBLES</h1>
-        </div>
-    </div>
-    
-    <div style="display: flex;" class="relpos" >
-        <div id="Vignobles" class="anchor">
-        </div>
-        <div class="vignoble-slide4-left">
-            
-        </div>
-        <div class="vignoble-slide4-right">
-            
-        </div>
-        <div class="center-div segoe sf-txt bg-grey-cs text-white text-center p-3 vignoble-txt-2">
-            <p>
-                Notre vignoble de dix hectares est harmonieusement réparti :
-            </p>
-            <p>
-                - Sur les meilleurs coteaux de la Montagne de
-                Reims, où le Pinot Noir est roi, suivi, dans
-                une moindre proportion, du Chardonnay:
-                dans 3 des 17 Grands Crus 100% (Verzenay,
-                Verzy, Mailly), fleurons de la Champagne,
-                ainsi qu'à Ludes Premier Cru 94%.
-            </p>
-            <p>
-                - A Verneuil, où les raisins atteignent lentement
-                leur pleine maturation sur les coteaux de la
-                Vallée de la Marne. Là, le Pinot Meunier domine.
-            </p>
-            <p>
-                - A Moussy, sur les coteaux d'Epernay, terre de
-                prédilection du Chardonnay
-            </p>
-            <p class="font-weight-bold">
-                Ces vignobles familiaux procurent un
-                approvisionnement unique et couvrent la
-                totalité des besoins de notre Maison en
-                raisins. Ils nous permettent d’assurer un long
-                vieillissement des vins, garant de la qualité :
-                3 à 4 ans pour les Bruts sans année, 5 ans et plus
-                pour les Millésimes.
-            </p>
-        </div>
-
-    </div>
-    <div class="text-center py-4 relpos" >
-        <div id="Cepages" class="anchor">
-        </div>
-        <div class="m-auto cepages">
-            <h1 class="vignoble-title font-weight-bold">LES CÉPAGES</h1>
-            <p class="fs-12">
-                Un trio d'une grande complémentarité
-            </p>
-        </div>
-        <div class="mx-auto mb-5 segoe vignes-container">
-            <div class="cepage-1 vignes relpos" >
-                <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
-
-                    <h2 class="fs-08 m-0">
-                        PINOT MEUNIER
-                    </h2>
-                    <p class="fs-07 px-2">
-                        Le Pinot Meunier est fruité, parfumé et apporte fraîcheur et légèreté.
+        <div class="vignoble-slide3 relpos" >
+            <div id="VignobleChampenois" class="anchor">
+            </div>
+            <div class="vignoble-txt-1 sf-txt text-white segoe">
+                <div class="m-auto p-4">
+                    <span class="text-weight-bold">Une mosaïque de 300 000 jardins de vignerons</span>
+                    <p>
+                        La prestigieuse Appellation Champagne représente
+                        actuellement 35 000 ha, répartis sur 321 villages
+                        ou « Crus », situés dans la Marne, l’Aube et l’Aisne.
                     </p>
+                    <p>
+                        17 villages, Grands Crus ou Crus à 100% se partagent
+                        les plus nobles coteaux de la Marne.
+                    </p>
+                    <p>
+                        Puis viennent les 41 Premiers Crus ou Crus
+                        de 90 à 99%.
+                    </p>
+                    <p>
+                        Enfin les Crus de 80 à 89%,
+                        majoritaires dans l’Aube et l’Aisne.
+                    </p>
+                    <p>
+                        Les vignobles marnais sont répartis
+                        sur trois zones renommées :
+                    </p>
+                    <ul>
+                        <li>La Montagne de Reims, au Sud-Est
+                            de Reims où le Pinot Noir domine
+                            avec ses vins puissants et charpentés.
+                        </li>
+                        <li>
+                            La Vallée de la Marne, où alternent le
+                            Pinot Noir, à l’Est, et le Pinot Meunier,
+                            à l’Ouest.
+                        </li>
+                        <li>
+                            La Côte des Blancs, au Sud d’Epernay,
+                            site de prédilection du Chardonnay.
+                        </li>
+                    </ul>
+                    <div class="map-container text-center">
+                        <img style="height: 100%;" src="{{ asset('ressource/image/vignoble/carte_reims.jpg') }}" alt="map of Reims, city of France">
+                    </div>
+                </div>
 
+
+
+            </div>
+
+        </div>
+        <div class="container text-center my-5">
+            <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
+                « DE LA CRAIE COMME TERRE NOURRICIERE POUR UNE VIGNE QUI CONNAIT RAREMENT LE SOLEIL.<br>
+                DES RAISINS PAUVRES EN SUCRE, ELEVES DANS LE FROID ET DONT L’ACIDITE TERRORISERAIT UN BORDELAIS.<br>
+                CE QUI SOUS D’AUTRES CLIMATS SERAIT CONSIDERE COMME VERDEUR DETESTABLE<br>
+                DEVIENT ICI FACTEUR DE FRAICHEUR, DE VIVACITE ET D’ELEGANCE. »
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
+        </div>
+        <div class="text-center vignoble-section" style="background-color: #2E2B2B;">
+            <div class="mx-auto center-div">
+                <h1 class="vignoble-title font-weight-bold text-white py-4">NOS VIGNOBLES</h1>
+            </div>
+        </div>
+
+        <div style="display: flex;" class="relpos" >
+            <div id="Vignobles" class="anchor">
+            </div>
+            <div class="vignoble-slide4-left">
+
+            </div>
+            <div class="vignoble-slide4-right">
+
+            </div>
+            <div class="center-div segoe sf-txt bg-grey-cs text-white text-center p-3 vignoble-txt-2">
+                <p>
+                    Notre vignoble de dix hectares est harmonieusement réparti :
+                </p>
+                <p>
+                    - Sur les meilleurs coteaux de la Montagne de
+                    Reims, où le Pinot Noir est roi, suivi, dans
+                    une moindre proportion, du Chardonnay:
+                    dans 3 des 17 Grands Crus 100% (Verzenay,
+                    Verzy, Mailly), fleurons de la Champagne,
+                    ainsi qu'à Ludes Premier Cru 94%.
+                </p>
+                <p>
+                    - A Verneuil, où les raisins atteignent lentement
+                    leur pleine maturation sur les coteaux de la
+                    Vallée de la Marne. Là, le Pinot Meunier domine.
+                </p>
+                <p>
+                    - A Moussy, sur les coteaux d'Epernay, terre de
+                    prédilection du Chardonnay
+                </p>
+                <p class="font-weight-bold">
+                    Ces vignobles familiaux procurent un
+                    approvisionnement unique et couvrent la
+                    totalité des besoins de notre Maison en
+                    raisins. Ils nous permettent d’assurer un long
+                    vieillissement des vins, garant de la qualité :
+                    3 à 4 ans pour les Bruts sans année, 5 ans et plus
+                    pour les Millésimes.
+                </p>
+            </div>
+
+        </div>
+        <div class="text-center py-4 relpos" >
+            <div id="Cepages" class="anchor">
+            </div>
+            <div class="m-auto cepages">
+                <h1 class="vignoble-title font-weight-bold">LES CÉPAGES</h1>
+                <p class="fs-12">
+                    Un trio d'une grande complémentarité
+                </p>
+            </div>
+            <div class="mx-auto mb-5 segoe vignes-container">
+                <div class="cepage-1 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+
+                        <h2 class="fs-08 m-0">
+                            PINOT MEUNIER
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Le Pinot Meunier est fruité, parfumé et apporte fraîcheur et légèreté.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="cepage-2 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+                        <h2 class="fs-08 m-0">
+                            CHARDONNAY
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Le Chardonnay, cépage à peau et à chair blanche,
+                            permet d’élaborer les Blancs de Blancs. Dans les
+                            assemblages, il apporte finesse, élégance et délicatesse
+                            ainsi que fraîcheur et vivacité. Son acidité naturelle est
+                            un excellent support pour le vieillissement des vins. 4 à 5
+                            ans sont nécessaires pour lui permettre d’exprimer tout son potentiel..
+                        </p>
+                    </div>
+                </div>
+                <div class="cepage-3 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+                        <h2 class="fs-08 m-0">
+                            PINOT NOIR
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Le Pinot Noir est la base de nos assemblages. Il confère aux Cuvées puissance et
+                            charpente, rondeur et vinosité. Pour atteindre leur pleine maturité,
+                            ces vins ont besoin d’environ 3 ans de vieillissement.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="cepage-2 vignes relpos" >
-                <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
-                    <h2 class="fs-08 m-0">
-                        CHARDONNAY
-                    </h2>
-                    <p class="fs-07 px-2">
-                        Le Chardonnay, cépage à peau et à chair blanche,
-                        permet d’élaborer les Blancs de Blancs. Dans les
-                        assemblages, il apporte finesse, élégance et délicatesse
-                        ainsi que fraîcheur et vivacité. Son acidité naturelle est
-                        un excellent support pour le vieillissement des vins. 4 à 5
-                        ans sont nécessaires pour lui permettre d’exprimer tout son potentiel..
+        </div>
+        <div class="vignoble-slide5 relpos" >
+            <div id="Vigne" class="anchor">
+            </div>
+            <div class="center-div segoe sf-txt text-white text-center p-3 vignoble-txt-3">
+                <h1 class="vignoble-title">
+                    LE TRAVAIL DE LA VIGNE
+                </h1><br>
+                <p>
+                    Durant tout le cycle végétatif , la vigne
+                    reçoit des soins minutieux et attentifs,
+                    effectués pour l’essentiel à la main, seule
+                    compétente pour agir avec précision.
+                </p>
+                <p>
+                    Ainsi, la Taille, réglementée selon les cépages,
+                    réduit le rendement en vue d’une qualité accrue.
+                    Elle est effectuée dans notre Maison par un personnel
+                    vigneron qualifié.
+                </p>
+                <p>
+                    Puis viennent la Lierie, le Palissage , le Relevage
+                    et le Rognage qui disciplinent la végétation et donnent
+                    à nos vignobles cet aspect si particulier de haie bien taillée.
+                </p>
+                <p>
+                    Notre Maison pratique depuis de nombreuses années une viticulture raisonnée :
+                    une viticulture sur mesure où les travaux et les intrants sont adaptés à
+                    chaque parcelle, dans le respect des sols et de la biodiversité.
+                    Héritiers d'une tradition séculaire, nous concilions méthodes de
+                    travail ancestrales et pratiques actuelles, telles l'enherbement partiel
+                    des parcelles, en vue d'obtenir dans les années à venir la certification
+                    HVE haute valeur environnementale.
+                </p>
+            </div>
+        </div>
+
+
+    {% elseif lg == 'en' %}
+
+        <div class="vignoble-slide1">
+
+        </div>
+        <nav id="vignoble-nav" class="sticky-nav-sec z-index-nav-sec">
+            <ul class="vignoble-list justify-content-around">
+                <li><a id="LaMaison" href="#VignobleChampenois">Th Champagne Vineyard</a></li>
+                <li><a id="SavoirFaire" href="#Vignobles">Our Vines</a></li>
+                <li><a id="Champagnes" href="#Cepages">The grape varieties</a></li>
+                <li><a id="Champagnes" href="#Vigne">The tillage</a></li>
+            </ul>
+        </nav>
+        <div class="container text-center my-5">
+            <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
+                "THIS IS THE EXCLUSIVE CONJUGATION OF A DIFFICULT CLIMATE,<br>
+                OF A POOR SOIL, OF A CHALKY SUBSOIL WITHOUT EQUIVALENT<br>
+                WHICH ALLOW THE CHAMPAGNE TO PRODUCE A UNIQUE WINE IN THE WORLD:<br>
+                THE CHAMPAGNE"
+            </div>
+            <div class="edwardian active my-3 fs-14 w-75 ml-auto">Martine Wallaert Lathuillière</div>
+        </div>
+        <div class="vignoble-slide2">
+
+        </div>
+        <div class="text-center vignoble-section">
+            <div class="m-auto center-div">
+                <h1 class="vignoble-title w-100 font-weight-bold fc-grey-cs py-4">THE CHAMPAGNE VINEYARD</h1>
+            </div>
+        </div>
+        <div class="vignoble-slide3 relpos" >
+            <div id="VignobleChampenois" class="anchor">
+            </div>
+            <div class="vignoble-txt-1 sf-txt text-white segoe">
+                <div class="m-auto p-4">
+                    <span class="text-weight-bold">A mosaic of 300,000 wine growers' gardens</span>
+                    <p>
+                        The prestigious Appellation Champagne currently represents 35,000 ha, spread over 321 villages or "Crus", located in the Marne, Aube and Aisne.
+                    </p
+                    <p>
+                        17 villages, Grands Crus or 100% Crus share the most noble slopes of the Marne.
                     </p>
-                </div>
-            </div>
-            <div class="cepage-3 vignes relpos" >
-                <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
-                    <h2 class="fs-08 m-0">
-                        PINOT NOIR
-                    </h2>
-                    <p class="fs-07 px-2">
-                        Le Pinot Noir est la base de nos assemblages. Il confère aux Cuvées puissance et
-                        charpente, rondeur et vinosité. Pour atteindre leur pleine maturité,
-                        ces vins ont besoin d’environ 3 ans de vieillissement.
+                    <p>
+                        Then come the 41 Premiers Crus or Crus from 90 to 99%.
                     </p>
+                    <p>
+                        Finally the wines of 80 to 89%, majority in Aube and Aisne.
+                    </p>
+                    <p>
+                        The vineyards of Marne are spread over three renowned areas:
+                    </p>
+                    <ul>
+                        <li>
+                            The Montagne de Reims, South-East of Reims where Pinot Noir dominates with its powerful and robust wines.
+                        </li>
+                        <li>
+                            The Marne Valley, where Pinot Noir, to the east, and Pinot Meunier, to the west, alternate.
+                        </li>
+                        <li>
+                            The Côte des Blancs, south of Epernay, favorite site of Chardonnay.
+                        </li>
+                    </ul>
+                    <div class="map-container text-center">
+                        <img style="height: 100%;" src="{{ asset('ressource/image/vignoble/carte_reims.jpg') }}" alt="map of Reims, city of France">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div class="container text-center my-5">
+            <div class="segoe font-weight-bold active fs-1 w-75 m-auto">
+                « FROM THE CHALK AS MOTHER EARTH FOR A VINE THAT RARELY KNOWS THE SUN.<br>
+                GRAPES POOR IN SUGAR, RAISED IN THE COLD AND WHOSE ACIDITY COULD TERRORIZED A BORDELAIS.<br>
+                WHAT IN OTHER CLIMATS COULD BE CONSIDERED LIKE A DETESTABLE GREENNESS<br>
+                BECOME HERE FACTOR OF FRESHNESS, VIVACITY AND ELEGANCE.»
+            </div>
+            <div class="edwardian active fs-15 w-75 ml-auto">Professeur Edouard Zarifian</div>
+        </div>
+        <div class="text-center vignoble-section" style="background-color: #2E2B2B;">
+            <div class="mx-auto center-div">
+                <h1 class="vignoble-title font-weight-bold text-white py-4">OUR VINES</h1>
+            </div>
+        </div>
+
+        <div style="display: flex;" class="relpos" >
+            <div id="Vignobles" class="anchor">
+            </div>
+            <div class="vignoble-slide4-left">
+
+            </div>
+            <div class="vignoble-slide4-right">
+
+            </div>
+            <div class="center-div segoe sf-txt bg-grey-cs text-white text-center p-3 vignoble-txt-2">
+                <p>
+                    Our vineyard of ten hectares is harmoniously distributed :
+                </p>
+                <p>
+                    - On the best slopes of the Montagne de Reims, where Pinot Noir is king, followed, to a lesser extent, Chardonnay in 3 of the 17 Grands Crus 100% (Verzenay, Verzy, Mailly), flagships of Champagne, and Ludes Premier Cru 94%.
+                </p>
+                <p>
+                    - In Verneuil, where the grapes slowly reach full maturity on the slopes of the Marne Valley. There, the Pinot Meunier dominates.
+                </p>
+                <p>
+                    - In Moussy, on the slopes of Epernay, land of predilection of Chardonnay
+                </p>
+                <p class="font-weight-bold">
+                    These family vineyards cover all the needs of our house in grapes. They allow us to ensure a long aging of the wines, guarantor of the quality: 3 to 4 years for the Bruts without year, 5 years and more for the Millésimes.
+                </p>
+            </div>
+
+        </div>
+        <div class="text-center py-4 relpos" >
+            <div id="Cepages" class="anchor">
+            </div>
+            <div class="m-auto cepages">
+                <h1 class="vignoble-title font-weight-bold">THE GRAPES VARIETIES</h1>
+                <p class="fs-12">
+                    A trio of complementarity
+                </p>
+            </div>
+            <div class="mx-auto mb-5 segoe vignes-container">
+                <div class="cepage-1 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+
+                        <h2 class="fs-08 m-0">
+                            PINOT MEUNIER
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Pinot Meunier is fruity, fragrant and brings freshness and lightness.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="cepage-2 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+                        <h2 class="fs-08 m-0">
+                            CHARDONNAY
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Chardonnay, a grape variety with white skin and flesh, makes it possible to develop Blancs de Blancs. In assemblages, it brings finesse, elegance and delicacy as well as freshness and liveliness. Its natural acidity is an excellent support for ageing of wines. 4 to 5 years are necessary to enable him to express his full potential.
+                        </p>
+                    </div>
+                </div>
+                <div class="cepage-3 vignes relpos" >
+                    <div class="text-center text-hidden text-white" style="background: rgba(46, 43, 43, 0.75); position: absolute;">
+                        <h2 class="fs-08 m-0">
+                            PINOT NOIR
+                        </h2>
+                        <p class="fs-07 px-2">
+                            Black Pinot is the basis of our assemblies. It gives to the Cuvées power and structure, roundness and vinosity. To reach their full maturity, these wines need about 3 years of ageing.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="vignoble-slide5 relpos" >
-        <div id="Vigne" class="anchor">
+        <div class="vignoble-slide5 relpos" >
+            <div id="Vigne" class="anchor">
+            </div>
+            <div class="center-div segoe sf-txt text-white text-center p-3 vignoble-txt-3">
+                <h1 class="vignoble-title">
+                    THE TILLAGE
+                </h1><br>
+                <p>
+                    Throughout the vegetative cycle, the vine receives meticulous and attentive care, mainly done by hand, the only one competent to act with precision.
+                </p>
+                <p>
+                    Thus, size, regulated according to the grape varieties, reduces the yield to increase quality and yields an enhanced concentration of aroma. It is done in our house by a qualified winegrower staff.
+                </p>
+                <p>
+                    Then come the Trellising, the Lifting and the Trimming works that discipline the vegetation and give our vineyards that particular aspect of well-trimmed hedge.
+                </p>
+                <p>
+                    For many years, our House has been practicing sustainable viticulture: a tailor-made viticulture where the works and inputs are adapted to each plot, respecting the soil and biodiversity. Heirs of a century-old tradition, we reconcile ancestral working methods and current practices, such as the partial sodding of plots, in order to obtain in the coming years the HVE (high environmental value certification).
+                </p>
+            </div>
         </div>
-        <div class="center-div segoe sf-txt text-white text-center p-3 vignoble-txt-3">
-            <h1 class="vignoble-title">
-                LE TRAVAIL DE LA VIGNE
-            </h1><br>
-            <p>
-                Durant tout le cycle végétatif , la vigne
-                reçoit des soins minutieux et attentifs,
-                effectués pour l’essentiel à la main, seule
-                compétente pour agir avec précision.
-            </p>
-            <p>
-                Ainsi, la Taille, réglementée selon les cépages,
-                réduit le rendement en vue d’une qualité accrue.
-                Elle est effectuée dans notre Maison par un personnel
-                vigneron qualifié.
-            </p>
-            <p>
-                Puis viennent la Lierie, le Palissage , le Relevage
-                et le Rognage qui disciplinent la végétation et donnent
-                à nos vignobles cet aspect si particulier de haie bien taillée.
-            </p>
-            <p>
-                Notre Maison pratique depuis de nombreuses années une viticulture raisonnée :
-                une viticulture sur mesure où les travaux et les intrants sont adaptés à
-                chaque parcelle, dans le respect des sols et de la biodiversité.
-                Héritiers d'une tradition séculaire, nous concilions méthodes de
-                travail ancestrales et pratiques actuelles, telles l'enherbement partiel
-                des parcelles, en vue d'obtenir dans les années à venir la certification
-                HVE haute valeur environnementale.
-            </p>
-        </div>
-    </div>
+    {% endif %}
 
 
 {% endblock %}

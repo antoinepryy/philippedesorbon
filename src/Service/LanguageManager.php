@@ -24,7 +24,7 @@ class LanguageManager
     public function getLanguageUsingCookie(){
         $request = $this->requestStack;
         $languageCookie = $request->getCurrentRequest()->cookies->get('lg');
-        if ($languageCookie === null){
+        if ($languageCookie === null || $languageCookie == 'fr'){
             return 'fr';
         }
         return 'en';
