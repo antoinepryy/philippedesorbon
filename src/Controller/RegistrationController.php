@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Form\UserType;
 use App\Entity\User;
 use App\Service\CartManager;
+use App\Service\LanguageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/Inscription", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager, LanguageManager $languageManager)
     {
 
         $cartSize = $cartManager->cartSize();
@@ -48,7 +49,8 @@ class RegistrationController extends AbstractController
                 'view/compte.html.twig', [
                     'cartSize' => $cartSize,
                     'success' => $success,
-                    'user' => $user
+                    'user' => $user,
+                    'lg'=>$languageManager->getLanguageUsingCookie()
                 ]
             );
         }
@@ -57,7 +59,8 @@ class RegistrationController extends AbstractController
                 'security/register.html.twig', [
                     'form' => $form->createView(),
                     'cartSize' => $cartSize,
-                    'error' => 'Tous les champs n\'ont pas été remplis correctement'
+                    'error' => 'Tous les champs n\'ont pas été remplis correctement',
+                    'lg' => $languageManager->getLanguageUsingCookie()
                 ]
             );
         }
@@ -65,7 +68,8 @@ class RegistrationController extends AbstractController
         return $this->render(
             'security/register.html.twig', [
                 'form' => $form->createView(),
-                'cartSize' => $cartSize
+                'cartSize' => $cartSize,
+                'lg' => $languageManager->getLanguageUsingCookie()
                 ]
         );
     }

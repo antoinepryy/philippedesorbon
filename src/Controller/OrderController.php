@@ -13,6 +13,7 @@ use App\Entity\Champagne;
 use App\Entity\ChampagneOption;
 use App\Entity\Commande;
 use App\Service\CartManager;
+use App\Service\LanguageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -31,7 +32,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class OrderController extends Controller
 {
-    public function checkout(SessionInterface $session, Request $request, CartManager $cartManager, ValidatorInterface $validator)
+    public function checkout(SessionInterface $session, Request $request, CartManager $cartManager, ValidatorInterface $validator, LanguageManager $languageManager)
     {
         $orderCanceled = false;
         if ($cartManager->isEmpty() == true) {
@@ -175,7 +176,8 @@ class OrderController extends Controller
                     'total' => $orderPrice,
                     'user' => $user,
                     'content' => $orderContentArray,
-                    'errors' => $errors
+                    'errors' => $errors,
+                    'lg' => $languageManager->getLanguageUsingCookie()
                 ]);
             }
 
@@ -186,13 +188,14 @@ class OrderController extends Controller
             'total' => $orderPrice,
             'user' => $user,
             'content' => $orderContentArray,
-            'orderCanceled' => $orderCanceled
+            'orderCanceled' => $orderCanceled,
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
 
 
     }
 
-    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager, $method)
+    public function orderValidated(\Swift_Mailer $mailer, SessionInterface $session, CartManager $cartManager, $method, LanguageManager $languageManager)
     {
         $cart = $session->get('cart');
 
@@ -244,7 +247,8 @@ class OrderController extends Controller
         $cartSize = $cartManager->cartSize();
 
         return $this->render('view/validOrder.html.twig', [
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 }

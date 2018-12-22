@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Commande;
 use App\Entity\User;
 use App\Service\CartManager;
+use App\Service\LanguageManager;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -34,7 +35,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/Connexion", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils, CartManager $cartManager)
+    public function login(AuthenticationUtils $authenticationUtils, CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -42,14 +43,15 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'lg' => $languageManager->getLanguageUsingCookie()
         ));
     }
 
     /**
      * @Route("/MotDePasseOublie", name="forgot_password")
      */
-    public function forgotPassword(Request $request, \Swift_Mailer $mailer, CartManager $cartManager)
+    public function forgotPassword(Request $request, \Swift_Mailer $mailer, CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $defaultData = [];
@@ -106,6 +108,7 @@ class SecurityController extends AbstractController
                     'cartSize' => $cartSize,
                     'error' => $error,
                     'form' => $form->createView(),
+                    'lg' => $languageManager->getLanguageUsingCookie()
                 ]);
             }
 
@@ -113,13 +116,14 @@ class SecurityController extends AbstractController
         return $this->render('security/forgotPassword.html.twig', [
             'cartSize' => $cartSize,
             'form' => $form->createView(),
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 
     /**
      * @Route("/RecupererMotDePasse/{hashCode}", name="recover_password")
      */
-    public function recoverPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode, CartManager $cartManager){
+    public function recoverPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder, $hashCode, CartManager $cartManager, LanguageManager $languageManager){
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(User::class);
         $foundUser = $repository->findOneBy([
@@ -147,12 +151,14 @@ class SecurityController extends AbstractController
                 return $this->render('security/forgotPassword.html.twig', [
                     'cartSize' => $cartSize,
                     'form' => $form->createView(),
-                    'success' => $success
+                    'success' => $success,
+                    'lg' => $languageManager->getLanguageUsingCookie()
                 ]);
             }
             return $this->render('security/forgotPassword.html.twig', [
                 'cartSize' => $cartSize,
                 'form' => $form->createView(),
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
         }
         else{
@@ -166,7 +172,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/MonCompte", name="compte")
      */
-    public function account(CartManager $cartManager)
+    public function account(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
 
@@ -174,7 +180,8 @@ class SecurityController extends AbstractController
         return $this->render('view/compte.html.twig',
             [
                 'cartSize' => $cartSize,
-                'user' => $user
+                'user' => $user,
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
     }
 
@@ -184,7 +191,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ChangementMotDePasse", name="change_password")
      */
-    public function changePassword(Request $request,  UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager){
+    public function changePassword(Request $request,  UserPasswordEncoderInterface $passwordEncoder, CartManager $cartManager, LanguageManager $languageManager){
 
         $cartSize = $cartManager->cartSize();
 
@@ -215,13 +222,15 @@ class SecurityController extends AbstractController
             return $this->render('security/modifierMotDePasse.html.twig', [
                 'cartSize' => $cartSize,
                 'form' => $form->createView(),
-                'success' => $success
+                'success' => $success,
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
 
         }
         return $this->render('security/modifierMotDePasse.html.twig', [
             'cartSize' => $cartSize,
             'form' => $form->createView(),
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 
@@ -231,7 +240,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/ModifierInformations", name="change_infos")
      */
-    public function changeInfos(Request $request, CartManager $cartManager ){
+    public function changeInfos(Request $request, CartManager $cartManager, LanguageManager $languageManager ){
         $cartSize = $cartManager->cartSize();
 
         $user = $this->getUser();
@@ -289,21 +298,23 @@ class SecurityController extends AbstractController
             return $this->render('security/modifierInfos.html.twig', [
                 'cartSize' => $cartSize,
                 'form' => $form->createView(),
-                'success' => $success
+                'success' => $success,
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
 
         }
 
         return $this->render('security/modifierInfos.html.twig', [
             'cartSize' => $cartSize,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 
     /**
      * @Route("/MesCommandes", name="my_orders")
      */
-    public function myOrders(CartManager $cartManager ){
+    public function myOrders(CartManager $cartManager, LanguageManager $languageManager ){
         $cartSize = $cartManager->cartSize();
 
         $repository = $this->getDoctrine()->getRepository(Commande::class);
@@ -314,14 +325,15 @@ class SecurityController extends AbstractController
 
         return $this->render('security/mesCommandes.html.twig',[
             'cartSize' => $cartSize,
-            'orders' => $userOrders
+            'orders' => $userOrders,
+            'lg' => $languageManager->getLanguageUsingCookie()
         ]);
     }
 
     /**
      * @Route("/Commande/{id}", name="order_content")
      */
-    public function orderContent($id, CartManager $cartManager ){
+    public function orderContent($id, CartManager $cartManager, LanguageManager $languageManager ){
         $cartSize = $cartManager->cartSize();
 
         $repository = $this->getDoctrine()->getRepository(Commande::class);
@@ -331,7 +343,8 @@ class SecurityController extends AbstractController
             return $this->render('security/orderContent.html.twig',[
                 'cartSize' => $cartSize,
                 'content' => $userOrder->getContent(),
-                'price' => $userOrder->getPrice()
+                'price' => $userOrder->getPrice(),
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
         }
         else{
