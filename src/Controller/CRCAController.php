@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Service\CartManager;
+use App\Service\LanguageManager;
 use DOMDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -21,7 +22,7 @@ class CRCAController extends Controller
     /**
      * @Route("/PaiementEnLigne", name="online_payment")
      */
-    public function sendRequest(CartManager $cartManager, SessionInterface $session){
+    public function sendRequest(CartManager $cartManager, SessionInterface $session, LanguageManager $languageManager){
         $user = $this->getUser();
         $idOrderCRCA = $session->get('idOrderCRCA');
         $priceOrderCRCA = $session->get('priceOrderCRCA');
@@ -137,7 +138,8 @@ class CRCAController extends Controller
             'pbx_retour' => $pbx_retour,
             'dateTime' => $dateTime,
             'pbx_hmac' => $hmac,
-            'cartSize' => $cartSize
+            'cartSize' => $cartSize,
+            'lg' => $languageManager->getLanguageUsingCookie()
 
         ]);
 
