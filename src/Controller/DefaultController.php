@@ -167,7 +167,7 @@ class DefaultController extends Controller
     }
 
 
-    public function showBottles(CartManager $cartManager)
+    public function showBottles(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
         $repository = $this->getDoctrine()->getRepository(Champagne::class);
@@ -177,7 +177,8 @@ class DefaultController extends Controller
             [
                 'champagneClassique' => $champagneListClassique,
                 'champagneCollection' => $champagneListCollection,
-                'cartSize' => $cartSize
+                'cartSize' => $cartSize,
+                'lg' => $languageManager->getLanguageUsingCookie()
             ]);
     }
 

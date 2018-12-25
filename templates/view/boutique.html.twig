@@ -1,30 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block meta %}
-<title>Boutique</title>
-<meta name="description" content="Commandez en ligne nos produits et découvrez nos meilleures cuvées
+    <title>Boutique</title>
+    <meta name="description" content="Commandez en ligne nos produits et découvrez nos meilleures cuvées
 assemblées avec respect de la tradition de nos ancêtres">
 {% endblock %}
 
 {% block content %}
-    <div id="get-cart" data-path="{{path('get_cart')}}"></div>
-    <div id="pre-order" data-path="{{path('pre_order')}}"></div>
-    <div id="add-product" data-path="{{path('add_product')}}"></div>
-    <div id="remove-one" data-path="{{path('remove_one_product')}}"></div>
-    <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
+    <div id="get-cart" data-path="{{ path('get_cart') }}"></div>
+    <div id="pre-order" data-path="{{ path('pre_order') }}"></div>
+    <div id="add-product" data-path="{{ path('add_product') }}"></div>
+    <div id="remove-one" data-path="{{ path('remove_one_product') }}"></div>
+    <div id="remove-all" data-path="{{ path('remove_all_products') }}"></div>
     <div style="background-color: black;">
         <div class="py-5 container-fluid" style="background-color: black; display: flex;">
             <div style="width: 60%;" class="text-center">
-                <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
+                <div class="text-white my-5 fs-16 font-weight-bold">
+                    {% if lg == 'fr' %}
+                        Les Classiques
+                    {% elseif lg == 'en' %}
+                        The Classics
+                    {% endif %}
+                </div>
                 <div class="row no-gutters">
                     {% for champagne in champagneClassique %}
                         <div class="col-md-3 col-6">
                             <div>
-                                <a class="links-std champagne-bottle" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}" style="display: block;">
-                                    <img src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                                <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
-                                    {{ champagne.name }}
-                                </div>
+                                <a class="links-std champagne-bottle"
+                                   href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}"
+                                   style="display: block;">
+                                    <img src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille }} "
+                                         alt="picture of the champagne bottle">
+                                    <div class="text-white font-weight-bold segoe py-2 champagne-name"
+                                         style="opacity: 0.8">
+                                        {{ champagne.name }}
+                                    </div>
                                 </a>
                                 <div class="active font-weight-bold segoe py-2">
                                     {{ champagne.price|number_format(2) }} &euro;
@@ -38,16 +48,26 @@ assemblées avec respect de la tradition de nos ancêtres">
                 </div>
             </div>
             <div style="width: 40%;" class="text-center">
-                <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
+                <div class="text-white my-5 fs-16 font-weight-bold">
+                    {% if lg == 'fr' %}
+                        La Collection
+                    {% elseif lg == 'en' %}
+                        The Collection
+                    {% endif %}
+                </div>
                 <div class="row no-gutters">
                     {% for champagne in champagneCollection %}
                         <div class="col-md-6 col-md-offset-0 col-8 mx-auto">
                             <div>
-                                <a class="links-std champagne-bottle" href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}" style="display: block">
-                                    <img src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
-                                <div class="text-white font-weight-bold segoe py-2 champagne-name" style="opacity: 0.8">
-                                    {{ champagne.name }}
-                                </div>
+                                <a class="links-std champagne-bottle"
+                                   href="{{ path('champagne_show', {'id' : champagne.urlLink}) }}"
+                                   style="display: block">
+                                    <img src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille }} "
+                                         alt="picture of the champagne bottle">
+                                    <div class="text-white font-weight-bold segoe py-2 champagne-name"
+                                         style="opacity: 0.8">
+                                        {{ champagne.name }}
+                                    </div>
                                 </a>
                                 <div class="active font-weight-bold segoe py-2">
                                     {{ champagne.price|number_format(2) }} &euro;
@@ -65,90 +85,118 @@ assemblées avec respect de la tradition de nos ancêtres">
     </div>
     <div class="bg-black text-center">
 
-        <h1 class="edwardian text-white py-3" style="font-size: 3.5em">Votre Panier</h1>
+        <h1 class="edwardian text-white py-3" style="font-size: 3.5em">
+            {% if lg == 'fr' %}
+                Votre Panier
+            {% elseif lg == 'en' %}
+                Your Cart
+            {% endif %}
+        </h1>
         <div class="container">
             <div id="empty-cart" class="segoe text-white fs-16 text-center pb-5" style="display: none;">
-                Votre panier est vide
+                {% if lg == 'fr' %}
+                    Votre panier est vide
+                {% elseif lg == 'en' %}
+                    Your cart is empty
+                {% endif %}
             </div>
             <div id="cart-section">
-            <div class="row segoe text-white py-2 fs-1" style="border-top: 1px solid #CEBB97;border-bottom:  1px solid #CEBB97;">
-                <div class="col-3">
-                    ARTICLES
+                <div class="row segoe text-white py-2 fs-1"
+                     style="border-top: 1px solid #CEBB97;border-bottom:  1px solid #CEBB97;">
+                    <div class="col-3">
+                        ARTICLES
+                    </div>
+                    <div class="col-3">
+                        QUANTITE
+                    </div>
+                    <div class="col-2">
+                        PRIX
+                    </div>
+                    <div class="col-2">
+                        PRIX TOTAL
+                    </div>
+                    <div class="col-2">
+                        SUPPRIMER
+                    </div>
                 </div>
-                <div class="col-3">
-                    QUANTITE
-                </div>
-                <div class="col-2">
-                    PRIX
-                </div>
-                <div class="col-2">
-                    PRIX TOTAL
-                </div>
-                <div class="col-2">
-                    SUPPRIMER
-                </div>
-            </div>
 
 
                 {% for champagne in champagneWithoutOption %}
-                <div id="champagne-{{ champagne.id }}" class="row no-gutters segoe text-white py-4 middle-div fs-08" style="display: none">
-                    <div class="col-3" style="display: flex">
-                        <div class="w-50">
-                            <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                    <div id="champagne-{{ champagne.id }}" class="row no-gutters segoe text-white py-4 middle-div fs-08"
+                         style="display: none">
+                        <div class="col-3" style="display: flex">
+                            <div class="w-50">
+                                <img style="height: 60px; border: 1px solid black; border-radius: 10px;"
+                                     src="{{ asset("ressource/uploads/") ~ champagne.photoBouteille }} "
+                                     alt="picture of the champagne bottle">
+                            </div>
+                            <div style="width:50%;display:flex;justify-content:center;align-items:center;">
+                                {{ champagne.name|upper }}
+                            </div>
                         </div>
-                        <div style="width:50%;display:flex;justify-content:center;align-items:center;">
-                            {{ champagne.name|upper }}
+                        <div class="col-3" style="display: inline-flex; justify-content: space-around">
+                            <div class="pointer third-width h-100 remove-one-button"
+                                 data-champagne="{{ champagne.id }}">
+                                -
+                            </div>
+                            <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">0
+                            </div>
+                            <div class="pointer third-width h-100 add-button" data-champagne="{{ champagne.id }}">
+                                +
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
+                        </div>
+                        <div class="col-2">
+                            <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
+                        </div>
+                        <div class="col-2 pointer remove-all-button" data-champagne="{{ champagne.id }}">
+                            X
                         </div>
                     </div>
-                    <div class="col-3" style="display: inline-flex; justify-content: space-around">
-                        <div class="pointer third-width h-100 remove-one-button" data-champagne="{{ champagne.id }}">
-                            -
-                        </div>
-                        <div class="quantity third-width h-100" id="quantity-{{ champagne.id }}">0
-                        </div>
-                        <div class="pointer third-width h-100 add-button" data-champagne="{{ champagne.id }}">
-                            +
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <span id="price-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
-                    </div>
-                    <div class="col-2">
-                        <span class="total-price" id="total-price-{{ champagne.id }}"></span> &euro;
-                    </div>
-                    <div class="col-2 pointer remove-all-button" data-champagne="{{ champagne.id }}">
-                        X
-                    </div>
-                </div>
                 {% endfor %}
                 {% for champagneType in champagneWithOption %}
                     {% for champagne in champagneType %}
-                        <div id="champagne-{{ champagne.champagne.id }}-{{ champagne.id }}" class="row no-gutters segoe text-white py-4 middle-div fs-08" style="display: none;">
+                        <div id="champagne-{{ champagne.champagne.id }}-{{ champagne.id }}"
+                             class="row no-gutters segoe text-white py-4 middle-div fs-08" style="display: none;">
                             <div class="col-3" style="display: flex">
                                 <div class="w-50">
-                                    <img style="height: 60px; border: 1px solid black; border-radius: 10px;" src="{{ asset("ressource/uploads/") ~ champagne.champagne.photoBouteille  }} " alt="picture of the champagne bottle">
+                                    <img style="height: 60px; border: 1px solid black; border-radius: 10px;"
+                                         src="{{ asset("ressource/uploads/") ~ champagne.champagne.photoBouteille }} "
+                                         alt="picture of the champagne bottle">
                                 </div>
                                 <div style="width:50%;display:flex;justify-content:center;align-items:center;">
                                     {{ champagne.champagne.name|upper }} {{ champagne.name|upper }}
                                 </div>
                             </div>
                             <div class="col-3" style="display: inline-flex; justify-content: space-around">
-                                <div class="pointer third-width h-100 remove-one-button" data-champagne="{{ champagne.champagne.id }}" data-champagne-option="{{ champagne.id }}">
+                                <div class="pointer third-width h-100 remove-one-button"
+                                     data-champagne="{{ champagne.champagne.id }}"
+                                     data-champagne-option="{{ champagne.id }}">
                                     -
                                 </div>
-                                <div class="quantity third-width h-100" id="quantity-{{ champagne.champagne.id }}-{{ champagne.id }}">0
+                                <div class="quantity third-width h-100"
+                                     id="quantity-{{ champagne.champagne.id }}-{{ champagne.id }}">0
                                 </div>
-                                <div class="pointer third-width h-100 add-button" data-champagne="{{ champagne.champagne.id }}" data-champagne-option="{{ champagne.id }}">
+                                <div class="pointer third-width h-100 add-button"
+                                     data-champagne="{{ champagne.champagne.id }}"
+                                     data-champagne-option="{{ champagne.id }}">
                                     +
                                 </div>
                             </div>
                             <div class="col-2">
-                                <span id="price-{{ champagne.champagne.id }}-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span> &euro;
+                                <span id="price-{{ champagne.champagne.id }}-{{ champagne.id }}">{{ champagne.price|number_format(2) }}</span>
+                                &euro;
                             </div>
                             <div class="col-2">
-                                <span class="total-price" id="total-price-{{ champagne.champagne.id }}-{{ champagne.id }}"></span> &euro;
+                                <span class="total-price"
+                                      id="total-price-{{ champagne.champagne.id }}-{{ champagne.id }}"></span> &euro;
                             </div>
-                            <div class="col-2 pointer remove-all-button" id="{{ champagne.champagne.id }}-{{ champagne.id }}" data-champagne="{{ champagne.champagne.id }}" data-champagne-option="{{ champagne.id }}">
+                            <div class="col-2 pointer remove-all-button"
+                                 id="{{ champagne.champagne.id }}-{{ champagne.id }}"
+                                 data-champagne="{{ champagne.champagne.id }}"
+                                 data-champagne-option="{{ champagne.id }}">
                                 X
                             </div>
                         </div>
@@ -157,40 +205,42 @@ assemblées avec respect de la tradition de nos ancêtres">
                 {% endfor %}
 
 
-        </div>
+            </div>
         </div>
     </div>
     <div id="cart-recap" style="background-color: black" class="fs-1">
-    <div>
-        <div class="container p-3">
-            <div class="row segoe text-white py-2">
-                <div class="col-sm-2 col-6 offset-sm-8 text-center">
-                    <div class="segoe fs-1">SOUS-TOTAL</div>
-                    <div class="segoe fs-08" style="opacity: 0.5;">TVA INCLUSE 20%</div>
-                    <div class="segoe fs-1">FRAIS DE LIVRAISON</div>
-                    <div class="segoe fs-08" style="opacity: 0.5;">FRANCO DE PORT<br> 24 BOUTEILLES</div>
+        <div>
+            <div class="container p-3">
+                <div class="row segoe text-white py-2">
+                    <div class="col-sm-2 col-6 offset-sm-8 text-center">
+                        <div class="segoe fs-1">SOUS-TOTAL</div>
+                        <div class="segoe fs-08" style="opacity: 0.5;">TVA INCLUSE 20%</div>
+                        <div class="segoe fs-1">FRAIS DE LIVRAISON</div>
+                        <div class="segoe fs-08" style="opacity: 0.5;">FRANCO DE PORT<br> 24 BOUTEILLES</div>
 
+                    </div>
+                    <div class="col-sm-2 col-6 text-center">
+                        <div class="segoe fs-1"><span id="sous-total"></span> &euro;</div>
+                        <div class="segoe fs-08" style="opacity: 0;">void</div>
+                        <div class="segoe fs-1"><span id="livraison">0,00</span> &euro;</div>
+                    </div>
                 </div>
-                <div class="col-sm-2 col-6 text-center">
-                    <div class="segoe fs-1"><span id="sous-total"></span> &euro;</div>
-                    <div class="segoe fs-08" style="opacity: 0;">void</div>
-                    <div class="segoe fs-1"><span id="livraison">0,00</span> &euro;</div>
+                <div class="row segoe text-white py-2"
+                     style="border-top: 1px solid dimgrey; border-bottom: 1px solid dimgrey">
+                    <div class="col-sm-2 col-6 offset-sm-8 text-center">
+                        <div class="segoe fs-1">TOTAL</div>
+                    </div>
+                    <div class="col-sm-2 col-6 text-center">
+                        <div class="segoe fs-1"><span id="total-all"></span> &euro;</div>
+                    </div>
                 </div>
             </div>
-            <div class="row segoe text-white py-2" style="border-top: 1px solid dimgrey; border-bottom: 1px solid dimgrey">
-                <div class="col-sm-2 col-6 offset-sm-8 text-center">
-                    <div class="segoe fs-1">TOTAL</div>
-                </div>
-                <div class="col-sm-2 col-6 text-center">
-                    <div class="segoe fs-1"><span id="total-all"></span> &euro;</div>
-                </div>
-            </div>
+
         </div>
-
-    </div>
-    <div class="p-5">
-        <a class="no-decoration p-2" href="{{ path('checkout') }}" style="border: 1px solid #BA55D3; color: #BA55D3; opacity: 0.5; margin-left: 75%;">COMMANDER</a>
-    </div>
+        <div class="p-5">
+            <a class="no-decoration p-2" href="{{ path('checkout') }}"
+               style="border: 1px solid #BA55D3; color: #BA55D3; opacity: 0.5; margin-left: 75%;">COMMANDER</a>
+        </div>
     </div>
     <div id="modal-option">
         <div id="modal-box" class="text-center">
@@ -221,7 +271,8 @@ assemblées avec respect de la tradition de nos ancêtres">
 
     <div id="modal-box-validation" class="text-center" style="background-color: rgb(46, 43, 43, 0.95);">
         <div style="height: 100%; width: 100%" class="relpos">
-            <p class="text-white center-div fs-12">Un carton de <span id="bottle-qtt"></span> bouteille(s) a bien été ajouté au panier !</p>
+            <p class="text-white center-div fs-12">Un carton de <span id="bottle-qtt"></span> bouteille(s) a bien été
+                ajouté au panier !</p>
         </div>
     </div>
 

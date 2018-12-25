@@ -1,6 +1,12 @@
 <div class="py-5 container-fluid" style="background-color: black; display: flex;">
     <div style="width: 60%;" class="text-center">
-        <div class="text-white my-5 fs-16 font-weight-bold">Les Classiques</div>
+        <div class="text-white my-5 fs-16 font-weight-bold">
+            {% if lg == 'fr' %}
+                Les Classiques
+            {% elseif lg == 'en' %}
+                The Classics
+            {% endif %}
+        </div>
         <div class="row no-gutters">
             {% for champagne in champagneClassique %}
                 <div class="col-md-3 col-6 bottle-col">
@@ -18,7 +24,13 @@
     </div>
 
     <div style="width: 40%;" class="text-center">
-        <div class="text-white my-5 fs-16 font-weight-bold">La Collection</div>
+        <div class="text-white my-5 fs-16 font-weight-bold">
+            {% if lg == 'fr' %}
+                La Collection
+            {% elseif lg == 'en' %}
+                The Collection
+            {% endif %}
+        </div>
         <div class="row no-gutters">
             {% for champagne in champagneCollection %}
                 <div class="col-md-6 col-md-offset-0 col-8 mx-auto bottle-col">

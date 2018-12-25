@@ -13,10 +13,20 @@
     <div id="remove-all" data-path="{{path('remove_all_products')}}"></div>
     <div class="bg-black text-center" style="min-height: calc(100vh - 300px)">
 
-        <h1 class="edwardian text-white py-3" style="font-size: 3.5em">Votre Panier</h1>
+        <h1 class="edwardian text-white py-3" style="font-size: 3.5em">
+            {% if lg == 'fr' %}
+                Votre panier
+            {% elseif lg == 'en' %}
+                Your cart
+            {% endif %}
+        </h1>
         <div class="container">
             <div id="empty-cart" class="segoe text-white fs-16 text-center pb-5" style="display: none;">
-                Votre panier est vide
+                {% if lg == 'fr' %}
+                    Votre panier est vide
+                {% elseif lg == 'en' %}
+                    Your cart is empty
+                {% endif %}
             </div>
             <div id="cart-section">
                 <div class="row segoe text-white py-2" style="border-top: 1px solid #CEBB97;border-bottom:  1px solid #CEBB97;">
