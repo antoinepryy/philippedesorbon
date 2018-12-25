@@ -2,14 +2,14 @@
 
 
 {% block meta %}
-<title>{{ champagne.name }}</title>
-<meta name="description" content="{{ champagne.presentation1 }}">
+    <title>{{ champagne.name }}</title>
+    <meta name="description" content="{{ champagne.presentation1 }}">
 {% endblock %}
 
 {% block content %}
 
 
-    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo1  }} ');">
+    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo1 }} ');">
 
     </div>
     <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
@@ -24,118 +24,190 @@
     </nav>
     <div class="container text-center py-5">
         <h1 class="segoe active p-2 fs-2">{{ champagne.name|upper }}</h1>
-        <h2 class="edwardian active p-2 fs-18">{{ champagne.subtitle1 }}</h2>
+        <h2 class="edwardian active p-2 fs-18">
+            {% if lg == 'fr' %}
+                {{ champagne.subtitle1 }}
+            {% elseif lg == 'en' %}
+                {{ champagne.subtitle1En }}
+            {% endif %}
+
+        </h2>
         <p class="p-2 fs-1">
-            {{ champagne.presentation1|nl2br }}
+            {% if lg == 'fr' %}
+                {{ champagne.presentation1|nl2br }}
+            {% elseif lg == 'en' %}
+                {{ champagne.presentation1En|nl2br }}
+            {% endif %}
         </p>
     </div>
-    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo2  }} ');">
+    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo2 }} ');">
 
     </div>
     <div class="container py-5">
         <div class="row">
             <div class="col-12 col-md text-center">
-                <h3 class="active segoe fs-12">{{ champagne.subtitle21|upper }}</h3>
+                <h3 class="active segoe fs-12">
+                    {% if lg == 'fr' %}
+                        {{ champagne.subtitle21|upper }}
+                    {% elseif lg == 'en' %}
+                        {{ champagne.subtitle21En|upper }}
+                    {% endif %}
+                </h3>
                 <p class="segoe fs-1">
-                    {{ champagne.presentation21|nl2br }}
+                    {% if lg == 'fr' %}
+                        {{ champagne.presentation21|nl2br }}
+                    {% elseif lg == 'en' %}
+                        {{ champagne.presentation21En|nl2br }}
+                    {% endif %}
                 </p>
             </div>
             {% if champagne.subtitle22 or champagne.presentation22 %}
-            <div class="col-12 col-md text-center">
-                {% if champagne.subtitle22|upper %}
-                <h3 class="active segoe fs-12">{{ champagne.subtitle22|upper }}</h3>
-                {% endif %}
-                {% if champagne.subtitle22|upper %}
-                <p class="segoe fs-1">
-                    {{ champagne.presentation22|nl2br }}
-                </p>
-                {% endif %}
-            </div>
+                <div class="col-12 col-md text-center">
+                    {% if champagne.subtitle22|upper %}
+                        <h3 class="active segoe fs-12">
+                            {% if lg == 'fr' %}
+                                {{ champagne.subtitle22|upper }}
+                            {% elseif lg == 'en' %}
+                                {{ champagne.subtitle22En|upper }}
+                            {% endif %}
+                        </h3>
+                    {% endif %}
+                    {% if champagne.subtitle22|upper %}
+                        <p class="segoe fs-1">
+                            {% if lg == 'fr' %}
+                                {{ champagne.presentation22|nl2br }}
+                            {% elseif lg == 'en' %}
+                                {{ champagne.presentation22En|nl2br }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
             {% endif %}
             {% if champagne.subtitle23 or champagne.presentation23 %}
-            <div class="col-12 col-md text-center">
-                {% if champagne.subtitle23|upper %}
-                <h3 class="active segoe fs-12">{{ champagne.subtitle23|upper }}</h3>
-                {% endif %}
-                {% if champagne.subtitle23|upper %}
-                    <p class="segoe fs-1">
-                        {{ champagne.presentation23|nl2br }}
-                    </p>
-                {% endif %}
-            </div>
+                <div class="col-12 col-md text-center">
+                    {% if champagne.subtitle23|upper %}
+                        <h3 class="active segoe fs-12">
+                            {% if lg == 'fr' %}
+                                {{ champagne.subtitle23|upper }}
+                            {% elseif lg == 'en' %}
+                                {{ champagne.subtitle23En|upper }}
+                            {% endif %}
+                        </h3>
+                    {% endif %}
+                    {% if champagne.subtitle23|upper %}
+                        <p class="segoe fs-1">
+                            {% if lg == 'fr' %}
+                                {{ champagne.presentation23|nl2br }}
+                            {% elseif lg == 'en' %}
+                                {{ champagne.presentation23En|nl2br }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
             {% endif %}
         </div>
 
 
         {% if champagne.subtitle3 %}
-        <div class="text-center pt-4">
-            <span class="segoe active fs-12 font-weight-bold">{{ champagne.subtitle3|upper }}</span>
-        </div>
+            <div class="text-center pt-4">
+                <span class="segoe active fs-12 font-weight-bold">
+                    {% if lg == 'fr' %}
+                        {{ champagne.subtitle3|upper }}
+                    {% elseif lg == 'en' %}
+                        {{ champagne.subtitle3En|upper }}
+                    {% endif %}
+                </span>
+            </div>
         {% endif %}
     </div>
     {% if champagne.photo3 %}
-    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo3  }} ');">
-
-    </div>
+        <div class="bg-without-url"
+             style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo3 }} ');">
+        </div>
     {% endif %}
 
     {% if champagne.subtitle4 or champagne.presentation4 or champagne.photoParagraph1 %}
-    <div class="container py-5">
-        <div class="row">
-            {% if champagne.subtitle4 or champagne.presentation4 %}
-            <div class="col-12 col-md text-center">
-                <div>
-                    {% if champagne.subtitle4 %}
-                    <h3 class="segoe active fs-12">{{ champagne.subtitle4|upper }}</h3>
-                    {% endif %}
-                    {% if champagne.presentation4 %}
-                    <p class="segoe fs-1">
-                        {{ champagne.presentation4|nl2br }}
-                    </p>
-                    {% endif %}
-                </div>
+        <div class="container py-5">
+            <div class="row">
+                {% if champagne.subtitle4 or champagne.presentation4 %}
+                    <div class="col-12 col-md text-center">
+                        <div>
+                            {% if champagne.subtitle4 %}
+                                <h3 class="segoe active fs-12">
+                                    {% if lg == 'fr' %}
+                                        {{ champagne.subtitle4|upper }}
+                                    {% elseif lg == 'en' %}
+                                        {{ champagne.subtitle4En|upper }}
+                                    {% endif %}
+                                </h3>
+                            {% endif %}
+                            {% if champagne.presentation4 %}
+                                <p class="segoe fs-1">
+                                    {% if lg == 'fr' %}
+                                        {{ champagne.presentation4|nl2br }}
+                                    {% elseif lg == 'en' %}
+                                        {{ champagne.presentation4En|nl2br }}
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if champagne.photoParagraph1 %}
+                    <div class="col-12 col-md text-center">
+                        <img style="width: 20vw; border-radius: 20px;"
+                             src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1 }} "
+                             alt="photo to illustrate the paragraph next to this one">
+                    </div>
+                {% endif %}
             </div>
-            {% endif %}
-            {% if champagne.photoParagraph1 %}
-                <div class="col-12 col-md text-center">
-                    <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph1  }} " alt="photo to illustrate the paragraph next to this one">
-                </div>
-            {% endif %}
         </div>
-    </div>
     {% endif %}
 
     {% if champagne.photo4 %}
-    <div class="bg-without-url" style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo4  }} ');">
+        <div class="bg-without-url"
+             style="background-image:url('{{ asset("ressource/uploads/") ~ champagne.photo4 }} ');">
 
-    </div>
+        </div>
     {% endif %}
 
 
     {% if champagne.subtitle5 or champagne.presentation5 or champagne.photoParagraph2 %}
-    <div class="container py-5 my-3">
-        <div class="row">
-            {% if champagne.subtitle5 or champagne.presentation5 %}
-            <div class="col-12 col-md  text-center">
-                <div class="">
-                    {% if champagne.subtitle5 %}
-                    <h3 class="segoe active fs-12">{{ champagne.subtitle5|upper }}</h3>
-                    {% endif %}
-                    {% if champagne.presentation5 %}
-                    <p class="segoe fs-1">
-                        {{ champagne.presentation5|nl2br }}
-                    </p>
+        <div class="container py-5 my-3">
+            <div class="row">
+                {% if champagne.subtitle5 or champagne.presentation5 %}
+                <div class="col-12 col-md  text-center">
+                    <div class="">
+                        {% if champagne.subtitle5 %}
+                            <h3 class="segoe active fs-12">
+                                {% if lg == 'fr' %}
+                                    {{ champagne.subtitle5|upper }}
+                                {% elseif lg == 'en' %}
+                                    {{ champagne.subtitle5En|upper }}
+                                {% endif %}
+                            </h3>
+                        {% endif %}
+                        {% if champagne.presentation5 %}
+                            <p class="segoe fs-1">
+                                {% if lg == 'fr' %}
+                                    {{ champagne.presentation5|nl2br }}
+                                {% elseif lg == 'en' %}
+                                    {{ champagne.presentation5En|nl2br }}
+                                {% endif %}
+                            </p>
+                        {% endif %}
+                    </div>
                     {% endif %}
                 </div>
-            {% endif %}
+                {% if champagne.photoParagraph2 %}
+                    <div class="col-12 col-md text-center">
+                        <img style="width: 20vw; border-radius: 20px;"
+                             src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2 }} "
+                             alt="photo to illustrate the paragraph next to this one">
+                    </div>
+                {% endif %}
             </div>
-            {% if champagne.photoParagraph2 %}
-            <div class="col-12 col-md text-center">
-                    <img style="width: 20vw; border-radius: 20px;" src="{{ asset("ressource/uploads/") ~ champagne.photoParagraph2  }} " alt="photo to illustrate the paragraph next to this one">
-            </div>
-            {% endif %}
         </div>
-    </div>
     {% endif %}
     <div>
         {{ render(controller(

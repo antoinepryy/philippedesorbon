@@ -33,18 +33,31 @@ easy_admin:
                           - { property: 'stepOrder', label: 'Bouteilles / Carton'}
                           - { property: 'type',label: 'Type', type: 'choice', type_options: {choices: {'Classique':'Classique', 'Collection':'Collection'}}}
                           - { property: 'subtitle_1', label: 'Titre 1'}
+                          - { property: 'subtitle_1_en', label: 'Titre 1 Anglais'}
                           - { property: 'presentation_1', label: 'Texte 1'}
+                          - { property: 'presentation_1_en', label: 'Texte 1 Anglais'}
                           - { property: 'subtitle_2_1', label: 'Titre 2.1'}
+                          - { property: 'subtitle_2_1_en', label: 'Titre 2.1 Anglais'}
                           - { property: 'presentation_2_1', label: 'Texte 2.1'}
+                          - { property: 'presentation_2_1_en', label: 'Texte 2.1 Anglais'}
                           - { property: 'subtitle_2_2', label: 'Titre 2.2'}
+                          - { property: 'subtitle_2_2_en', label: 'Titre 2.2 Anglais'}
                           - { property: 'presentation_2_2', label: 'Texte 2.2'}
+                          - { property: 'presentation_2_2_en', label: 'Texte 2.2 Anglais'}
                           - { property: 'subtitle_2_3', label: 'Titre 2.3'}
+                          - { property: 'subtitle_2_3_en', label: 'Titre 2.3 Anglais'}
                           - { property: 'presentation_2_3', label: 'Texte 2.3'}
+                          - { property: 'presentation_2_3_en', label: 'Texte 2.3 Anglais'}
                           - { property: 'subtitle_3', label: 'Titre 3'}
+                          - { property: 'subtitle_3_en', label: 'Titre 3 Anglais'}
                           - { property: 'subtitle_4', label: 'Titre 4'}
+                          - { property: 'subtitle_4_en', label: 'Titre 4 Anglais'}
                           - { property: 'presentation_4', label: 'Texte 4'}
+                          - { property: 'presentation_4_en', label: 'Texte 4 Anglais'}
                           - { property: 'subtitle_5', label: 'Texte 5'}
+                          - { property: 'subtitle_5_en', label: 'Texte 5 Anglais'}
                           - { property: 'presentation_5', label: 'Texte 5' }
+                          - { property: 'presentation_5_en', label: 'Texte 5 Anglais' }
                           - { property: 'photoFile_1', type: 'vich_image', label: "Fond d'écran 1" }
                           - { property: 'photoFile_2', type: 'vich_image', label: "Fond d'écran 2"  }
                           - { property: 'photoFile_3', type: 'vich_image', label: "Fond d'écran 3"  }

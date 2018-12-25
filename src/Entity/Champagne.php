@@ -109,6 +109,72 @@ class Champagne
      */
     private $presentation_5;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subtitle_1_en;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $presentation_1_en;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subtitle_2_1_en;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $presentation_2_1_en;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_2_2_en;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_2_2_en;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_2_3_en;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_2_3_en;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_3_en;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_4_en;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_4_en;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitle_5_en;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation_5_en;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -664,5 +730,217 @@ class Champagne
     {
         $this->stepOrder = $stepOrder;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle1En()
+    {
+        return $this->subtitle_1_en;
+    }
+
+    /**
+     * @param mixed $subtitle_1_en
+     */
+    public function setSubtitle1En($subtitle_1_en): void
+    {
+        $this->subtitle_1_en = $subtitle_1_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation1En()
+    {
+        return $this->presentation_1_en;
+    }
+
+    /**
+     * @param mixed $presentation_1_en
+     */
+    public function setPresentation1En($presentation_1_en): void
+    {
+        $this->presentation_1_en = $presentation_1_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle21En()
+    {
+        return $this->subtitle_2_1_en;
+    }
+
+    /**
+     * @param mixed $subtitle_2_1_en
+     */
+    public function setSubtitle21En($subtitle_2_1_en): void
+    {
+        $this->subtitle_2_1_en = $subtitle_2_1_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation21En()
+    {
+        return $this->presentation_2_1_en;
+    }
+
+    /**
+     * @param mixed $presentation_2_1_en
+     */
+    public function setPresentation21En($presentation_2_1_en): void
+    {
+        $this->presentation_2_1_en = $presentation_2_1_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle22En()
+    {
+        return $this->subtitle_2_2_en;
+    }
+
+    /**
+     * @param mixed $subtitle_2_2_en
+     */
+    public function setSubtitle22En($subtitle_2_2_en): void
+    {
+        $this->subtitle_2_2_en = $subtitle_2_2_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation22En()
+    {
+        return $this->presentation_2_2_en;
+    }
+
+    /**
+     * @param mixed $presentation_2_2_en
+     */
+    public function setPresentation22En($presentation_2_2_en): void
+    {
+        $this->presentation_2_2_en = $presentation_2_2_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle23En()
+    {
+        return $this->subtitle_2_3_en;
+    }
+
+    /**
+     * @param mixed $subtitle_2_3_en
+     */
+    public function setSubtitle23En($subtitle_2_3_en): void
+    {
+        $this->subtitle_2_3_en = $subtitle_2_3_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation23En()
+    {
+        return $this->presentation_2_3_en;
+    }
+
+    /**
+     * @param mixed $presentation_2_3_en
+     */
+    public function setPresentation23En($presentation_2_3_en): void
+    {
+        $this->presentation_2_3_en = $presentation_2_3_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle3En()
+    {
+        return $this->subtitle_3_en;
+    }
+
+    /**
+     * @param mixed $subtitle_3_en
+     */
+    public function setSubtitle3En($subtitle_3_en): void
+    {
+        $this->subtitle_3_en = $subtitle_3_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle4En()
+    {
+        return $this->subtitle_4_en;
+    }
+
+    /**
+     * @param mixed $subtitle_4_en
+     */
+    public function setSubtitle4En($subtitle_4_en): void
+    {
+        $this->subtitle_4_en = $subtitle_4_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation4En()
+    {
+        return $this->presentation_4_en;
+    }
+
+    /**
+     * @param mixed $presentation_4_en
+     */
+    public function setPresentation4En($presentation_4_en): void
+    {
+        $this->presentation_4_en = $presentation_4_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle5En()
+    {
+        return $this->subtitle_5_en;
+    }
+
+    /**
+     * @param mixed $subtitle_5_en
+     */
+    public function setSubtitle5En($subtitle_5_en): void
+    {
+        $this->subtitle_5_en = $subtitle_5_en;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresentation5En()
+    {
+        return $this->presentation_5_en;
+    }
+
+    /**
+     * @param mixed $presentation_5_en
+     */
+    public function setPresentation5En($presentation_5_en): void
+    {
+        $this->presentation_5_en = $presentation_5_en;
+    }
+
+
+
+
 
 }
