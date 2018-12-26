@@ -2,8 +2,8 @@
 
 
 {% block meta %}
-<title>Contact</title>
-<meta name="description" content="Martine Wallaert-Lathuillière serait heureuse
+    <title>Contact</title>
+    <meta name="description" content="Martine Wallaert-Lathuillière serait heureuse
 de vous accueillir lors de votre venue à Reims,
 pour des instants aussi privilégiés que délicats
 autour de nos Champagnes.">
@@ -14,28 +14,45 @@ autour de nos Champagnes.">
     <div style="display: flex;">
         <div class="w-75 text-center fs-08 my-5 py-5">
             <div class=" background-contact-logo">
-            <h1 class="segoe fs-18 pb-2 active">NOUS CONTACTER</h1>
-            <p class="segoe fc-grey-cs">
-                Martine Wallaert-Lathuillière serait heureuse<br>
-                de vous accueillir lors de votre venue à Reims,
-                pour des instants<br> aussi privilégiés que délicats
-                autour de nos Champagnes.
-            </p>
-            <p class="fc-grey-cs pt-4">
-                <span class="font-weight-bold">Champagne Philippe de Sorbon</span><br>
-                18 rue Houzeau-Muiron<br>
-                51100 REIMS<br>
-                Tél : (33) 03.26.40.54.66<br>
-                Mobile : (33) 06.48.88.87.02<br>
-                Fax : (33) 03.26.47.78.69<br>
-                Mail : <a href="mailto:wallaert@champagne-philippedesorbon.com">wallaert@champagne-philippedesorbon.com</a>
-            </p>
-            <p class="font-weight-bold fc-grey-cs">
-                Réception et visite sur rendez-vous
-            </p>
+                <h1 class="segoe fs-18 pb-2 active">
+                    {% if lg == 'fr' %}
+                        Nous contacter
+                    {% elseif lg == 'en' %}
+                        Contact us
+                    {% endif %}
+                </h1>
+                <p class="segoe fc-grey-cs">
+                    {% if lg == 'fr' %}
+                        Martine Wallaert-Lathuillière serait heureuse<br>
+                        de vous accueillir lors de votre venue à Reims,
+                        pour des instants<br> aussi privilégiés que délicats
+                        autour de nos Champagnes.
+                    {% elseif lg == 'en' %}
+                        Martine Wallaert-Lathuillière is happy to welcome you in<br>
+                        Reims, for moments as privileged and as delicate as our<br>
+                        Champagnes.
+                    {% endif %}
+
+                </p>
+                <p class="fc-grey-cs pt-4">
+                    <span class="font-weight-bold">Champagne Philippe de Sorbon</span><br>
+                    18 rue Houzeau-Muiron<br>
+                    51100 REIMS<br>
+                    Tél : (33) 03.26.40.54.66<br>
+                    Mobile : (33) 06.48.88.87.02<br>
+                    Fax : (33) 03.26.47.78.69<br>
+                    Mail : <a href="mailto:wallaert@champagne-philippedesorbon.com">wallaert@champagne-philippedesorbon.com</a>
+                </p>
+                <p class="font-weight-bold fc-grey-cs">
+                    {% if lg == 'fr' %}
+                        Réception et visite sur rendez-vous
+                    {% elseif lg == 'en' %}
+                        Reception and visit by appointment only.
+                    {% endif %}</p>
             </div>
-            <div  class="m-auto">
-                <img style="cursor: pointer; height:150px;" data-toggle="modal" data-target="#exampleModal" class="" src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
+            <div class="m-auto">
+                <img style="cursor: pointer; height:150px;" data-toggle="modal" data-target="#exampleModal" class=""
+                     src="{{ asset('ressource/image/contact/carte_france.jpg') }}" alt="map of France">
             </div>
 
 
@@ -44,7 +61,8 @@ autour de nos Champagnes.">
         </div>
 
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -54,7 +72,9 @@ autour de nos Champagnes.">
                     </button>
                 </div>
                 <div class="modal-body w-100 text-center">
-                    <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.1547676994683!2d4.041634814917504!3d49.25451238068843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e975b4c9352ad7%3A0xd38e6d2fda530ba1!2sChampagne+Philippe+de+Sorbon!5e0!3m2!1sfr!2sfr!4v1538560135138" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe class="w-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.1547676994683!2d4.041634814917504!3d49.25451238068843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e975b4c9352ad7%3A0xd38e6d2fda530ba1!2sChampagne+Philippe+de+Sorbon!5e0!3m2!1sfr!2sfr!4v1538560135138"
+                            width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
