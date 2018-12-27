@@ -7,39 +7,82 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/veloute.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Entrée
+    {% if lg == 'fr' %}
+        Entrée
+    {% elseif lg == 'en' %}
+        Appetizer
+    {% endif %}
 {% endblock %}
 {% block foodTitle %}
-    Velouté de langoustines au Champagne
+    {% if lg == 'fr' %}
+        Velouté de langoustines au Champagne
+    {% elseif lg == 'en' %}
+        Cream of langoustines with Champagne
+    {% endif %}
 {% endblock %}
 {% block temps %}
-    40 min préparation<br>
-    45 min de cuisson<br><br>
-    8 personnes
+    {% if lg == 'fr' %}
+        40 min préparation<br>
+        45 min de cuisson<br><br>
+        8 personnes
+    {% elseif lg == 'en' %}
+        40 min preparation time<br>
+        45 min cooking time<br><br>
+        8 persons
+    {% endif %}
+
 {% endblock %}
 {% block metVins%}
-
-    Accord idéal avec<br>
-    le Champagne<br>
-    Philippe de Sorbon<br>
-    Carte d'Or
+    {% if lg == 'fr' %}
+        Accord idéal avec<br>
+        le Champagne<br>
+        Philippe de Sorbon<br>
+        Carte d'Or
+    {% elseif lg == 'en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Carte d'Or
+    {% endif %}
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+            Ingrédients
+        {% elseif lg == 'en' %}
+            Ingredients
+        {% endif %}
+    </h3>
     <p class="fs-08">
-        24 langoustines crues<br>
-        2 oignons<br>
-        2 carottes<br>
-        1 échalote<br>
-        1 bouquet garni<br>
-        2 jaunes d'oeufs<br>
-        20 cl crème fraîche épaisse<br>
-        1 c.à café de concentré de tomates<br>
-        3 cl de cognac<br>
-        sel,poivre, huile d'olive, fumet de crustacé<br><br>
+        {% if lg == 'fr' %}
+            24 langoustines crues<br>
+            2 oignons<br>
+            2 carottes<br>
+            1 échalote<br>
+            1 bouquet garni<br>
+            2 jaunes d'oeufs<br>
+            20 cl crème fraîche épaisse<br>
+            1 c.à café de concentré de tomates<br>
+            3 cl de cognac<br>
+            sel,poivre, huile d'olive, fumet de crustacé<br><br>
 
-        1/2 Bouteille de Champagne<br>
-        Philippe de Sorbon Carte d'Or
+            1/2 Bouteille de Champagne<br>
+            Philippe de Sorbon Carte d'Or
+        {% elseif lg == 'en' %}
+            24 raw langoustines<br>
+            2 onions<br>
+            2 carrots<br>
+            1 shallot<br>
+            1 bouquet garni<br>
+            2 egg yolks<br>
+            20 cl thick cream<br>
+            1 tsp tomato paste<br>
+            3 cl of cognac<br>
+            salt, pepper, olive oil, crustacean stock<br><br>
+
+            1/2 Bottle of Champagne<br>
+            Philippe de Sorbon Carte d'Or
+        {% endif %}
+
     </p>
 
 {% endblock %}
@@ -47,11 +90,23 @@
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_carte_or.jpg') }}">
 {% endblock %}
 {% block recette %}
-    Peler et couper en petits dés carottes, oignons et échalotes.<br>
-    Dans une cocotte, faire dorer les langoustines avec l'huile d'olive, verser le cognac et flamber.<br><br>
+    {% if lg == 'fr' %}
+        Peler et couper en petits dés carottes, oignons et échalotes.<br>
+        Dans une cocotte, faire dorer les langoustines avec l'huile d'olive, verser le cognac et flamber.<br><br>
 
-    Retirer les langoustines. Ajouter les légumes dans la cocotte et laisser suer 10 minutes. Ajouter le concentré de tomates,le fumet de crustacé, saler, poivrer et couvrir d'1,5l d'eau puis verser le Champagne. Porter à ébullition et laisser mijoter 30 minutes à feu doux.<br>
-    Ouvrir 16 langoustines et ajouter leur chair.<br>
-    Incorporer les jaunes d'oeufs battus avec la crème juste avant de servir.<br>
-    Mettre dans chaque assiette une langoustine et verser le velouté.<br>
+        Retirer les langoustines. Ajouter les légumes dans la cocotte et laisser suer 10 minutes. Ajouter le concentré de tomates,le fumet de crustacé, saler, poivrer et couvrir d'1,5l d'eau puis verser le Champagne. Porter à ébullition et laisser mijoter 30 minutes à feu doux.<br>
+        Ouvrir 16 langoustines et ajouter leur chair.<br>
+        Incorporer les jaunes d'oeufs battus avec la crème juste avant de servir.<br>
+        Mettre dans chaque assiette une langoustine et verser le velouté.
+    {% elseif lg == 'en' %}
+        Peel and cut into small cubes carrots, onions and shallots.<br>
+        In a casserole, brown the langoustines with the olive oil, pour the brandy and flambé.<br><br>
+
+        Remove the langoustines. Add the vegetables to the casserole for 10 minutes. Add the tomato paste, the crustacean stock, salt, pepper and cover with 1.5l of water and pour the Champagne. Bring to a boil and simmer for 30 minutes over low heat.<br>
+        Open 16 langoustines and add their flesh.<br>
+        Stir in beaten egg yolks with cream just before serving.<br>
+        Put in each plate a langoustine and pour the velouté.
+
+    {% endif %}
+
 {% endblock %}

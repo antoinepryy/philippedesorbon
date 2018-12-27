@@ -7,47 +7,102 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/risotto.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Plat
+    {% if lg =='fr' %}
+        Plat
+    {% elseif lg =='en' %}
+        Main course
+    {% endif %}
+
 {% endblock %}
 {% block foodTitle %}
-    Risotto allo Champagne
+    {% if lg =='fr' %}
+        Risotto allo Champagne
+    {% elseif lg =='en' %}
+        Risotto allo Champagne
+    {% endif %}
 {% endblock %}
 {% block temps %}
-    5 min préparation<br>
-    20 min de cuisson<br><br>
-    4 personnes
+    {% if lg =='fr' %}
+        5 min préparation<br>
+        20 min de cuisson<br><br>
+        4 personnes
+    {% elseif lg =='en' %}
+        5 min preparation time<br>
+        20 min cooking time<br><br>
+        4 persons
+    {% endif %}
+
 {% endblock %}
 {% block metVins%}
-    Accord idéal avec<br>
-    le Champagne<br>
-    Philippe de Sorbon<br>
-    Carte d'Or
+    {% if lg =='fr' %}
+        Accord idéal avec<br>
+        le Champagne<br>
+        Philippe de Sorbon<br>
+        Carte d'Or
+    {% elseif lg =='en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Carte d'Or
+    {% endif %}
+
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg =='fr' %}
+            Ingrédients
+        {% elseif lg =='en' %}
+            Ingredients
+        {% endif %}
+    </h3>
     <p class="fs-08">
-        400 grs de riz rond type Arborio<br>
-        200 grs de champignons de Paris (encore meilleur avec des cèpes....)<br>
-        100 grs oignons<br>
-        50 grs de parmesan rapé<br>
-        3 cuillères à soupe d'huile d'olive<br>
-        2 Cuillères de fond de veau, du jus de viande ou 2 bouillon cube<br>
-        Facultatif: 2 cuillères à soupe de crème fraîche<br><br>
+        {% if lg =='fr' %}
+            400 grs de riz rond type Arborio<br>
+            200 grs de champignons de Paris (encore meilleur avec des cèpes....)<br>
+            100 grs oignons<br>
+            50 grs de parmesan rapé<br>
+            3 cuillères à soupe d'huile d'olive<br>
+            2 Cuillères de fond de veau, du jus de viande ou 2 bouillon cube<br>
+            Facultatif: 2 cuillères à soupe de crème fraîche<br><br>
 
-        1/4 bouteille de Champagne<br>
-        Philippe de Sorbon Carte d'Or
+            1/4 bouteille de Champagne<br>
+            Philippe de Sorbon Carte d'Or
+        {% elseif lg =='en' %}
+            400 grs round rice type Arborio<br>
+            200 grs of mushrooms or cepes<br>
+            100 grs onions<br>
+            50 grs grated Parmesan cheese<br>
+            3 tablespoons olive oil<br>
+            2 Spoons of veal stock, meat juice or 2 bouillon cube<br>
+            Optional: 2 tablespoons fresh cream<br><br>
+
+            1/4 bottle of Champagne<br>
+            Philippe de Sorbon Carte d'Or
+
+        {% endif %}
+
     </p>
 {% endblock %}
 {% block pictureChampagne %}
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_carte_or.jpg') }}">
 {% endblock %}
 {% block recette %}
-    Faire revenir dans une casserole les oignons finement émincés dans l'huile d'olive.<br>
-    Ajouter les champignons également émincés.<br>
-    Mettre le riz, le faire revenir en remuant et mouiller avec la moitié du Champagne. saler, poivrer.<br>
-    Ajouter le jus de viande (ou le bouillon cube).<br>
-    Surveiller la cuisson en remuant régulièrement et en ajoutant progressivement de l'eau qui sera absorbée par le riz.<br>
-    A la fin de la cuisson, lier avec le parmesan,un peu de Champagne et éventuellement la crème fraîche.<br>
-    Servir très chaud en offrant aux convives le Champagne philippe de Sorbon CARTE D'OR à table.
+    {% if lg =='fr' %}
+        Faire revenir dans une casserole les oignons finement émincés dans l'huile d'olive.<br>
+        Ajouter les champignons également émincés.<br>
+        Mettre le riz, le faire revenir en remuant et mouiller avec la moitié du Champagne. saler, poivrer.<br>
+        Ajouter le jus de viande (ou le bouillon cube).<br>
+        Surveiller la cuisson en remuant régulièrement et en ajoutant progressivement de l'eau qui sera absorbée par le riz.<br>
+        A la fin de la cuisson, lier avec le parmesan,un peu de Champagne et éventuellement la crème fraîche.<br>
+        Servir très chaud en offrant aux convives le Champagne philippe de Sorbon CARTE D'OR à table.
+
+    {% elseif lg =='en' %}
+        In a saucepan, sauté onions finely chopped in olive oil.<br>
+        Add the mushrooms also minced.<br>
+        Put the rice, sauté and stir with half of the champagne. Salt, pepper.<br>
+        Add the meat juice (or cubed broth).<br>
+        Monitor the cooking by stirring regularly and gradually adding water that will be absorbed by the rice.<br>
+        At the end of the cooking, combine with the Parmesan cheese, a little Champagne and possibly the crème fraiche.<br>
+        Serve very hot by offering the guests the Champagne Philippe Sorbon Carte d'Or
+    {% endif %}
 
 {% endblock %}

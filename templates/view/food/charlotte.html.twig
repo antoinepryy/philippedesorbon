@@ -7,54 +7,116 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/charlotte.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Dessert
+    {% if lg == 'fr' %}
+        Dessert
+    {% elseif lg == 'en' %}
+        Fine dinning
+    {% endif %}
+
 {% endblock %}
 {% block foodTitle %}
-    Charlotte rose aux fruits rouges et Champagne Perles de Rosé
+    {% if lg == 'fr' %}
+        Charlotte rose aux fruits rouges et Champagne Perles de Rosé
+    {% elseif lg == 'en' %}
+        Charlotte with red fruits and Champagne Perles de Rosé
+    {% endif %}
 {% endblock %}
 {% block temps %}
+    {% if lg == 'fr' %}
         25 min<br>
         +12h au frais<br><br>
         Un peu délicat
         et abordable
+    {% elseif lg == 'en' %}
+        25 min<br>
+        +12h in the fridge
+    {% endif %}
 {% endblock %}
 {% block metVins%}
-
+    {% if lg == 'fr' %}
         Accord idéal avec<br>
         le Champagne<br>
         Philippe de Sorbon<br>
         Perles de Rosé
+    {% elseif lg == 'en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Perles de Rosé
+    {% endif %}
+
+
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+            Ingrédients
+        {% elseif lg == 'en' %}
+            Ingredients
+        {% endif %}
+        </h3>
     <p class="fs-08">
-        15 biscuits roses de Reims (Fossier)<br>
-        250 g de fraises<br>
-        150 g de fraises des bois<br>
-        150 g de framboises<br>
-        30 cl de crème liquide très froide<br>
-        150 g de sucre<br>
-        6 grandes feuilles de gélatine (6 x 2 g)<br>
-        1 citron jaune<br>
+        {% if lg == 'fr' %}
+            15 biscuits roses de Reims (Fossier)<br>
+            250 g de fraises<br>
+            150 g de fraises des bois<br>
+            150 g de framboises<br>
+            30 cl de crème liquide très froide<br>
+            150 g de sucre<br>
+            6 grandes feuilles de gélatine (6 x 2 g)<br>
+            1 citron jaune<br>
+        {% elseif lg == 'en' %}
+            15 pink biscuits from Reims (Fossier)<br>
+            250 g strawberries<br>
+            150 g of wild strawberries<br>
+            150 g raspberries<br>
+            30 cl of very cold liquid cream<br>
+            150 g of sugar<br>
+            6 large sheets of gelatin (6 x 2 g)<br>
+            1 yellow lemon<br>
+        {% endif %}
     </p>
-    <h3 class="fs-1 font-italic">Pour le décor</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+            Pour le décor
+        {% elseif lg == 'en' %}
+            For the decor
+        {% endif %}
+    </h3>
     <p class="fs-08">
-        50 g de groseilles<br>
-        quelques fraises<br>
-        50 g de fraises des bois<br>
-        50 g de framboises<br>
-        sucre glace
+        {% if lg == 'fr' %}
+            50 g de groseilles<br>
+            quelques fraises<br>
+            50 g de fraises des bois<br>
+            50 g de framboises<br>
+            sucre glace
+        {% elseif lg == 'en' %}
+            50 g of currants<br>
+            some strawberries<br>
+            50 g of wild strawberries<br>
+            50 g raspberries<br>
+            icing sugar
+        {% endif %}
     </p>
 {% endblock %}
 {% block pictureChampagne %}
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_rose.jpg') }}">
 {% endblock %}
 {% block recette %}
-    Mettez à ramollir dans de l’eau froide les feuilles de gélatine. Lavez et égouttez les fraises, équeutez-les. Mettez-les avec les framboises dans le bol d’un mixeur, ajoutez 2 cuillerées à soupe de jus de citron, réduisez en purée et passez au tamis.<br><br>
+    {% if lg == 'fr' %}
+        Mettez à ramollir dans de l’eau froide les feuilles de gélatine. Lavez et égouttez les fraises, équeutez-les. Mettez-les avec les framboises dans le bol d’un mixeur, ajoutez 2 cuillerées à soupe de jus de citron, réduisez en purée et passez au tamis.<br><br>
 
-    Versez le sucre dans une casserole, ajoutez quelques gouttes de citron et 2 cuillerées à soupe d’eau, portez à ébullition et laissez cuire pour obtenir un sirop léger. Hors du feu, ajoutez la gélatine essorée, remuez longuement avec une spatule, puis versez la purée de fruits et remuez encore. Montez la crème en chantilly, incorporez-la délicatement au mélange.
-    Garnissez les bords et le fond d’un moule à charlotte de biscuits roses, versez-y la préparation aux fruits, mettez au frais et laissez prendre 12 h au moins.<br><br>
+        Versez le sucre dans une casserole, ajoutez quelques gouttes de citron et 2 cuillerées à soupe d’eau, portez à ébullition et laissez cuire pour obtenir un sirop léger. Hors du feu, ajoutez la gélatine essorée, remuez longuement avec une spatule, puis versez la purée de fruits et remuez encore. Montez la crème en chantilly, incorporez-la délicatement au mélange.
+        Garnissez les bords et le fond d’un moule à charlotte de biscuits roses, versez-y la préparation aux fruits, mettez au frais et laissez prendre 12 h au moins.<br><br>
 
-    Au moment de servir, démoulez la charlotte sur un plat de service, décorez avec les fruits réservés, saupoudrez de sucre glace et accompagnez éventuellement d’un coulis de fruits rouges.
+        Au moment de servir, démoulez la charlotte sur un plat de service, décorez avec les fruits réservés, saupoudrez de sucre glace et accompagnez éventuellement d’un coulis de fruits rouges.
+
+    {% elseif lg == 'en' %}
+        Soften the gelatin leaves in cold water. Wash and drain the strawberries, and remove the stalks. Put them with raspberries in the bowl of a blender, add 2 tablespoons lemon juice, to obtain a puree and put it through a sieve.<br><br>
+
+        Pour the sugar into a saucepan, add a few drops of lemon and 2 tablespoons of water, bring to a boil and cook to obtain a light syrup. Off the heat, add the gelatin, stir with a spatula, then pour the fruit puree and stir again. Add the whipped cream, add it gently to the mixture.
+        Garnish the edges and bottom of a charlotte mold with pink biscuits, pour in the fruit mixture, chill and allow to take 12 hours at least.<br><br>
+
+        When serving, unmold the charlotte on a serving platter, decorate with the reserved fruits, sprinkle with icing sugar and possibly accompany a red fruit coulis.
+    {% endif %}
 
 {% endblock %}

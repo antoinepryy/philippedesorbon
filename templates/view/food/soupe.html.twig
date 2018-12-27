@@ -7,33 +7,73 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/soupe.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Entrée
+    {% if lg == 'fr' %}
+        Entrée
+    {% elseif lg == 'en' %}
+        Appetizer
+    {% endif %}
 {% endblock %}
 {% block foodTitle %}
-    Soupe de Pois au Champagne
+    {% if lg == 'fr' %}
+        Soupe de Pois au Champagne
+    {% elseif lg == 'en' %}
+        Champagne pea soup
+    {% endif %}
 {% endblock %}
 {% block temps %}
-    20 min préparation<br>
-    10 min de cuisson<br><br>
-    4 personnes
+    {% if lg == 'fr' %}
+        20 min préparation<br>
+        10 min de cuisson<br><br>
+        4 personnes
+    {% elseif lg == 'en' %}
+        20 min preparation time<br>
+        10 min cooking time<br><br>
+        4 persons
+    {% endif %}
 {% endblock %}
-{% block metVins%}
-    Accord idéal avec<br>
-    le Champagne<br>
-    Philippe de Sorbon<br>
-    Carte Noire
+{% block metVins %}
+    {% if lg == 'fr' %}
+        Accord idéal avec<br>
+        le Champagne<br>
+        Philippe de Sorbon<br>
+        Carte Noire
+    {% elseif lg == 'en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Carte Noire
+    {% endif %}
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+            Ingrédients
+        {% elseif lg == 'en' %}
+            Ingredients
+        {% endif %}
+    </h3>
     <p class="fs-08">
-        600 grs petits pois surgelés<br>
-        1 litre bouillon de poule<br>
-        25 cl crème liquide<br>
-        400 grs crevettes roses<br><br>
+        {% if lg == 'fr' %}
+
+            600 grs petits pois surgelés<br>
+            1 litre bouillon de poule<br>
+            25 cl crème liquide<br>
+            400 grs crevettes roses<br><br>
 
 
-        2 flutes de Champagne<br>
-        Philippe de Sorbon Carte Noire
+            2 flutes de Champagne<br>
+            Philippe de Sorbon Carte Noire
+
+        {% elseif lg == 'en' %}
+
+            600 grams frozen peas<br>
+            1 liter chicken broth<br>
+            25 cl liquid cream<br>
+            400 grs pink shrimps<br><br>
+
+
+            2 flutes of Champagne<br>
+            Philippe de Sorbon Carte Noire
+        {% endif %}
 
     </p>
 
@@ -41,10 +81,21 @@
 {% block pictureChampagne %}
 {% endblock %}
 {% block recette %}
-    Cuire les petits pois dans un faitout dans le bouillon 10 minutes.<br>
-    Mixer longuement jusqu'à l'obtention d'un velouté et remettre à chauffer doucement.<br>
-    Eplucher les crevettes roses et les réserver.<br><br>
+    {% if lg == 'fr' %}
+        Cuire les petits pois dans un faitout dans le bouillon 10 minutes.<br>
+        Mixer longuement jusqu'à l'obtention d'un velouté et remettre à chauffer doucement.<br>
+        Eplucher les crevettes roses et les réserver.<br><br>
 
-    Juste avant de servir, ajouter la crème fraîche et les crevettes, verser dans la soupière et au dernier moment,ajouter le Champagne.<br>
-    Le velouté arrive effervescent à table.... Divin.
+        Juste avant de servir, ajouter la crème fraîche et les crevettes, verser dans la soupière et au dernier moment,ajouter le Champagne.
+        <br>
+        Le velouté arrive effervescent à table.... Divin.
+    {% elseif lg == 'en' %}
+        Cook the peas in a pot in the broth for 10 minutes.<br>
+        Mix for a long time until a velvety cream is obtained and heat gently again.<br>
+        Peel the prawns and set aside.<br><br>
+
+        Just before serving, add the crème fraîche and shrimp, pour into the tureen and at the last moment add the Champagne.<br>
+        Velvety arrives effervescent at the table .... Divine.
+    {% endif %}
+
 {% endblock %}

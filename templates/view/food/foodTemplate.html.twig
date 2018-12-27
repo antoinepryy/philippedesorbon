@@ -13,26 +13,44 @@
                     {% endblock %}
                 </div>
                 <div class="col-8 text-center">
-                    <h1 class="fs-1 font-weight-bold" style="color: #2E2B2B">PLAISIRS CHAMPENOIS</h1>
+                    <h1 class="fs-1 font-weight-bold" style="color: #2E2B2B">
+                        {% if lg == 'fr' %}
+                            PLAISIRS CHAMPENOIS
+                        {% elseif lg == 'en' %}
+                            FINE DINNING
+                        {% endif %}
+                    </h1>
                     <h2 class="fs-1">{% block foodTitle %}{% endblock %}</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 text-center">
-                    <h3 class="fs-1 font-italic">Temps</h3>
+                    <h3 class="fs-1 font-italic">
+                        {% if lg == 'fr' %}
+                            Temps
+                        {% elseif lg == 'en' %}
+                            Time
+                        {% endif %}
+                    </h3>
                     <p class="font-weight-bold active fs-08">
                         {% block temps %}
                         {% endblock %}
                     </p>
-                    <h3 class="fs-1 font-italic">Accord Mets / Vins</h3>
+                    <h3 class="fs-1 font-italic">
+                        {% if lg == 'fr' %}
+                            Accord Mets / Vins
+                        {% elseif lg == 'en' %}
+                            Food and Wine Pairing
+                        {% endif %}
+                        </h3>
                     <p class="font-weight-bold active fs-08">
                         {% block metVins %}
                         {% endblock %}
                     </p>
                 </div>
                 <div class="col-5">
-                        {% block ingredients %}
-                        {% endblock %}
+                    {% block ingredients %}
+                    {% endblock %}
                 </div>
                 <div class="col-2">
                     {% block pictureChampagne %}
@@ -44,10 +62,16 @@
         </div>
     </div>
     <div class="container text-center fc-grey-cs p-4">
-        <h3 class="fs-1">Recette</h3>
+        <h3 class="fs-1">
+            {% if lg == 'fr' %}
+                Recette
+            {% elseif lg == 'en' %}
+                Recipe
+            {% endif %}
+        </h3>
         <p class="fs-08">
-        {% block recette %}
-        {% endblock %}
+            {% block recette %}
+            {% endblock %}
         </p>
     </div>
 
@@ -58,7 +82,13 @@
 
     </div>
     <div class="p-5">
-        <h1 class="segoe fs-1 text-center">AUTRES PLAISIRS CHAMPENOIS</h1>
+        <h1 class="segoe fs-1 text-center">
+            {% if lg == 'fr' %}
+                AUTRES PLAISIRS CHAMPENOIS
+            {% elseif lg == 'en' %}
+                FINE DINNING
+            {% endif %}
+        </h1>
         {{ render(controller(
             'App\\Controller\\DefaultController::foodGrid'
         )) }}
