@@ -7,30 +7,69 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/granite.jpg') }}">
 {% endblock %}
 {% block foodType %}
+    {% if lg == 'fr' %}
     Dessert
+    {% elseif lg == 'en' %}
+    Dessert
+    {% endif %}
 {% endblock %}
 {% block foodTitle %}
-    Soupe de Granité Champagne, fraises et biscuits de Reims{% endblock %}
+    {% if lg == 'fr' %}
+    Soupe de Granité Champagne, fraises et biscuits de Reims
+    {% elseif lg == 'en' %}
+    Granite Champagne soup, strawberries and biscuits from Reims
+    {% endif %}
+{% endblock %}
 {% block temps %}
+    {% if lg == 'fr' %}
     15 min préparation<br>
     10 min de cuisson<br><br>
     6 personnes
+    {% elseif lg == 'en' %}
+    15 min preparation time<br>
+    10 min cooking time<br><br>
+    6 persons
+    {% endif %}
+
 {% endblock %}
 {% block metVins%}
+    {% if lg == 'fr' %}
     Accord idéal avec<br>
     le Champagne<br>
     Philippe de Sorbon<br>
     Carte Noire
+    {% elseif lg == 'en' %}
+    Champagne<br>
+    Philippe de Sorbon<br>
+    Carte Noire
+    {% endif %}
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+        Ingrédients
+        {% elseif lg == 'en' %}4
+        Ingredients
+        {% endif %}
+
+    </h3>
     <p class="fs-08">
+        {% if lg == 'fr' %}
         150 g de sucre<br>
         500 g de fraises<br>
         1 paquet de biscuits roses de Reims<br><br>
 
         1 bouteille de champagne<br>
         Philippe de Sorbon Perles de Rosé
+        {% elseif lg == 'en' %}
+        150 g of sugar<br>
+        500 g strawberries<br>
+        1 package of pink biscuits from Reims<br><br>
+
+        1 bottle of champagne<br>
+        Philippe de Sorbon Perles de Rosé
+        {% endif %}
+
     </p>
 
 {% endblock %}
@@ -38,9 +77,18 @@
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_rose.jpg') }}">
 {% endblock %}
 {% block recette %}
+    {% if lg == 'fr' %}
     Portez à ébullition 15 cl d’eau avec le sucre, puis laissez refroidir. Une fois le sirop complètement refroidi, mélangez-le au champagne. Versez le mélange dans un récipient large et peu profond et mettez-le au congélateur pendant 3 h au minimum, en remuant de temps en temps à l’aide d’une fourchette ou d’un petit fouet, des bords vers le centre pour obtenir de belles paillettes.<br><br>
 
     Pendant ce temps, lavez et équeutez les fraises. Coupez-les en dés et garnissez-en le fond de verrines.<br>
     Emiettez du bout des doigts les biscuits en petits morceaux et recouvrez-en les fraises. Réservez au frais.<br>
     Au moment de servir, recouvrez les verrines avec le granité et servez aussitôt.
+    {% elseif lg == 'en' %}
+    Boil 15cl of water with the sugar and let cool. Once the syrup has completely cooled, mix it with champagne. Pour the mixture into a shallow, wide container and put in the freezer for a minimum of 3 hours, stirring occasionally with a fork, to obtain beautiful glitter.<br><br>
+
+    Meanwhile, wash the strawberries. Cut into cubes and garnish the bottom of verrines.<br>
+    Crumble fingertips biscuits in small pieces and cover the strawberries. Refrigerate.<br>
+    When serving, cover the verrines with granita and serve immediately.
+    {% endif %}
+
 {% endblock %}

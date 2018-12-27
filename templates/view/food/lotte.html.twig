@@ -7,34 +7,82 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/lotte.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Plat
+    {% if lg == 'fr' %}
+        Plat
+    {% elseif lg =='en' %}
+        Course
+    {% endif %}
+
 {% endblock %}
 {% block foodTitle %}
-    Médaillons de lotte au Champagne{% endblock %}
+    {% if lg == 'fr' %}
+        Médaillons de lotte au Champagne
+    {% elseif lg =='en' %}
+        Monkfish Medallions with Champagne
+    {% endif %}
+
+{% endblock %}
 {% block temps %}
-    20 min préparation<br>
-    15 min de cuisson<br><br>
-    6 personnes
+    {% if lg == 'fr' %}
+        20 min préparation<br>
+        15 min de cuisson<br><br>
+        6 personnes
+    {% elseif lg =='en' %}
+        20 min preparation time<br>
+        15 min cooking time<br><br>
+        4 persons
+    {% endif %}
+
 {% endblock %}
 {% block metVins%}
-    Accord idéal avec<br>
-    le Champagne<br>
-    Philippe de Sorbon<br>
-    Blanc de Blancs
+    {% if lg == 'fr' %}
+        Accord idéal avec<br>
+        le Champagne<br>
+        Philippe de Sorbon<br>
+        Blanc de Blancs
+    {% elseif lg =='en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Blanc de Blancs
+    {% endif %}
+
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
-    <p class="fs-08">
-        6 médaillons de lotte désossés<br>
-        3 coeurs de laitue<br>
-        1 petit pot d'oeufs de saumon<br>
-        30 cl de crème fraîche épaisse<br>
-        1 jaune d'oeuf<br>
-        30 grs beurre<br>
-        quelques branches d'aneth, sel, poivre<br><br>
+    <h3 class="fs-1 font-italic">
+        {% if lg == 'fr' %}
+            Ingrédients
+        {% elseif lg =='en' %}
+            Ingredients
+        {% endif %}
 
-        50 cl Champagne Philippe de Sorbon<br>
-        Blanc de Blancs
+    </h3>
+    <p class="fs-08">
+        {% if lg == 'fr' %}
+            6 médaillons de lotte désossés<br>
+            3 coeurs de laitue<br>
+            1 petit pot d'oeufs de saumon<br>
+            30 cl de crème fraîche épaisse<br>
+            1 jaune d'oeuf<br>
+            30 grs beurre<br>
+            quelques branches d'aneth, sel, poivre<br><br>
+
+            50 cl Champagne Philippe de Sorbon<br>
+            Blanc de Blancs
+        {% elseif lg =='en' %}
+            6 boned monkfish medallions<br>
+            3 hearts of lettuce<br>
+            1 small pot of salmon eggs<br>
+            30 cl thick cream<br>
+            1 egg yolk<br>
+            30 grs butter<br>
+            some branches of dill, salt, pepper<br><br>
+
+            50 cl Champagne Philippe de Sorbon<br>
+            Blanc de Blancs
+
+
+        {% endif %}
+
 
 
     </p>
@@ -43,11 +91,23 @@
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_blanc.jpg') }}">
 {% endblock %}
 {% block recette %}
-    Plongez 2 min les coeurs de laitue dans de l'eau bouillante salée, égouttez-les et coupez-les en 2.<br>
-    Dans une sauteuse, mettez-les à fondre doucement dans le beurre avec sel et poivre, sans couvrir.<br><br>
+    {% if lg == 'fr' %}
+        Plongez 2 min les coeurs de laitue dans de l'eau bouillante salée, égouttez-les et coupez-les en 2.<br>
+        Dans une sauteuse, mettez-les à fondre doucement dans le beurre avec sel et poivre, sans couvrir.<br><br>
 
-    Mettez le Champagne à frémir dans une casserole, et pochez-y les médaillons de lotte 10 min. Egouttez-les et disposez-les sur la laitue dans un plat de service préchauffé, couvrez et réservez.<br><br>
+        Mettez le Champagne à frémir dans une casserole, et pochez-y les médaillons de lotte 10 min. Egouttez-les et disposez-les sur la laitue dans un plat de service préchauffé, couvrez et réservez.<br><br>
 
-    Dans un bol, délayez le jaune d'oeuf avec la crème. Faites réduire à feu vif le Champagne de moitié, puis hors du feu, ajoutez la crème, fouettez pour obtenir une sauce onctueuse.<br>
-    rectifiez l'assaisonnement, nappez le poisson de sauce, décorez d'oeufs de saumon et d'aneth. Servez aussitôt.
+        Dans un bol, délayez le jaune d'oeuf avec la crème. Faites réduire à feu vif le Champagne de moitié, puis hors du feu, ajoutez la crème, fouettez pour obtenir une sauce onctueuse.<br>
+        rectifiez l'assaisonnement, nappez le poisson de sauce, décorez d'oeufs de saumon et d'aneth. Servez aussitôt.
+
+    {% elseif lg =='en' %}
+        Immerse the lettuce hearts in salted boiling water for 2 minutes, drain them and cut them in half.<br>
+        In a sauté pan, melt them gently in the butter with salt and pepper, without covering.<br><br>
+
+        Put the champagne in a saucepan and put the monkfish medallions in it for 10 minutes. Drain and arrange on lettuce in preheated serving dish, cover.<br><br>
+
+        In a bowl, mix the egg yolk with the cream. Reduce the Champagne in half, then off the heat, add the cream, beat to obtain a creamy sauce.<br>
+        Rectify the seasoning, coat the fish with sauce, garnish with salmon and dill eggs. Serve immediately.
+    {% endif %}
+
 {% endblock %}

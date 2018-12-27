@@ -7,47 +7,102 @@
     <img style="width: 20vw; height: 20vw;" src="{{ asset('ressource/image/food/poireaux.jpg') }}">
 {% endblock %}
 {% block foodType %}
-    Plat
+    {% if lg =='fr' %}
+        Plat
+    {% elseif lg =='en' %}
+        Course
+    {% endif %}
+
 {% endblock %}
 {% block foodTitle %}
-    Saint-Jacques en crème de poireaux et Champagne{% endblock %}
+    {% if lg =='fr' %}
+        Saint-Jacques en crème de poireaux et Champagne
+    {% elseif lg =='en' %}
+        Scallops in cream of leeks and Champagne
+    {% endif %}
+{% endblock %}
 {% block temps %}
-    20 min préparation<br>
-    40 min de cuisson<br><br>
-    2 personnes
+    {% if lg =='fr' %}
+        20 min préparation<br>
+        40 min de cuisson<br><br>
+        2 personnes
+    {% elseif lg =='en' %}
+        20 min preparation time<br>
+        40 min cooking time<br><br>
+        4 persons
+    {% endif %}
+
 {% endblock %}
 {% block metVins%}
+    {% if lg =='fr' %}
+        Accord idéal avec<br>
+        le Champagne<br>
+        Philippe de Sorbon<br>
+        Carte Noire
+    {% elseif lg =='en' %}
+        Champagne<br>
+        Philippe de Sorbon<br>
+        Carte Noire
+    {% endif %}
 
-    Accord idéal avec<br>
-    le Champagne<br>
-    Philippe de Sorbon<br>
-    Carte Noire
 {% endblock %}
 {% block ingredients %}
-    <h3 class="fs-1 font-italic">Ingrédients</h3>
-    <p class="fs-08">
-        2 beaux jeunes poireaux<br>
-        40 cl de crème liquide<br>
-        6 à 8 coquilles Saint-jacques bien fraîches<br>
-        sel, poivre, beurre<br><br>
+    <h3 class="fs-1 font-italic">
+        {% if lg =='fr' %}
+            Ingrédients
+        {% elseif lg =='en' %}
+            Ingredients
+        {% endif %}
 
-        une flute de Champagne<br>
-        Philippe de Sorbon Millésimé 2011
+    </h3>
+    <p class="fs-08">
+        {% if lg =='fr' %}
+            2 beaux jeunes poireaux<br>
+            40 cl de crème liquide<br>
+            6 à 8 coquilles Saint-jacques bien fraîches<br>
+            sel, poivre, beurre<br><br>
+
+            une flute de Champagne<br>
+            Philippe de Sorbon Millésimé 2011
+        {% elseif lg =='en' %}
+            2 beautiful young leeks<br>
+            40 cl of liquid cream<br>
+            6 to 8 scallop shells<br>
+            salt, pepper, butter<br><br>
+
+            a flute of Champagne<br>
+            Philippe de Sorbon Millésimé 2011
+        {% endif %}
+
     </p>
 {% endblock %}
 {% block pictureChampagne %}
     <img style="width: 100%" src="{{ asset('ressource/image/food/champagne_millesime.jpg') }}">
 {% endblock %}
 {% block recette %}
-    Fendre les poireaux, les laver et les émincer finement.<br>
-    Les faire revenir en casserole avec du beurre fondu jusqu'à blondissement.<br>
-    Ajouter le Champagne.<br>
-    Laisser réduire doucement de moitié.<br>
-    Incorporer la crème fraîche, saler, poivrer et laisser réduire à nouveau de moitié.la fondue de poireaux doit être extrêmement fondante.<br>
-    Nettoyer les Saint-jacques et les couper en 2 dans le sens de la hauteur.<br>
-    Mettre les escalopes dans la sauce.Laisser cuire 3 minutes sans bouillir. rectifier l'assaisonnement.<br>
-    Servir très chaud accompagné du Champagne philippe de Sorbon Millésimé 1999.<br><br>
+    {% if lg =='fr' %}
+        Fendre les poireaux, les laver et les émincer finement.<br>
+        Les faire revenir en casserole avec du beurre fondu jusqu'à blondissement.<br>
+        Ajouter le Champagne.<br>
+        Laisser réduire doucement de moitié.<br>
+        Incorporer la crème fraîche, saler, poivrer et laisser réduire à nouveau de moitié.la fondue de poireaux doit être extrêmement fondante.<br>
+        Nettoyer les Saint-jacques et les couper en 2 dans le sens de la hauteur.<br>
+        Mettre les escalopes dans la sauce.Laisser cuire 3 minutes sans bouillir. rectifier l'assaisonnement.<br>
+        Servir très chaud accompagné du Champagne philippe de Sorbon Millésimé 1999.<br><br>
 
-    Mon conseil: plat idéal pour un dîner en tête-à-tête. la fondue crémée peut être préparée à l'avance, il ne reste plus qu'à réchauffer et cuire les escalopes 3 minutes.....
+        Mon conseil: plat idéal pour un dîner en tête-à-tête. la fondue crémée peut être préparée à l'avance, il ne reste plus qu'à réchauffer et cuire les escalopes 3 minutes.....
+
+    {% elseif lg =='en' %}
+        Slice leeks, wash and finely slice.<br>
+        Sauté in saucepan with melted butter until golden.<br>
+        Add the Champagne.<br>
+        Reduce slowly by half.<br>
+        Add the cream, salt, pepper and reduce by half again. The leek fondue must be extremely melting.<br>
+        Clean the scallops and cut them in 2 in the direction of the height.<br>
+        Put the scallops in the sauce. Let cook for 3 minutes without boiling. Adjust seasoning.<br>
+        Serve very hot accompanied by the Champagne philippe of Sorbon Millésimé 1999.<br><br>
+
+        My tip: perfect dish for a dinner in one-on-one. the creamed fondue can be prepared in advance, it only remains to heat and cook the scallops 3 minutes .....
+    {% endif %}
 
 {% endblock %}
