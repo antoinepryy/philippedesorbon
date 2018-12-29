@@ -35,7 +35,7 @@ class RegistrationController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $success = "Votre compte a bien été crée !";
+            $success = "Votre compte a bien été créé !";
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
             $entityManager = $this->getDoctrine()->getManager();

@@ -3,7 +3,14 @@
 {% block content %}
     <div class="register1 py-5">
         <div class="container text-center">
-            <h1 class="edwardian register-title text-white ">Devenez Membre</h1>
+            <h1 class="edwardian register-title text-white ">
+                {% if lg == 'fr' %}
+                    Devenez Membre
+                {% elseif lg =='en' %}
+                    Become member
+                {% endif %}
+
+            </h1>
             {% if error is defined %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
@@ -15,75 +22,153 @@
                     {{ form_row(form.civility) }}
                 </div>
                 <div class="col">
-                    {{ form_row(form.addressStreet) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.addressStreet, {'attr': {'placeholder': 'Adresse'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.addressStreet, {'attr': {'placeholder': 'Address'}}) }}
+                    {% endif %}
+
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    {{ form_row(form.lastName) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.lastName, {'attr': {'placeholder': 'Nom'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.lastName, {'attr': {'placeholder': 'Name'}}) }}
+                    {% endif %}
                 </div>
                 <div class="col">
-                    {{ form_row(form.addressZipCode) }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ form_row(form.firstName) }}
-                </div>
-                <div class="col">
-                    {{ form_row(form.addressCity) }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{ form_row(form.email) }}
-                </div>
-                <div class="col">
-                    {{ form_row(form.addressCountry) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.addressZipCode, {'attr': {'placeholder': 'Code Postal'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.addressZipCode, {'attr': {'placeholder': 'ZIP Code'}}) }}
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    {{ form_row(form.plainPassword.first) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.firstName, {'attr': {'placeholder': 'Prénom'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.firstName, {'attr': {'placeholder': 'First Name'}}) }}
+                    {% endif %}
                 </div>
                 <div class="col">
-                    {{ form_row(form.phoneNumber) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.addressCity, {'attr': {'placeholder': 'Ville'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.addressCity, {'attr': {'placeholder': 'City'}}) }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% if lg =='fr' %}
+                        {{ form_row(form.email, {'attr': {'placeholder': 'Email'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.email, {'attr': {'placeholder': 'Email'}}) }}
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {% if lg =='fr' %}
+                        {{ form_row(form.addressCountry, {'attr': {'placeholder': 'Pays'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.addressCountry, {'attr': {'placeholder': 'Country'}}) }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% if lg =='fr' %}
+                        {{ form_row(form.plainPassword.first, {'attr': {'placeholder': 'Mot de Passe'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.plainPassword.first, {'attr': {'placeholder': 'Password'}}) }}
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {% if lg =='fr' %}
+                        {{ form_row(form.phoneNumber, {'attr': {'placeholder': 'Téléphone'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.phoneNumber, {'attr': {'placeholder': 'Phone Number'}}) }}
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    {{ form_row(form.plainPassword.second) }}
+                    {% if lg =='fr' %}
+                        {{ form_row(form.plainPassword.second, {'attr': {'placeholder': 'Confimer Mot de Passe'}}) }}
+                    {% elseif lg =='en' %}
+                        {{ form_row(form.plainPassword.second, {'attr': {'placeholder': 'Confirm Password'}}) }}
+                    {% endif %}
                 </div>
             </div>
 
-            <button class="pointer" type="submit">S'inscrire</button>
+            <button class="pointer" type="submit">
+                {% if lg == 'fr' %}
+                    S'inscrire
+                {% elseif lg =='en' %}
+                    Register
+                {% endif %}
+            </button>
             {{ form_end(form) }}
         </div>
         <div class="text-center">
-            <a class="text-white" href="{{ path('login') }}">Si vous êtes déjà membre, cliquez ici.</a>
+            <a class="text-white" href="{{ path('login') }}">
+                {% if lg == 'fr' %}
+                    Si vous êtes déjà membre, cliquez ici.
+                {% elseif lg =='en' %}
+                    You already have an account?  CLick here
+                {% endif %}
+            </a>
         </div>
     </div>
     <div class="register2 text-center py-5">
-            <div class="text-white edwardian register-title">
+        <div class="text-white edwardian register-title">
+            {% if lg == 'fr' %}
                 De nos celliers à vos caves
-            </div>
-            <div class="font-weight-bold text-white segoe register-subtitle">
+            {% elseif lg =='en' %}
+                From our cellars to your cellar
+            {% endif %}
+        </div>
+        <div class="font-weight-bold text-white segoe register-subtitle">
+            {% if lg == 'fr' %}
                 LIVRAISON A DOMICILE
-            </div>
-            <div class="text-white text-center register-subtitle">
+            {% elseif lg =='en' %}
+                HOME DELIVERY
+            {% endif %}
+
+        </div>
+        <div class="text-white text-center register-subtitle">
+            {% if lg == 'fr' %}
                 Bénéficiez d'un service personnalisé pour vous et pour vos proches
-            </div>
+            {% elseif lg =='en' %}
+                Benefit from personalized service for you and your loved ones
+            {% endif %}
+        </div>
     </div>
     <div class="register3 text-center py-5">
-            <div class="edwardian register-title">
+        <div class="edwardian register-title">
+            {% if lg == 'fr' %}
                 Des expériences uniques
-            </div>
-            <div class="font-weight-bold segoe register-subtitle">
+            {% elseif lg =='en' %}
+                Unique experiences
+            {% endif %}
+        </div>
+        <div class="font-weight-bold segoe register-subtitle">
+            {% if lg == 'fr' %}
                 Suivez nous au fil des saisons
-            </div>
-            <div class="text-center register-subtitle">
+            {% elseif lg =='en' %}
+                Follow us through the seasons
+            {% endif %}
+        </div>
+        <div class="text-center register-subtitle">
+            {% if lg == 'fr' %}
                 Tenez vous informé
-            </div>
+            {% elseif lg =='en' %}
+                Keep you informed
+            {% endif %}
+        </div>
     </div>
 
 
