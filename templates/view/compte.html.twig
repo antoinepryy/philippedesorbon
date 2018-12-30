@@ -7,7 +7,14 @@
 
 {% block content %}
 <div class="container text-center py-3" style="min-height: calc(100vh - 300px);">
-    <h1 class="edwardian active" style="font-size: 4vw">Mon compte</h1>
+    <h1 class="edwardian active" style="font-size: 4vw">
+        {% if lg == 'fr' %}
+            Mon compte
+        {% elseif lg == 'en' %}
+            My account
+        {% endif %}
+
+    </h1>
     {% if success is defined %}
         <div class="alert alert-success" role="alert">
             {{ success }}
@@ -16,11 +23,24 @@
     <div class="row text-center">
 
         <div class="col-md-6 col-12">
-            <h2 class="fs-2 edwardian">Informations</h2>
+            <h2 class="edwardian" style="font-size: 3vw">
+                {% if lg == 'fr' %}
+                    Informations
+                {% elseif lg == 'en' %}
+                    Informations
+                {% endif %}
+            </h2>
             <div style="display: flex; justify-content: space-around">
                 <div>
                     <p>
-                        <span class="edwardian fs-18">Nom</span>
+                        <span class="edwardian fs-2">
+                            {% if lg == 'fr' %}
+                                Nom
+                            {% elseif lg == 'en' %}
+                                Name
+                            {% endif %}
+
+                        </span>
                     </p>
                     <p class="fs-1">
                         {{ user.civility }} {{ user.firstName }} {{ user.lastName }}
@@ -28,7 +48,13 @@
                 </div>
                 <div>
                     <p>
-                        <span class="edwardian fs-18">Addresse de facturation</span>
+                        <span class="edwardian fs-2">
+                            {% if lg == 'fr' %}
+                                Addresse de facturation
+                            {% elseif lg == 'en' %}
+                                Billing address
+                            {% endif %}
+                        </span>
                     </p>
                     <p class="fs-1">
                         {{ user.addressStreet }}<br>
@@ -41,26 +67,46 @@
         </div>
         <div class="col-md-6 col-12">
 
-                <h2 class="fs-2 edwardian">Actions</h2>
+                <h2 class="edwardian" style="font-size: 3vw">
+                    {% if lg == 'fr' %}
+                        Actions
+                    {% elseif lg == 'en' %}
+                        Actions
+                    {% endif %}
+
+                </h2>
                 <div class="account-button-container">
                     <div>
                         <a href="{{ path('change_infos') }}">
                             <button type="button" class="btn btn-dark my-2">
-                                Modifier les informations
+                                {% if lg == 'fr' %}
+                                    Modifier les informations
+                                {% elseif lg == 'en' %}
+                                    Change data
+                                {% endif %}
                             </button>
                         </a>
                     </div>
                     <div>
                         <a href="{{ path('change_password') }}">
                             <button type="button" class="btn btn-dark my-2">
-                                Changer mon mot de passe
+                                {% if lg == 'fr' %}
+                                    Changer mon mot de passe
+                                {% elseif lg == 'en' %}
+                                    Change password
+                                {% endif %}
+
                             </button>
                         </a>
                     </div>
                     <div>
                         <a href="{{ path('my_orders') }}">
                             <button type="button" class="btn btn-dark my-2">
-                                Mes commandes
+                                {% if lg == 'fr' %}
+                                    Mes commandes
+                                {% elseif lg == 'en' %}
+                                    My orders
+                                {% endif %}
                             </button>
                         </a>
                     </div>

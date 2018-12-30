@@ -4,21 +4,35 @@
     <div class="checkout-bg py-5">
         <div class="checkout-container container bg-white m-auto p-3">
             <div class="text-center">
-                <h1 class="edwardian fs-2 active">Votre commande</h1>
+                <h1 class="edwardian fs-2 active">
+                    {% if lg == 'fr' %}
+                        Votre commande
+                    {% elseif lg == 'en' %}
+                        Your order
+                    {% endif %}
+
+                </h1>
                 {% if errors is defined %}
-                {% for error in errors %}
-                <div class="alert alert-danger fs-1" role="alert">
-                    {{ error.message }}
-                </div>
-                {% endfor %}
+                    {% for error in errors %}
+                        <div class="alert alert-danger fs-1" role="alert">
+                            {{ error.message }}
+                        </div>
+                    {% endfor %}
                 {% endif %}
                 {% if orderCanceled == true %}
-                        <div class="alert alert-danger" role="alert">
-                            <p class="fs-1">Votre commande a été annulée,<br>
+                    <div class="alert alert-danger" role="alert">
+                        <p class="fs-1">
+                            {% if lg == 'fr' %}
+                                Votre commande a été annulée,<br>
                                 ou bien votre virement a été refusé.<br>
                                 Veuillez réessayer
-                            </p>
-                        </div>
+                            {% elseif lg == 'en' %}
+                                Your order has been canceled,<br>
+                                or your transfer has been refused.<br>
+                            {% endif %}
+
+                        </p>
+                    </div>
                 {% endif %}
                 <p class="fs-12">
                     {% for line in content %}
@@ -27,14 +41,20 @@
                     Total à régler : {{ total|number_format(2) }} &euro;<br>
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
-
                 </p>
             </div>
 
             <div class="container">
                 <div class="row py-2">
                     <div class="col-6 text-center fact-address">
-                        <h2 class="edwardian fs-17">Adresse de facturation</h2>
+                        <h2 class="edwardian fs-17">
+                            {% if lg == 'fr' %}
+                                Adresse de facturation
+                            {% elseif lg == 'en' %}
+                                Billing address
+                            {% endif %}
+
+                        </h2>
                         <p>
                             {{ form_row(form.addressNameFact) }}
                             {{ form_row(form.addressStreetFact) }}
@@ -45,10 +65,15 @@
                         </p>
 
 
-
                     </div>
                     <div class="col-6 text-center del-address">
-                        <h2 class="edwardian fs-17">Adresse de livraison</h2>
+                        <h2 class="edwardian fs-17">
+                            {% if lg == 'fr' %}
+                                Adresse de livraison
+                            {% elseif lg == 'en' %}
+                                Delivery address
+                            {% endif %}
+                        </h2>
                         <p>
                             {{ form_row(form.addressNameDelivery) }}
                             {{ form_row(form.addressStreetDelivery) }}
@@ -62,19 +87,36 @@
                 </div>
                 <div class="row py-2 text-center">
                     <div class="col-12 col-sm-6">
-                        <p class="fs-12">
-                            Informations de livraison :<br><br>
-                            - pour la France Métropolitaine, compter approximativement une semaine.<br>
-                            - pour la France extra-métropolitaine et export,<br> nous contacter pour le coût du port et les taxes.<br>
+                        <p class="fs-10">
+                            {% if lg == 'fr' %}
+                                Informations de livraison :<br><br>
+                                - pour la France Métropolitaine, compter approximativement une semaine.<br>
+                                - pour la France extra-métropolitaine et export,<br> nous contacter pour le coût du port et les taxes.<br>
+                            {% elseif lg == 'en' %}
+                                Delivery informations :<br><br>
+                                - for Metropolitan France, count approximately one week to receive your order.<br>
+                                - for extra-Metropolitan France and export,<br>please contact us for taxes and fees.<br>
+
+                            {% endif %}
+
                         </p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="fs-12">
-                            Date de livraison désirée (min. 7 jours) :
+                        <p class="fs-10">
+                            {% if lg == 'fr' %}
+                                Date de livraison désirée (min. 7 jours) :
+                            {% elseif lg == 'en' %}
+                                Desired delivery date (min. 7 days) :
+                            {% endif %}
+
                         </p>
                         {{ form_row(form.dateDelivery) }}
-                        <p class="fs-12">
-                            Commentaire :
+                        <p class="fs-10">
+                            {% if lg == 'fr' %}
+                                Commentaire :
+                            {% elseif lg == 'en' %}
+                                Comment :
+                            {% endif %}
                         </p>
                         {{ form_row(form.buyerComment) }}
                     </div>
@@ -87,7 +129,6 @@
             <div class="w-50 text-center m-auto payment">{{ form_row(form.paymentMethod) }}
                 {{ form_end(form) }}
             </div>
-
 
 
         </div>

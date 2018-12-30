@@ -3,7 +3,14 @@
 {% block content %}
 
     <div class="container order-bg text-center">
-        <h1 class="text-center p-3 fs-16">Mes commandes</h1>
+        <h1 class="text-center p-3 fs-16">
+            {% if lg == 'fr' %}
+                Mes commandes
+            {% elseif lg == 'en' %}
+                My orders
+            {% endif %}
+
+        </h1>
         <p class="fs-12">{{ content|replace({"<br />":'',"\r\n":"","\n\r":"","\r":"","\n":"", "€" : '€\r'})|nl2br }}</p>
         <p class="fs-12">
             Total : {{ price }} &euro;
