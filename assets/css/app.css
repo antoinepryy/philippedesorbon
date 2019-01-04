@@ -7,6 +7,10 @@
     text-decoration: underline;
 }
 
+.txt-hv-white:hover{
+    color: white!important;
+}
+
 #header{background-color: white;}
 
 .header-list, .footer-list {

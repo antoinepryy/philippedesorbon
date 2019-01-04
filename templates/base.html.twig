@@ -104,34 +104,51 @@
     </div>
 
 
-    {% if lg =='fr' %}
 
+    <div class="void-fill" style="display: none; height: 50px;"></div>
+    <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0; height: 50px">
+        <ul class="header-list justify-content-around">
+            <li><a id="LaMaison" href="{{ path('maison') }}">
+                    {% if lg == 'fr' %}
+                        LA MAISON
+                    {% elseif lg == 'en' %}
+                        THE HOUSE
+                    {% endif %}
 
-        <div class="void-fill" style="display: none; height: 50px;"></div>
-        <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0; height: 50px">
-            <ul class="header-list justify-content-around">
-                <li><a id="LaMaison" href="{{ path('maison') }}">LA MAISON</a></li>
-                <li><a id="SavoirFaire" href="{{ path('savoirfaire') }}">LE SAVOIR-FAIRE</a></li>
-                <li><a id="Champagnes" href="{{ path('champagnes') }}">LES CHAMPAGNES</a></li>
-                <li><a id="Vignoble" href="{{ path('vignoble') }}">LE VIGNOBLE</a></li>
-                <li><a id="Boutique" href="{{ path('boutique') }}">ACHETER EN LIGNE</a></li>
-            </ul>
-        </nav>
+                </a></li>
+            <li><a id="SavoirFaire" href="{{ path('savoirfaire') }}">
+                    {% if lg == 'fr' %}
+                        LE SAVOIR-FAIRE
+                    {% elseif lg == 'en' %}
+                        THE EXPERTISE
+                    {% endif %}
 
-    {% elseif lg == 'en' %}
+                </a></li>
+            <li><a id="Champagnes" href="{{ path('champagnes') }}">
+                    {% if lg == 'fr' %}
+                        LES CHAMPAGNES
+                    {% elseif lg == 'en' %}
+                        THE CHAMPAGNES
+                    {% endif %}
 
-        <div class="void-fill" style="display: none; height: 50px;"></div>
-        <nav id="header-nav" class="hd-nav" style="z-index: 1010; top: 0;left: 0; right: 0; height: 50px">
-            <ul class="header-list justify-content-around">
-                <li><a id="LaMaison" href="{{ path('maison') }}">THE HOUSE</a></li>
-                <li><a id="SavoirFaire" href="{{ path('savoirfaire') }}">THE EXPERTISE</a></li>
-                <li><a id="Champagnes" href="{{ path('champagnes') }}">THE CHAMPAGNES</a></li>
-                <li><a id="Vignoble" href="{{ path('vignoble') }}">THE VINES</a></li>
-                <li><a id="Boutique" href="{{ path('boutique') }}">SHOP ONLINE</a></li>
-            </ul>
-        </nav>
+                </a></li>
+            <li><a id="Vignoble" href="{{ path('vignoble') }}">
+                    {% if lg == 'fr' %}
+                        LE VIGNOBLE
+                    {% elseif lg == 'en' %}
+                        THE VINES
+                    {% endif %}
 
-    {% endif %}
+                </a></li>
+            <li><a id="Boutique" href="{{ path('boutique') }}">
+                    {% if lg == 'fr' %}
+                        ACHETER EN LIGNE
+                    {% elseif lg == 'en' %}
+                        SHOP ONLINE
+                    {% endif %}
+                </a></li>
+        </ul>
+    </nav>
 </div>
 
 
@@ -139,397 +156,252 @@
 {% endblock %}
 
 
-{% if lg == 'fr' %}
+<div id="footer">
+    <nav id="footer-nav">
+        <ul class="footer-list justify-content-around">
+            <li><a href="{{ path('mentionslegales') }}">
+                    {% if lg == 'fr' %}
+                        MENTIONS LEGALES
+                    {% elseif lg == 'en' %}
+                        LEGAL NOTICES
+                    {% endif %}
+                </a></li>
+            <li><a href="{{ path('CGV') }}">
+                    {% if lg == 'fr' %}
+                        CONDITIONS GENERALES DE VENTE
+                    {% elseif lg == 'en' %}
+                        GENERAL SELLING CONDITIONS
+                    {% endif %}
 
-    <div id="footer">
-        <nav id="footer-nav">
-            <ul class="footer-list justify-content-around">
-                <li><a href="{{ path('mentionslegales') }}">MENTIONS LEGALES</a></li>
-                <li><a href="{{ path('CGV') }}">CONDITIONS GENERALES DE VENTE</a></li>
-                <li><a href="{{ path('contact') }}">NOUS CONTACTER</a></li>
-                <li>
-                    <div>
-                        <span id="fr" class="chg-lg pointer underline">FR</span> |
-                        <span id="en" class="chg-lg pointer underline">EN</span> {#|
+                </a></li>
+            <li><a href="{{ path('contact') }}">
+                    {% if lg == 'fr' %}
+                        NOUS CONTACTER
+                    {% elseif lg == 'en' %}
+                        CONTACT US
+                    {% endif %}
+                </a></li>
+            <li>
+                <div>
+                    <span id="fr" class="chg-lg pointer underline">FR</span> |
+                    <span id="en" class="chg-lg pointer underline">EN</span> {#|
                         <span id="es" class="chg-lg pointer underline">ES</span> |
                         <span id="de" class="chg-lg pointer underline">DE</span>#}
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-    <div id="age-verification"
-         style="position:fixed; top: 0;width: 100%; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
-        <div class="hide-mobile">
-            <div style="height: 200px; background-color: transparent">
-                <div class="text-center" style="display: flex; width: 100%;position: relative">
-                    <a href="{{ path('index') }}" class="m-auto">
-                        <img class="m-auto" id="big-picture" style="display: block;width: 210px;"
-                             src="{{ asset('ressource/image/app/titre.png') }}"
-                             alt="Logo de la maison Philippe de Sorbon">
-                    </a>
-                </div>
-                <div class="text-center edwardian">
-                    <span class="fs-18">Maison fondée à Reims en 1968</span>
-                </div>
-            </div>
-        </div>
-        <div class="text-center w-50 text-age">
-            <p class="active segoe">
-                POUR ACCÉDER AU SITE PHILIPPE DE SORBON
-            </p>
-            <p class="segoe text-white">
-                Pour être en mesure de consulter ce site, vous devez
-                avoir atteint l'âge légal défini par les lois de votre pays régissant la consommation d'alcool.
-            </p>
-            <p class="active segoe">
-                SELECTIONNEZ VOTRE PAYS
-            </p>
-            <div style="height: 50px;">
-                <select class="location" id="country">
-                    <option value="18" data-value="South Africa">Afrique du Sud</option>
-                    <option value="0" data-value="Albania">Albanie</option>
-                    <option value="18" data-value="Algeria">Algérie</option>
-                    <option value="18" data-value="Germany">Allemagne</option>
-                    <option value="16" data-value="Antigua and Barbuda">Antigua-et-Barbuda</option>
-                    <option value="18" data-value="Argentina">Argentine</option>
-                    <option value="0" data-value="Armenia">Arménie</option>
-                    <option value="18" data-value="Australia">Australie</option>
-                    <option value="18" data-value="Austria">Autriche</option>
-                    <option value="15" data-value="Azerbaijan">Azerbaïdjan</option>
-                    <option value="18" data-value="Bahamas">Bahamas</option>
-                    <option value="18" data-value="Bahrain">Bahreïn</option>
-                    <option value="18" data-value="Barbados">Barbade</option>
-                    <option value="18" data-value="Belgium">Belgique</option>
-                    <option value="18" data-value="Belize">Belize</option>
-                    <option value="18" data-value="Bermuda">Bermudes</option>
-                    <option value="18" data-value="Bolivia">Bolivie</option>
-                    <option value="18" data-value="Bosnia and Herzegovina">Bosnie-Herzégovine</option>
-                    <option value="0" data-value="Botswana">Botswana</option>
-                    <option value="18" data-value="Brasil">Brasil</option>
-                    <option value="99" data-value="Brunei Darussalam">Brunei Darussalam</option>
-                    <option value="18" data-value="Bulgaria">Bulgarie</option>
-                    <option value="21" data-value="Cameroon">Cameroun</option>
-                    <option value="18" data-value="Canada">Canada</option>
-                    <option value="18" data-value="Chile">Chili</option>
-                    <option value="18" data-value="China">Chine</option>
-                    <option value="17" data-value="Cyprus">Chypre</option>
-                    <option value="18" data-value="Colombia">Colombie</option>
-                    <option value="0" data-value="Congo">Congo</option>
-                    <option value="0" data-value="Congo -DROC-">Congo -DROC-</option>
-                    <option value="19" data-value="South Korea">Corée du Sud</option>
-                    <option value="18" data-value="Costa Rica">Costa Rica</option>
-                    <option value="18" data-value="Croatia">Croatie</option>
-                    <option value="0" data-value="Cuba">Cuba</option>
-                    <option value="0" data-value="Denmark">Danemark</option>
-                    <option value="0" data-value="Spain">Espagne</option>
-                    <option value="18" data-value="Estonia">Estonie</option>
-                    <option value="18" data-value="Fiji">Fidji</option>
-                    <option value="18" data-value="Finland">Finlande</option>
-                    <option value="18" data-value="France" selected="selected">France</option>
-                    <option value="0" data-value="Ghana">Ghana</option>
-                    <option value="16" data-value="Gibraltar">Gibraltar</option>
-                    <option value="0" data-value="Greece">Grèce</option>
-                    <option value="21" data-value="Guam">Guam</option>
-                    <option value="0" data-value="Guatemala">Guatemala</option>
-                    <option value="0" data-value="Georgia">Géorgie</option>
-                    <option value="16" data-value="Haiti">Haïti</option>
-                    <option value="18" data-value="Honduras">Honduras</option>
-                    <option value="18" data-value="Hong Kong">Hong Kong</option>
-                    <option value="0" data-value="Hungary">Hongrie</option>
-                    <option value="18" data-value="India">Inde</option>
-                    <option value="18" data-value="Indonesia">Indonésie</option>
-                    <option value="18" data-value="Iraq">Irak</option>
-                    <option value="99" data-value="Iran">Iran</option>
-                    <option value="0" data-value="Ireland">Irlande</option>
-                    <option value="0" data-value="Iceland">Islande</option>
-                    <option value="18" data-value="Israel">Israël</option>
-                    <option value="18" data-value="Italy">Italie</option>
-                    <option value="15" data-value="Jamaica">Jamaïque</option>
-                    <option value="20" data-value="Japan">Japon</option>
-                    <option value="18" data-value="Jordan">Jordanie</option>
-                    <option value="18" data-value="Kenya">Kenya</option>
-                    <option value="0" data-value="Latvia">Lettonie</option>
-                    <option value="18" data-value="Lebanon">Liban</option>
-                    <option value="18" data-value="Liechtenstein">Liechtenstein</option>
-                    <option value="18" data-value="Lithuania">Lituanie</option>
-                    <option value="16" data-value="Luxembourg">Luxembourg</option>
-                    <option value="18" data-value="Malaysia">Malaisie</option>
-                    <option value="18" data-value="Malawi">Malawi</option>
-                    <option value="0" data-value="Malta">Malte</option>
-                    <option value="18" data-value="Morocco">Maroc</option>
-                    <option value="18" data-value="Mauritius">Maurice</option>
-                    <option value="99" data-value="Mauritania">Mauritanie</option>
-                    <option value="18" data-value="Mexico">Mexique</option>
-                    <option value="18" data-value="Moldova">Moldavie</option>
-                    <option value="0" data-value="Monaco">Monaco</option>
-                    <option value="0" data-value="Namibia">Namibie</option>
-                    <option value="19" data-value="Nicaragua">Nicaragua</option>
-                    <option value="0" data-value="Niger">Niger</option>
-                    <option value="0" data-value="Nigeria">Nigeria</option>
-                    <option value="0" data-value="Norway">Norvège</option>
-                    <option value="18" data-value="New Zealand">Nouvelle-Zélande</option>
-                    <option value="18" data-value="Nepal">Népal</option>
-                    <option value="21" data-value="Oman">Oman</option>
-                    <option value="18" data-value="Uganda">Ouganda</option>
-                    <option value="21" data-value="Pakistan">Pakistan</option>
-                    <option value="21" data-value="Palau">Palaos</option>
-                    <option value="18" data-value="Panama">Panama</option>
-                    <option value="18" data-value="Papua New Guinea">Papouasie-Nouvelle-Guinée</option>
-                    <option value="18" data-value="Paraguay">Paraguay</option>
-                    <option value="0" data-value="Netherlands">Pays-Bas</option>
-                    <option value="18" data-value="Philippines">Philippines</option>
-                    <option value="18" data-value="Poland">Pologne</option>
-                    <option value="18" data-value="Puerto Rico">Porto Rico</option>
-                    <option value="18" data-value="Portugal">Portugal</option>
-                    <option value="18" data-value="Peru">Pérou</option>
-                    <option value="18" data-value="Qatar">Qatar</option>
-                    <option value="0" data-value="Romania">Roumanie</option>
-                    <option value="18" data-value="United Kingdom">Royaume-Uni</option>
-                    <option value="18" data-value="Russia">Russie</option>
-                    <option value="18" data-value="Dominican Republic">République dominicaine</option>
-                    <option value="18" data-value="Czech Republic">République tchèque</option>
-                    <option value="21" data-value="Samoa">Samoa</option>
-                    <option value="21" data-value="American Samoa">Samoa américaines</option>
-                    <option value="18" data-value="Serbia and Montenegro">Serbia and Montenegro</option>
-                    <option value="18" data-value="Singapore">Singapour</option>
-                    <option value="0" data-value="Slovakia">Slovaquie</option>
-                    <option value="0" data-value="Slovenia">Slovénie</option>
-                    <option value="18" data-value="Sri Lanka">Sri Lanka</option>
-                    <option value="18" data-value="Switzerland">Suisse</option>
-                    <option value="18" data-value="Sweden">Suède</option>
-                    <option value="0" data-value="Taiwan">Taïwan</option>
-                    <option value="20" data-value="Thailand">Thaïlande</option>
-                    <option value="18" data-value="Tokelau">Tokelau</option>
-                    <option value="21" data-value="Tonga">Tonga</option>
-                    <option value="18" data-value="Trinidad and Tobago">Trinité-et-Tobago</option>
-                    <option value="18" data-value="Tunisia">Tunisie</option>
-                    <option value="18" data-value="Turkey">Turquie</option>
-                    <option value="18" data-value="Uruguay">Uruguay</option>
-                    <option value="18" data-value="Vanuatu">Vanuatu</option>
-                    <option value="18" data-value="Venezuela">Venezuela</option>
-                    <option value="0" data-value="Vietnam">Vietnam</option>
-                    <option value="0" data-value="Zambia">Zambie</option>
-                    <option value="15" data-value="Zimbabwe">Zimbabwe</option>
-                    <option value="21" data-value="Egypt">Égypte</option>
-                    <option value="21" data-value="United Arab Emirates">Émirats arabes unis</option>
-                    <option value="18" data-value="Ecuador">Équateur</option>
-                    <option value="18" data-value="Eritrea">Érythrée</option>
-                    <option value="21" data-value="United States of America">États-Unis</option>
-                    <option value="18" data-value="Ethiopia">Éthiopie</option>
-                    <option value="21" data-value="Northern Mariana Islands">Îles Mariannes du Nord</option>
-                    <option value="21" data-value="Solomon Islands">Îles Salomon</option>
-                </select>
-            </div>
-            <p class="active segoe">
-                Êtes-vous nés avant <span id="limit-date"></span> ?
-            </p>
-            <div style="height: 50px; display: flex; justify-content: space-around" class="button-container">
-                <input id="age-yes" type="button" value="OUI">
-                <a href="http://www.google.com" rel="nofollow">
-                    NON
+<div id="age-verification"
+     style="position:fixed; top: 0;width: 100%; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
+    <div class="hide-mobile">
+        <div style="height: 200px; background-color: transparent">
+            <div class="text-center" style="display: flex; width: 100%;position: relative">
+                <a href="{{ path('index') }}" class="m-auto">
+                    <img class="m-auto" id="big-picture" style="display: block;width: 210px;"
+                         src="{{ asset('ressource/image/app/titre.png') }}"
+                         alt="Logo de la maison Philippe de Sorbon">
                 </a>
             </div>
-        </div>
-    </div>
-
-{% elseif lg == 'en' %}
-    <div id="footer">
-        <nav id="footer-nav">
-            <ul class="footer-list justify-content-around">
-                <li><a href="{{ path('mentionslegales') }}">LEGAL NOTICES</a></li>
-                <li><a href="{{ path('CGV') }}">GENERAL SELLING CONDITIONS</a></li>
-                <li><a href="{{ path('contact') }}">CONTACT US</a></li>
-                <li>
-                    <div>
-                        <span id="fr" class="chg-lg pointer underline">FR</span> |
-                        <span id="en" class="chg-lg pointer underline">EN</span>{# |
-                        <span id="es" class="chg-lg pointer underline">ES</span> |
-                        <span id="de" class="chg-lg pointer underline">DE</span>#}
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div id="age-verification"
-         style="position:fixed; top: 0;width: 100%; height: 100vh; background-color: #2E2B2B; opacity: 0.85;z-index: 3000; display: none;">
-        <div class="hide-mobile">
-            <div style="height: 200px; background-color: transparent">
-                <div class="text-center" style="display: flex; width: 100%;position: relative">
-                    <a href="{{ path('index') }}" class="m-auto">
-                        <img class="m-auto" id="big-picture" style="display: block;width: 210px;"
-                             src="{{ asset('ressource/image/app/titre.png') }}"
-                             alt="Logo de la maison Philippe de Sorbon">
-                    </a>
-                </div>
-                <div class="text-center edwardian">
-                    <span class="fs-18">Maison fondée à Reims en 1968</span>
-                </div>
+            <div class="text-center edwardian">
+                <span class="fs-18">Maison fondée à Reims en 1968</span>
             </div>
         </div>
-        <div class="text-center w-50 text-age">
-            <p class="active segoe">
+    </div>
+    <div class="text-center w-50 text-age">
+        <p class="active segoe">
+            {% if lg == 'fr' %}
+                POUR ACCÉDER AU SITE PHILIPPE DE SORBON
+            {% elseif lg == 'en' %}
                 TO VISIT OUR WEBSITE CHAMPAGNE PHILIPPE DE SORBON
-            </p>
-            <p class="segoe text-white">
+            {% endif %}
+        </p>
+        <p class="segoe text-white">
+            {% if lg == 'fr' %}
+                Pour être en mesure de consulter ce site, vous devez
+                avoir atteint l'âge légal défini par les lois de votre pays régissant la consommation d'alcool.
+            {% elseif lg == 'en' %}
                 To visit our website, you must be of legal age for alcohol comsumption and purchase according to the
                 legislation in your country of residence. If there are no laws on this matter, then you must be at least
                 18 years old.
-            </p>
-            <p class="active segoe">
+            {% endif %}
+
+        </p>
+        <p class="active segoe">
+            {% if lg == 'fr' %}
+                SELECTIONNEZ VOTRE PAYS
+            {% elseif lg == 'en' %}
                 SELECT YOUR COUNTRY
-            </p>
-            <div style="height: 50px;">
-                <select class="location" id="country">
-                    <option value="18" data-value="South Africa">Afrique du Sud</option>
-                    <option value="0" data-value="Albania">Albanie</option>
-                    <option value="18" data-value="Algeria">Algérie</option>
-                    <option value="18" data-value="Germany">Allemagne</option>
-                    <option value="16" data-value="Antigua and Barbuda">Antigua-et-Barbuda</option>
-                    <option value="18" data-value="Argentina">Argentine</option>
-                    <option value="0" data-value="Armenia">Arménie</option>
-                    <option value="18" data-value="Australia">Australie</option>
-                    <option value="18" data-value="Austria">Autriche</option>
-                    <option value="15" data-value="Azerbaijan">Azerbaïdjan</option>
-                    <option value="18" data-value="Bahamas">Bahamas</option>
-                    <option value="18" data-value="Bahrain">Bahreïn</option>
-                    <option value="18" data-value="Barbados">Barbade</option>
-                    <option value="18" data-value="Belgium">Belgique</option>
-                    <option value="18" data-value="Belize">Belize</option>
-                    <option value="18" data-value="Bermuda">Bermudes</option>
-                    <option value="18" data-value="Bolivia">Bolivie</option>
-                    <option value="18" data-value="Bosnia and Herzegovina">Bosnie-Herzégovine</option>
-                    <option value="0" data-value="Botswana">Botswana</option>
-                    <option value="18" data-value="Brasil">Brasil</option>
-                    <option value="99" data-value="Brunei Darussalam">Brunei Darussalam</option>
-                    <option value="18" data-value="Bulgaria">Bulgarie</option>
-                    <option value="21" data-value="Cameroon">Cameroun</option>
-                    <option value="18" data-value="Canada">Canada</option>
-                    <option value="18" data-value="Chile">Chili</option>
-                    <option value="18" data-value="China">Chine</option>
-                    <option value="17" data-value="Cyprus">Chypre</option>
-                    <option value="18" data-value="Colombia">Colombie</option>
-                    <option value="0" data-value="Congo">Congo</option>
-                    <option value="0" data-value="Congo -DROC-">Congo -DROC-</option>
-                    <option value="19" data-value="South Korea">Corée du Sud</option>
-                    <option value="18" data-value="Costa Rica">Costa Rica</option>
-                    <option value="18" data-value="Croatia">Croatie</option>
-                    <option value="0" data-value="Cuba">Cuba</option>
-                    <option value="0" data-value="Denmark">Danemark</option>
-                    <option value="0" data-value="Spain">Espagne</option>
-                    <option value="18" data-value="Estonia">Estonie</option>
-                    <option value="18" data-value="Fiji">Fidji</option>
-                    <option value="18" data-value="Finland">Finlande</option>
-                    <option value="18" data-value="France" selected="selected">France</option>
-                    <option value="0" data-value="Ghana">Ghana</option>
-                    <option value="16" data-value="Gibraltar">Gibraltar</option>
-                    <option value="0" data-value="Greece">Grèce</option>
-                    <option value="21" data-value="Guam">Guam</option>
-                    <option value="0" data-value="Guatemala">Guatemala</option>
-                    <option value="0" data-value="Georgia">Géorgie</option>
-                    <option value="16" data-value="Haiti">Haïti</option>
-                    <option value="18" data-value="Honduras">Honduras</option>
-                    <option value="18" data-value="Hong Kong">Hong Kong</option>
-                    <option value="0" data-value="Hungary">Hongrie</option>
-                    <option value="18" data-value="India">Inde</option>
-                    <option value="18" data-value="Indonesia">Indonésie</option>
-                    <option value="18" data-value="Iraq">Irak</option>
-                    <option value="99" data-value="Iran">Iran</option>
-                    <option value="0" data-value="Ireland">Irlande</option>
-                    <option value="0" data-value="Iceland">Islande</option>
-                    <option value="18" data-value="Israel">Israël</option>
-                    <option value="18" data-value="Italy">Italie</option>
-                    <option value="15" data-value="Jamaica">Jamaïque</option>
-                    <option value="20" data-value="Japan">Japon</option>
-                    <option value="18" data-value="Jordan">Jordanie</option>
-                    <option value="18" data-value="Kenya">Kenya</option>
-                    <option value="0" data-value="Latvia">Lettonie</option>
-                    <option value="18" data-value="Lebanon">Liban</option>
-                    <option value="18" data-value="Liechtenstein">Liechtenstein</option>
-                    <option value="18" data-value="Lithuania">Lituanie</option>
-                    <option value="16" data-value="Luxembourg">Luxembourg</option>
-                    <option value="18" data-value="Malaysia">Malaisie</option>
-                    <option value="18" data-value="Malawi">Malawi</option>
-                    <option value="0" data-value="Malta">Malte</option>
-                    <option value="18" data-value="Morocco">Maroc</option>
-                    <option value="18" data-value="Mauritius">Maurice</option>
-                    <option value="99" data-value="Mauritania">Mauritanie</option>
-                    <option value="18" data-value="Mexico">Mexique</option>
-                    <option value="18" data-value="Moldova">Moldavie</option>
-                    <option value="0" data-value="Monaco">Monaco</option>
-                    <option value="0" data-value="Namibia">Namibie</option>
-                    <option value="19" data-value="Nicaragua">Nicaragua</option>
-                    <option value="0" data-value="Niger">Niger</option>
-                    <option value="0" data-value="Nigeria">Nigeria</option>
-                    <option value="0" data-value="Norway">Norvège</option>
-                    <option value="18" data-value="New Zealand">Nouvelle-Zélande</option>
-                    <option value="18" data-value="Nepal">Népal</option>
-                    <option value="21" data-value="Oman">Oman</option>
-                    <option value="18" data-value="Uganda">Ouganda</option>
-                    <option value="21" data-value="Pakistan">Pakistan</option>
-                    <option value="21" data-value="Palau">Palaos</option>
-                    <option value="18" data-value="Panama">Panama</option>
-                    <option value="18" data-value="Papua New Guinea">Papouasie-Nouvelle-Guinée</option>
-                    <option value="18" data-value="Paraguay">Paraguay</option>
-                    <option value="0" data-value="Netherlands">Pays-Bas</option>
-                    <option value="18" data-value="Philippines">Philippines</option>
-                    <option value="18" data-value="Poland">Pologne</option>
-                    <option value="18" data-value="Puerto Rico">Porto Rico</option>
-                    <option value="18" data-value="Portugal">Portugal</option>
-                    <option value="18" data-value="Peru">Pérou</option>
-                    <option value="18" data-value="Qatar">Qatar</option>
-                    <option value="0" data-value="Romania">Roumanie</option>
-                    <option value="18" data-value="United Kingdom">Royaume-Uni</option>
-                    <option value="18" data-value="Russia">Russie</option>
-                    <option value="18" data-value="Dominican Republic">République dominicaine</option>
-                    <option value="18" data-value="Czech Republic">République tchèque</option>
-                    <option value="21" data-value="Samoa">Samoa</option>
-                    <option value="21" data-value="American Samoa">Samoa américaines</option>
-                    <option value="18" data-value="Serbia and Montenegro">Serbia and Montenegro</option>
-                    <option value="18" data-value="Singapore">Singapour</option>
-                    <option value="0" data-value="Slovakia">Slovaquie</option>
-                    <option value="0" data-value="Slovenia">Slovénie</option>
-                    <option value="18" data-value="Sri Lanka">Sri Lanka</option>
-                    <option value="18" data-value="Switzerland">Suisse</option>
-                    <option value="18" data-value="Sweden">Suède</option>
-                    <option value="0" data-value="Taiwan">Taïwan</option>
-                    <option value="20" data-value="Thailand">Thaïlande</option>
-                    <option value="18" data-value="Tokelau">Tokelau</option>
-                    <option value="21" data-value="Tonga">Tonga</option>
-                    <option value="18" data-value="Trinidad and Tobago">Trinité-et-Tobago</option>
-                    <option value="18" data-value="Tunisia">Tunisie</option>
-                    <option value="18" data-value="Turkey">Turquie</option>
-                    <option value="18" data-value="Uruguay">Uruguay</option>
-                    <option value="18" data-value="Vanuatu">Vanuatu</option>
-                    <option value="18" data-value="Venezuela">Venezuela</option>
-                    <option value="0" data-value="Vietnam">Vietnam</option>
-                    <option value="0" data-value="Zambia">Zambie</option>
-                    <option value="15" data-value="Zimbabwe">Zimbabwe</option>
-                    <option value="21" data-value="Egypt">Égypte</option>
-                    <option value="21" data-value="United Arab Emirates">Émirats arabes unis</option>
-                    <option value="18" data-value="Ecuador">Équateur</option>
-                    <option value="18" data-value="Eritrea">Érythrée</option>
-                    <option value="21" data-value="United States of America">États-Unis</option>
-                    <option value="18" data-value="Ethiopia">Éthiopie</option>
-                    <option value="21" data-value="Northern Mariana Islands">Îles Mariannes du Nord</option>
-                    <option value="21" data-value="Solomon Islands">Îles Salomon</option>
-                </select>
-            </div>
-            <p class="active segoe">
-                Thank you for confirming that your date of birth is before <span id="limit-date"></span><br>
+            {% endif %}
+        </p>
+        <div style="height: 50px;">
+            <select class="location" id="country">
+                <option value="18" data-value="South Africa">Afrique du Sud</option>
+                <option value="0" data-value="Albania">Albanie</option>
+                <option value="18" data-value="Algeria">Algérie</option>
+                <option value="18" data-value="Germany">Allemagne</option>
+                <option value="16" data-value="Antigua and Barbuda">Antigua-et-Barbuda</option>
+                <option value="18" data-value="Argentina">Argentine</option>
+                <option value="0" data-value="Armenia">Arménie</option>
+                <option value="18" data-value="Australia">Australie</option>
+                <option value="18" data-value="Austria">Autriche</option>
+                <option value="15" data-value="Azerbaijan">Azerbaïdjan</option>
+                <option value="18" data-value="Bahamas">Bahamas</option>
+                <option value="18" data-value="Bahrain">Bahreïn</option>
+                <option value="18" data-value="Barbados">Barbade</option>
+                <option value="18" data-value="Belgium">Belgique</option>
+                <option value="18" data-value="Belize">Belize</option>
+                <option value="18" data-value="Bermuda">Bermudes</option>
+                <option value="18" data-value="Bolivia">Bolivie</option>
+                <option value="18" data-value="Bosnia and Herzegovina">Bosnie-Herzégovine</option>
+                <option value="0" data-value="Botswana">Botswana</option>
+                <option value="18" data-value="Brasil">Brasil</option>
+                <option value="99" data-value="Brunei Darussalam">Brunei Darussalam</option>
+                <option value="18" data-value="Bulgaria">Bulgarie</option>
+                <option value="21" data-value="Cameroon">Cameroun</option>
+                <option value="18" data-value="Canada">Canada</option>
+                <option value="18" data-value="Chile">Chili</option>
+                <option value="18" data-value="China">Chine</option>
+                <option value="17" data-value="Cyprus">Chypre</option>
+                <option value="18" data-value="Colombia">Colombie</option>
+                <option value="0" data-value="Congo">Congo</option>
+                <option value="0" data-value="Congo -DROC-">Congo -DROC-</option>
+                <option value="19" data-value="South Korea">Corée du Sud</option>
+                <option value="18" data-value="Costa Rica">Costa Rica</option>
+                <option value="18" data-value="Croatia">Croatie</option>
+                <option value="0" data-value="Cuba">Cuba</option>
+                <option value="0" data-value="Denmark">Danemark</option>
+                <option value="0" data-value="Spain">Espagne</option>
+                <option value="18" data-value="Estonia">Estonie</option>
+                <option value="18" data-value="Fiji">Fidji</option>
+                <option value="18" data-value="Finland">Finlande</option>
+                <option value="18" data-value="France" selected="selected">France</option>
+                <option value="0" data-value="Ghana">Ghana</option>
+                <option value="16" data-value="Gibraltar">Gibraltar</option>
+                <option value="0" data-value="Greece">Grèce</option>
+                <option value="21" data-value="Guam">Guam</option>
+                <option value="0" data-value="Guatemala">Guatemala</option>
+                <option value="0" data-value="Georgia">Géorgie</option>
+                <option value="16" data-value="Haiti">Haïti</option>
+                <option value="18" data-value="Honduras">Honduras</option>
+                <option value="18" data-value="Hong Kong">Hong Kong</option>
+                <option value="0" data-value="Hungary">Hongrie</option>
+                <option value="18" data-value="India">Inde</option>
+                <option value="18" data-value="Indonesia">Indonésie</option>
+                <option value="18" data-value="Iraq">Irak</option>
+                <option value="99" data-value="Iran">Iran</option>
+                <option value="0" data-value="Ireland">Irlande</option>
+                <option value="0" data-value="Iceland">Islande</option>
+                <option value="18" data-value="Israel">Israël</option>
+                <option value="18" data-value="Italy">Italie</option>
+                <option value="15" data-value="Jamaica">Jamaïque</option>
+                <option value="20" data-value="Japan">Japon</option>
+                <option value="18" data-value="Jordan">Jordanie</option>
+                <option value="18" data-value="Kenya">Kenya</option>
+                <option value="0" data-value="Latvia">Lettonie</option>
+                <option value="18" data-value="Lebanon">Liban</option>
+                <option value="18" data-value="Liechtenstein">Liechtenstein</option>
+                <option value="18" data-value="Lithuania">Lituanie</option>
+                <option value="16" data-value="Luxembourg">Luxembourg</option>
+                <option value="18" data-value="Malaysia">Malaisie</option>
+                <option value="18" data-value="Malawi">Malawi</option>
+                <option value="0" data-value="Malta">Malte</option>
+                <option value="18" data-value="Morocco">Maroc</option>
+                <option value="18" data-value="Mauritius">Maurice</option>
+                <option value="99" data-value="Mauritania">Mauritanie</option>
+                <option value="18" data-value="Mexico">Mexique</option>
+                <option value="18" data-value="Moldova">Moldavie</option>
+                <option value="0" data-value="Monaco">Monaco</option>
+                <option value="0" data-value="Namibia">Namibie</option>
+                <option value="19" data-value="Nicaragua">Nicaragua</option>
+                <option value="0" data-value="Niger">Niger</option>
+                <option value="0" data-value="Nigeria">Nigeria</option>
+                <option value="0" data-value="Norway">Norvège</option>
+                <option value="18" data-value="New Zealand">Nouvelle-Zélande</option>
+                <option value="18" data-value="Nepal">Népal</option>
+                <option value="21" data-value="Oman">Oman</option>
+                <option value="18" data-value="Uganda">Ouganda</option>
+                <option value="21" data-value="Pakistan">Pakistan</option>
+                <option value="21" data-value="Palau">Palaos</option>
+                <option value="18" data-value="Panama">Panama</option>
+                <option value="18" data-value="Papua New Guinea">Papouasie-Nouvelle-Guinée</option>
+                <option value="18" data-value="Paraguay">Paraguay</option>
+                <option value="0" data-value="Netherlands">Pays-Bas</option>
+                <option value="18" data-value="Philippines">Philippines</option>
+                <option value="18" data-value="Poland">Pologne</option>
+                <option value="18" data-value="Puerto Rico">Porto Rico</option>
+                <option value="18" data-value="Portugal">Portugal</option>
+                <option value="18" data-value="Peru">Pérou</option>
+                <option value="18" data-value="Qatar">Qatar</option>
+                <option value="0" data-value="Romania">Roumanie</option>
+                <option value="18" data-value="United Kingdom">Royaume-Uni</option>
+                <option value="18" data-value="Russia">Russie</option>
+                <option value="18" data-value="Dominican Republic">République dominicaine</option>
+                <option value="18" data-value="Czech Republic">République tchèque</option>
+                <option value="21" data-value="Samoa">Samoa</option>
+                <option value="21" data-value="American Samoa">Samoa américaines</option>
+                <option value="18" data-value="Serbia and Montenegro">Serbia and Montenegro</option>
+                <option value="18" data-value="Singapore">Singapour</option>
+                <option value="0" data-value="Slovakia">Slovaquie</option>
+                <option value="0" data-value="Slovenia">Slovénie</option>
+                <option value="18" data-value="Sri Lanka">Sri Lanka</option>
+                <option value="18" data-value="Switzerland">Suisse</option>
+                <option value="18" data-value="Sweden">Suède</option>
+                <option value="0" data-value="Taiwan">Taïwan</option>
+                <option value="20" data-value="Thailand">Thaïlande</option>
+                <option value="18" data-value="Tokelau">Tokelau</option>
+                <option value="21" data-value="Tonga">Tonga</option>
+                <option value="18" data-value="Trinidad and Tobago">Trinité-et-Tobago</option>
+                <option value="18" data-value="Tunisia">Tunisie</option>
+                <option value="18" data-value="Turkey">Turquie</option>
+                <option value="18" data-value="Uruguay">Uruguay</option>
+                <option value="18" data-value="Vanuatu">Vanuatu</option>
+                <option value="18" data-value="Venezuela">Venezuela</option>
+                <option value="0" data-value="Vietnam">Vietnam</option>
+                <option value="0" data-value="Zambia">Zambie</option>
+                <option value="15" data-value="Zimbabwe">Zimbabwe</option>
+                <option value="21" data-value="Egypt">Égypte</option>
+                <option value="21" data-value="United Arab Emirates">Émirats arabes unis</option>
+                <option value="18" data-value="Ecuador">Équateur</option>
+                <option value="18" data-value="Eritrea">Érythrée</option>
+                <option value="21" data-value="United States of America">États-Unis</option>
+                <option value="18" data-value="Ethiopia">Éthiopie</option>
+                <option value="21" data-value="Northern Mariana Islands">Îles Mariannes du Nord</option>
+                <option value="21" data-value="Solomon Islands">Îles Salomon</option>
+            </select>
+        </div>
+        <p class="active segoe">
+            {% if lg == 'fr' %}
+                Êtes-vous nés avant ?
+            {% elseif lg == 'en' %}
+                Thank you for confirming that your date of birth is before
+            {% endif %}
+
+            <span id="limit-date">
+
+            </span><br>
+            {% if lg == 'fr' %}
+                J'accepte les termes et conditions du site.
+            {% elseif lg == 'en' %}
                 I accept the terms and conditions of this site.
-            </p>
-            <div style="height: 50px; display: flex; justify-content: space-around" class="button-container">
-                <input id="age-yes" type="button" value="YES">
-                <a href="http://www.google.com" rel="nofollow">
-                    NO
-                </a>
-            </div>
+            {% endif %}
+
+        </p>
+        <div style="height: 50px; display: flex; justify-content: space-around" class="button-container">
+            <input id="age-yes" type="button"
+                   value="{% if lg == 'fr' %}OUI{% elseif lg == 'en' %}YES{% endif %}"
+            >
+            <a href="http://www.google.com" rel="nofollow" class="links-std txt-hv-white">
+                {% if lg == 'fr' %}
+                NON
+                {% elseif lg == 'en' %}
+                NO
+                {% endif %}
+            </a>
         </div>
     </div>
-{% endif %}
+</div>
 
 </body>
 {% block javascripts %}
