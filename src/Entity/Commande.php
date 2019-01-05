@@ -424,18 +424,6 @@ class Commande
         $this->buyerComment = $buyerComment;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
 }
+
+
