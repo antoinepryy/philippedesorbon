@@ -9,16 +9,20 @@ et recettes. Vente en direct des celliers.">
 {% endblock %}
 
 {% block content %}
-    {% if lg == 'fr' %}
-        <div class="accueil-slide1">
+    <div class="accueil-slide1">
 
-        </div>
-        <div class="container-fluid text-center py-3 segoe">
-            <h1 class="fs-14 active font-weight-bold py-1">
-                POUR VOTRE SEUL BONHEUR
-            </h1>
+    </div>
+    <div class="container-fluid text-center py-3 segoe">
+        <h1 class="fs-14 active font-weight-bold py-1">
+        {% if lg == 'fr' %}
+            POUR VOTRE SEUL BONHEUR
+        {% elseif lg == 'en' %}
+            FOR YOUR HAPPINESS
+        {% endif %}
+        </h1>
 
-            <div class="fs-08 pt-2">
+        <div class="fs-08 pt-2">
+            {% if lg == 'fr' %}
                 <p>
                     Aussi loin que je me souvienne, mon enfance a
                     toujours eu pour cadre l’environnement <br>majestueux des
@@ -49,142 +53,7 @@ et recettes. Vente en direct des celliers.">
                 <p>
                     C’est là notre plus belle récompense.
                 </p>
-            </div>
-
-            <div class="edwardian active py-4 fs-18 w-75 mx-auto">Martine Wallaert-Lathuillière</div>
-        </div>
-
-
-        <div class="accueil-slide2"></div>
-
-        <div class="container website-plan text-center p-5">
-            <div class="row">
-                <div class="col-md">
-                    <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('maison') }}">La Maison</a>
-                    </div>
-                    <div class="fs-1 chapter">
-                        <div>
-                            <a href="{{ path('maison') }}#Histoire">HISTOIRE D'UNE PASSION PARTAGEE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('maison') }}#Why">POURQUOI PHILIPPE DE SORBON ?</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('maison') }}#Origines">ORIGINES DU MYTHE CHAMPAGNE</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md">
-                    <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('savoirfaire') }}">Le Savoir Faire</a>
-                    </div>
-                    <div class="fs-1 chapter">
-
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Vendange">VENDANGE ET PRESSURAGE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Vinification">VINIFICATION</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Assemblage">ASSEMBLAGE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Vieillissement">VIELLISSEMENT SUR LIES</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Remuage">REMUAGE ET DEGORGEMENT</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('savoirfaire') }}#Gastronomie">PLAISIRS CHAMPENOIS</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('champagnes') }}">Les Champagnes</a>
-                    </div>
-                    <div class="fs-1 chapter">
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">CARTE D'OR</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">CARTE NOIRE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'perlesderose'}) }}">PERLES DE ROSE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'blancdeblancs'}) }}">BLANCS DE BLANCS</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'millesime2011'}) }}">MILLESIME 2011</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('champagne_show', {'id' : 'intemporelle'}) }}">INTEMPORELLE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('vignoble') }}">Le Vignoble</a>
-                    </div>
-                    <div class="fs-1 chapter">
-                        <div>
-                            <a href="{{ path('vignoble') }}#VignobleChampenois">LE VIGNOBLE CHAMPEGNOIS</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('vignoble') }}#Vignobles">NOS VIGNOBLES</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('vignoble') }}#Cepages">LES CEPAGES</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('vignoble') }}#Vigne">LA VIGNE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('boutique') }}">Acheter en ligne</a>
-                    </div>
-                    <div class="fs-1 chapter">
-                        <div>
-                            <a href="{{ path('boutique') }}">MA CAVE</a>
-                        </div>
-                        <div>
-                            <a href="{{ path('compte') }}">MON COMPTE</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="my-5 text-center hide-mobile">
-            <p class="fs-08">
-                L'abus d'alcool est dangereux pour la santé, à consommer avec modération
-            </p>
-        </div>
-        <div class="text-center hide-mobile">
-            <div>
-                <img class="w-25 mb-5" src="{{ asset('ressource/image/accueil/info_alcool_tri.jpg') }}"
-                     alt="icons about recycling packages">
-            </div>
-
-        </div>
-    {% elseif lg == 'en' %}
-        <div class="accueil-slide1">
-
-        </div>
-        <div class="container-fluid text-center py-3 segoe">
-            <h1 class="fs-14 active font-weight-bold py-1">
-                FOR YOUR HAPPINESS
-            </h1>
-
-            <div class="fs-08 pt-2">
+            {% elseif lg == 'en' %}
                 <p>
                     As far as I can remember, my childhood has always been surrounded by the majestic<br>
                     environment of the Champagne's vineyards. As a child, I followed my grandfather and my<br> mother in
@@ -208,9 +77,11 @@ et recettes. Vente en direct des celliers.">
                 </p>
                 <p>
                     This is our greatest reward. </p>
-            </div>
+            {% endif %}
 
-            <div class="edwardian active py-4 fs-18 w-75 mx-auto">Martine Wallaert-Lathuillière</div>
+        </div>
+
+        <div class="edwardian active py-4 fs-18 w-75 mx-auto">Martine Wallaert-Lathuillière</div>
         </div>
 
 
@@ -220,54 +91,139 @@ et recettes. Vente en direct des celliers.">
             <div class="row">
                 <div class="col-md">
                     <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('maison') }}">The House</a>
+                        <a class="active" href="{{ path('maison') }}">
+                            {% if lg == 'fr' %}
+                                La Maison
+                            {% elseif lg == 'en' %}
+                                The House
+                            {% endif %}
+
+                        </a>
                     </div>
                     <div class="fs-1 chapter">
                         <div>
-                            <a href="{{ path('maison') }}#Histoire">SPIRIT OF A HOUSE CHARACTERS</a>
+                            <a href="{{ path('maison') }}#Histoire">
+                                {% if lg == 'fr' %}
+                                    HISTOIRE D'UNE PASSION PARTAGEE
+                                {% elseif lg == 'en' %}
+                                    SPIRIT OF A HOUSE CHARACTERS
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('maison') }}#Why">ORIGIN OF PHILIPPE DE SORBON ?</a>
+                            <a href="{{ path('maison') }}#Why">
+                                {% if lg == 'fr' %}
+                                    POURQUOI PHILIPPE DE SORBON ?
+                                {% elseif lg == 'en' %}
+                                    ORIGIN OF PHILIPPE DE SORBON ?
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('maison') }}#Origines">BEGINNING OF THE CHAMPAGNE MYTH</a>
+                            <a href="{{ path('maison') }}#Origines">
+                                {% if lg == 'fr' %}
+                                    BEGINNING OF THE CHAMPAGNE MYTH
+                                {% elseif lg == 'en' %}
+                                    ORIGINES DU MYTHE CHAMPAGNE
+                                {% endif %}
+
+                            </a>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-md">
                     <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('savoirfaire') }}">The Expertise</a>
+                        <a class="active" href="{{ path('savoirfaire') }}">
+                            {% if lg == 'fr' %}
+                                Le Savoir Faire
+                            {% elseif lg == 'en' %}
+                                The Expertise
+                            {% endif %}
+
+                        </a>
                     </div>
                     <div class="fs-1 chapter">
 
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Vendange">HARVEST AND PRESSING</a>
+                            <a href="{{ path('savoirfaire') }}#Vendange">
+                                {% if lg == 'fr' %}
+                                    VENDANGE ET PRESSURAGE
+                                {% elseif lg == 'en' %}
+                                    HARVEST AND PRESSING
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Vinification">WINE MAKING</a>
+                            <a href="{{ path('savoirfaire') }}#Vinification">
+                                {% if lg == 'fr' %}
+                                    VINIFICATION
+                                {% elseif lg == 'en' %}
+                                    WINE MAKING
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Assemblage">ASSEMBLAGE</a>
+                            <a href="{{ path('savoirfaire') }}#Assemblage">
+                                {% if lg == 'fr' %}
+                                    ASSEMBLAGE
+                                {% elseif lg == 'en' %}
+                                    ASSEMBLAGE
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Vieillissement">MATURATION ON LEES</a>
+                            <a href="{{ path('savoirfaire') }}#Vieillissement">
+                                {% if lg == 'fr' %}
+                                    VIELLISSEMENT SUR LIES
+                                {% elseif lg == 'en' %}
+                                    MATURATION ON LEES
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Remuage">SHAKING AND DEGORGING</a>
+                            <a href="{{ path('savoirfaire') }}#Remuage">
+                                {% if lg == 'fr' %}
+                                    REMUAGE ET DEGORGEMENT
+                                {% elseif lg == 'en' %}
+                                    SHAKING AND DEGORGING
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('savoirfaire') }}#Gastronomie">FINE DINNING</a>
+                            <a href="{{ path('savoirfaire') }}#Gastronomie">
+                                {% if lg == 'fr' %}
+                                    PLAISIRS CHAMPENOIS
+                                {% elseif lg == 'en' %}
+                                    FINE DINNING
+                                {% endif %}
+
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('champagnes') }}">The Champagnes</a>
+                        <a class="active" href="{{ path('champagnes') }}">
+                            {% if lg == 'fr' %}
+                                Les Champagnes
+                            {% elseif lg == 'en' %}
+                                The Champagnes
+                            {% endif %}
+
+                        </a>
                     </div>
                     <div class="fs-1 chapter">
                         <div>
-                            <a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">CARTE D'OR</a>
+                            <a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">
+                                CARTE D'OR</a>
                         </div>
                         <div>
                             <a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">CARTE NOIRE</a>
@@ -288,33 +244,88 @@ et recettes. Vente en direct des celliers.">
                 </div>
                 <div class="col-md">
                     <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('vignoble') }}">The Vineyard</a>
+                        <a class="active" href="{{ path('vignoble') }}">
+                            {% if lg == 'fr' %}
+                                Le Vignoble
+                            {% elseif lg == 'en' %}
+                                The Vineyard
+                            {% endif %}
+
+                        </a>
                     </div>
                     <div class="fs-1 chapter">
                         <div>
-                            <a href="{{ path('vignoble') }}#VignobleChampenois">THE CHAMPAGNE VINEYARD</a>
+                            <a href="{{ path('vignoble') }}#VignobleChampenois">
+                                {% if lg == 'fr' %}
+                                    LE VIGNOBLE CHAMPEGNOIS
+                                {% elseif lg == 'en' %}
+                                    THE CHAMPAGNE VINEYARD
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('vignoble') }}#Vignobles">OUR VINES</a>
+                            <a href="{{ path('vignoble') }}#Vignobles">
+                                {% if lg == 'fr' %}
+                                    NOS VIGNOBLES
+                                {% elseif lg == 'en' %}
+                                    OUR VINES
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('vignoble') }}#Cepages">THE GRAPE VARIETIES</a>
+                            <a href="{{ path('vignoble') }}#Cepages">
+                                {% if lg == 'fr' %}
+                                    LES CEPAGES
+                                {% elseif lg == 'en' %}
+                                    THE GRAPE VARIETIES
+                                {% endif %}
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('vignoble') }}#Vigne">THE TILLAGE</a>
+                            <a href="{{ path('vignoble') }}#Vigne">
+                                {% if lg == 'fr' %}
+                                    LA VIGNE
+                                {% elseif lg == 'en' %}
+                                    THE TILLAGE
+                                {% endif %}
+
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="pt-2 pb-2 my-1 fs-18 edwardian title-sitemap">
-                        <a class="active" href="{{ path('boutique') }}">Shop online</a>
+                        <a class="active" href="{{ path('boutique') }}">
+                            {% if lg == 'fr' %}
+                                Acheter en ligne
+                            {% elseif lg == 'en' %}
+                                Shop online
+                            {% endif %}
+
+                        </a>
                     </div>
                     <div class="fs-1 chapter">
                         <div>
-                            <a href="{{ path('boutique') }}">MY CELLAR</a>
+                            <a href="{{ path('boutique') }}">
+                                {% if lg == 'fr' %}
+                                    MA CAVE
+                                {% elseif lg == 'en' %}
+                                    MY CELLAR
+                                {% endif %}
+
+                            </a>
                         </div>
                         <div>
-                            <a href="{{ path('compte') }}">MY ACCOUNT</a>
+                            <a href="{{ path('compte') }}">
+                                {% if lg == 'fr' %}
+                                    MON COMPTE
+                                {% elseif lg == 'en' %}
+                                    MY ACCOUNT
+                                {% endif %}
+
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -324,7 +335,11 @@ et recettes. Vente en direct des celliers.">
 
         <div class="my-5 text-center hide-mobile">
             <p class="fs-08">
-                Alcohol abuse is harmful to your health, please enjoy responsibly
+                {% if lg == 'fr' %}
+                    L'abus d'alcool est dangereux pour la santé, à consommer avec modération
+                {% elseif lg == 'en' %}
+                    Alcohol abuse is harmful to your health, please enjoy responsibly
+                {% endif %}
             </p>
         </div>
         <div class="text-center hide-mobile">
@@ -334,9 +349,6 @@ et recettes. Vente en direct des celliers.">
             </div>
 
         </div>
-    {% endif %}
-
-
 
 {% endblock %}
 
