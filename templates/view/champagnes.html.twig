@@ -7,7 +7,7 @@ votre seul bonheur">
 {% endblock %}
 
 {% block content %}
-    {% if lg == 'fr' %}
+
         <div class="champagnes-slide1"></div>
         <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
             <ul class="champagnes-list justify-content-around">
@@ -21,8 +21,14 @@ votre seul bonheur">
         </nav>
         <div class="container-fluid text-center my-4">
             <div class="segoe font-weight-bold active my-5 fs-14">
-                "IL EST DIFFICILE DE NE PAS DECRIRE AVEC ENTHOUSIASME<br>
-                CE QUE L’ON ÉLABORE AVEC AMOUR"
+                {% if lg == 'fr' %}
+                    "IL EST DIFFICILE DE NE PAS DECRIRE AVEC ENTHOUSIASME<br>
+                    CE QUE L’ON ÉLABORE AVEC AMOUR"
+                {% elseif lg =='en' %}
+                    "IT IS DIFFICULT TO NOT DESCRIBE WITH ENTHUSIASM<br>
+                    WHAT WE DEVELOP WITH LOVE"
+                {% endif %}
+
             </div>
             <div class="edwardian active my-2 fs-17 w-75 ml-auto">Martine Wallaert</div>
         </div>
@@ -35,7 +41,12 @@ votre seul bonheur">
         <div class="container-fluid text-center my-4">
 
             <div class="egoe font-weight-bold active my-5 fs-14">
-                "QUI BOIT DU CHAMPAGNE ACQUIERT UN SUPPLEMENT D'ÂME"
+                {% if lg == 'fr' %}
+                    "QUI BOIT DU CHAMPAGNE ACQUIERT UN SUPPLEMENT D'ÂME"
+                {% elseif lg =='en' %}
+                    "WHOEVER DRINKS CHAMPAGNE ACQUIRES AN EXTRA SOUL."
+                {% endif %}
+
             </div>
             <div class="edwardian active my-2 fs-17 w-75 ml-auto">Madame de Pompadour</div>
         </div>
@@ -43,40 +54,7 @@ votre seul bonheur">
 
 
         </div>
-    {% elseif lg == 'en' %}
-        <div class="champagnes-slide1"></div>
-        <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
-            <ul class="champagnes-list justify-content-around">
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">Carte Noire</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">Carte d'Or</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'perlesderose'}) }}">Perles de Rosé</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'blancdeblancs'}) }}">Blanc de Blancs</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'intemporelle'}) }}">Intemporelle</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'millesime2011'}) }}">Millésime 2011</a></li>
-            </ul>
-        </nav>
-        <div class="container-fluid text-center my-4">
-            <div class="segoe font-weight-bold active my-5 fs-14">
-                "IT IS DIFFICULT TO NOT DESCRIBE WITH ENTHUSIASM<br>
-                WHAT WE DEVELOP WITH LOVE"
-            </div>
-            <div class="edwardian active my-2 fs-17 w-75 ml-auto">Martine Wallaert</div>
-        </div>
 
-
-        {{ render(controller(
-            'App\\Controller\\DefaultController::showBottles'
-        )) }}
-
-        <div class="container-fluid text-center my-4">
-
-            <div class="egoe font-weight-bold active my-5 fs-14">
-                "WHOEVER DRINKS CHAMPAGNE ACQUIRES AN EXTRA SOUL."
-            </div>
-            <div class="edwardian active my-2 fs-17 w-75 ml-auto">Madame de Pompadour</div>
-        </div>
-        <div class="champagnes-slide2"></div>
-    {% endif %}
 
 
 {% endblock %}
