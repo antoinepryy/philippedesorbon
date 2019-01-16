@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 var pathGetCart = $("#get-cart").attr("data-path");
 var pathPreOrder = $("#pre-order").attr("data-path");
 var pathAddProduct = $("#add-product").attr("data-path");
@@ -7,7 +9,7 @@ var id;
 var champagneOption;
 var strSelect;
 
-var $ = require('jquery');
+
 
 
 
