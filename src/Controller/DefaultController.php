@@ -31,10 +31,6 @@ class DefaultController extends Controller
             "lg"=>$languageManager->getLanguageUsingCookie()
         ],200
         ));
-        $response->setCache([
-            'max_age'       => 600,
-            'public'        => false,
-        ]);
         return $response;
 
     }
@@ -49,10 +45,6 @@ class DefaultController extends Controller
             "lg"=>$languageManager->getLanguageUsingCookie()
         ],200
         ));
-        $response->setCache([
-            'max_age'       => 600,
-            'public'        => false,
-        ]);
         return $response;
     }
 
@@ -65,10 +57,6 @@ class DefaultController extends Controller
             "lg"=>$languageManager->getLanguageUsingCookie()
         ],200
         ));
-        $response->setCache([
-            'max_age'       => 600,
-            'public'        => false,
-        ]);
         return $response;
     }
 
@@ -81,10 +69,6 @@ class DefaultController extends Controller
             "lg"=>$languageManager->getLanguageUsingCookie()
         ],200
         ));
-        $response->setCache([
-            'max_age'       => 600,
-            'public'        => false,
-        ]);
         return $response;
     }
 
