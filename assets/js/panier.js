@@ -7,6 +7,7 @@ var id;
 var champagneOption;
 var strSelect;
 
+var $ = require('jquery');
 
 
 
