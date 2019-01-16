@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
@@ -24,10 +25,19 @@ class DefaultController extends Controller
     public function index(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/accueil.html.twig',[
+
+        $response = new Response($this->renderView('view/accueil.html.twig', [
             "cartSize" => $cartSize,
             "lg"=>$languageManager->getLanguageUsingCookie()
+        ],200
+        ));
+        $response->setCache([
+            'max_age'       => 10,
+            's_maxage'      => 10,
+            'public'        => true,
         ]);
+        return $response;
+
     }
 
     public function maison(CartManager $cartManager, LanguageManager $languageManager)
