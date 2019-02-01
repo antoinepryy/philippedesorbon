@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
@@ -24,37 +25,51 @@ class DefaultController extends Controller
     public function index(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/accueil.html.twig',[
+
+        $response = new Response($this->renderView('view/accueil.html.twig', [
             "cartSize" => $cartSize,
             "lg"=>$languageManager->getLanguageUsingCookie()
-        ]);
+        ],200
+        ));
+        return $response;
+
     }
 
     public function maison(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/maison.html.twig', [
+
+
+        $response = new Response($this->renderView('view/maison.html.twig', [
             "cartSize" => $cartSize,
             "lg"=>$languageManager->getLanguageUsingCookie()
-            ]);
+        ],200
+        ));
+        return $response;
     }
 
     public function savoirfaire(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/savoirfaire.html.twig', [
+
+        $response = new Response($this->renderView('view/savoirfaire.html.twig', [
             "cartSize" => $cartSize,
             "lg"=>$languageManager->getLanguageUsingCookie()
-        ]);
+        ],200
+        ));
+        return $response;
     }
 
     public function champagnes(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-        return $this->render('view/champagnes.html.twig', [
+
+        $response = new Response($this->renderView('view/champagnes.html.twig', [
             "cartSize" => $cartSize,
-            "lg" => $languageManager->getLanguageUsingCookie()
-        ]);
+            "lg"=>$languageManager->getLanguageUsingCookie()
+        ],200
+        ));
+        return $response;
     }
 
     public function champagneShow($id, CartManager $cartManager, LanguageManager $languageManager)

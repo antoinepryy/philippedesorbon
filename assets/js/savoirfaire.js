@@ -1,4 +1,4 @@
-const $ = require('jquery');
+var $ = require('jquery');
 
 
 $('a[href^="#"]').click(function(){
