@@ -63,8 +63,10 @@ class DefaultController extends Controller
     public function champagnes(CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
-
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $champagnes = $repository->findAll();
         $response = new Response($this->renderView('view/champagnes.html.twig', [
+            "champagnes" => $champagnes,
             "cartSize" => $cartSize,
             "lg"=>$languageManager->getLanguageUsingCookie()
         ],200
@@ -75,6 +77,8 @@ class DefaultController extends Controller
     public function champagneShow($id, CartManager $cartManager, LanguageManager $languageManager)
     {
         $cartSize = $cartManager->cartSize();
+        $repository = $this->getDoctrine()->getRepository(Champagne::class);
+        $champagnes = $repository->findAll();
         $product = $this->getDoctrine()
             ->getRepository(Champagne::class)
             ->findOneBy(array('urlLink' => $id));
@@ -82,6 +86,7 @@ class DefaultController extends Controller
             throw $this->createNotFoundException();
         }
         return $this->render('view/champagneShow.html.twig', [
+            "champagnes" => $champagnes,
             'champagne' => $product,
             'cartSize' => $cartSize,
             'lg'=>$languageManager->getLanguageUsingCookie()

@@ -11,12 +11,9 @@ votre seul bonheur">
         <div class="champagnes-slide1"></div>
         <nav id="champagnes-nav" class="sticky-nav-sec z-index-nav-sec">
             <ul class="champagnes-list justify-content-around">
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartenoire'}) }}">Carte Noire</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'cartedor'}) }}">Carte d'Or</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'perlesderose'}) }}">Perles de Rosé</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'blancdeblancs'}) }}">Blanc de Blancs</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'intemporelle'}) }}">Intemporelle</a></li>
-                <li class="px-3"><a href="{{ path('champagne_show', {'id' : 'millesime2011'}) }}">Millésime 2011</a></li>
+                {% for cuvee in champagnes %}
+                    <li class="px-3"><a href="{{ path('champagne_show', {'id' : cuvee.UrlLink}) }}">{{ cuvee.name }}</a></li>
+                {%  endfor %}
             </ul>
         </nav>
         <div class="container-fluid text-center my-4">
