@@ -121,7 +121,7 @@ class OrderController extends Controller
             ])
             ->add('paymentMethod', ChoiceType::class, [
                     'label' => 'Moyen de paiement',
-                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque', 'Paiement en ligne' => 'CRCA'),
+                    'choices' => array('Virement' => 'virement', 'Chèque' => 'cheque'),
                 ]
             )
             ->add('Confirmer', SubmitType::class)
