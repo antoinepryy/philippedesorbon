@@ -47,10 +47,28 @@ class CRCAController extends Controller
         // Param�trage du retour back office site
         $pbx_retour = 'Mt:M;Ref:R;Auto:A;Erreur:E';
 
-        // Connection � la base de donn�es
-        // mysql_connect...
-        // On r�cup�re la cl� secr�te HMAC (stock�e dans une base de donn�es par exemple) et que l�on renseigne dans la variable $keyTest;
-        //$keyTest = '0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF';
+        $xml = new \SimpleXMLElement('<shoppingcart/>');
+        $total = $xml->addChild('total');
+        $cartSizeInt = (int)$cartSize;
+
+        $total->addChild('totalQuantity', $cartSizeInt);
+        $pbx_shoppingCart = $xml->asXML();
+        $pbx_shoppingCart = str_replace("<?xml version=\"1.0\"?>", "", $pbx_shoppingCart);
+
+
+        $billingXml = new \SimpleXMLElement('<Billing/>');
+        $address = $billingXml->addChild('Address');
+        $address->addChild('FirstName', htmlspecialchars($user->getFirstName()));
+        $address->addChild('LastName', htmlspecialchars($user->getLastName()));
+        $address->addChild('Address1', htmlspecialchars($user->getAddressStreet()));
+        $address->addChild('ZipCode', htmlspecialchars($user->getAddressZipCode()));
+        $address->addChild('City', htmlspecialchars($user->getAddressCity()));
+        $address->addChild('CountryCode', htmlspecialchars("250"));
+
+        // Convert XML object to a string
+        $pbx_billing = $billingXml->asXML();
+        $pbx_billing = str_replace("<?xml version=\"1.0\"?>", "", $pbx_billing);
+
 
         //test
         //$keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
@@ -72,13 +90,10 @@ class CRCAController extends Controller
             if($element){
                 $server_status = $element->textContent;}
             if($server_status == "OK"){
-            // Le serveur est pr�t et les services op�rationnels
                 $serveurOK = $serveur;
                 break;}
-            // else : La machine est disponible mais les services ne le sont pas.
         }
 
-        //curl_close($ch); <== voir paybox
         if(!$serveurOK){
             die("Erreur : Aucun serveur n'a �t� trouv�");}
         // Activation de l'univers de pr�production
@@ -92,10 +107,8 @@ class CRCAController extends Controller
 
 // --------------- TRAITEMENT DES VARIABLES ---------------
 
-        // On r�cup�re la date au format ISO-8601
         $dateTime = date("c");
 
-        // On cr�e la cha�ne � hacher sans URLencodage
         $msg = "PBX_SITE=".$pbx_site.
             "&PBX_RANG=".$pbx_rang.
             "&PBX_IDENTIFIANT=".$pbx_identifiant.
@@ -109,17 +122,12 @@ class CRCAController extends Controller
             "&PBX_ANNULE=".$pbx_annule.
             "&PBX_REFUSE=".$pbx_refuse.
             "&PBX_HASH=SHA512".
+            "&PBX_SHOPPINGCART=".urlencode($pbx_shoppingCart).
+            "&PBX_BILLING=".urlencode($pbx_billing).
             "&PBX_TIME=".$dateTime;
         //echo $msg;
 
-        // Si la cl� est en ASCII, On la transforme en binaire
         $binKey = pack("H*", $keyTest);
-        // On calcule l�empreinte (� renseigner dans le param�tre PBX_HMAC) gr�ce � la fonction hash_hmac et //
-        // la cl� binaire
-        // On envoi via la variable PBX_HASH l'algorithme de hachage qui a �t� utilis� (SHA512 dans ce cas)
-        // Pour afficher la liste des algorithmes disponibles sur votre environnement, d�commentez la ligne //
-        // suivante
-        // print_r(hash_algos());
         $hmac = strtoupper(hash_hmac('sha512', $msg, $binKey));
 
         return $this->render('CRCA/onlinePayment.html.twig',[

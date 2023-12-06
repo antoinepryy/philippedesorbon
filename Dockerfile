@@ -32,20 +32,20 @@ WORKDIR /var/www/html
 
 # Copy Composer and NPM configuration files
 
-COPY composer.json composer.lock package.json /var/www/html/
-RUN composer self-update
+#COPY composer.json composer.lock package.json /var/www/html/
+#RUN composer self-update
 
 # Install PHP dependencies
-RUN composer install --no-scripts --no-autoloader
+#RUN composer install --no-scripts --no-autoloader
 
 # Install Node.js dependencies
-RUN npm install
+#RUN npm install
 
 # Copy the application code to the container
 COPY . /var/www/html
 
 # Finish composer autoload optimization
-RUN composer dump-autoload --optimize --classmap-authoritative --no-dev
+#RUN composer dump-autoload --optimize --classmap-authoritative --no-dev
 
 EXPOSE 80
 CMD ["apache2-foreground"]
