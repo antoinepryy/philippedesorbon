@@ -146,8 +146,8 @@ class CRCAController extends Controller
             'pbx_retour' => $pbx_retour,
             'dateTime' => $dateTime,
             'pbx_hmac' => $hmac,
-            'pbx_shopping_cart' => urlencode($pbx_shoppingCart),
-            'pbx_billing' => urlencode($pbx_billing),
+            'pbx_shopping_cart' => $pbx_shoppingCart,
+            'pbx_billing' => $pbx_billing,
             'cartSize' => $cartSize,
             'lg' => $languageManager->getLanguageUsingCookie()
 
