@@ -52,8 +52,13 @@ class CRCAController extends Controller
         $cartSizeInt = (int)$cartSize;
 
         $total->addChild('totalQuantity', $cartSizeInt);
-        $pbx_shoppingCart = $xml->asXML();
-        $pbx_shoppingCart = str_replace("<?xml version=\"1.0\"?>", "", $pbx_shoppingCart);
+
+        $dom = dom_import_simplexml($xml)->ownerDocument;
+        $dom->encoding = 'UTF-8'; // Set encoding
+        $dom->xmlVersion = '1.0'; // Set XML version
+        $dom->formatOutput = true; // Optional: for nicely formatted output
+
+        $pbx_shoppingCart = $dom->saveXML(); // This will include the XML declaration
 
 
         $billingXml = new \SimpleXMLElement('<Billing/>');
@@ -65,12 +70,13 @@ class CRCAController extends Controller
         $address->addChild('City', htmlspecialchars($user->getAddressCity()));
         $address->addChild('CountryCode', htmlspecialchars("250"));
 
-        // Convert XML object to a string
-        $pbx_billing = $billingXml->asXML();
-        $pbx_billing = str_replace("<?xml version=\"1.0\"?>", "", $pbx_billing);
+        $domBilling = dom_import_simplexml($billingXml)->ownerDocument;
+        $domBilling->encoding = 'UTF-8'; // Set encoding
+        $domBilling->xmlVersion = '1.0'; // Set XML version
+        $domBilling->formatOutput = true; // Optional: for nicely formatted output
 
+        $pbx_billing = $domBilling->saveXML(); // This will include the XML declaration
 
-        //test
         //$keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
         //prod
         $keyTest = '293F885EE28F52E31BB7EE6E7DC0FC607BC03E362087C6DFE0D0F8E8CC4FC9751B4A8F10DC9160B5E7B42E52CE5B343B53FBC06C8B407D602222AD7A7E5EA2AF';
@@ -122,8 +128,8 @@ class CRCAController extends Controller
             "&PBX_ANNULE=".$pbx_annule.
             "&PBX_REFUSE=".$pbx_refuse.
             "&PBX_HASH=SHA512".
-            "&PBX_SHOPPINGCART=".urlencode($pbx_shoppingCart).
-            "&PBX_BILLING=".urlencode($pbx_billing).
+            "&PBX_SHOPPINGCART=".$pbx_shoppingCart.
+            "&PBX_BILLING=".$pbx_billing.
             "&PBX_TIME=".$dateTime;
         //echo $msg;
 
