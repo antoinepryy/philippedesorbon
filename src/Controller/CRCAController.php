@@ -58,7 +58,7 @@ class CRCAController extends Controller
         $dom->xmlVersion = '1.0'; // Set XML version
         $dom->formatOutput = true; // Optional: for nicely formatted output
 
-        $pbx_shoppingCart = $dom->saveXML(); // This will include the XML declaration
+        $pbx_shoppingCart = base64_encode($dom->saveXML()); // This will include the XML declaration
 
 
         $billingXml = new \SimpleXMLElement('<Billing/>');
@@ -75,7 +75,7 @@ class CRCAController extends Controller
         $domBilling->xmlVersion = '1.0'; // Set XML version
         $domBilling->formatOutput = true; // Optional: for nicely formatted output
 
-        $pbx_billing = $domBilling->saveXML(); // This will include the XML declaration
+        $pbx_billing = base64_encode($domBilling->saveXML()); // This will include the XML declaration
 
         //$keyTest = '30261B89F2A7B6E721B7FD45F2BE668E3782388FC8518B6763D7562B42ED552F860B03800F9529B9F099DB71FD46516783EDBBDA7932BF5129E9266067D0BE14';
         //prod
