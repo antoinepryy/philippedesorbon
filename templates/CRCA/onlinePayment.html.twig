@@ -21,9 +21,10 @@
             <input type="hidden" name="PBX_REFUSE" value="{{ pbx_refuse }}">
             <input type="hidden" name="PBX_HASH" value="SHA512">
             <input type="hidden" name="PBX_TIME" value="{{ dateTime }}">
+            <input type="hidden" name="PBX_SHOPPINGCART" value="{{ htmlspecialchars(pbx_shopping_cart) }}">
+            <input type="hidden" name="PBX_BILLING" value="{{ htmlspecialchars(pbx_billing) }}">
+            <input type="hidden" name="PBX_SOUHAITAUTHENT"  value="{{ pbx_souhaitauthent }}">
             <input type="hidden" name="PBX_HMAC" value="{{ pbx_hmac }}">
-            <input type="hidden" name="PBX_SHOPPINGCART" value="{{ pbx_shopping_cart }}">
-            <input type="hidden" name="PBX_BILLING" value="{{ pbx_billing }}">
             <input class="btn btn-primary" type="submit" value="Aller vers le module de paiement">
         </form>
     </div>
